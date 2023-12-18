@@ -1,5 +1,6 @@
 package org.tienda.Controller;
 
+import com.sun.source.tree.TryTree;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -33,13 +34,12 @@ public class controllerLogin {
   public controllerLogin(Login login, utilsLenguaje lenguaje) {
     this.login = login;
     this.lenguaje = lenguaje;
-    initEvents();
   }
 
   /**
    * Init events.
    */
-  public void initEvents() {
+  public void initEvents() throws NoResultException {
     // ! Eventos Presionar teclado
     login.getJTextFieldUsername().addKeyListener(new KeyAdapter() {
       @Override public void keyPressed(KeyEvent e) {
@@ -64,6 +64,14 @@ public class controllerLogin {
     // ! Eventos Presionar boton
     login.getJButtonLogin().addActionListener(e -> {
       // Llevar a la vista principal
+      if (login.getJTextFieldUsername().getText().isEmpty()) {
+        JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("login.void.username"), lenguaje.getMensaje().getString("login.joptionpanel.title"), JOptionPane.ERROR_MESSAGE);
+        return;
+      }
+      if (String.valueOf(login.getJPasswordFieldPassword().getPassword()).isEmpty()) {
+        JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("login.void.password"), lenguaje.getMensaje().getString("login.joptionpanel.title"), JOptionPane.ERROR_MESSAGE);
+        return;
+      }
       if (validarCredenciales(login.getJTextFieldUsername().getText(), login.getJPasswordFieldPassword().getPassword())) {
         JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("login.joptionpanel.true.credenciales"), lenguaje.getMensaje().getString("login.joptionpanel.title"), JOptionPane.INFORMATION_MESSAGE);
       } else {
@@ -97,19 +105,18 @@ public class controllerLogin {
 
     Configuration configuration = new Configuration();
     configuration.configure("/hibernate/hibernate.cfg.xml");
-    configuration.addAnnotatedClass(usuario.class);
     configuration.setProperty("hibernate.current_session_context_class", "org.hibernate.context.internal.ThreadLocalSessionContext");
 
     SessionFactory sessionFactory = configuration.buildSessionFactory();
     Session session = sessionFactory.getCurrentSession();
     session.beginTransaction();
-
-    String encryptedPassword = BCrypt.hashpw(String.valueOf(password), BCrypt.gensalt());
-    System.out.println(encryptedPassword);
-
-    usuario usuario = session.createQuery("SELECT u FROM usuario u WHERE u.username = :username AND u.activacion = true", org.tienda.Objects.usuario.class)
-      .setParameter("username", username)
-      .getSingleResult();
+    usuario usuario;
+    try {
+      usuario = session.createQuery("SELECT u FROM usuario u WHERE u.username = :username AND u.activacion = true", usuario.class)
+        .setParameter("username", username).getSingleResult();
+    } catch (NoResultException e) {
+      throw new NoResultException();
+    }
 
     if (!BCrypt.checkpw(String.valueOf(password), usuario.getPassword()))
       return false;
