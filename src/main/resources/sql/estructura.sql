@@ -20,11 +20,12 @@ CREATE TABLE usuarios (
   imagen     LONGBLOB                     NULL,
   lenguaje   VARCHAR(6) DEFAULT 'es_ES'   NULL,
   permisos   VARCHAR(255)                 NULL,
-  roles      LONGTEXT COLLATE utf8mb4_bin NULL,
+  roles      JSON  NULL,
   activacion TINYINT(1)                   NULL,
+  codigo VARCHAR,
   CONSTRAINT email UNIQUE (email),
   CONSTRAINT username UNIQUE (username),
-  CHECK (JSON_VALID(`roles`))
+  CHECK (JSON_VALID(roles))
 );
 
 CREATE TABLE carrito (
@@ -32,11 +33,9 @@ CREATE TABLE carrito (
   idproducto INT NOT NULL,
   cantidad   INT NULL,
   PRIMARY KEY (idusuario, idproducto),
-  CONSTRAINT carrito_ibfk_1 FOREIGN KEY (idusuario) REFERENCES usuarios (idusuario),
-  CONSTRAINT carrito_ibfk_2 FOREIGN KEY (idproducto) REFERENCES productos (idporducto)
+  FOREIGN KEY (idusuario) REFERENCES usuarios (idusuario) ON DELETE CASCADE,
+  FOREIGN KEY (idproducto) REFERENCES productos (idporducto) ON DELETE CASCADE
 );
-
-CREATE INDEX idproducto ON carrito (idproducto);
 
 CREATE TABLE compras (
   idcompra     INT AUTO_INCREMENT,
@@ -45,19 +44,15 @@ CREATE TABLE compras (
   cantidad     INT                              NOT NULL,
   fechacompra  DATE DEFAULT CURRENT_TIMESTAMP() NULL,
   fechaentrega DATETIME                         NULL,
-  PRIMARY KEY (idcompra, idusuario, idproducto),
-  CONSTRAINT compras_ibfk_1 FOREIGN KEY (idusuario) REFERENCES usuarios (idusuario),
-  CONSTRAINT compras_ibfk_2 FOREIGN KEY (idproducto) REFERENCES productos (idporducto)
+  PRIMARY KEY (idcompra, idproducto),
+  FOREIGN KEY (idusuario) REFERENCES usuarios (idusuario) ON DELETE CASCADE,
+  FOREIGN KEY (idproducto) REFERENCES productos (idporducto) ON DELETE CASCADE
 );
-
-CREATE INDEX idproducto ON compras (idproducto);
-
-CREATE INDEX idusuario ON compras (idusuario);
 
 CREATE TABLE historialusuarios (
   idusuario         INT                                  NOT NULL,
   fechainiciosesion DATETIME DEFAULT CURRENT_TIMESTAMP() NOT NULL,
   fechafinsesion    DATETIME                             NULL,
   PRIMARY KEY (idusuario, fechainiciosesion),
-  CONSTRAINT historialusuarios_ibfk_1 FOREIGN KEY (idusuario) REFERENCES usuarios (idusuario)
+  FOREIGN KEY (idusuario) REFERENCES usuarios (idusuario) ON DELETE CASCADE
 );
