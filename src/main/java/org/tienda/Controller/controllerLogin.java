@@ -9,53 +9,82 @@ import org.tienda.Views.Login;
 import javax.persistence.NoResultException;
 import javax.swing.*;
 
-import org.tienda.Objects.usuarios;
+import org.tienda.Objects.usuario;
 
-import java.util.Locale;
-import java.util.ResourceBundle;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
+import org.tienda.Utils.utilsLenguaje;
+
+/**
+ * The type Controller login.
+ */
 public class controllerLogin {
   private Login login;
-  private String lang;
-  private ResourceBundle mensaje;
+
+  private utilsLenguaje lenguaje;
 
   /**
-   * @param login El Jframe login
-   * @param lang  El lenguaje en el que se quiere mostrar ej: "es_ES", por defecto es el español
+   * Instantiates a new Controller login.
+   *
+   * @param login    El Jframe login
+   * @param lenguaje Objeto utilsLenguaje para el idioma
    */
-  public controllerLogin(Login login, String lang) {
+  public controllerLogin(Login login, utilsLenguaje lenguaje) {
     this.login = login;
-    this.lang = lang;
-    Locale local = new Locale(this.lang.split("_")[0]);
-    this.mensaje = ResourceBundle.getBundle("lang/" + this.lang, local);
+    this.lenguaje = lenguaje;
     initEvents();
   }
 
   /**
-   *
+   * Init events.
    */
   public void initEvents() {
-    login.getJButtonLogin().addActionListener(e -> {
-      if (validarCredenciales(login.getJTextFieldUsername().getText(), login.getJPasswordFieldPassword().getPassword())) {
-        JOptionPane.showMessageDialog(null, mensaje.getString("login.joptionpanel.true.credenciales"), mensaje.getString("login.joptionpanel.title"), JOptionPane.INFORMATION_MESSAGE);
-      } else {
-        JOptionPane.showMessageDialog(null, mensaje.getString("login.joptionpanel.false.credenciales"), mensaje.getString("login.joptionpanel.title"), JOptionPane.ERROR_MESSAGE);
+    // ! Eventos Presionar teclado
+    login.getJTextFieldUsername().addKeyListener(new KeyAdapter() {
+      @Override public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE && e.isControlDown()) {
+          login.getJTextFieldUsername().setText(null);
+        }
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+          login.getJPasswordFieldPassword().requestFocus();
+        }
       }
     });
-    login.getJButtonClose().addActionListener(e -> System.exit(0));
-    login.getJButtonBack().addActionListener(e -> System.exit(0));
+    login.getJPasswordFieldPassword().addKeyListener(new KeyAdapter() {
+      @Override public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE && e.isControlDown()) {
+          login.getJPasswordFieldPassword().setText(null);
+        }
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+          login.getJButtonLogin().requestFocus();
+        }
+      }
+    });
+    // ! Eventos Presionar boton
+    login.getJButtonLogin().addActionListener(e -> {
+      // Llevar a la vista principal
+      if (validarCredenciales(login.getJTextFieldUsername().getText(), login.getJPasswordFieldPassword().getPassword())) {
+        JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("login.joptionpanel.true.credenciales"), lenguaje.getMensaje().getString("login.joptionpanel.title"), JOptionPane.INFORMATION_MESSAGE);
+      } else {
+        JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("login.joptionpanel.false.credenciales"), lenguaje.getMensaje().getString("login.joptionpanel.title"), JOptionPane.ERROR_MESSAGE);
+      }
+    });
     login.getJButtonRegistrarse().addActionListener(e -> {
       // Llevar a la vista de registro
     });
     login.getJButtonPasswordOlvidada().addActionListener(e -> {
       // Llevar a la vista de recuperar contraseña
       if (login.getJTextFieldUsername().getText().isEmpty()) {
-        JOptionPane.showMessageDialog(null, mensaje.getString("login.credenciales.vacio.username"), mensaje.getString("login.joptionpanel.title"), JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("login.credenciales.vacio.username"), lenguaje.getMensaje().getString("login.joptionpanel.title"), JOptionPane.ERROR_MESSAGE);
         return;
       }
       // Llevar a la vista de recuperar contraseña
 
     });
+    // ! Eventos Cerrar ventana
+    login.getJButtonClose().addActionListener(e -> System.exit(0));
+    login.getJButtonBack().addActionListener(e -> System.exit(0));
   }
 
   /**
@@ -68,7 +97,7 @@ public class controllerLogin {
 
     Configuration configuration = new Configuration();
     configuration.configure("/hibernate/hibernate.cfg.xml");
-    configuration.addAnnotatedClass(usuarios.class);
+    configuration.addAnnotatedClass(usuario.class);
     configuration.setProperty("hibernate.current_session_context_class", "org.hibernate.context.internal.ThreadLocalSessionContext");
 
     SessionFactory sessionFactory = configuration.buildSessionFactory();
@@ -78,7 +107,7 @@ public class controllerLogin {
     String encryptedPassword = BCrypt.hashpw(String.valueOf(password), BCrypt.gensalt());
     System.out.println(encryptedPassword);
 
-    usuarios usuario = session.createQuery("SELECT u FROM usuarios u WHERE u.username = :username AND u.activacion = true", usuarios.class)
+    usuario usuario = session.createQuery("SELECT u FROM usuario u WHERE u.username = :username AND u.activacion = true", org.tienda.Objects.usuario.class)
       .setParameter("username", username)
       .getSingleResult();
 

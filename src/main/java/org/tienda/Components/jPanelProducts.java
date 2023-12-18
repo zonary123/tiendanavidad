@@ -7,6 +7,7 @@ package org.tienda.Components;
 import com.formdev.flatlaf.FlatIntelliJLaf;
 
 /**
+ * The type J panel products.
  *
  * @author carlos
  */
@@ -18,7 +19,7 @@ public class jPanelProducts extends javax.swing.JPanel {
   public jPanelProducts() {
     FlatIntelliJLaf.setup();
     this.putClientProperty("Component.arc", 999);
-    
+
     initComponents();
   }
 

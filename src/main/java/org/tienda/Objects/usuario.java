@@ -5,11 +5,14 @@ import lombok.ToString;
 
 import javax.persistence.*;
 
+/**
+ * The type Usuarios.
+ */
 @Entity
 @Table(name = "usuarios")
 @Data
 @ToString(exclude = {"password", "imagen", "idUsuario"})
-public class usuarios {
+public class usuario {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -50,15 +53,32 @@ public class usuarios {
   @Column(name = "codigo", length = 8)
   private String codigo;
 
-  public usuarios() {
+  /**
+   * Instantiates a new Usuarios.
+   */
+  public usuario() {
   }
 
-  public usuarios(String username, String password) {
+  /**
+   * Instantiates a new Usuarios.
+   *
+   * @param username the username
+   * @param password the password
+   */
+  public usuario(String username, String password) {
     this.username = username;
     this.password = password;
   }
 
-  public usuarios(String username, String password, String nombre, String email) {
+  /**
+   * Instantiates a new Usuarios.
+   *
+   * @param username the username
+   * @param password the password
+   * @param nombre   the nombre
+   * @param email    the email
+   */
+  public usuario(String username, String password, String nombre, String email) {
     this.username = username;
     this.password = password;
     this.nombre = nombre;
@@ -66,7 +86,22 @@ public class usuarios {
     this.activacion = false;
   }
 
-  public usuarios(String username, String password, String nombre, String apellidos, String email, byte[] imagen, String lenguaje, String permisos, String roles, boolean activacion, String codigo) {
+  /**
+   * Instantiates a new Usuarios.
+   *
+   * @param username   the username
+   * @param password   the password
+   * @param nombre     the nombre
+   * @param apellidos  the apellidos
+   * @param email      the email
+   * @param imagen     the imagen
+   * @param lenguaje   the lenguaje
+   * @param permisos   the permisos
+   * @param roles      the roles
+   * @param activacion the activacion
+   * @param codigo     the codigo
+   */
+  public usuario(String username, String password, String nombre, String apellidos, String email, byte[] imagen, String lenguaje, String permisos, String roles, boolean activacion, String codigo) {
     this.username = username;
     this.password = password;
     this.nombre = nombre;

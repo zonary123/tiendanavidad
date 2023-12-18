@@ -26,7 +26,7 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
 
         <!-- Mention annotated class -->
-        <mapping class="org.tienda.Objects.usuarios"/>
+        <mapping class="org.tienda.Objects.usuario"/>
 
 
     </session-factory>
