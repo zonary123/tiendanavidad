@@ -12,6 +12,7 @@ import org.tienda.Utils.utilsLenguaje;
 
 import javax.persistence.NoResultException;
 import javax.swing.*;
+import java.io.IOException;
 
 /**
  * The type Login.
@@ -31,7 +32,11 @@ public class Login extends javax.swing.JFrame {
   public Login() {
     FlatIntelliJLaf.setup();
     initComponents();
-    this.lenguaje = new utilsLenguaje("es_ES");
+    try {
+      this.lenguaje = new utilsLenguaje();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
     this.cLogin = new controllerLogin(this, lenguaje);
     this.mLogin = new modelLogin(this, lenguaje);
     try {
