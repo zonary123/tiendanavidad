@@ -7,7 +7,7 @@
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/tienda</property>
         <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password"></property>
+        <!--        <property name="hibernate.connection.password"></property>-->
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 
         <!-- JDBC connection pool settings -->
@@ -18,15 +18,15 @@
         <property name="hibernate.c3p0.idle_test_period">3000</property>
 
         <!-- Specify dialect -->
-        <property name="hibernate.show_sql">false</property>
-        <property name="hibernate.format_sql">false</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
 
 
         <!-- Drop and re-create the database schema on startup -->
         <property name="hibernate.hbm2ddl.auto">update</property>
 
         <!-- Mention annotated class -->
-        <!--<mapping class="org.example.Models.Persona"/>-->
+        <mapping class="org.tienda.Objects.usuarios"/>
 
 
     </session-factory>
