@@ -6,6 +6,7 @@ package org.tienda.Views;
 
 import com.formdev.flatlaf.FlatIntelliJLaf;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**

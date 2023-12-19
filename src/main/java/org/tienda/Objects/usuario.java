@@ -41,7 +41,7 @@ public class usuario {
   @Column(name = "lenguaje", length = 6, nullable = false, columnDefinition = "VARCHAR(6) DEFAULT 'es_ES'")
   private String lenguaje;
 
-  @Column(name = "permisos", length = 255)
+  @Column(name = "permisos")
   private String permisos;
 
   @Column(name = "roles", columnDefinition = "JSON")
@@ -83,6 +83,15 @@ public class usuario {
     this.password = password;
     this.nombre = nombre;
     this.email = email;
+    this.activacion = false;
+  }
+
+  public usuario(String username, String password, String nombre, String apellidos, String email) {
+    this.username = username;
+    this.password = password;
+    this.nombre = nombre;
+    this.email = email;
+    this.apellidos = apellidos;
     this.activacion = false;
   }
 

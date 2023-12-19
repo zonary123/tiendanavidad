@@ -14,14 +14,14 @@ public class utilsLenguaje {
   private String fichero;
   private Locale local;
   private ResourceBundle mensaje;
+  private final static String PATH = "src/main/resources/configuracion.csv";
 
   /**
    * Instantiates a new Utils lenguaje.
    */
   public utilsLenguaje() throws IOException {
-    System.out.println(new File("src/main/resources/lang/lenguaje.csv").getPath());
-    BufferedReader br = new BufferedReader(new FileReader(new File("src/main/resources/lang/lenguaje.csv")));
-    this.fichero = "lang/" + br.readLine().trim();
+    BufferedReader br = new BufferedReader(new FileReader(PATH));
+    this.fichero = "lang/" + br.readLine().split(",")[0];
     this.local = new Locale(this.fichero.split("_")[0]);
     this.mensaje = ResourceBundle.getBundle(this.fichero, this.local);
   }

@@ -3,6 +3,7 @@ package org.tienda.Utils;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * The type Utils text field.
@@ -34,7 +35,7 @@ public class utilsTextField {
    * @param arc the arc
    */
   public void setRounded(int arc) {
-    textField.putClientProperty("JTextField.arc", arc);
+    textField.putClientProperty("FlatLaf.style", "arc:" + arc);
   }
 
   /**
@@ -54,4 +55,14 @@ public class utilsTextField {
   public void setLeadingIcon(FlatSVGIcon icon) {
     textField.putClientProperty("JTextField.leadingIcon", icon);
   }
+
+  public void setOutLineColor(String color) {
+    textField.putClientProperty("JComponent.outline", new Color[]{Color.decode(color), Color.decode(color)});
+  }
+
+  public void setOutLineWidth(int width) {
+    textField.putClientProperty("Component.innerOutlineWidth", width);
+  }
 }
+
+
