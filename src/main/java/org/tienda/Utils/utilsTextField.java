@@ -63,6 +63,10 @@ public class utilsTextField {
   public void setOutLineWidth(int width) {
     textField.putClientProperty("Component.innerOutlineWidth", width);
   }
+
+  public void setMargin(int top,int left, int bottom, int right){
+    textField.putClientProperty("JTextField.padding", new Insets(top,left,bottom,right));
+  }
 }
 
 

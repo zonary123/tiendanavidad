@@ -4,33 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de7ae79b-609d-4b52-8057-14eb14117440" name="Changes" comment="Registrarse añadido">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="c118b3c5-02f1-461f-8e3e-749fcbeb622f" name="Changes" comment="arreglos">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/89dcdf8b-33f8-4a70-b4f0-28c4548430b0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/89dcdf8b-33f8-4a70-b4f0-28c4548430b0.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/controllerRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/controllerRegister.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Models/modelLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Models/modelLogin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Models/modelRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Models/modelRegister.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Utils/utilsTextField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Utils/utilsTextField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Login.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Login.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Register.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Register.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Register.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/configuracion.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/configuracion.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/lang/en_US.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lang/en_US.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/lang/es_ES.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lang/es_ES.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="FormatOnSaveOptions">
-    <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Pull.Settings">
     <option name="OPTIONS">
@@ -42,85 +28,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitToolBoxStore">
-    <option name="projectConfigVersion" value="5" />
-    <option name="recentBranches">
-      <RecentBranches>
-        <option name="branchesForRepo">
-          <list>
-            <RecentBranchesForRepo>
-              <option name="branches">
-                <list>
-                  <RecentBranch>
-                    <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1702687942" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="master" />
-                    <option name="lastUsedInstant" value="1702687941" />
-                  </RecentBranch>
-                </list>
-              </option>
-              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
-            </RecentBranchesForRepo>
-          </list>
-        </option>
-      </RecentBranches>
-    </option>
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="OptimizeOnSaveOptions">
-    <option name="myRunOnSave" value="true" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 8
-}</component>
-  <component name="ProjectId" id="2ZbMAeAPb80oaKwnykuJl49D4yZ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Application.Pruebas.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Tienda.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Alumno/Desktop/tiendanavidad/src/main/java/org/tienda/Views&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mariadb&quot;
-    ]
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Login.executor": "Run",
+    "Application.Unnamed.executor": "Run",
+    "node.js.selected.package.tslint": "(autodetect)"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Alumno\Desktop\tiendanavidad\src\main\java\org\tienda\Views" />
-    </key>
-  </component>
+}]]></component>
   <component name="RunManager">
-    <configuration name="Tienda" type="Application" factoryName="Application">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.tienda.Views.Login" />
       <module name="tiendanavidad" />
       <method v="2">
@@ -128,134 +47,11 @@
       </method>
     </configuration>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-17.0.9-corretto-17.0.9-3183f394aec4-8f899f12" />
-      </set>
-    </attachedChunks>
-  </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="de7ae79b-609d-4b52-8057-14eb14117440" name="Changes" comment="" />
-      <created>1702686189010</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1702686189010</updated>
-      <workItem from="1702686190153" duration="5000" />
-      <workItem from="1702686293746" duration="768000" />
-      <workItem from="1702687221415" duration="725000" />
-      <workItem from="1702700493805" duration="935000" />
-      <workItem from="1702738544359" duration="1453000" />
-      <workItem from="1702741289513" duration="358000" />
-      <workItem from="1702866659939" duration="687000" />
-      <workItem from="1702870105320" duration="909000" />
-      <workItem from="1702871536580" duration="9500000" />
-      <workItem from="1702881085215" duration="152000" />
-      <workItem from="1702910073313" duration="758000" />
-      <workItem from="1702912037759" duration="10034000" />
-      <workItem from="1702935087180" duration="13854000" />
-      <workItem from="1702958675220" duration="660000" />
-    </task>
-    <task id="LOCAL-00001" summary="subiendo estructura">
-      <option name="closed" value="true" />
-      <created>1702687606673</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1702687606673</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Utilidades TextFields">
-      <option name="closed" value="true" />
-      <created>1702687765156</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1702687765156</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Inter font para la tipografia">
-      <option name="closed" value="true" />
-      <created>1702866762132</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1702866762132</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Estructura de vista Login">
-      <option name="closed" value="true" />
-      <created>1702872956548</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1702872956548</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Estructura de vista Login">
-      <option name="closed" value="true" />
-      <created>1702872970804</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1702872970804</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Funcionalidad de login terminada">
-      <option name="closed" value="true" />
-      <created>1702877078933</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1702877078933</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Añadido el cambio de idioma en Login.">
-      <option name="closed" value="true" />
-      <created>1702920071527</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1702920071527</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Registrarse añadido">
-      <option name="closed" value="true" />
-      <created>1702953720103</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1702953720103</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
   <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="subiendo estructura" />
-    <MESSAGE value="Utilidades TextFields" />
-    <MESSAGE value="Inter font para la tipografia" />
-    <MESSAGE value="Estructura de vista Login" />
-    <MESSAGE value="Funcionalidad de login terminada" />
-    <MESSAGE value="Añadida accesibilidad en el login para moverte con el ENTER, mejora diseño" />
-    <MESSAGE value="Añadido el cambio de idioma en Login." />
-    <MESSAGE value="Registrarse añadido" />
-    <option name="LAST_COMMIT_MESSAGE" value="Registrarse añadido" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="javax.persistence.NoResultException" package="javax.persistence" />
-          <option name="timeStamp" value="1" />
-        </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
-          <option name="timeStamp" value="2" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
+    <MESSAGE value="arreglos" />
+    <option name="LAST_COMMIT_MESSAGE" value="arreglos" />
   </component>
 </project>
