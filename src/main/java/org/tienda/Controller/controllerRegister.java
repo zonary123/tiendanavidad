@@ -15,6 +15,7 @@ public class controllerRegister {
   private static final String RegexEmail = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
   private final Register register;
   private final utilsLenguaje lenguaje;
+  private usuario usuario = null;
 
   public controllerRegister(Register register, utilsLenguaje lenguaje) {
     this.register = register;
@@ -25,18 +26,16 @@ public class controllerRegister {
   public void initEvents() {
     register.getJButtonBack().addActionListener(e -> {
       register.dispose();
-      new Login().setVisible(true);
+      new Login(usuario == null ? null : usuario.getUsername()).setVisible(true);
     });
     register.getJButtonIniciarSesion().addActionListener(e -> {
       register.dispose();
-      new Login().setVisible(true);
+      new Login(usuario == null ? null : usuario.getUsername()).setVisible(true);
     });
     register.getJButtonRegistrarse().addActionListener(e -> {
       if (comprobaciones() && registrarse()) {
         register.dispose();
-        new Login().setVisible(true);
-      } else {
-        JOptionPane.showMessageDialog(null, "Ocurrieorn cosas");
+        new Login(usuario == null ? null : usuario.getUsername()).setVisible(true);
       }
     });
     register.getJButtonClose().addActionListener(e -> register.dispose());
@@ -45,40 +44,54 @@ public class controllerRegister {
   private boolean comprobaciones() {
     int errores = 0;
     String mensaje = "";
+
+    if (register.getJTextFieldEmail().getText().isEmpty()) {
+      mensaje += lenguaje.getMensaje().getString("void.email") + "\n";
+      register.getJTextFieldEmail().putClientProperty("JComponent.outline", "warning");
+      errores++;
+    }
+
     if (!register.getJTextFieldEmail().getText().matches(RegexEmail)) {
-      mensaje += "Email incorrecto\n";
+      mensaje += lenguaje.getMensaje().getString("regex.email") + "\n";
       register.getJTextFieldEmail().putClientProperty("JComponent.outline", "warning");
       errores++;
     }
 
     if (register.getJTextFieldUsername().getText().isEmpty()) {
-      mensaje += "Usuario vacio\n";
+      mensaje += lenguaje.getMensaje().getString("void.username") + "\n";
       register.getJTextFieldUsername().putClientProperty("JComponent.outline", "warning");
       errores++;
     }
 
+    if (register.getJTextFieldNombre().getText().isEmpty()) {
+      mensaje += lenguaje.getMensaje().getString("void.name") + "\n";
+      register.getJTextFieldNombre().putClientProperty("JComponent.outline", "warning");
+      errores++;
+    }
+
     if (!register.getJTextFieldNombre().getText().matches("^[a-zA-Z]+$")) {
-      mensaje += "Nombre incorrecto\n";
+      mensaje += lenguaje.getMensaje().getString("regex.name") + "\n";
       register.getJTextFieldNombre().putClientProperty("JComponent.outline", "warning");
       errores++;
     }
 
     if (!register.getJTextFieldApellidos().getText().isEmpty()) {
-      if (!register.getJTextFieldNombre().getText().matches("^[a-zA-Z]+$")) {
-        mensaje += "Apellidos incorrectos\n";
+      if (!register.getJTextFieldApellidos().getText().matches("^[a-zA-Z]+$")) {
+        mensaje += lenguaje.getMensaje().getString("regex.lastname") + "\n";
         register.getJTextFieldApellidos().putClientProperty("JComponent.outline", "warning");
         errores++;
       }
     }
 
-    if (register.getJPasswordFieldPassword().getText().isEmpty()) {
-      mensaje += "Contraseña vacia\n";
+    if (String.valueOf(register.getJPasswordFieldPassword().getPassword()).isEmpty()) {
+      mensaje += lenguaje.getMensaje().getString("void.password") + "\n";
       register.getJPasswordFieldPassword().putClientProperty("JComponent.outline", "warning");
       errores++;
     }
-    if (errores > 0) {
+
+    if (errores > 0)
       JOptionPane.showMessageDialog(null, mensaje);
-    }
+
     return errores == 0 ? true : false;
   }
 
@@ -110,15 +123,15 @@ public class controllerRegister {
       }
     }
 
-    usuario usuario = new usuario();
+    this.usuario = new usuario();
     usuario.setEmail(register.getJTextFieldEmail().getText());
     usuario.setUsername(register.getJTextFieldUsername().getText());
-    usuario.setPassword(BCrypt.hashpw(register.getJPasswordFieldPassword().getText(), BCrypt.gensalt()));
+    usuario.setPassword(BCrypt.hashpw(String.valueOf(register.getJPasswordFieldPassword().getPassword()), BCrypt.gensalt()));
     usuario.setNombre(register.getJTextFieldNombre().getText());
     usuario.setApellidos(register.getJTextFieldApellidos().getText());
     usuario.setLenguaje("es_ES");
     usuario.setRoles("[\"user\"]");
-    usuario.setActivacion(false);
+    usuario.setActivacion(true);
     session.save(usuario);
     session.getTransaction().commit();
     session.close();

@@ -1,12 +1,11 @@
 package org.tienda.Models;
 
 import com.formdev.flatlaf.extras.FlatSVGIcon;
+import org.tienda.Utils.utilsLenguaje;
+import org.tienda.Utils.utilsTextField;
+import org.tienda.Views.Login;
 
 import javax.swing.*;
-
-import org.tienda.Utils.utilsTextField;
-import org.tienda.Utils.utilsLenguaje;
-import org.tienda.Views.Login;
 
 /**
  * The type Model login.
@@ -37,7 +36,6 @@ public class modelLogin {
 
   public void actualizarBoton(JButton boton, int arc) {
     boton.putClientProperty("FlatLaf.style", "arc:" + arc);
-
   }
 
   /**
