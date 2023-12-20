@@ -12,7 +12,7 @@ import org.tienda.Utils.utilsLenguaje;
 import java.io.IOException;
 
 /**
- * @author carlos
+ * @author Carlos Varas Alonso
  */
 @Getter
 public class Register extends javax.swing.JFrame {

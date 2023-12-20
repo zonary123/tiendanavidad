@@ -15,9 +15,12 @@ import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+/**
+ * @author Carlos Varas Alonso
+ */
 public class EmailUtil {
-  private final static String FROMEMAIL = "";
-  private final static String PASSWORD = "";
+  private final static String FROMEMAIL = "carlos.varalo@educa.jcyl.es";
+  private final static String PASSWORD = "tontodel123";
 
   public static void sendEmail(Session session, String toEmail, String subject, String body) throws MessagingException {
     try {

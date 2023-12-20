@@ -1,26 +1,26 @@
 package org.tienda.Controller;
 
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import javax.persistence.NoResultException;
+import javax.swing.*;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.mindrot.jbcrypt.BCrypt;
-import org.tienda.Views.Login;
-
-import javax.persistence.NoResultException;
-import javax.swing.*;
-
+import org.tienda.Objects.Usuarios;
 import org.tienda.Objects.usuario;
-
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-
 import org.tienda.Utils.utilsLenguaje;
+import org.tienda.Views.ForgotPasswordPassword;
+import org.tienda.Views.Login;
 import org.tienda.Views.Register;
 
 /**
- * The type Controller login.
+ * @author Carlos Varas Alonso
  */
 public class controllerLogin {
+
   private final Login login;
   private final utilsLenguaje lenguaje;
 
@@ -41,7 +41,8 @@ public class controllerLogin {
   public void initEvents() throws NoResultException {
     // ! Eventos Presionar teclado
     login.getJTextFieldUsername().addKeyListener(new KeyAdapter() {
-      @Override public void keyPressed(KeyEvent e) {
+      @Override
+      public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE && e.isControlDown()) {
           login.getJTextFieldUsername().setText(null);
         }
@@ -51,7 +52,8 @@ public class controllerLogin {
       }
     });
     login.getJPasswordFieldPassword().addKeyListener(new KeyAdapter() {
-      @Override public void keyPressed(KeyEvent e) {
+      @Override
+      public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE && e.isControlDown()) {
           login.getJPasswordFieldPassword().setText(null);
         }
@@ -82,12 +84,15 @@ public class controllerLogin {
       }
     });
     login.getJButtonRegistrarse().addActionListener(e -> {
-      login.setVisible(false);
       login.removeAll();
+      login.dispose();
       new Register().setVisible(true);
     });
     login.getJButtonPasswordOlvidada().addActionListener(e -> {
       // Llevar a la vista de recuperar contraseña
+      login.removeAll();
+      login.dispose();
+      new ForgotPasswordPassword().setVisible(true);
 
     });
     // ! Eventos Cerrar ventana
@@ -108,18 +113,19 @@ public class controllerLogin {
     SessionFactory sessionFactory = configuration.buildSessionFactory();
     Session session = sessionFactory.getCurrentSession();
     session.beginTransaction();
-    usuario usuario;
+    Usuarios usuario;
 
     try {
-      usuario = session.createQuery("SELECT u FROM usuario u WHERE u.username = :username AND u.activacion = true", usuario.class)
+      usuario = session.createQuery("SELECT u FROM Usuarios u WHERE u.username = :username AND u.activacion = true", Usuarios.class)
         .setParameter("username", username)
         .getSingleResult();
     } catch (NoResultException e) {
       return null;
     }
 
-    if (!BCrypt.checkpw(String.valueOf(password), usuario.getPassword()))
+    if (!BCrypt.checkpw(String.valueOf(password), usuario.getPassword())) {
       return false;
+    }
 
     session.getTransaction().commit();
     session.close();

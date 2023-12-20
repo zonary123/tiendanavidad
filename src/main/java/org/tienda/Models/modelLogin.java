@@ -8,7 +8,7 @@ import org.tienda.Views.Login;
 import javax.swing.*;
 
 /**
- * The type Model login.
+ * @author Carlos Varas Alonso
  */
 public class modelLogin {
   private utilsTextField textField;
@@ -55,7 +55,7 @@ public class modelLogin {
     this.textField.setLeadingIcon(new FlatSVGIcon(icon, width, height));
     this.textField.setOutLineColor(color);
     this.textField.setOutLineWidth(1);
-    this.textField.setMargin(0,14,0,0);
+    this.textField.setMargin(0, 14, 0, 0);
   }
 
 }

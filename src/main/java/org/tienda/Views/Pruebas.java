@@ -10,9 +10,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * The type Pruebas.
- *
- * @author carlos
+ * @author Carlos Varas Alonso
  */
 public class Pruebas extends javax.swing.JFrame {
 

@@ -10,11 +10,15 @@ import javax.mail.Authenticator;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
 import java.io.*;
+import java.util.Locale;
 import java.util.Properties;
 import java.util.Random;
 
+/**
+ * @author Carlos Varas Alonso
+ */
 public class cForgotPasswordMail {
-  private static String toEmail = "";
+  private static String toEmail = "carlosvarasalonso10@gmail.com";
 
   public static void main(String[] args) throws MessagingException, IOException {
     try {

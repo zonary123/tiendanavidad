@@ -7,7 +7,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 /**
- * The type Utils lenguaje.
+ * @author Carlos Varas Alonso
  */
 @Data
 public class utilsLenguaje {

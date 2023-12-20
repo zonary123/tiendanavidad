@@ -7,6 +7,9 @@ import org.tienda.Views.Register;
 
 import javax.swing.*;
 
+/**
+ * @author Carlos Varas Alonso
+ */
 public class modelRegister {
 
   private Register register;
@@ -49,7 +52,7 @@ public class modelRegister {
     this.textField.setLeadingIcon(new FlatSVGIcon(icon, width, height));
     this.textField.setOutLineColor(color);
     this.textField.setOutLineWidth(1);
-    this.textField.setMargin(0,14,0,0);
+    this.textField.setMargin(0, 14, 0, 0);
   }
 
   public void actualizarBoton(JButton boton, int arc) {

@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * The type Utils accesibilidad.
+ * @author Carlos Varas Alonso
  */
 public class utilsAccesibilidad {
   private Component component;

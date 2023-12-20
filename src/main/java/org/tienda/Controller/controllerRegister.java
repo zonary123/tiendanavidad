@@ -11,6 +11,9 @@ import org.tienda.Views.Register;
 
 import javax.swing.*;
 
+/**
+ * @author Carlos Varas Alonso
+ */
 public class controllerRegister {
   private static final String RegexEmail = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
   private final Register register;

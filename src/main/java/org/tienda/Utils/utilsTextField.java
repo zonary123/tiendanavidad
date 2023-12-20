@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * The type Utils text field.
+ * @author Carlos Varas Alonso
  */
 public class utilsTextField {
   private JTextField textField;
@@ -64,8 +64,8 @@ public class utilsTextField {
     textField.putClientProperty("Component.innerOutlineWidth", width);
   }
 
-  public void setMargin(int top,int left, int bottom, int right){
-    textField.putClientProperty("JTextField.padding", new Insets(top,left,bottom,right));
+  public void setMargin(int top, int left, int bottom, int right) {
+    textField.putClientProperty("JTextField.padding", new Insets(top, left, bottom, right));
   }
 }
 
