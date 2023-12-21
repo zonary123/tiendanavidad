@@ -3,15 +3,12 @@ package org.tienda.Controller;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.tienda.Objects.usuario;
-import org.tienda.Utils.EmailUtil;
 
-import javax.mail.Authenticator;
+import org.tienda.Utils.EmailUtil;
+import org.tienda.Objects.Usuarios;
+
 import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
 import java.io.*;
-import java.util.Locale;
-import java.util.Properties;
 import java.util.Random;
 
 /**
@@ -29,20 +26,20 @@ public class cForgotPasswordMail {
   }
 
 
-  public static usuario setCode() {
+  public static Usuarios setCode() {
     Configuration configuration = new Configuration();
-    configuration.configure("/hibernate/hibernate.cfg.xml");
+    configuration.configure("hibernate.cfg.xml");
     configuration.setProperty("hibernate.current_session_context_class", "org.hibernate.context.internal.ThreadLocalSessionContext");
 
     SessionFactory sessionFactory = configuration.buildSessionFactory();
     Session session = sessionFactory.getCurrentSession();
     session.beginTransaction();
 
-    usuario u = new usuario();
+    Usuarios u = new Usuarios();
     u.setCodigo(generarCodigo(6));
 
     // Usar el correo
-    session.createQuery("update usuario set codigo = :codigo where id = :id")
+    session.createQuery("update Usuarios set codigo = :codigo where id = :id")
       .setString("codigo", u.getCodigo())
       .setInteger("id", 11)
       .executeUpdate();

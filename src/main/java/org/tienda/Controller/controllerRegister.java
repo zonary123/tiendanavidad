@@ -4,10 +4,11 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.mindrot.jbcrypt.BCrypt;
-import org.tienda.Objects.usuario;
+
 import org.tienda.Utils.utilsLenguaje;
 import org.tienda.Views.Login;
 import org.tienda.Views.Register;
+import org.tienda.Objects.Usuarios;
 
 import javax.swing.*;
 
@@ -18,7 +19,7 @@ public class controllerRegister {
   private static final String RegexEmail = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
   private final Register register;
   private final utilsLenguaje lenguaje;
-  private usuario usuario = null;
+  private Usuarios usuario = null;
 
   public controllerRegister(Register register, utilsLenguaje lenguaje) {
     this.register = register;
@@ -100,7 +101,8 @@ public class controllerRegister {
 
   private boolean registrarse() {
     Configuration configuration = new Configuration();
-    configuration.configure("/hibernate/hibernate.cfg.xml");
+    configuration.configure("" +
+      "hibernate.cfg.xml");
     configuration.setProperty("hibernate.current_session_context_class", "org.hibernate.context.internal.ThreadLocalSessionContext");
 
     SessionFactory sessionFactory = configuration.buildSessionFactory();
@@ -110,7 +112,7 @@ public class controllerRegister {
     // Verificar si el usuario o el correo ya existen
     String username = register.getJTextFieldUsername().getText();
     String email = register.getJTextFieldEmail().getText();
-    usuario existingUser = session.createQuery("SELECT u FROM usuario u WHERE u.username = :username OR u.email = :email", usuario.class)
+    Usuarios existingUser = session.createQuery("SELECT u FROM Usuarios u WHERE u.username = :username OR u.email = :email", Usuarios.class)
       .setParameter("username", username)
       .setParameter("email", email)
       .uniqueResult();
@@ -126,7 +128,7 @@ public class controllerRegister {
       }
     }
 
-    this.usuario = new usuario();
+    this.usuario = new Usuarios();
     usuario.setEmail(register.getJTextFieldEmail().getText());
     usuario.setUsername(register.getJTextFieldUsername().getText());
     usuario.setPassword(BCrypt.hashpw(String.valueOf(register.getJPasswordFieldPassword().getPassword()), BCrypt.gensalt()));

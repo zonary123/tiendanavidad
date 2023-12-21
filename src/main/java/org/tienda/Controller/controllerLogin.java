@@ -9,12 +9,11 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.mindrot.jbcrypt.BCrypt;
-import org.tienda.Objects.Usuarios;
-import org.tienda.Objects.usuario;
 import org.tienda.Utils.utilsLenguaje;
 import org.tienda.Views.ForgotPasswordPassword;
 import org.tienda.Views.Login;
 import org.tienda.Views.Register;
+import org.tienda.Objects.Usuarios;
 
 /**
  * @author Carlos Varas Alonso
@@ -107,7 +106,7 @@ public class controllerLogin {
    */
   private Boolean validarCredenciales(String username, char[] password) throws NoResultException {
     Configuration configuration = new Configuration();
-    configuration.configure("/hibernate/hibernate.cfg.xml");
+    configuration.configure("hibernate.cfg.xml");
     configuration.setProperty("hibernate.current_session_context_class", "org.hibernate.context.internal.ThreadLocalSessionContext");
 
     SessionFactory sessionFactory = configuration.buildSessionFactory();
@@ -116,7 +115,7 @@ public class controllerLogin {
     Usuarios usuario;
 
     try {
-      usuario = session.createQuery("SELECT u FROM Usuarios u WHERE u.username = :username AND u.activacion = true", Usuarios.class)
+      usuario = session.createQuery("FROM Usuarios u WHERE u.username = :username AND u.activacion = true", Usuarios.class)
         .setParameter("username", username)
         .getSingleResult();
     } catch (NoResultException e) {
