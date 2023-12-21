@@ -16,8 +16,12 @@ public class hibernateUtil {
 
   public static SessionFactory buildSessionFactory() {
     try {
-      return new Configuration().configure("hibernate.cfg.xml").setProperty("hibernate.current_session_context_class", "org.hibernate.context.internal.ThreadLocalSessionContext").
-        buildSessionFactory(new StandardServiceRegistryBuilder().configure().build());
+      Configuration configuration = new Configuration();
+      configuration.configure(
+        "hibernate.cfg.xml");
+      configuration.setProperty("hibernate.current_session_context_class", "org.hibernate.context.internal.ThreadLocalSessionContext");
+
+      return configuration.buildSessionFactory();
     } catch (Throwable ex) {
       System.err.println(ex.getMessage());
     }

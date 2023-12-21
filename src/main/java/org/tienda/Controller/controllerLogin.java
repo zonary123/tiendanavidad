@@ -105,25 +105,23 @@ public class controllerLogin {
    * @return true si las credenciales son correctas
    */
   private Boolean validarCredenciales(String username, char[] password) throws NoResultException {
-    Configuration configuration = new Configuration();
-    configuration.configure("hibernate.cfg.xml");
-    configuration.setProperty("hibernate.current_session_context_class", "org.hibernate.context.internal.ThreadLocalSessionContext");
-
-    SessionFactory sessionFactory = configuration.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.getCurrentSession();
     session.beginTransaction();
     Usuarios usuario;
 
     try {
-      usuario = session.createQuery("FROM Usuarios u WHERE u.username = :username AND u.activacion = true", Usuarios.class)
+      String query = "SELECT u FROM Usuarios u WHERE u.username = :username AND u.activacion = true";
+      usuario = session.createQuery(query, Usuarios.class)
         .setParameter("username", username)
         .getSingleResult();
     } catch (NoResultException e) {
       return null;
     }
-
+    System.out.println(usuario);
     if (!BCrypt.checkpw(String.valueOf(password), usuario.getPassword())) {
       return false;
+
     }
 
     session.getTransaction().commit();

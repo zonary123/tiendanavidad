@@ -27,11 +27,7 @@ public class cForgotPasswordMail {
 
 
   public static Usuarios setCode() {
-    Configuration configuration = new Configuration();
-    configuration.configure("hibernate.cfg.xml");
-    configuration.setProperty("hibernate.current_session_context_class", "org.hibernate.context.internal.ThreadLocalSessionContext");
-
-    SessionFactory sessionFactory = configuration.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.getCurrentSession();
     session.beginTransaction();
 
