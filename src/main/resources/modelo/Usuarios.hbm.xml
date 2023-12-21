@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 21 dic 2023 17:36:10 by Hibernate Tools 6.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="tienda" name="modelo.Usuarios" optimistic-lock="none" table="usuarios">
+        <id name="idusuario" type="java.lang.Integer">
+            <column name="idusuario"/>
+            <generator class="identity"/>
+        </id>
+        <property name="username" type="string">
+            <column length="30" name="username" unique="true"/>
+        </property>
+        <property name="password" type="string">
+            <column length="100" name="password" not-null="true"/>
+        </property>
+        <property name="nombre" type="string">
+            <column length="30" name="nombre" not-null="true"/>
+        </property>
+        <property name="apellidos" type="string">
+            <column length="50" name="apellidos"/>
+        </property>
+        <property name="email" type="string">
+            <column length="75" name="email" not-null="true" unique="true"/>
+        </property>
+        <property name="imagen" type="binary">
+            <column name="imagen"/>
+        </property>
+        <property name="lenguaje" type="string">
+            <column length="6" name="lenguaje" not-null="true"/>
+        </property>
+        <property name="permisos" type="string">
+            <column length="255" name="permisos"/>
+        </property>
+        <property name="roles" type="string">
+            <column name="roles"/>
+        </property>
+        <property name="activacion" type="boolean">
+            <column name="activacion" not-null="true"/>
+        </property>
+        <property name="codigo" type="string">
+            <column length="8" name="codigo"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="historialusuarioses" table="historialusuarios">
+            <key>
+                <column name="idusuario" not-null="true"/>
+            </key>
+            <one-to-many class="modelo.Historialusuarios"/>
+        </set>
+        <set fetch="select" inverse="true" lazy="true" name="carritos" table="carrito">
+            <key>
+                <column name="idusuario" not-null="true"/>
+            </key>
+            <one-to-many class="modelo.Carrito"/>
+        </set>
+        <set fetch="select" inverse="true" lazy="true" name="comprases" table="compras">
+            <key>
+                <column name="idusuario" not-null="true"/>
+            </key>
+            <one-to-many class="modelo.Compras"/>
+        </set>
+    </class>
+</hibernate-mapping>

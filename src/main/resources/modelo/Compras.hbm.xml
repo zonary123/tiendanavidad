@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 21 dic 2023 17:36:10 by Hibernate Tools 6.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="tienda" name="modelo.Compras" optimistic-lock="none" table="compras">
+        <composite-id class="modelo.ComprasId" name="id">
+            <key-property name="idcompra" type="int">
+                <column name="idcompra"/>
+            </key-property>
+            <key-property name="idproducto" type="int">
+                <column name="idproducto"/>
+            </key-property>
+            <key-property name="idusuario" type="int">
+                <column name="idusuario"/>
+            </key-property>
+        </composite-id>
+        <many-to-one class="modelo.Productos" fetch="select" insert="false" name="productos" update="false">
+            <column name="idproducto" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="modelo.Usuarios" fetch="select" insert="false" name="usuarios" update="false">
+            <column name="idusuario" not-null="true"/>
+        </many-to-one>
+        <property name="cantidad" type="int">
+            <column name="cantidad" not-null="true"/>
+        </property>
+        <property name="fechacompra" type="date">
+            <column length="10" name="fechacompra"/>
+        </property>
+        <property name="fechaentrega" type="timestamp">
+            <column length="19" name="fechaentrega"/>
+        </property>
+    </class>
+</hibernate-mapping>
