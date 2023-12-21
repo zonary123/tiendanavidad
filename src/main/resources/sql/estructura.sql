@@ -2,13 +2,13 @@ CREATE DATABASE IF NOT EXISTS tienda;
 
 CREATE TABLE IF NOT EXISTS productos (
   idproducto  INT AUTO_INCREMENT PRIMARY KEY,
-  nombre      VARCHAR(50)   NOT NULL,
-  descripcion VARCHAR(255)  NOT NULL,
-  precio      DOUBLE(10, 2) NOT NULL,
-  descuento   DOUBLE(3, 2)  NULL,
-  categoria   VARCHAR(30)   NULL,
-  imagen      LONGBLOB      NULL,
-  stock       INT           NULL,
+  nombre      VARCHAR(50)  NOT NULL,
+  descripcion VARCHAR(255) NOT NULL,
+  precio      DOUBLE       NOT NULL,
+  descuento   DOUBLE       NULL,
+  categoria   VARCHAR(30)  NULL,
+  imagen      LONGBLOB     NULL,
+  stock       INT          NULL,
   CHECK (precio > 0)
 );
 

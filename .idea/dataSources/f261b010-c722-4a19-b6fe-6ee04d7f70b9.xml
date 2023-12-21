@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="tienda@localhost">
+<dataSource name="hibernate:hibernate.cfg.xml/Hibernate">
   <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.51">
     <root id="1">
       <DefaultCasing>lower/lower</DefaultCasing>
@@ -1160,7 +1160,7 @@ test\\_%|schema||&apos;&apos;||UPDATE|G</Grants>
     </schema>
     <schema id="330" parent="1" name="tienda">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2023-12-18.04:11:53</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2023-12-18.21:37:42</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <user id="331" parent="1" name="root">
@@ -1382,7 +1382,7 @@ fechainiciosesion</ColNames>
       <Predicate>json_valid(`roles`)</Predicate>
     </check>
     <column id="378" parent="339" name="idusuario">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>2</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
