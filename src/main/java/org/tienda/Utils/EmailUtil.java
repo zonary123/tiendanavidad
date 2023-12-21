@@ -4,7 +4,7 @@
  */
 package org.tienda.Utils;
 
-import org.tienda.Objects.usuario;
+import org.tienda.Objects.Usuarios;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -41,7 +41,7 @@ public class EmailUtil {
     }
   }
 
-  public static void confMail(usuario u, String toemail) throws MessagingException, IOException {
+  public static void confMail(Usuarios u, String toemail) throws MessagingException, IOException {
     Properties props = new Properties();
     props.put("mail.smtp.host", "smtp.office365.com");
     props.put("mail.smtp.port", "587");

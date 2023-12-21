@@ -2,7 +2,7 @@
 <!-- Generated 20 dic 2023 19:54:47 by Hibernate Tools 6.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class catalog="tienda" name="org.tienda.Objects.Usuarios" optimistic-lock="none" table="usuarios">
+    <class catalog="tienda" name="Usuarios" optimistic-lock="none" table="usuarios">
         <id name="idusuario" type="java.lang.Integer">
             <column name="idusuario"/>
             <generator class="identity"/>
@@ -44,19 +44,19 @@
             <key>
                 <column name="idusuario" not-null="true"/>
             </key>
-            <one-to-many class="org.tienda.Objects.Historialusuarios"/>
+            <one-to-many class="Historialusuarioses"/>
         </set>
         <set fetch="select" inverse="true" lazy="true" name="carritos" table="carrito">
             <key>
                 <column name="idusuario" not-null="true"/>
             </key>
-            <one-to-many class="org.tienda.Objects.Carrito"/>
+            <one-to-many class="Carrito"/>
         </set>
         <set fetch="select" inverse="true" lazy="true" name="comprases" table="compras">
             <key>
                 <column name="idusuario" not-null="true"/>
             </key>
-            <one-to-many class="org.tienda.Objects.Compras"/>
+            <one-to-many class="Comprases"/>
         </set>
     </class>
 </hibernate-mapping>

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Generated 20 dic 2023 19:54:47 by Hibernate Tools 6.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20 dic 2023 19:54:47 by Hibernate Tools 6.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class catalog="tienda" name="Model.Carrito" optimistic-lock="none" table="carrito">
-        <composite-id class="Model.CarritoId" name="id">
+    <class catalog="tienda" name="org.tienda.Objects.Carrito" optimistic-lock="none" table="carrito">
+        <composite-id class="org.tienda.Objects.CarritoId" name="id">
             <key-property name="idproducto" type="int">
                 <column name="idproducto"/>
             </key-property>
@@ -10,10 +11,10 @@
                 <column name="idusuario"/>
             </key-property>
         </composite-id>
-        <many-to-one class="Model.Productos" fetch="select" insert="false" name="productos" update="false">
+        <many-to-one class="org.tienda.Objects.Productos" fetch="select" insert="false" name="productos" update="false">
             <column name="idproducto" not-null="true"/>
         </many-to-one>
-        <many-to-one class="Model.Usuarios" fetch="select" insert="false" name="usuarios" update="false">
+        <many-to-one class="org.tienda.Objects.Usuarios" fetch="select" insert="false" name="usuarios" update="false">
             <column name="idusuario" not-null="true"/>
         </many-to-one>
         <property name="cantidad" type="java.lang.Integer">

@@ -22,11 +22,12 @@
         <property name="hibernate.format_sql">true</property>
 
 
-        <!-- Drop and re-create the database schema on startup -->
-        <property name="hibernate.hbm2ddl.auto">update</property>
-
+        <mapping resource="Model/Usuarios.hbm.xml"/>
+        <mapping resource="Model/Carrito.hbm.xml"/>
+        <mapping resource="Model/Compras.hbm.xml"/>
+        <mapping resource="Model/Historialusuarios.hbm.xml"/>
+        <mapping resource="Model/Productos.hbm.xml"/>
         <!-- Mention annotated class -->
-        <mapping class="org.tienda.Objects.usuario"/>
 
 
     </session-factory>

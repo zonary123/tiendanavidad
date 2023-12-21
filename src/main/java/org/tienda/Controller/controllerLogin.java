@@ -1,5 +1,6 @@
 package org.tienda.Controller;
 
+import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.persistence.NoResultException;
@@ -10,7 +11,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.mindrot.jbcrypt.BCrypt;
 import org.tienda.Objects.Usuarios;
-import org.tienda.Objects.usuario;
 import org.tienda.Utils.utilsLenguaje;
 import org.tienda.Views.ForgotPasswordPassword;
 import org.tienda.Views.Login;
@@ -23,6 +23,7 @@ public class controllerLogin {
 
   private final Login login;
   private final utilsLenguaje lenguaje;
+  private Point posicion;
 
   /**
    * Instantiates a new Controller login.
@@ -90,7 +91,6 @@ public class controllerLogin {
     });
     login.getJButtonPasswordOlvidada().addActionListener(e -> {
       // Llevar a la vista de recuperar contraseña
-      login.removeAll();
       login.dispose();
       new ForgotPasswordPassword().setVisible(true);
 
@@ -107,7 +107,7 @@ public class controllerLogin {
    */
   private Boolean validarCredenciales(String username, char[] password) throws NoResultException {
     Configuration configuration = new Configuration();
-    configuration.configure("/hibernate/hibernate.cfg.xml");
+    configuration.configure("hibernate.cfg.xml");
     configuration.setProperty("hibernate.current_session_context_class", "org.hibernate.context.internal.ThreadLocalSessionContext");
 
     SessionFactory sessionFactory = configuration.buildSessionFactory();
