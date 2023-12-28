@@ -7,10 +7,9 @@ import javax.swing.*;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-import org.mindrot.jbcrypt.BCrypt;
+import org.mindrot.jbcrypt.BCrypt; 
 import org.tienda.Utils.utilsLenguaje;
-import org.tienda.Views.ForgotPasswordPassword;
+import org.tienda.Views.ForgotPasswordMail;
 import org.tienda.Views.Login;
 import org.tienda.Views.Register;
 import org.tienda.Objects.Usuarios;
@@ -91,7 +90,7 @@ public class controllerLogin {
       // Llevar a la vista de recuperar contraseña
       login.removeAll();
       login.dispose();
-      new ForgotPasswordPassword().setVisible(true);
+      new ForgotPasswordMail().setVisible(true);
 
     });
     // ! Eventos Cerrar ventana

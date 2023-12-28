@@ -22,6 +22,15 @@ import javax.mail.internet.MimeMessage;
 public class EmailUtil {
   private final static String FROMEMAIL = "carlos.varalo@educa.jcyl.es";
   private final static String PASSWORD = "tontodel123";
+  private final static utilsLenguaje lenguaje;
+
+  static {
+    try {
+      lenguaje = new utilsLenguaje();
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+  }
 
   public static void sendEmail(Session session, String toEmail, String subject, String body) throws MessagingException {
     try {
@@ -42,7 +51,7 @@ public class EmailUtil {
     }
   }
 
-  public static void confMail(Usuarios u, String toemail) throws MessagingException, IOException {
+  public static void confMail(Usuarios u) throws MessagingException, IOException {
     Properties props = new Properties();
     props.put("mail.smtp.host", "smtp.office365.com");
     props.put("mail.smtp.port", "587");
@@ -54,16 +63,16 @@ public class EmailUtil {
         return new PasswordAuthentication(FROMEMAIL, PASSWORD);
       }
     };
-
+    System.out.println(u.toString());
     javax.mail.Session session = javax.mail.Session.getDefaultInstance(props, auth);
-    if (toemail != null && !toemail.isEmpty()) {
-      sendEmail(session, toemail, "Tienda Navidad", styleBody(String.valueOf(u.getCodigo())));
+    if (u.getEmail() != null && !u.getEmail().isEmpty()) {
+      sendEmail(session, u.getEmail(), "Tienda Navidad", emailCode(String.valueOf(u.getCodigo())));
     } else {
       System.out.println("Error: La dirección de correo electrónico del destinatario es nula o vacía.");
     }
   }
 
-  public static String styleBody(String codigo) throws IOException {
+  public static String emailCode(String codigo) throws IOException {
     StringBuilder body = new StringBuilder();
     String linea;
     BufferedReader bw = new BufferedReader(new FileReader("src\\main\\resources\\email\\Codigo.html"));

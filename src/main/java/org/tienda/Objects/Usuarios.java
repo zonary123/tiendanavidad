@@ -9,7 +9,7 @@ import java.util.Set;
 import javax.persistence.*;
 
 @Data
-@ToString(exclude = {"idusuario"})
+@ToString(exclude = {"idusuario", "activacion", "imagen"})
 @Entity
 @Table(name = "usuarios")
 public class Usuarios implements java.io.Serializable {
@@ -40,7 +40,7 @@ public class Usuarios implements java.io.Serializable {
   @Column(name = "lenguaje", nullable = false, length = 6)
   private String lenguaje;
 
-  @Column(name = "permisos", length = 255)
+  @Column(name = "permisos")
   private String permisos;
 
   @Column(name = "roles")
@@ -61,7 +61,46 @@ public class Usuarios implements java.io.Serializable {
   @OneToMany(mappedBy = "usuarios", cascade = CascadeType.ALL)
   private Set<Compras> comprases = new HashSet<>();
 
-  // Constructor(s) omitidos
+  public Usuarios() {
 
-  // Getters y Setters omitidos
+  }
+
+  public Usuarios(String username, String password, String nombre, String apellidos, String email, String lenguaje, String roles, boolean activacion) {
+    this.username = username;
+    this.password = password;
+    this.nombre = nombre;
+    this.apellidos = apellidos;
+    this.email = email;
+    this.lenguaje = lenguaje;
+    this.roles = roles;
+    this.activacion = activacion;
+  }
+
+  public Usuarios(String username, String password, String nombre, String apellidos, String email, String lenguaje, String permisos, String roles, boolean activacion, String codigo) {
+    this.username = username;
+    this.password = password;
+    this.nombre = nombre;
+    this.apellidos = apellidos;
+    this.email = email;
+    this.lenguaje = lenguaje;
+    this.permisos = permisos;
+    this.roles = roles;
+    this.activacion = activacion;
+    this.codigo = codigo;
+  }
+
+  public Usuarios(String username, String password, String nombre, String apellidos, String email, byte[] imagen, String lenguaje, String permisos, String roles, boolean activacion, String codigo) {
+    this.username = username;
+    this.password = password;
+    this.nombre = nombre;
+    this.apellidos = apellidos;
+    this.email = email;
+    this.imagen = imagen;
+    this.lenguaje = lenguaje;
+    this.permisos = permisos;
+    this.roles = roles;
+    this.activacion = activacion;
+    this.codigo = codigo;
+  }
+
 }

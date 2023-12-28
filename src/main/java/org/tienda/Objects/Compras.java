@@ -35,4 +35,14 @@ public class Compras {
   @Column(name = "fechaentrega")
   private Date fechaentrega;
 
+  public Compras(ComprasId idComppras, int cantidad) {
+    this.id = idComppras;
+    this.cantidad = cantidad;
+    this.fechacompra = new Date(System.currentTimeMillis());
+    this.fechaentrega = new Date(System.currentTimeMillis());
+  }
+
+  public Compras() {
+
+  }
 }

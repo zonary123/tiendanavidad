@@ -6,8 +6,14 @@ import org.hibernate.cfg.Configuration;
 
 import org.tienda.Utils.EmailUtil;
 import org.tienda.Objects.Usuarios;
+import org.tienda.Utils.utilsLenguaje;
+import org.tienda.Views.ForgotPasswordMail;
+import org.tienda.Views.Login;
 
 import javax.mail.MessagingException;
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.Random;
 
@@ -15,38 +21,74 @@ import java.util.Random;
  * @author Carlos Varas Alonso
  */
 public class cForgotPasswordMail {
-  private static String toEmail = "carlosvarasalonso10@gmail.com";
+  private static ForgotPasswordMail vista;
+  private static utilsLenguaje lenguaje;
 
-  public static void main(String[] args) throws MessagingException, IOException {
-    try {
-      EmailUtil.confMail(setCode(), toEmail);
-    } catch (IOException e) {
-      throw new RuntimeException(e);
-    }
+  public cForgotPasswordMail(ForgotPasswordMail vista) throws IOException {
+    cForgotPasswordMail.vista = vista;
+    lenguaje = new utilsLenguaje();
+    initEvents();
   }
 
+  public void initEvents() {
+    vista.getJButtonClose().addActionListener(
+      e -> {
+        vista.dispose();
+      });
+    vista.getJButtonBack().addActionListener(
+      e -> {
+        vista.dispose();
+        new Login(null).setVisible(true);
+      });
+    vista.getJButtonConfirmar().addActionListener(new ActionListener() {
+      @Override public void actionPerformed(ActionEvent e) {
+        try {
+          if (sendCode()) {
+            JOptionPane.showMessageDialog(null, "Se ha enviado el correo a " + vista.getJTextFieldEmail().getText(),
+              "Codigo", JOptionPane.INFORMATION_MESSAGE);
+            vista.dispose();
+            new Login(null).setVisible(true);
+          } else {
+            JOptionPane.showMessageDialog(null, "No se ha podido enviar el correo a " + vista.getJTextFieldEmail().getText(),
+              "Error", JOptionPane.INFORMATION_MESSAGE);
+          }
 
-  public static Usuarios setCode() {
+        } catch (MessagingException | IOException ex) {
+          throw new RuntimeException(ex);
+        }
+      }
+    });
+  }
+
+  public static boolean sendCode() throws MessagingException, IOException {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    assert sessionFactory != null;
     Session session = sessionFactory.getCurrentSession();
     session.beginTransaction();
 
     Usuarios u = new Usuarios();
+    u.setEmail(vista.getJTextFieldEmail().getText());
     u.setCodigo(generarCodigo(6));
 
     // Usar el correo
-    session.createQuery("update Usuarios set codigo = :codigo where id = :id")
-      .setString("codigo", u.getCodigo())
-      .setInteger("id", 11)
-      .executeUpdate();
+    boolean update = session.createQuery("update Usuarios set codigo = :codigo where email = :email")
+      .setParameter("codigo", u.getCodigo())
+      .setParameter("email", u.getEmail())
+      .executeUpdate() > 0;
     session.getTransaction().commit();
     sessionFactory.close();
-    return u;
+    if (update) {
+      EmailUtil.confMail(u);
+    } else {
+      return false;
+    }
+
+    return true;
   }
 
   public static String generarCodigo(int longitud) {
     // Caracteres permitidos en el código
-    String caracteres = "0123456789";
+    String caracteres = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     // Crear un objeto Random
     Random random = new Random();
