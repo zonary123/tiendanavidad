@@ -4,10 +4,20 @@
  */
 package org.tienda.Models;
 
+import org.tienda.Views.ForgotPasswordPassword;
+import org.tienda.Utils.utilsLenguaje;
+
+import java.io.IOException;
+
 /**
- *
  * @author Carlos Varas Alonso
  */
 public class modelForgotPasswordPassword {
+  private ForgotPasswordPassword vista;
+  private utilsLenguaje lenguaje;
 
+  public modelForgotPasswordPassword(ForgotPasswordPassword vista) throws IOException {
+    this.vista = vista;
+    this.lenguaje = new utilsLenguaje();
+  }
 }

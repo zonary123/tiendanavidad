@@ -49,7 +49,7 @@ public class Usuarios implements java.io.Serializable {
   @Column(name = "activacion", nullable = false)
   private boolean activacion;
 
-  @Column(name = "codigo", length = 8)
+  @Column(name = "codigo", length = 255)
   private String codigo;
 
   @OneToMany(mappedBy = "usuarios", cascade = CascadeType.ALL)

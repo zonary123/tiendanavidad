@@ -7,9 +7,9 @@ import javax.swing.*;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.mindrot.jbcrypt.BCrypt; 
+import org.mindrot.jbcrypt.BCrypt;
 import org.tienda.Utils.utilsLenguaje;
-import org.tienda.Views.ForgotPasswordMail;
+import org.tienda.Views.ForgotPasswordEmail;
 import org.tienda.Views.Login;
 import org.tienda.Views.Register;
 import org.tienda.Objects.Usuarios;
@@ -90,7 +90,7 @@ public class controllerLogin {
       // Llevar a la vista de recuperar contraseña
       login.removeAll();
       login.dispose();
-      new ForgotPasswordMail().setVisible(true);
+      new ForgotPasswordEmail().setVisible(true);
 
     });
     // ! Eventos Cerrar ventana
@@ -110,7 +110,7 @@ public class controllerLogin {
     Usuarios usuario;
 
     try {
-      String query = "SELECT u FROM Usuarios u WHERE u.username = :username AND u.activacion = true";
+      String query = "SELECT u FROM Usuarios u WHERE u.username = :username OR u.email = :username AND u.activacion = true";
       usuario = session.createQuery(query, Usuarios.class)
         .setParameter("username", username)
         .getSingleResult();

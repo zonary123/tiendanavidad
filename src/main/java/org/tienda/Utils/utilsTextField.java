@@ -13,9 +13,10 @@ public class utilsTextField {
 
   /**
    * Instantiates a new Utils text field.
-   *
-   * @param textField the text field
    */
+  public utilsTextField() {
+  }
+
   public utilsTextField(JTextField textField) {
     this.textField = textField;
   }
@@ -66,6 +67,16 @@ public class utilsTextField {
 
   public void setMargin(int top, int left, int bottom, int right) {
     textField.putClientProperty("JTextField.padding", new Insets(top, left, bottom, right));
+  }
+
+  public void actualizarTextField(JTextField textField, String placeholder, int arc, String icon, int width, int height, String color) {
+    utilsTextField textFieldCustom = new utilsTextField(textField);
+    textFieldCustom.setPlaceholder(placeholder);
+    textFieldCustom.setRounded(arc);
+    textFieldCustom.setLeadingIcon(new FlatSVGIcon(icon, width, height));
+    textFieldCustom.setOutLineColor(color);
+    textFieldCustom.setOutLineWidth(1);
+    textFieldCustom.setMargin(0, 14, 0, 0);
   }
 }
 

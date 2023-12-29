@@ -7,10 +7,9 @@ package org.tienda.Views;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.tienda.Controller.cForgotPasswordEmail;
-import org.tienda.Controller.cForgotPasswordPassword;
+import org.tienda.Controller.cForgotPasswordCode;
+import org.tienda.Models.modelForgotPasswordCode;
 import org.tienda.Models.modelForgotPasswordEmail;
-import org.tienda.Models.modelForgotPasswordPassword;
 import org.tienda.Objects.Usuarios;
 
 import javax.swing.*;
@@ -23,25 +22,23 @@ import java.util.logging.Logger;
  * @author carlos
  */
 @Getter @Setter
-public class ForgotPasswordPassword extends JFrame {
-  private cForgotPasswordPassword controller = null;
-  private modelForgotPasswordPassword modelo = null;
+public class ForgotPasswordCode extends JFrame {
+  private cForgotPasswordCode controller = null;
+  private modelForgotPasswordCode modelo = null;
   private Usuarios usuario;
 
   /**
    * Creates new form ForgotPasswordPassword
    */
-  public ForgotPasswordPassword(Usuarios u) {
+  public ForgotPasswordCode(Usuarios u) {
     initComponents();
     this.usuario = u;
-
     try {
-      modelo = new modelForgotPasswordPassword(this);
-      controller = new cForgotPasswordPassword(this);
+      controller = new cForgotPasswordCode(this);
+      modelo = new modelForgotPasswordCode(this);
     } catch (IOException e) {
       throw new RuntimeException(e);
     }
-
   }
 
   /**
@@ -61,8 +58,8 @@ public class ForgotPasswordPassword extends JFrame {
     jLabeltitulo = new javax.swing.JLabel();
     jButtonConfirmar = new javax.swing.JButton();
     jLabelDescripcion = new javax.swing.JLabel();
-    jLabelTFEmail = new javax.swing.JLabel();
-    jPasswordFieldPassword = new javax.swing.JPasswordField();
+    jLabelTFCodigo = new javax.swing.JLabel();
+    jTextFieldCodigo = new javax.swing.JTextField();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     setUndecorated(true);
@@ -94,7 +91,7 @@ public class ForgotPasswordPassword extends JFrame {
     jLabeltitulo.setText(bundle.getString("forgot.h1")); // NOI18N
     jLabeltitulo.setAlignmentX(0.5F);
     jLabeltitulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-    jPanelForgot.add(jLabeltitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 95, 343, 75));
+    jPanelForgot.add(jLabeltitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 125, 371, 75));
     jLabeltitulo.getAccessibleContext().setAccessibleName("asdasd");
 
     jButtonConfirmar.setBackground(new java.awt.Color(87, 93, 251));
@@ -104,16 +101,16 @@ public class ForgotPasswordPassword extends JFrame {
     jPanelForgot.add(jButtonConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 381, 343, 56));
 
     jLabelDescripcion.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
-    jLabelDescripcion.setText(bundle.getString("forgot.password.descripcion")); // NOI18N
-    jPanelForgot.add(jLabelDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 189, -1, -1));
+    jLabelDescripcion.setText(bundle.getString("forgot.email.descripcion")); // NOI18N
+    jPanelForgot.add(jLabelDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 219, -1, -1));
     jLabelDescripcion.getAccessibleContext().setAccessibleName(bundle.getString("forgot.email.descripcion")); // NOI18N
 
-    jLabelTFEmail.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
-    jLabelTFEmail.setText(bundle.getString("forgot.password")); // NOI18N
-    jPanelForgot.add(jLabelTFEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 267, -1, -1));
+    jLabelTFCodigo.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
+    jLabelTFCodigo.setText("Email");
+    jPanelForgot.add(jLabelTFCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 267, -1, -1));
 
-    jPasswordFieldPassword.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
-    jPanelForgot.add(jPasswordFieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 297, 342, 55));
+    jTextFieldCodigo.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
+    jPanelForgot.add(jTextFieldCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 297, 343, 56));
 
     Container.add(jPanelForgot, new org.netbeans.lib.awtextra.AbsoluteConstraints(515, 269, 414, 462));
 
@@ -140,13 +137,13 @@ public class ForgotPasswordPassword extends JFrame {
         }
       }
     } catch (ClassNotFoundException ex) {
-      Logger.getLogger(ForgotPasswordPassword.class.getName()).log(Level.SEVERE, null, ex);
+      Logger.getLogger(ForgotPasswordCode.class.getName()).log(Level.SEVERE, null, ex);
     } catch (InstantiationException ex) {
-      Logger.getLogger(ForgotPasswordPassword.class.getName()).log(Level.SEVERE, null, ex);
+      Logger.getLogger(ForgotPasswordCode.class.getName()).log(Level.SEVERE, null, ex);
     } catch (IllegalAccessException ex) {
-      Logger.getLogger(ForgotPasswordPassword.class.getName()).log(Level.SEVERE, null, ex);
+      Logger.getLogger(ForgotPasswordCode.class.getName()).log(Level.SEVERE, null, ex);
     } catch (UnsupportedLookAndFeelException ex) {
-      Logger.getLogger(ForgotPasswordPassword.class.getName()).log(Level.SEVERE, null, ex);
+      Logger.getLogger(ForgotPasswordCode.class.getName()).log(Level.SEVERE, null, ex);
     }
     //</editor-fold>
     //</editor-fold>
@@ -156,7 +153,7 @@ public class ForgotPasswordPassword extends JFrame {
     /* Create and display the form */
     EventQueue.invokeLater(new Runnable() {
       public void run() {
-        new ForgotPasswordPassword(null).setVisible(true);
+        new ForgotPasswordCode(null).setVisible(true);
       }
     });
   }
@@ -167,10 +164,10 @@ public class ForgotPasswordPassword extends JFrame {
   private javax.swing.JButton jButtonClose;
   private javax.swing.JButton jButtonConfirmar;
   private javax.swing.JLabel jLabelDescripcion;
-  private javax.swing.JLabel jLabelTFEmail;
+  private javax.swing.JLabel jLabelTFCodigo;
   private javax.swing.JLabel jLabeltitulo;
   private javax.swing.JPanel jPanelForgot;
-  private javax.swing.JPasswordField jPasswordFieldPassword;
+  private javax.swing.JTextField jTextFieldCodigo;
   // End of variables declaration//GEN-END:variables
 
 }
