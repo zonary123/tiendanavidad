@@ -1,5 +1,7 @@
 CREATE DATABASE IF NOT EXISTS tienda;
 
+USE tienda;
+
 CREATE TABLE IF NOT EXISTS productos (
   idproducto  INT AUTO_INCREMENT PRIMARY KEY,
   nombre      VARCHAR(50)  NOT NULL,

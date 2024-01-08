@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="tienda@localhost">
   <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.51">
-    <root id="1"/>
+    <root id="1">
+      <DefaultEngine>InnoDB</DefaultEngine>
+      <ServerVersion>10.4.28</ServerVersion>
+    </root>
     <collation id="2" parent="1" name="big5_chinese_ci">
       <Charset>big5</Charset>
       <DefaultForCharset>1</DefaultForCharset>
@@ -1028,7 +1031,7 @@
     </schema>
     <schema id="330" parent="1" name="tienda">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2023-12-18.04:11:53</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-01-08.16:01:43</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <user id="331" parent="1" name="root">
@@ -1214,12 +1217,12 @@ fechainiciosesion</ColNames>
       <Position>3</Position>
     </column>
     <column id="370" parent="338" name="precio">
-      <DasType>float(10,2 digit)|0s</DasType>
+      <DasType>double|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
     <column id="371" parent="338" name="descuento">
-      <DasType>float(3,2 digit)|0s</DasType>
+      <DasType>double|0s</DasType>
       <Position>5</Position>
     </column>
     <column id="372" parent="338" name="categoria">
@@ -1250,7 +1253,7 @@ fechainiciosesion</ColNames>
       <Predicate>json_valid(`roles`)</Predicate>
     </check>
     <column id="378" parent="339" name="idusuario">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>4</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>

@@ -29,7 +29,5 @@ public class modelForgotPasswordEmail {
   public void actualizarEstilos() {
     TextField.actualizarTextField(vista.getJTextFieldEmail(), lenguaje.getMensaje().getString("forgot.email.placeholder"), 16, "img/svg/Email.svg", 22, 24, "#575DFB");
     vista.getJButtonConfirmar().putClientProperty("FlatLaf.style", "arc:" + 16);
-
   }
-
 }

@@ -28,18 +28,18 @@ public class cForgotPasswordPassword {
   public void initEvents() {
     vista.getJButtonClose().addActionListener(
       e -> {
-        this.vista.dispose();
+        vista.dispose();
       });
     vista.getJButtonBack().addActionListener(
       e -> {
-        this.vista.dispose();
+        vista.dispose();
         new Login(null).setVisible(true);
       });
     vista.getJButtonConfirmar().addActionListener(
       e -> {
         if (vista.getJPasswordFieldPassword().getPassword().length > 5) {
           changePassword();
-          this.vista.dispose();
+          vista.dispose();
           new Login(null).setVisible(true);
         } else {
           if (vista.getJPasswordFieldPassword().getPassword().length == 0) {
@@ -62,8 +62,5 @@ public class cForgotPasswordPassword {
       .setParameter("email", vista.getUsuario().getEmail())
       .executeUpdate();
     session.getTransaction().commit();
-
-    new Login(null).setVisible(true);
-    this.vista.dispose();
   }
 }
