@@ -7,10 +7,8 @@ package org.tienda.Views;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.tienda.Controller.cForgotPasswordEmail;
 import org.tienda.Controller.cForgotPasswordPassword;
-import org.tienda.Models.modelForgotPasswordEmail;
-import org.tienda.Models.modelForgotPasswordPassword;
+import org.tienda.Model.modelForgotPasswordPassword;
 import org.tienda.Objects.Usuarios;
 
 import javax.swing.*;

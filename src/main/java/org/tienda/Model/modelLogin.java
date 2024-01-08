@@ -1,4 +1,4 @@
-package org.tienda.Models;
+package org.tienda.Model;
 
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import org.tienda.Utils.utilsLenguaje;

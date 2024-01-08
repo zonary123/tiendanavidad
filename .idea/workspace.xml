@@ -4,32 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c118b3c5-02f1-461f-8e3e-749fcbeb622f" name="Changes" comment="DB: poner codigo, Email: enviar codigo">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Models/modelForgotPasswordCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Models/modelForgotPasswordEmail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/ForgotPasswordCode.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/ForgotPasswordCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/ForgotPasswordEmail.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/ForgotPasswordEmail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="c118b3c5-02f1-461f-8e3e-749fcbeb622f" name="Changes" comment="Vista total de forgot password, falta hacer internalizacion en esa parte">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f261b010-c722-4a19-b6fe-6ee04d7f70b9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f261b010-c722-4a19-b6fe-6ee04d7f70b9.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/cForgotPasswordCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/cForgotPasswordCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/cForgotPasswordMail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/cForgotPasswordEmail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/cForgotPasswordPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/cForgotPasswordPassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/controllerLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/controllerLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Models/modelForgotPasswordMail.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Models/modelForgotPasswordPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Models/modelForgotPasswordPassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Objects/Usuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Objects/Usuarios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Utils/utilsTextField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Utils/utilsTextField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/ForgotPasswordMail.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/ForgotPasswordPassword.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/ForgotPasswordPassword.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/hibernateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/hibernateUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Models/modelForgotPasswordCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/modelForgotPasswordCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Models/modelForgotPasswordEmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/modelForgotPasswordEmail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Models/modelForgotPasswordPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/modelForgotPasswordPassword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Models/modelLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/modelLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Models/modelRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/modelRegister.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/ForgotPasswordCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/ForgotPasswordCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/ForgotPasswordEmail.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/ForgotPasswordEmail.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/ForgotPasswordEmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/ForgotPasswordEmail.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/ForgotPasswordPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/ForgotPasswordPassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/configuracion.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/configuracion.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/email/Codigo.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/email/Codigo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/lang/en_US.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lang/en_US.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/lang/es_ES.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lang/es_ES.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/estructura.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/estructura.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tiendanavidad.iml" beforeDir="false" afterPath="$PROJECT_DIR$/tiendanavidad.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Login.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Login.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Register.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Register.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Register.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,27 +68,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Correo.executor": "Run",
-    "Application.Login.executor": "Run",
-    "Application.Tienda.executor": "Run",
-    "Application.Unnamed.executor": "Run",
-    "Application.cForgotPasswordMail.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Alumno/Desktop/tiendanavidad/src/main/java/org/tienda",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "actions.on.save",
-    "ts.external.directory.path": "C:\\Users\\carlos\\AppData\\Local\\Programs\\IntelliJ IDEA Ultimate\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Correo.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Login.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Tienda.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;Application.cForgotPasswordMail.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Alumno/Desktop/tiendanavidad/src/main/java/org/tienda&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Java&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\carlos\\AppData\\Local\\Programs\\IntelliJ IDEA Ultimate\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Alumno\Desktop\tiendanavidad\src\main\java\org\tienda" />
@@ -137,7 +130,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.9-corretto-17.0.9-3183f394aec4-8f899f12" />
+        <option value="jdk-17.0.9-corretto-17.0.9-f644763e9732-ebaef533" />
       </set>
     </attachedChunks>
   </component>
@@ -158,7 +151,17 @@
       <workItem from="1703221262882" duration="1624000" />
       <workItem from="1703222969131" duration="813000" />
       <workItem from="1703266440175" duration="98000" />
-      <workItem from="1703792171932" duration="17280000" />
+      <workItem from="1703792171932" duration="17994000" />
+      <workItem from="1703827259156" duration="802000" />
+      <workItem from="1703894888681" duration="175000" />
+      <workItem from="1703906578319" duration="21000" />
+      <workItem from="1703906718719" duration="9000" />
+      <workItem from="1703958262662" duration="1270000" />
+      <workItem from="1703959905151" duration="866000" />
+      <workItem from="1704002557625" duration="269000" />
+      <workItem from="1704049396981" duration="589000" />
+      <workItem from="1704676873123" duration="86000" />
+      <workItem from="1704680653951" duration="304000" />
     </task>
     <task id="LOCAL-00001" summary="hibernate mapeado">
       <option name="closed" value="true" />
@@ -192,7 +195,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703795627086</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Vista total de forgot password, falta hacer internalizacion en esa parte">
+      <option name="closed" value="true" />
+      <created>1703812235228</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1703812235228</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,7 +226,8 @@
     <MESSAGE value="Hibernate arreglado. Por ahora (Los errores en el futuro los arreglara mi yo del futuro)" />
     <MESSAGE value="se me olvido añadirlo al commit anterior" />
     <MESSAGE value="DB: poner codigo, Email: enviar codigo" />
-    <option name="LAST_COMMIT_MESSAGE" value="DB: poner codigo, Email: enviar codigo" />
+    <MESSAGE value="Vista total de forgot password, falta hacer internalizacion en esa parte" />
+    <option name="LAST_COMMIT_MESSAGE" value="Vista total de forgot password, falta hacer internalizacion en esa parte" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

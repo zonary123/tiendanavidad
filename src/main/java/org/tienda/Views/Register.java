@@ -6,7 +6,7 @@ package org.tienda.Views;
 
 import lombok.Getter;
 import org.tienda.Controller.controllerRegister;
-import org.tienda.Models.modelRegister;
+import org.tienda.Model.modelRegister;
 import org.tienda.Utils.utilsLenguaje;
 
 import java.io.IOException;
@@ -96,47 +96,67 @@ public class Register extends javax.swing.JFrame {
     jButtonBack.setContentAreaFilled(false);
     jPanelLogin.add(jButtonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 38, 38, 38));
 
-    jLabelRegistrar.setFont(new java.awt.Font("Segoe UI", 1, 32)); // NOI18N
+    jLabelRegistrar.setFont(new java.awt.Font("Inter", 1, 32)); // NOI18N
     jLabelRegistrar.setForeground(new java.awt.Color(87, 93, 251));
     jLabelRegistrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
     java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("lang/es_ES"); // NOI18N
     jLabelRegistrar.setText(bundle.getString("register.h1")); // NOI18N
     jLabelRegistrar.setAlignmentX(0.5F);
     jLabelRegistrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-    jPanelLogin.add(jLabelRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
+    jPanelLogin.add(jLabelRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, -1, -1));
 
+    jLabelEmail.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
     jLabelEmail.setText(bundle.getString("email")); // NOI18N
     jPanelLogin.add(jLabelEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 113, -1, -1));
+
+    jTextFieldEmail.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
     jPanelLogin.add(jTextFieldEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 143, 343, 56));
 
+    jLabelUsername.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
     jLabelUsername.setText(bundle.getString("Username")); // NOI18N
     jPanelLogin.add(jLabelUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 227, -1, -1));
+
+    jTextFieldUsername.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
     jPanelLogin.add(jTextFieldUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 257, 343, 56));
 
+    jLabelNombre.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
     jLabelNombre.setText(bundle.getString("register.label.name")); // NOI18N
     jPanelLogin.add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 340, -1, -1));
+
+    jTextFieldNombre.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
     jPanelLogin.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 371, 343, 56));
 
+    jLabelApellidos.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
     jLabelApellidos.setText(bundle.getString("register.label.lastname")); // NOI18N
     jPanelLogin.add(jLabelApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 455, -1, -1));
+
+    jTextFieldApellidos.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
     jPanelLogin.add(jTextFieldApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 485, 343, 56));
 
+    jLabelPassword.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
     jLabelPassword.setText(bundle.getString("register.label.password")); // NOI18N
     jPanelLogin.add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 569, -1, -1));
+
+    jPasswordFieldPassword.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
     jPanelLogin.add(jPasswordFieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 599, 343, 55));
     jPasswordFieldPassword.getAccessibleContext().setAccessibleDescription("");
 
-    jLabelConCuenta.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+    jLabelConCuenta.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
     jLabelConCuenta.setText(bundle.getString("register.label.ConCuenta")); // NOI18N
-    jPanelLogin.add(jLabelConCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 763, -1, -1));
+    jPanelLogin.add(jLabelConCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 763, -1, -1));
 
     jButtonRegistrarse.setBackground(new java.awt.Color(87, 93, 251));
-    jButtonRegistrarse.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+    jButtonRegistrarse.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
     jButtonRegistrarse.setForeground(new java.awt.Color(255, 255, 255));
     jButtonRegistrarse.setText(bundle.getString("register.button.registrarse")); // NOI18N
+    jButtonRegistrarse.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButtonRegistrarseActionPerformed(evt);
+      }
+    });
     jPanelLogin.add(jButtonRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 680, 343, 56));
 
-    jButtonIniciarSesion.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+    jButtonIniciarSesion.setFont(new java.awt.Font("Inter", 1, 16)); // NOI18N
     jButtonIniciarSesion.setForeground(new java.awt.Color(87, 93, 251));
     jButtonIniciarSesion.setText(bundle.getString("register.button.iniciarsesion")); // NOI18N
     jButtonIniciarSesion.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(87, 93, 251)));
@@ -164,6 +184,10 @@ public class Register extends javax.swing.JFrame {
   private void jButtonCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCloseActionPerformed
     // TODO add your handling code here:
   }//GEN-LAST:event_jButtonCloseActionPerformed
+
+  private void jButtonRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarseActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_jButtonRegistrarseActionPerformed
 
   /**
    * @param args the command line arguments

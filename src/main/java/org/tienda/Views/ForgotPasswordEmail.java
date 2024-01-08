@@ -8,7 +8,7 @@ package org.tienda.Views;
 import lombok.Getter;
 import lombok.Setter;
 import org.tienda.Controller.cForgotPasswordEmail;
-import org.tienda.Models.modelForgotPasswordEmail;
+import org.tienda.Model.modelForgotPasswordEmail;
 
 import javax.swing.*;
 import java.awt.*;
@@ -96,6 +96,11 @@ public class ForgotPasswordEmail extends JFrame {
     jButtonConfirmar.setFont(new java.awt.Font("Inter", 1, 16)); // NOI18N
     jButtonConfirmar.setForeground(new java.awt.Color(255, 255, 255));
     jButtonConfirmar.setText(bundle.getString("forgot.button.confirm")); // NOI18N
+    jButtonConfirmar.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButtonConfirmarActionPerformed(evt);
+      }
+    });
     jPanelForgot.add(jButtonConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 381, 343, 56));
 
     jLabelDescripcion.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
@@ -117,6 +122,10 @@ public class ForgotPasswordEmail extends JFrame {
     pack();
     setLocationRelativeTo(null);
   }// </editor-fold>//GEN-END:initComponents
+
+  private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_jButtonConfirmarActionPerformed
 
   /**
    * @param args the command line arguments
