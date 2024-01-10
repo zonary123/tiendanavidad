@@ -2,7 +2,6 @@ package org.tienda.Controller;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.mindrot.jbcrypt.BCrypt;
 import org.tienda.Objects.Productos;
 
 import java.util.List;
@@ -14,9 +13,17 @@ public class controllerHome {
   public controllerHome() {
   }
 
+  /**
+   * Inicializacion de eventos de la vista
+   */
   public void initEvents() {
   }
 
+  /**
+   * Obtencion de todos los productos de la base de datos
+   *
+   * @return List<Productos>
+   */
   public List<Productos> getProductos() {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.getCurrentSession();
@@ -24,6 +31,12 @@ public class controllerHome {
     return session.createQuery("from Productos").list();
   }
 
+  /**
+   * Obtencion de todos los productos de la base de datos
+   *
+   * @param categoria Categoria de los productos
+   * @return List<Productos>
+   */
   public List<Productos> getProductosCategories(String categoria) {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.getCurrentSession();

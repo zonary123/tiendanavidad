@@ -34,7 +34,7 @@ public class controllerLogin {
   }
 
   /**
-   * Init events.
+   * Inicializacion de eventos de la vista
    */
   public void initEvents() throws NoResultException {
     // ! Eventos Presionar teclado
@@ -87,7 +87,6 @@ public class controllerLogin {
       new Register().setVisible(true);
     });
     login.getJButtonPasswordOlvidada().addActionListener(e -> {
-      // Llevar a la vista de recuperar contraseña
       login.removeAll();
       login.dispose();
       new ForgotPasswordEmail().setVisible(true);
@@ -99,6 +98,8 @@ public class controllerLogin {
   }
 
   /**
+   * Valida las credenciales del usuario
+   *
    * @param username Nombre del usuario
    * @param password Contraseña del usuario
    * @return true si las credenciales son correctas

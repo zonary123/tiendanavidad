@@ -32,6 +32,15 @@ public class EmailUtil {
     }
   }
 
+  /**
+   * Envia un email
+   *
+   * @param session la sesion
+   * @param toEmail el email del destinatario
+   * @param subject el asunto
+   * @param body    el cuerpo del mensaje
+   * @throws MessagingException el error de mensajeria
+   */
   public static void sendEmail(Session session, String toEmail, String subject, String body) throws MessagingException {
     try {
       MimeMessage msg = new MimeMessage(session);
@@ -51,6 +60,13 @@ public class EmailUtil {
     }
   }
 
+  /**
+   * Configura el email
+   *
+   * @param u el usuario
+   * @throws MessagingException el error de mensajeria
+   * @throws IOException        el error de entrada y salida
+   */
   public static void confMail(Usuarios u) throws MessagingException, IOException {
     Properties props = new Properties();
     props.put("mail.smtp.host", "smtp.office365.com");
@@ -72,6 +88,13 @@ public class EmailUtil {
     }
   }
 
+  /**
+   * Crea el cuerpo del email
+   *
+   * @param codigo el codigo
+   * @return el cuerpo del email
+   * @throws IOException el error de entrada y salida
+   */
   public static String emailCode(String codigo) throws IOException {
     StringBuilder body = new StringBuilder();
     String linea;

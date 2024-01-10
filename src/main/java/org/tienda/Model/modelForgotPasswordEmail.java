@@ -3,7 +3,7 @@ package org.tienda.Model;
 import org.tienda.Utils.utilsLenguaje;
 import org.tienda.Utils.utilsTextField;
 import org.tienda.Views.ForgotPasswordEmail;
-import org.tienda.interfaces.models;
+import org.tienda.Interfaces.models;
 
 import java.io.IOException;
 
@@ -21,6 +21,7 @@ public class modelForgotPasswordEmail implements models {
     actualizarLenguaje();
     actualizarEstilos();
   }
+
 
   public void actualizarLenguaje() {
     vista.getJLabeltitulo().setText((lenguaje.getMensaje().getString("forgot.h1")));

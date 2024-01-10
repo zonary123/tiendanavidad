@@ -12,17 +12,22 @@ public class utilsTextField {
   private JTextField textField;
 
   /**
-   * Instantiates a new Utils text field.
+   * Constructor vacio.
    */
   public utilsTextField() {
   }
 
+  /**
+   * Constructor con parametro.
+   *
+   * @param textField el text field
+   */
   public utilsTextField(JTextField textField) {
     this.textField = textField;
   }
 
   /**
-   * Sets placeholder.
+   * Pone placeholder.
    *
    * @param placeholder the placeholder
    */
@@ -31,9 +36,7 @@ public class utilsTextField {
   }
 
   /**
-   * Sets rounded.
-   *
-   * @param arc the arc
+   * @param arc el radio de la esquina
    */
   public void setRounded(int arc) {
     textField.putClientProperty("FlatLaf.style", "arc:" + arc);
@@ -57,18 +60,47 @@ public class utilsTextField {
     textField.putClientProperty("JTextField.leadingIcon", icon);
   }
 
+  /**
+   * pone el color del borde.
+   *
+   * @param color el color
+   */
   public void setOutLineColor(String color) {
     textField.putClientProperty("JComponent.outline", new Color[]{Color.decode(color), Color.decode(color)});
   }
 
+  /**
+   * pone el ancho del borde.
+   *
+   * @param width el ancho
+   */
   public void setOutLineWidth(int width) {
     textField.putClientProperty("Component.innerOutlineWidth", width);
   }
 
+  /**
+   * pone el margen.
+   *
+   * @param top    margen superior
+   * @param left   margen izquierdo
+   * @param bottom margen inferior
+   * @param right  margen derecho
+   */
   public void setMargin(int top, int left, int bottom, int right) {
     textField.putClientProperty("JTextField.padding", new Insets(top, left, bottom, right));
   }
 
+  /**
+   * Actualiza el text field.
+   *
+   * @param textField   el text field
+   * @param placeholder el placeholder
+   * @param arc         el radio de la esquina
+   * @param icon        el icono
+   * @param width       el ancho del icono
+   * @param height      el alto del icono
+   * @param color       el color del borde
+   */
   public void actualizarTextField(JTextField textField, String placeholder, int arc, String icon, int width, int height, String color) {
     utilsTextField textFieldCustom = new utilsTextField(textField);
     textFieldCustom.setPlaceholder(placeholder);

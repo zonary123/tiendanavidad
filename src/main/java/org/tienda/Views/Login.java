@@ -8,12 +8,15 @@ import com.formdev.flatlaf.FlatIntelliJLaf;
 
 import java.awt.*;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import javax.persistence.NoResultException;
 import javax.swing.*;
 
 import lombok.Getter;
 import org.tienda.Controller.controllerLogin;
+import org.tienda.DB.Alimentacion;
+import org.tienda.DB.Estructura;
 import org.tienda.Model.modelLogin;
 import org.tienda.Utils.utilsLenguaje;
 
@@ -31,6 +34,12 @@ public class Login extends javax.swing.JFrame {
    * Creates new form Login
    */
   public Login(String user) {
+    try {
+      Estructura estructura = new Estructura();
+      Alimentacion alimentacion = new Alimentacion();
+    } catch (FileNotFoundException e) {
+      throw new RuntimeException(e);
+    }
     try {
       FlatIntelliJLaf.setPreferredFontFamily(Font.createFont(Font.PLAIN, new File("src/main/resources/font/inter/Inter-VariableFont_slnt,wght.ttf")).getFontName());
     } catch (IOException | FontFormatException e) {

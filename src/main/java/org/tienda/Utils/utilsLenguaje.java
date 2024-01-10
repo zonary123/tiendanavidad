@@ -17,7 +17,11 @@ public class utilsLenguaje {
   private final static String PATH = "src/main/resources/configuracion.csv";
 
   /**
-   * Instantiates a new Utils lenguaje.
+   * Constructor de la clase utilsLenguaje.
+   * <br>
+   * Lee el fichero de configuración y establece el lenguaje y el país.
+   *
+   * @throws IOException error de lectura del fichero
    */
   public utilsLenguaje() throws IOException {
     BufferedReader br = new BufferedReader(new FileReader(PATH));

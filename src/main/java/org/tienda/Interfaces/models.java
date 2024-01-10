@@ -1,4 +1,4 @@
-package org.tienda.interfaces;
+package org.tienda.Interfaces;
 
 /**
  * @author Carlos Varas Alonso

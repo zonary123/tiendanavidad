@@ -26,42 +26,53 @@ public class cForgotPasswordEmail {
   private static utilsLenguaje lenguaje;
   private static Usuarios u;
 
+  /**
+   * Constructor de la clase
+   *
+   * @param vista Vista de la clase
+   * @throws IOException Error de lectura de archivo
+   */
   public cForgotPasswordEmail(ForgotPasswordEmail vista) throws IOException {
     cForgotPasswordEmail.vista = vista;
     lenguaje = new utilsLenguaje();
     initEvents();
   }
 
+  /**
+   * Inicializacion de eventos de la vista
+   */
   public void initEvents() {
-    vista.getJButtonClose().addActionListener(
-      e -> {
-        vista.dispose();
-      });
+    vista.getJButtonClose().addActionListener(e -> vista.dispose());
     vista.getJButtonBack().addActionListener(
       e -> {
         vista.dispose();
         new Login(null).setVisible(true);
       });
-    vista.getJButtonConfirmar().addActionListener(new ActionListener() {
-      @Override public void actionPerformed(ActionEvent e) {
-        try {
-          if (sendCode()) {
-            JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("forgot.email.send") + " " + vista.getJTextFieldEmail().getText(),
-              "Codigo", JOptionPane.INFORMATION_MESSAGE);
-            vista.dispose();
-            new ForgotPasswordCode(u).setVisible(true);
-          } else {
-            JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("forgot.email.notexist"),
-              "Error", JOptionPane.INFORMATION_MESSAGE);
-          }
-
-        } catch (MessagingException | IOException ex) {
-          throw new RuntimeException(ex);
+    vista.getJButtonConfirmar().addActionListener(e -> {
+      try {
+        if (sendCode()) {
+          JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("forgot.email.send") + " " + vista.getJTextFieldEmail().getText(),
+            "Codigo", JOptionPane.INFORMATION_MESSAGE);
+          vista.dispose();
+          new ForgotPasswordCode(u).setVisible(true);
+        } else {
+          JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("forgot.email.notexist"),
+            "Error", JOptionPane.INFORMATION_MESSAGE);
         }
+
+      } catch (MessagingException | IOException ex) {
+        throw new RuntimeException(ex);
       }
     });
   }
 
+  /**
+   * Genera un codigo aleatorio de 6 caracteres y lo envia al correo
+   *
+   * @return boolean
+   * @throws IOException        Error de lectura de archivo
+   * @throws MessagingException Error de envio de correo
+   */
   public static boolean sendCode() throws MessagingException, IOException {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     assert sessionFactory != null;
@@ -88,24 +99,25 @@ public class cForgotPasswordEmail {
     return true;
   }
 
+  /**
+   * Genera un codigo aleatorio de la longitud especificada
+   *
+   * @param longitud Longitud del codigo
+   * @return String
+   */
   public static String generarCodigo(int longitud) {
-    // Caracteres permitidos en el código
     String caracteres = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    // Crear un objeto Random
     Random random = new Random();
 
-    // Usar StringBuilder para construir el código
     StringBuilder codigoBuilder = new StringBuilder(longitud);
 
-    // Generar el código aleatorio
     for (int i = 0; i < longitud; i++) {
       int indiceCaracter = random.nextInt(caracteres.length());
       char caracter = caracteres.charAt(indiceCaracter);
       codigoBuilder.append(caracter);
     }
 
-    // Convertir StringBuilder a String y devolver el código
     return codigoBuilder.toString();
   }
 }

@@ -21,12 +21,21 @@ public class controllerRegister {
   private final utilsLenguaje lenguaje;
   private Usuarios usuario = null;
 
+  /**
+   * Instantiates a new Controller login.
+   *
+   * @param register El Jframe login
+   * @param lenguaje Objeto utilsLenguaje para el idioma
+   */
   public controllerRegister(Register register, utilsLenguaje lenguaje) {
     this.register = register;
     this.lenguaje = lenguaje;
     initEvents();
   }
 
+  /**
+   * Inicializacion de eventos de la vista
+   */
   public void initEvents() {
     register.getJButtonBack().addActionListener(e -> {
       register.dispose();
@@ -45,6 +54,23 @@ public class controllerRegister {
     register.getJButtonClose().addActionListener(e -> register.dispose());
   }
 
+  /**
+   * Comprobaciones de la vista de registro
+   * <p>
+   * Comprueba que los campos no esten vacios y que cumplan con las expresiones regulares
+   * <br>
+   * Si hay algun error, muestra un mensaje de error
+   * <br>
+   * Si no hay ningun error, devuelve true
+   * <br>
+   * Si hay algun error, devuelve false
+   * <br>
+   * Si hay algun error, pone el campo en amarillo
+   * <br>
+   * </p>
+   *
+   * @return boolean true si no hay errores, false si hay errores
+   */
   private boolean comprobaciones() {
     int errores = 0;
     String mensaje = "";
@@ -96,9 +122,14 @@ public class controllerRegister {
     if (errores > 0)
       JOptionPane.showMessageDialog(null, mensaje);
 
-    return errores == 0 ? true : false;
+    return errores == 0;
   }
 
+  /**
+   * Registra al usuario en la base de datos
+   *
+   * @return boolean true si se ha registrado, false si no
+   */
   private boolean registrarse() {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.getCurrentSession();

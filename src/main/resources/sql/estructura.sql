@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS tienda;
+CREATE DATABASE tienda;
 
 USE tienda;
 
@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS productos (
   CHECK (precio > 0)
 );
 
-CREATE TABLE usuarios (
+CREATE TABLE IF NOT EXISTS usuarios (
   idusuario  INT AUTO_INCREMENT PRIMARY KEY,
   username   VARCHAR(30)                  NULL UNIQUE,
   password   VARCHAR(100)                 NOT NULL,
@@ -29,7 +29,7 @@ CREATE TABLE usuarios (
   codigo     VARCHAR(255) DEFAULT NULL
 );
 
-CREATE TABLE carrito (
+CREATE TABLE IF NOT EXISTS carrito (
   idusuario  INT NOT NULL,
   idproducto INT NOT NULL,
   cantidad   INT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE carrito (
   FOREIGN KEY (idproducto) REFERENCES productos (idproducto)
 );
 
-CREATE TABLE compras (
+CREATE TABLE IF NOT EXISTS compras (
   idcompra     INT AUTO_INCREMENT,
   idusuario    INT                              NOT NULL,
   idproducto   INT                              NOT NULL,
@@ -51,7 +51,7 @@ CREATE TABLE compras (
 );
 
 
-CREATE TABLE historialusuarios (
+CREATE TABLE IF NOT EXISTS historialusuarios (
   idusuario         INT                                  NOT NULL,
   fechainiciosesion DATETIME DEFAULT CURRENT_TIMESTAMP() NOT NULL,
   fechafinsesion    DATETIME                             NULL,

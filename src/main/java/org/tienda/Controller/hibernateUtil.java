@@ -17,6 +17,11 @@ import javax.swing.*;
 public class hibernateUtil {
   private static SessionFactory sessionFactory = buildSessionFactory();
 
+  /**
+   * Inicializacion de la conexion con la base de datos
+   *
+   * @return SessionFactory
+   */
   public static SessionFactory buildSessionFactory() {
     try {
       Configuration configuration = new Configuration();

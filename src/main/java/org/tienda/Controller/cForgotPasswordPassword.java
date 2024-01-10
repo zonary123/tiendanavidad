@@ -19,12 +19,21 @@ public class cForgotPasswordPassword {
   private ForgotPasswordPassword vista;
   private utilsLenguaje lenguaje;
 
+  /**
+   * Constructor de la clase
+   *
+   * @param vista Vista de la clase
+   * @throws IOException Error de lectura de archivo
+   */
   public cForgotPasswordPassword(ForgotPasswordPassword vista) throws IOException {
     this.vista = vista;
     this.lenguaje = new utilsLenguaje();
     initEvents();
   }
 
+  /**
+   * Inicializacion de eventos de la vista
+   */
   public void initEvents() {
     vista.getJButtonClose().addActionListener(
       e -> {
@@ -51,6 +60,9 @@ public class cForgotPasswordPassword {
       });
   }
 
+  /**
+   * Cambia la contraseña del usuario
+   */
   public void changePassword() {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.getCurrentSession();

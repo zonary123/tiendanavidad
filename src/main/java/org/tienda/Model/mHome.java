@@ -2,12 +2,11 @@ package org.tienda.Model;
 
 import org.tienda.Objects.Productos;
 import org.tienda.Views.Pruebas;
-import org.tienda.interfaces.models;
+import org.tienda.Interfaces.models;
 import org.tienda.Components.jPanelProducts;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,6 +15,11 @@ import java.util.List;
 public class mHome implements models {
   private Pruebas vista;
 
+  /**
+   * Constructor de la clase
+   *
+   * @param vista Vista de la clase
+   */
   public mHome(Pruebas vista) {
     this.vista = vista;
     actualizarLenguaje();
@@ -36,6 +40,11 @@ public class mHome implements models {
 
   }
 
+  /**
+   * Muestra los productos en la vista y construye los paneles
+   *
+   * @param productos Lista de productos
+   */
   public void mostrarProductos(List<Productos> productos) {
     JPanel panelProductos = this.vista.getContainer();
     panelProductos.setLayout(new GridLayout(0, 3, 16, 13));

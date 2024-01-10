@@ -4,13 +4,11 @@
  */
 package org.tienda.Model;
 
-import com.formdev.flatlaf.extras.FlatSVGIcon;
 import org.tienda.Utils.utilsTextField;
 import org.tienda.Views.ForgotPasswordPassword;
 import org.tienda.Utils.utilsLenguaje;
-import org.tienda.interfaces.models;
+import org.tienda.Interfaces.models;
 
-import javax.swing.*;
 import java.io.IOException;
 
 /**

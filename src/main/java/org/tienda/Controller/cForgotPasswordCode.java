@@ -24,12 +24,21 @@ public class cForgotPasswordCode {
   private static final int CODE_CLEAR_TIME = 60 * 1000;
 
 
+  /**
+   * Constructor de la clase
+   *
+   * @param vista
+   * @throws IOException
+   */
   public cForgotPasswordCode(ForgotPasswordCode vista) throws IOException {
     this.vista = vista;
     lenguaje = new utilsLenguaje();
     initEvents();
   }
 
+  /**
+   * Inicializacion de eventos de la vista
+   */
   private void initEvents() {
     vista.getJButtonConfirmar().addActionListener(e -> {
       if (comprobarCodigo()) {
@@ -52,6 +61,11 @@ public class cForgotPasswordCode {
     });
   }
 
+  /**
+   * Comprueba si el codigo introducido es correcto
+   *
+   * @return boolean true si es correcto, false si no
+   */
   public boolean comprobarCodigo() {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.getCurrentSession();
@@ -66,6 +80,9 @@ public class cForgotPasswordCode {
     }
   }
 
+  /**
+   * Borra el codigo de la base de datos
+   */
   public void borrarCodigo() {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.getCurrentSession();
