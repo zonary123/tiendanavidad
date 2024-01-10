@@ -23,17 +23,9 @@ public class hibernateUtil {
    * @return SessionFactory
    */
   public static SessionFactory buildSessionFactory() {
-    try {
-      Configuration configuration = new Configuration();
-      configuration.configure(
-        "hibernate.cfg.xml");
-      return configuration.buildSessionFactory();
-    } catch (Throwable ex) {
-      System.err.println("No pudo establecerse la conexion con la base de datos");
-      JOptionPane.showMessageDialog(null, "No pudo establecerse la conexion con la base de datos", "Error", JOptionPane.INFORMATION_MESSAGE);
-      throw new RuntimeException(ex);
-    }
-
+    Configuration configuration = new Configuration();
+    configuration.configure(
+      "hibernate.cfg.xml");
+    return configuration.buildSessionFactory();
   }
-
 }

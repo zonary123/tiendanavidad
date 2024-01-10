@@ -2,8 +2,13 @@ package org.tienda.Objects;
 // Generated 21 dic 2023 17:36:10 by Hibernate Tools 6.3.1.Final
 
 import lombok.Data;
+import lombok.ToString;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.tienda.Controller.hibernateUtil;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -12,6 +17,7 @@ import java.util.Set;
 @Entity
 @Table(name = "productos")
 @Data
+@ToString(exclude = {"imagen"})
 public class Productos {
 
   @Id
@@ -46,4 +52,18 @@ public class Productos {
   @OneToMany(mappedBy = "productos", fetch = FetchType.LAZY)
   private Set<Compras> comprases;
 
+
+  public static List<Productos> getProductos() throws NoResultException {
+    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    Session session = sessionFactory.getCurrentSession();
+    session.beginTransaction();
+    return session.createQuery("from Productos ", Productos.class).list();
+  }
+
+  public static Productos findById(int id) throws NoResultException {
+    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    Session session = sessionFactory.getCurrentSession();
+    session.beginTransaction();
+    return session.createQuery("from Productos p WHERE p.idproducto = :id", Productos.class).setParameter("id", id).getSingleResult();
+  }
 }

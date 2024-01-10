@@ -2,6 +2,9 @@ package org.tienda.Objects;
 
 import lombok.Data;
 import lombok.ToString;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.tienda.Controller.hibernateUtil;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -97,5 +100,19 @@ public class Usuarios implements java.io.Serializable {
     this.activacion = activacion;
     this.codigo = codigo;
   }
+  
 
+  public static Usuarios findById(int s) throws NoResultException {
+    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    Session session = sessionFactory.getCurrentSession();
+    session.beginTransaction();
+    return session.createQuery("from Usuarios u WHERE id = :id", Usuarios.class).setParameter("id", s).getSingleResult();
+  }
+
+  public static Usuarios findByUsernameOrEmail(String s) throws NoResultException {
+    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    Session session = sessionFactory.getCurrentSession();
+    session.beginTransaction();
+    return session.createQuery("SELECT u FROM Usuarios u WHERE username = :username", Usuarios.class).setParameter("username", s).getSingleResult();
+  }
 }
