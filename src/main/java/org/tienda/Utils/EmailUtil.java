@@ -20,8 +20,8 @@ import javax.mail.internet.MimeMessage;
  * @author Carlos Varas Alonso
  */
 public class EmailUtil {
-  private final static String FROMEMAIL = "carlos.varalo@educa.jcyl.es";
-  private final static String PASSWORD = "tontodel123";
+  private final static String FROMEMAIL = "carlosvarasalonso.clases@gmail.com";
+  private final static String PASSWORD = "kaptgyvimqwszdva";
   private final static utilsLenguaje lenguaje;
 
   static {
@@ -41,7 +41,7 @@ public class EmailUtil {
    * @param body    el cuerpo del mensaje
    * @throws MessagingException el error de mensajeria
    */
-  public static void sendEmail(Session session, String toEmail, String subject, String body) throws MessagingException {
+  public static void sendEmail(Session session, String toEmail, String subject, String body) {
     try {
       MimeMessage msg = new MimeMessage(session);
       msg.addHeader("Content-type", "text/HTML; charset-UTF-8");
@@ -67,12 +67,14 @@ public class EmailUtil {
    * @throws MessagingException el error de mensajeria
    * @throws IOException        el error de entrada y salida
    */
-  public static void confMail(Usuarios u) throws MessagingException, IOException {
+  public static void confMail(Usuarios u) throws IOException {
     Properties props = new Properties();
-    props.put("mail.smtp.host", "smtp.office365.com");
+    props.put("mail.smtp.host", "smtp.gmail.com");
+    props.put("mail.smtp.starttls.enable", "true");
     props.put("mail.smtp.port", "587");
     props.put("mail.smtp.auth", "true");
-    props.put("mail.smtp.starttls.enable", "true");
+    props.put("mail.smtp.user", FROMEMAIL);
+    props.put("mail.smtp.ssl.enable", "TLSv1.2");
 
     Authenticator auth = new Authenticator() {
       protected PasswordAuthentication getPasswordAuthentication() {

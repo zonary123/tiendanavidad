@@ -4,285 +4,146 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c118b3c5-02f1-461f-8e3e-749fcbeb622f" name="Changes" comment="Author in all">
-      <change afterPath="$PROJECT_DIR$/TODO.MD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/tienda/DB/Alimentacion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/tienda/DB/Estructura.java" afterDir="false" />
+    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/HomeUser.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/HomeUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2644d447-cdbb-4a59-be02-3fd8ca276c06.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2644d447-cdbb-4a59-be02-3fd8ca276c06/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2644d447-cdbb-4a59-be02-3fd8ca276c06/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2644d447-cdbb-4a59-be02-3fd8ca276c06/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2644d447-cdbb-4a59-be02-3fd8ca276c06/storage_v2/_src_/schema/tienda.217pyw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/89dcdf8b-33f8-4a70-b4f0-28c4548430b0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/89dcdf8b-33f8-4a70-b4f0-28c4548430b0/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/89dcdf8b-33f8-4a70-b4f0-28c4548430b0/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/89dcdf8b-33f8-4a70-b4f0-28c4548430b0/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/89dcdf8b-33f8-4a70-b4f0-28c4548430b0/storage_v2/_src_/schema/tienda.217pyw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f261b010-c722-4a19-b6fe-6ee04d7f70b9.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f261b010-c722-4a19-b6fe-6ee04d7f70b9/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f261b010-c722-4a19-b6fe-6ee04d7f70b9/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f261b010-c722-4a19-b6fe-6ee04d7f70b9/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f261b010-c722-4a19-b6fe-6ee04d7f70b9/storage_v2/_src_/schema/tienda.217pyw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_12_2023_20_58_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_12_2023_20_58__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_17_25_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_17_25__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/cForgotPasswordCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/cForgotPasswordCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/cForgotPasswordEmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/cForgotPasswordEmail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/cForgotPasswordPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/cForgotPasswordPassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/controllerHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/controllerHome.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/controllerLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/controllerLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/controllerRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/controllerRegister.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/hibernateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/hibernateUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/mHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/mHome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/modelForgotPasswordCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/modelForgotPasswordCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/modelForgotPasswordEmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/modelForgotPasswordEmail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/modelForgotPasswordPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/modelForgotPasswordPassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/modelRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/modelRegister.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Objects/Carrito.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Objects/Carrito.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Utils/EmailUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Utils/EmailUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Utils/utilsLenguaje.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Utils/utilsLenguaje.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Utils/utilsTextField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Utils/utilsTextField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/interfaces/models.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Interfaces/models.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/estructura.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/estructura.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/configuracion.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/configuracion.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tiendanavidad.iml" beforeDir="false" afterPath="$PROJECT_DIR$/tiendanavidad.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="HTML File" />
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="FormatOnSaveOptions">
-    <option name="myRunOnSave" value="true" />
-  </component>
-  <component name="Git.Pull.Settings">
-    <option name="OPTIONS">
-      <set>
-        <option value="REBASE" />
-      </set>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
   </component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 3
+  &quot;associatedIndex&quot;: 4
 }</component>
-  <component name="ProjectId" id="2ZoYgSGexZUy9q91cuR8NqTVqTs" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2aleWaC5JSrbEO5B2eAppzEGnzd" />
   <component name="ProjectViewState">
+    <option name="abbreviatePackageNames" value="true" />
+    <option name="autoscrollFromSource" value="true" />
+    <option name="flattenPackages" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Correo.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Estructura.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ForgotPasswordPassword.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Login.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Pruebas.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Tienda.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;Application.cForgotPasswordMail.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.controllerHomeTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.controllerHomeTest.getProductosCategoriasTest.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.controllerHomeTest.productos.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Alumno/Desktop/tiendanavidad/src/main/java/org/tienda&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;fileTemplates&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\carlos\\AppData\\Local\\Programs\\IntelliJ IDEA Ultimate\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Pruebas.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Alumno/Desktop/tiendanavidad",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
+    ]
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Alumno\Desktop\tiendanavidad\src\main\java\org\tienda" />
-      <recent name="C:\Users\Alumno\Desktop\tiendanavidad\src\main\resources" />
-      <recent name="C:\Users\Alumno\Desktop\tiendanavidad\src\main\java\org\tienda\Objects" />
-      <recent name="C:\Users\Alumno\Desktop\tiendanavidad\src\main\resources\Model" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Alumno\Desktop\tiendanavidad\src\main\resources" />
-      <recent name="C:\Users\Alumno\Desktop\tiendanavidad\src\main\java\org\tienda" />
-      <recent name="C:\Users\Alumno\Desktop\tiendanavidad\src\main\resources\Model" />
-      <recent name="C:\Users\Alumno\Desktop\tiendanavidad\src\main\java\org\tienda\Objects" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="org.tienda.Models" />
-      <recent name="org.tienda.Views" />
-    </key>
-  </component>
+}]]></component>
   <component name="RunManager">
-    <configuration name="Correo" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="org.tienda.Controller.cForgotPasswordEmail" />
-      <module name="tiendanavidad" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Pruebas" type="Application" factoryName="Application">
+    <configuration name="Pruebas" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.tienda.Views.Pruebas" />
       <module name="tiendanavidad" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Tienda" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="org.tienda.Views.Login" />
-      <module name="tiendanavidad" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="controllerHomeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="tiendanavidad" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.tienda.Controller.*" />
+          <option name="PATTERN" value="org.tienda.Views.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.tienda.Controller" />
-      <option name="MAIN_CLASS_NAME" value="org.tienda.Controller.controllerHomeTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="controllerHomeTest.productos" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="tiendanavidad" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.tienda.Controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.tienda.Controller" />
-      <option name="MAIN_CLASS_NAME" value="org.tienda.Controller.controllerHomeTest" />
-      <option name="METHOD_NAME" value="productos" />
-      <option name="TEST_OBJECT" value="method" />
+    <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Application.Tienda" />
-      <item itemvalue="Application.Correo" />
-      <item itemvalue="Application.Pruebas" />
-      <item itemvalue="JUnit.controllerHomeTest" />
-      <item itemvalue="JUnit.controllerHomeTest.productos" />
-    </list>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.controllerHomeTest" />
-        <item itemvalue="JUnit.controllerHomeTest.productos" />
+        <item itemvalue="Application.Pruebas" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.9-corretto-17.0.9-f644763e9732-ebaef533" />
+        <option value="jdk-17.0.9-corretto-17.0.9-3183f394aec4-8f899f12" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c118b3c5-02f1-461f-8e3e-749fcbeb622f" name="Changes" comment="arreglos" />
-      <created>1703090010605</created>
+      <changelist id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="" />
+      <created>1704897626224</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1703090010605</updated>
-      <workItem from="1703090015930" duration="2160000" />
-      <workItem from="1703094054493" duration="3715000" />
-      <workItem from="1703175891465" duration="1618000" />
-      <workItem from="1703177536937" duration="3467000" />
-      <workItem from="1703182204877" duration="2903000" />
-      <workItem from="1704725181422" duration="529000" />
-      <workItem from="1704727752416" duration="773000" />
-      <workItem from="1704729105125" duration="665000" />
-      <workItem from="1704729890455" duration="2085000" />
-      <workItem from="1704877552327" duration="4162000" />
-      <workItem from="1704881786102" duration="310000" />
+      <updated>1704897626224</updated>
+      <workItem from="1704897630865" duration="134000" />
+      <workItem from="1704897798929" duration="74000" />
+      <workItem from="1704897889558" duration="112000" />
+      <workItem from="1704899867917" duration="1535000" />
+      <workItem from="1704903550563" duration="2062000" />
     </task>
-    <task id="LOCAL-00001" summary="hibernate mapeado">
-      <option name="closed" value="true" />
-      <created>1703099746982</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1703099746982</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Hibernate arreglado. Por ahora (Los errores en el futuro los arreglara mi yo del futuro)">
-      <option name="closed" value="true" />
-      <created>1703181133978</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1703181133978</updated>
-    </task>
-    <task id="LOCAL-00003" summary="se me olvido añadirlo al commit anterior">
-      <option name="closed" value="true" />
-      <created>1703181208190</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1703181208190</updated>
-    </task>
-    <task id="LOCAL-00004" summary="mHome, cHome, componente Productos, hecho muestra los productos">
-      <option name="closed" value="true" />
-      <created>1704864591284</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1704864591284</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Author in all">
-      <option name="closed" value="true" />
-      <created>1704879898911</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1704879898912</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="arreglos" />
-    <MESSAGE value="hibernate mapeado" />
-    <MESSAGE value="Hibernate arreglado. Por ahora (Los errores en el futuro los arreglara mi yo del futuro)" />
-    <MESSAGE value="se me olvido añadirlo al commit anterior" />
-    <MESSAGE value="mHome, cHome, componente Productos, hecho muestra los productos" />
-    <MESSAGE value="Author in all" />
-    <option name="LAST_COMMIT_MESSAGE" value="Author in all" />
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>

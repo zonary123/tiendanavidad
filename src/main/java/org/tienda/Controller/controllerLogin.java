@@ -8,11 +8,12 @@ import javax.swing.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.mindrot.jbcrypt.BCrypt;
+import org.tienda.Objects.Usuarios;
 import org.tienda.Utils.utilsLenguaje;
 import org.tienda.Views.ForgotPasswordEmail;
+import org.tienda.Views.HomeUser;
 import org.tienda.Views.Login;
 import org.tienda.Views.Register;
-import org.tienda.Objects.Usuarios;
 
 /**
  * @author Carlos Varas Alonso
@@ -21,6 +22,7 @@ public class controllerLogin {
 
   private final Login login;
   private final utilsLenguaje lenguaje;
+  private Usuarios usuario;
 
   /**
    * Instantiates a new Controller login.
@@ -77,6 +79,9 @@ public class controllerLogin {
         JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("login.joptionpanel.notexist"), lenguaje.getMensaje().getString("login.joptionpanel.title"), JOptionPane.ERROR_MESSAGE);
       } else if (Boolean.TRUE.equals(validarCredenciales(login.getJTextFieldUsername().getText(), login.getJPasswordFieldPassword().getPassword()))) {
         JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("login.joptionpanel.true.credenciales"), lenguaje.getMensaje().getString("login.joptionpanel.title"), JOptionPane.INFORMATION_MESSAGE);
+        login.removeAll();
+        login.dispose();
+        new HomeUser(usuario).setVisible(true);
       } else {
         JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("login.joptionpanel.false.credenciales"), lenguaje.getMensaje().getString("login.joptionpanel.title"), JOptionPane.ERROR_MESSAGE);
       }
@@ -108,7 +113,6 @@ public class controllerLogin {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.getCurrentSession();
     session.beginTransaction();
-    Usuarios usuario;
 
     try {
       String query = "SELECT u FROM Usuarios u WHERE u.username = :username OR u.email = :username AND u.activacion = true";
@@ -121,12 +125,12 @@ public class controllerLogin {
     System.out.println(usuario);
     if (!BCrypt.checkpw(String.valueOf(password), usuario.getPassword())) {
       return false;
-
     }
 
     session.getTransaction().commit();
     session.close();
     sessionFactory.close();
+
     return true;
   }
 
