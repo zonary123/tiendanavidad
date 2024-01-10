@@ -24,4 +24,9 @@ hs_err_pid*
 replay_pid*
 /target/
 /nbproject/
-/.idea/
+
+# IntelliJ project folder
+.idea/
+
+# Files
+*.env

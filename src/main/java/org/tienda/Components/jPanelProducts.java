@@ -5,20 +5,36 @@
 package org.tienda.Components;
 
 import com.formdev.flatlaf.FlatIntelliJLaf;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import org.tienda.Objects.Productos;
 
 
 /**
  * @author Carlos Varas Alonso
  */
+@Data
+@EqualsAndHashCode(callSuper = true)
+@Getter
+@Setter
 public class jPanelProducts extends javax.swing.JPanel {
 
   /**
    * Creates new form jPanelProducts
    */
-  public jPanelProducts() {
-    FlatIntelliJLaf.setup();
-    this.putClientProperty("Component.arc", 999);
+  public jPanelProducts(Productos producto) {
     initComponents();
+    setSize(350, 450);
+    setDatos(producto);
+  }
+
+  private void setDatos(Productos producto) {
+    Nombre.setText(producto.getNombre() == null ? "undefined" : producto.getNombre());
+    Precio.setText(String.valueOf(producto.getPrecio()));
+    Descripcion.setText(producto.getDescripcion() == null ? "undefined" : producto.getDescripcion());
+
   }
 
   /**
@@ -31,11 +47,57 @@ public class jPanelProducts extends javax.swing.JPanel {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
-    setBackground(new java.awt.Color(255, 255, 255));
+    jButton1 = new javax.swing.JButton();
+    IMG = new javax.swing.JLabel();
+    informacion = new javax.swing.JPanel();
+    Nombre = new javax.swing.JLabel();
+    Precio = new javax.swing.JLabel();
+    Descripcion = new javax.swing.JLabel();
+    jButton2 = new javax.swing.JButton();
+
+    jButton1.setText("jButton1");
+
+    setBackground(new java.awt.Color(231, 231, 231));
     setPreferredSize(new java.awt.Dimension(350, 450));
     setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+    IMG.setBackground(new java.awt.Color(157, 157, 157));
+    IMG.setText("IMG");
+    IMG.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+    add(IMG, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 300, 200));
+
+    informacion.setBackground(new java.awt.Color(231, 231, 231));
+    informacion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+    Nombre.setFont(new java.awt.Font("Inter SemiBold", 1, 24)); // NOI18N
+    Nombre.setText("Nombre");
+    informacion.add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 17, -1, -1));
+
+    Precio.setFont(new java.awt.Font("Inter SemiBold", 0, 20)); // NOI18N
+    Precio.setForeground(new java.awt.Color(87, 93, 251));
+    Precio.setText("200€");
+    Precio.setPreferredSize(new java.awt.Dimension(53, 15));
+    informacion.add(Precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 26, -1, -1));
+
+    Descripcion.setText("Descripcion");
+    informacion.add(Descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 56, 300, 78));
+
+    add(informacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 235, 300, 134));
+
+    jButton2.setBackground(new java.awt.Color(15, 109, 142));
+    jButton2.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
+    jButton2.setForeground(new java.awt.Color(255, 255, 255));
+    jButton2.setText("Comprar");
+    add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 403, 302, 35));
   }// </editor-fold>//GEN-END:initComponents
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
+  private javax.swing.JLabel Descripcion;
+  private javax.swing.JLabel IMG;
+  private javax.swing.JLabel Nombre;
+  private javax.swing.JLabel Precio;
+  private javax.swing.JPanel informacion;
+  private javax.swing.JButton jButton1;
+  private javax.swing.JButton jButton2;
   // End of variables declaration//GEN-END:variables
 }

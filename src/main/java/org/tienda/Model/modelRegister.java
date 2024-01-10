@@ -4,13 +4,14 @@ import com.formdev.flatlaf.extras.FlatSVGIcon;
 import org.tienda.Utils.utilsLenguaje;
 import org.tienda.Utils.utilsTextField;
 import org.tienda.Views.Register;
+import org.tienda.interfaces.models;
 
 import javax.swing.*;
 
 /**
  * @author Carlos Varas Alonso
  */
-public class modelRegister {
+public class modelRegister implements models {
 
   private Register register;
   private utilsLenguaje lenguaje;
@@ -19,11 +20,11 @@ public class modelRegister {
   public modelRegister(Register register, utilsLenguaje lenguaje) {
     this.register = register;
     this.lenguaje = lenguaje;
-    cambiarIdioma();
+    actualizarLenguaje();
     cambiarTextFields();
   }
 
-  public void cambiarIdioma() {
+  @Override public void actualizarLenguaje() {
     register.getJLabelEmail().setText(lenguaje.getMensaje().getString("register.label.email"));
     register.getJLabelNombre().setText(lenguaje.getMensaje().getString("register.label.name"));
     register.getJLabelApellidos().setText(lenguaje.getMensaje().getString("register.label.lastname"));
@@ -57,5 +58,10 @@ public class modelRegister {
 
   public void actualizarBoton(JButton boton, int arc) {
     boton.putClientProperty("FlatLaf.style", "arc:" + arc);
+  }
+
+
+  @Override public void actualizarEstilos() {
+
   }
 }

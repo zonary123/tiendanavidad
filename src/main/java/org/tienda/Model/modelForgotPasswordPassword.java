@@ -8,6 +8,7 @@ import com.formdev.flatlaf.extras.FlatSVGIcon;
 import org.tienda.Utils.utilsTextField;
 import org.tienda.Views.ForgotPasswordPassword;
 import org.tienda.Utils.utilsLenguaje;
+import org.tienda.interfaces.models;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -15,7 +16,7 @@ import java.io.IOException;
 /**
  * @author Carlos Varas Alonso
  */
-public class modelForgotPasswordPassword {
+public class modelForgotPasswordPassword implements models {
   private ForgotPasswordPassword vista;
   private utilsLenguaje lenguaje;
   private utilsTextField textField = new utilsTextField();

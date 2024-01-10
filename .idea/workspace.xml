@@ -5,14 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c118b3c5-02f1-461f-8e3e-749fcbeb622f" name="Changes" comment="Arreglado cosas de hibernate">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/controllerHome.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/mHome.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/tienda/interfaces/models.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/2644d447-cdbb-4a59-be02-3fd8ca276c06.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2644d447-cdbb-4a59-be02-3fd8ca276c06.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/89dcdf8b-33f8-4a70-b4f0-28c4548430b0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/89dcdf8b-33f8-4a70-b4f0-28c4548430b0.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/cForgotPasswordPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/cForgotPasswordPassword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Components/jPanelProducts.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Components/jPanelProducts.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Components/jPanelProducts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Components/jPanelProducts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/modelForgotPasswordCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/modelForgotPasswordCode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/modelForgotPasswordEmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/modelForgotPasswordEmail.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/modelForgotPasswordPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/modelForgotPasswordPassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/estructura.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/estructura.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/modelRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/modelRegister.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Pruebas.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Pruebas.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Pruebas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Pruebas.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +31,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -55,8 +64,8 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
-    <option name="flattenPackages" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
@@ -64,6 +73,7 @@
     "Application.Correo.executor": "Run",
     "Application.ForgotPasswordPassword.executor": "Run",
     "Application.Login.executor": "Run",
+    "Application.Pruebas.executor": "Run",
     "Application.Tienda.executor": "Run",
     "Application.Unnamed.executor": "Run",
     "Application.cForgotPasswordMail.executor": "Run",
@@ -76,7 +86,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "AtomSelectConfig",
     "ts.external.directory.path": "C:\\Users\\carlos\\AppData\\Local\\Programs\\IntelliJ IDEA Ultimate\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
@@ -99,9 +109,16 @@
       <recent name="org.tienda.Views" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Pruebas">
     <configuration name="Correo" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="org.tienda.Controller.cForgotPasswordEmail" />
+      <module name="tiendanavidad" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Pruebas" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="org.tienda.Views.Pruebas" />
       <module name="tiendanavidad" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -117,6 +134,7 @@
     <list>
       <item itemvalue="Application.Tienda" />
       <item itemvalue="Application.Correo" />
+      <item itemvalue="Application.Pruebas" />
     </list>
   </component>
   <component name="SharedIndexes">

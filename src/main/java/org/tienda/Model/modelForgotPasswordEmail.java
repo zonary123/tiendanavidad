@@ -3,10 +3,11 @@ package org.tienda.Model;
 import org.tienda.Utils.utilsLenguaje;
 import org.tienda.Utils.utilsTextField;
 import org.tienda.Views.ForgotPasswordEmail;
+import org.tienda.interfaces.models;
 
 import java.io.IOException;
 
-public class modelForgotPasswordEmail {
+public class modelForgotPasswordEmail implements models {
   private utilsLenguaje lenguaje;
   private ForgotPasswordEmail vista;
   private utilsTextField TextField = new utilsTextField();
