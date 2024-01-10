@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+  "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-    <session-factory>
-        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost/tienda</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="hibernate.hbm2ddl.auto">none</property>
-        <property name="hibernate.search.autoregister_listeners">true</property>
-        <property name="hibernate.validator.apply_to_ddl">false</property>
-        <property name="hibernate.current_session_context_class">thread</property>
-        <property name="show_sql">true</property>
-        <property name="format_sql">true</property>
+  <session-factory>
+    <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost/tienda</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.hbm2ddl.auto">none</property>
+    <property name="hibernate.search.autoregister_listeners">true</property>
+    <property name="hibernate.validator.apply_to_ddl">false</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <property name="show_sql">true</property>
+    <property name="format_sql">false</property>
 
-        <!-- ! Clases mapeadas -->
-        <mapping class="org.tienda.Objects.Usuarios"/>
-        <mapping class="org.tienda.Objects.Carrito"/>
-        <mapping class="org.tienda.Objects.Compras"/>
-        <mapping class="org.tienda.Objects.Historialusuarios"/>
-        <mapping class="org.tienda.Objects.Productos"/>
-    </session-factory>
+    <!-- ! Clases mapeadas -->
+    <mapping class="org.tienda.Objects.Usuarios"/>
+    <mapping class="org.tienda.Objects.Carrito"/>
+    <mapping class="org.tienda.Objects.Compras"/>
+    <mapping class="org.tienda.Objects.Historialusuarios"/>
+    <mapping class="org.tienda.Objects.Productos"/>
+  </session-factory>
 </hibernate-configuration>

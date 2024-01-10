@@ -8,6 +8,9 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+/**
+ * @author Carlos Varas Alonso
+ */
 @Data
 @ToString(exclude = {"idusuario", "activacion", "imagen"})
 @Entity
@@ -16,40 +19,32 @@ public class Usuarios implements java.io.Serializable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "idusuario", insertable = false, updatable = false)
+  @Column(insertable = false, updatable = false)
   private Integer idusuario;
 
-  @Column(name = "username", unique = true, length = 30)
+  @Column(unique = true, length = 30)
   private String username;
 
-  @Column(name = "password", nullable = false, length = 100)
+  @Column(nullable = false, length = 100)
   private String password;
 
-  @Column(name = "nombre", nullable = false, length = 30)
+  @Column(nullable = false, length = 30)
   private String nombre;
 
-  @Column(name = "apellidos", length = 50)
+  @Column(length = 50)
   private String apellidos;
 
-  @Column(name = "email", unique = true, nullable = false, length = 75)
+  @Column(unique = true, nullable = false, length = 75)
   private String email;
-
-  @Column(name = "imagen")
   private byte[] imagen;
 
-  @Column(name = "lenguaje", nullable = false, length = 6)
+  @Column(nullable = false, length = 6)
   private String lenguaje;
-
-  @Column(name = "permisos")
   private String permisos;
-
-  @Column(name = "roles")
   private String roles;
 
-  @Column(name = "activacion", nullable = false)
+  @Column(nullable = false)
   private boolean activacion;
-
-  @Column(name = "codigo", length = 255)
   private String codigo;
 
   @OneToMany(mappedBy = "usuarios", cascade = CascadeType.ALL)

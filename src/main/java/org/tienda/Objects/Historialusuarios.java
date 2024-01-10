@@ -5,6 +5,9 @@ import java.sql.Timestamp;
 
 import lombok.Data;
 
+/**
+ * @author Carlos Varas Alonso
+ */
 @Entity
 @Table(name = "historialusuarios")
 @Data

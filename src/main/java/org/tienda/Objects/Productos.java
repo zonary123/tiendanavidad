@@ -6,6 +6,9 @@ import lombok.Data;
 import javax.persistence.*;
 import java.util.Set;
 
+/**
+ * @author Carlos Varas Alonso
+ */
 @Entity
 @Table(name = "productos")
 @Data
@@ -28,7 +31,7 @@ public class Productos {
   @Column(name = "descuento", precision = 12)
   private Float descuento;
 
-  @Column(name = "categoria", length = 30)
+  @Column(length = 30)
   private String categoria;
 
   @Column(name = "imagen")

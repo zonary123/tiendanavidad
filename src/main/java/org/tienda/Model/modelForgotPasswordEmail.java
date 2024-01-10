@@ -7,6 +7,9 @@ import org.tienda.interfaces.models;
 
 import java.io.IOException;
 
+/**
+ * @author Carlos Varas Alonso
+ */
 public class modelForgotPasswordEmail implements models {
   private utilsLenguaje lenguaje;
   private ForgotPasswordEmail vista;

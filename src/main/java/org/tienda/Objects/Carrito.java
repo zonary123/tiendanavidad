@@ -4,9 +4,13 @@ import lombok.Data;
 
 import javax.persistence.*;
 
+/**
+ * @author Carlos Varas Alonso
+ */
 @Data
 @Entity
 @Table(name = "carrito")
+
 public class Carrito {
 
   @EmbeddedId

@@ -18,7 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * @author carlos
+ * @author Carlos Varas Alonso
  */
 @Getter @Setter
 public class ForgotPasswordCode extends JFrame {

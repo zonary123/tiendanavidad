@@ -6,6 +6,6 @@ SELECT * FROM usuarios;
 
 
 INSERT INTO productos (nombre, descripcion, precio, descuento, categoria, imagen, stock)
-VALUES ('Cama', 'Cama de 3 plaza', 200.00, 0.00, 'Cama', NULL, 10);
+VALUES ('Cama', 'Cama de 3 plaza', 200.00, 0.00, 'mueble', NULL, 10);
 
 SELECT * FROM productos;

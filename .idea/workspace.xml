@@ -4,23 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c118b3c5-02f1-461f-8e3e-749fcbeb622f" name="Changes" comment="Arreglado cosas de hibernate">
-      <change afterPath="$PROJECT_DIR$/.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/controllerHome.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/mHome.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/tienda/interfaces/models.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2644d447-cdbb-4a59-be02-3fd8ca276c06.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2644d447-cdbb-4a59-be02-3fd8ca276c06.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/89dcdf8b-33f8-4a70-b4f0-28c4548430b0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/89dcdf8b-33f8-4a70-b4f0-28c4548430b0.xml" afterDir="false" />
+    <list default="true" id="c118b3c5-02f1-461f-8e3e-749fcbeb622f" name="Changes" comment="mHome, cHome, componente Productos, hecho muestra los productos">
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/tienda/Controller/controllerHomeTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Components/jPanelProducts.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Components/jPanelProducts.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Components/jPanelProducts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Components/jPanelProducts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/controllerHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/controllerHome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/mHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/mHome.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/modelForgotPasswordCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/modelForgotPasswordCode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/modelForgotPasswordEmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/modelForgotPasswordEmail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/modelForgotPasswordPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/modelForgotPasswordPassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/modelRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/modelRegister.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Pruebas.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Pruebas.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Objects/Carrito.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Objects/Carrito.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Objects/CarritoId.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Objects/CarritoId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Objects/Compras.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Objects/Compras.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Objects/ComprasId.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Objects/ComprasId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Objects/Historialusuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Objects/Historialusuarios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Objects/HistorialusuariosId.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Objects/HistorialusuariosId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Objects/Productos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Objects/Productos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Objects/Usuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Objects/Usuarios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/ForgotPasswordCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/ForgotPasswordCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/ForgotPasswordEmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/ForgotPasswordEmail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/ForgotPasswordPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/ForgotPasswordPassword.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Pruebas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Pruebas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/interfaces/models.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/interfaces/models.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/alimentacion.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/alimentacion.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +82,9 @@
     "Application.Tienda.executor": "Run",
     "Application.Unnamed.executor": "Run",
     "Application.cForgotPasswordMail.executor": "Run",
+    "JUnit.controllerHomeTest.executor": "Run",
+    "JUnit.controllerHomeTest.getProductosCategoriasTest.executor": "Debug",
+    "JUnit.controllerHomeTest.productos.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "ignore.virus.scanning.warn.message": "true",
@@ -86,7 +94,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "AtomSelectConfig",
+    "settings.editor.selected.configurable": "fileTemplates",
     "ts.external.directory.path": "C:\\Users\\carlos\\AppData\\Local\\Programs\\IntelliJ IDEA Ultimate\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
@@ -109,7 +117,7 @@
       <recent name="org.tienda.Views" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Pruebas">
+  <component name="RunManager" selected="JUnit.controllerHomeTest">
     <configuration name="Correo" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="org.tienda.Controller.cForgotPasswordEmail" />
       <module name="tiendanavidad" />
@@ -131,16 +139,55 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="controllerHomeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tiendanavidad" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.tienda.Controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.tienda.Controller" />
+      <option name="MAIN_CLASS_NAME" value="org.tienda.Controller.controllerHomeTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="controllerHomeTest.productos" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tiendanavidad" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.tienda.Controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.tienda.Controller" />
+      <option name="MAIN_CLASS_NAME" value="org.tienda.Controller.controllerHomeTest" />
+      <option name="METHOD_NAME" value="productos" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Tienda" />
       <item itemvalue="Application.Correo" />
       <item itemvalue="Application.Pruebas" />
+      <item itemvalue="JUnit.controllerHomeTest" />
+      <item itemvalue="JUnit.controllerHomeTest.productos" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.controllerHomeTest" />
+        <item itemvalue="JUnit.controllerHomeTest.productos" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.9-corretto-17.0.9-3183f394aec4-8f899f12" />
+        <option value="jdk-17.0.9-corretto-17.0.9-f644763e9732-ebaef533" />
       </set>
     </attachedChunks>
   </component>
@@ -161,6 +208,7 @@
       <workItem from="1704727752416" duration="773000" />
       <workItem from="1704729105125" duration="665000" />
       <workItem from="1704729890455" duration="2085000" />
+      <workItem from="1704877552327" duration="2224000" />
     </task>
     <task id="LOCAL-00001" summary="hibernate mapeado">
       <option name="closed" value="true" />
@@ -186,7 +234,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703181208190</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="mHome, cHome, componente Productos, hecho muestra los productos">
+      <option name="closed" value="true" />
+      <created>1704864591284</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1704864591284</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,7 +264,8 @@
     <MESSAGE value="hibernate mapeado" />
     <MESSAGE value="Hibernate arreglado. Por ahora (Los errores en el futuro los arreglara mi yo del futuro)" />
     <MESSAGE value="se me olvido añadirlo al commit anterior" />
-    <option name="LAST_COMMIT_MESSAGE" value="se me olvido añadirlo al commit anterior" />
+    <MESSAGE value="mHome, cHome, componente Productos, hecho muestra los productos" />
+    <option name="LAST_COMMIT_MESSAGE" value="mHome, cHome, componente Productos, hecho muestra los productos" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

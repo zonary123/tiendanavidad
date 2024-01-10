@@ -10,6 +10,9 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Carlos Varas Alonso
+ */
 public class mHome implements models {
   private Pruebas vista;
 
