@@ -1,16 +1,42 @@
 package org.tienda.Controller;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.tienda.Objects.Productos;
+import org.hibernate.engine.jdbc.Size;
+import org.tienda.Components.jPanelProducts;
+import org.tienda.Interfaces.controllers;
+import org.tienda.Model.Productos;
+import org.tienda.Views.HomeUser;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.List;
 
 /**
  * @author Carlos Varas Alonso
  */
-public class controllerHome {
-  public controllerHome() {
+public class controllerHome implements controllers {
+
+  private HomeUser vista;
+
+  public controllerHome(HomeUser vista) {
+    this.vista = vista;
+    initEvents();
+    mostrarProductos(Productos.findAll());
+    actualizarLenguaje();
+    actualizarEstilos();
+  }
+
+  @Override public void actualizarLenguaje() {
+
+  }
+
+  @Override public void actualizarEstilos() {
+    vista.getJLabelUsername().setPreferredSize(new Dimension( vista.getJLabelUsername().getWidth() - 30, vista.getJLabelUsername().getHeight()));
+
+    // ? Propiedades
+    // vista.getScrollContainerProducts().putClientProperty("FlatLaf.style", "arc: 16");
+    vista.getContainerProducts().putClientProperty("FlatLaf.style", "arc: 16");
+    vista.getHeader().putClientProperty("FlatLaf.style", "arc: 999");
+    vista.getUser().putClientProperty("FlatLaf.style", "arc: 999");
   }
 
   /**
@@ -19,28 +45,17 @@ public class controllerHome {
   public void initEvents() {
   }
 
-  /**
-   * Obtencion de todos los productos de la base de datos
-   *
-   * @return List<Productos>
-   */
-  public List<Productos> getProductos() {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
-    Session session = sessionFactory.getCurrentSession();
-    session.beginTransaction();
-    return session.createQuery("from Productos").list();
+  public void mostrarProductos(List<Productos> productos) {
+    JPanel panelProductos = this.vista.getContainerProducts();
+    panelProductos.setLayout(new GridLayout(0, 3, 16, 13));
+    panelProductos.removeAll();
+
+    for (Productos producto : productos) {
+      panelProductos.add(new jPanelProducts(producto));
+    }
+
+    panelProductos.revalidate();
+    panelProductos.repaint();
   }
 
-  /**
-   * Obtencion de todos los productos de la base de datos
-   *
-   * @param categoria Categoria de los productos
-   * @return List<Productos>
-   */
-  public List<Productos> getProductosCategories(String categoria) {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
-    Session session = sessionFactory.getCurrentSession();
-    session.beginTransaction();
-    return session.createQuery("from Productos p WHERE p.categoria = :categoria").setParameter("categoria", categoria).list();
-  }
 }

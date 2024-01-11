@@ -5,7 +5,7 @@
 package org.tienda.Utils;
 
 
-import org.tienda.Objects.Usuarios;
+import org.tienda.Model.Usuarios;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

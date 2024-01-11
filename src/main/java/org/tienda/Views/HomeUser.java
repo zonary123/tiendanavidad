@@ -4,18 +4,24 @@
  */
 package org.tienda.Views;
 
-import org.tienda.Objects.Usuarios;
+import lombok.Getter;
+import lombok.Setter;
+import org.tienda.Controller.controllerHome;
+import org.tienda.Model.Usuarios;
 
 /**
  * @author Carlos Varas Alonso
  */
-public class HomeUser extends javax.swing.JFrame {
+@Getter
+@Setter
+public class HomeUser extends javax.swing.JFrame{
 
   /**
    * Creates new form HomeUser
    */
   public HomeUser(Usuarios user) {
     initComponents();
+    controllerHome cHome = new controllerHome(this);
     jLabelUsername.setText(user.getUsername());
   }
 
@@ -26,17 +32,19 @@ public class HomeUser extends javax.swing.JFrame {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
-    jPanel1 = new javax.swing.JPanel();
+    Container = new javax.swing.JPanel();
     header = new javax.swing.JPanel();
     User = new javax.swing.JPanel();
     jLabel1 = new javax.swing.JLabel();
     jLabelUsername = new javax.swing.JLabel();
+    ScrollContainerProducts = new javax.swing.JScrollPane();
+    ContainerProducts = new javax.swing.JPanel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-    jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-    jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+    Container.setBackground(new java.awt.Color(255, 255, 255));
+    Container.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
     header.setBackground(new java.awt.Color(231, 231, 231));
     header.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -53,54 +61,25 @@ public class HomeUser extends javax.swing.JFrame {
 
     header.add(User, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 7, -1, 36));
 
-    jPanel1.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 10, 1410, 50));
+    Container.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 10, 1410, 50));
 
-    getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1445, 1000));
+    ScrollContainerProducts.setViewportView(ContainerProducts);
+
+    Container.add(ScrollContainerProducts, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 72, 1100, 916));
+
+    getContentPane().add(Container, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1445, 1000));
 
     pack();
     setLocationRelativeTo(null);
   }// </editor-fold>//GEN-END:initComponents
 
-  /**
-   * @param args the command line arguments
-   */
-  public static void main(String args[]) {
-    /* Set the Nimbus look and feel */
-    //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-    /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-     * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-     */
-    try {
-      for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-        if ("Nimbus".equals(info.getName())) {
-          javax.swing.UIManager.setLookAndFeel(info.getClassName());
-          break;
-        }
-      }
-    } catch (ClassNotFoundException ex) {
-      java.util.logging.Logger.getLogger(HomeUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (InstantiationException ex) {
-      java.util.logging.Logger.getLogger(HomeUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (IllegalAccessException ex) {
-      java.util.logging.Logger.getLogger(HomeUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-      java.util.logging.Logger.getLogger(HomeUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    }
-    //</editor-fold>
-
-    /* Create and display the form */
-    java.awt.EventQueue.invokeLater(new Runnable() {
-      public void run() {
-        new HomeUser(null).setVisible(true);
-      }
-    });
-  }
-
   // Variables declaration - do not modify//GEN-BEGIN:variables
+  private javax.swing.JPanel Container;
+  private javax.swing.JPanel ContainerProducts;
+  private javax.swing.JScrollPane ScrollContainerProducts;
   private javax.swing.JPanel User;
   private javax.swing.JPanel header;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabelUsername;
-  private javax.swing.JPanel jPanel1;
   // End of variables declaration//GEN-END:variables
 }

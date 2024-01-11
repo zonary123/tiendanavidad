@@ -8,8 +8,7 @@ package org.tienda.Views;
 import lombok.Getter;
 import lombok.Setter;
 import org.tienda.Controller.cForgotPasswordCode;
-import org.tienda.Model.modelForgotPasswordCode;
-import org.tienda.Objects.Usuarios;
+import org.tienda.Model.Usuarios;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,8 +21,7 @@ import java.util.logging.Logger;
  */
 @Getter @Setter
 public class ForgotPasswordCode extends JFrame {
-  private cForgotPasswordCode controller = null;
-  private modelForgotPasswordCode modelo = null;
+  private cForgotPasswordCode controller;
   private Usuarios usuario;
 
   /**
@@ -34,7 +32,6 @@ public class ForgotPasswordCode extends JFrame {
     this.usuario = u;
     try {
       controller = new cForgotPasswordCode(this);
-      modelo = new modelForgotPasswordCode(this);
     } catch (IOException e) {
       throw new RuntimeException(e);
     }
@@ -118,45 +115,7 @@ public class ForgotPasswordCode extends JFrame {
     pack();
     setLocationRelativeTo(null);
   }// </editor-fold>//GEN-END:initComponents
-
-  /**
-   * @param args the command line arguments
-   */
-  public static void main(String args[]) {
-    /* Set the Nimbus look and feel */
-    //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-    /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-     * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-     */
-    try {
-      for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-        if ("Nimbus".equals(info.getName())) {
-          UIManager.setLookAndFeel(info.getClassName());
-          break;
-        }
-      }
-    } catch (ClassNotFoundException ex) {
-      Logger.getLogger(ForgotPasswordCode.class.getName()).log(Level.SEVERE, null, ex);
-    } catch (InstantiationException ex) {
-      Logger.getLogger(ForgotPasswordCode.class.getName()).log(Level.SEVERE, null, ex);
-    } catch (IllegalAccessException ex) {
-      Logger.getLogger(ForgotPasswordCode.class.getName()).log(Level.SEVERE, null, ex);
-    } catch (UnsupportedLookAndFeelException ex) {
-      Logger.getLogger(ForgotPasswordCode.class.getName()).log(Level.SEVERE, null, ex);
-    }
-    //</editor-fold>
-    //</editor-fold>
-    //</editor-fold>
-    //</editor-fold>
-
-    /* Create and display the form */
-    EventQueue.invokeLater(new Runnable() {
-      public void run() {
-        new ForgotPasswordCode(null).setVisible(true);
-      }
-    });
-  }
-
+  
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JPanel Container;
   private javax.swing.JButton jButtonBack;

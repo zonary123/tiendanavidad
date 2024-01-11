@@ -1,23 +1,24 @@
-package org.tienda.Objects;
+package org.tienda.Model;
 // Generated 21 dic 2023 17:36:10 by Hibernate Tools 6.3.1.Final
 
 import lombok.Data;
 import lombok.ToString;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.tienda.Controller.hibernateUtil;
 
 import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
+
+import org.tienda.Controller.hibernateUtil;
 
 /**
  * @author Carlos Varas Alonso
  */
 @Entity
 @Table(name = "productos")
+@ToString(exclude = {"idproducto"})
 @Data
-@ToString(exclude = {"imagen"})
 public class Productos {
 
   @Id
@@ -52,18 +53,24 @@ public class Productos {
   @OneToMany(mappedBy = "productos", fetch = FetchType.LAZY)
   private Set<Compras> comprases;
 
-
-  public static List<Productos> getProductos() throws NoResultException {
+  public static List<Productos> findAll() throws NoResultException {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.getCurrentSession();
     session.beginTransaction();
-    return session.createQuery("from Productos ", Productos.class).list();
+    return session.createQuery("from Productos").getResultList();
   }
 
-  public static Productos findById(int id) throws NoResultException {
+  public static Productos findbyId(int i) throws NoResultException {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.getCurrentSession();
     session.beginTransaction();
-    return session.createQuery("from Productos p WHERE p.idproducto = :id", Productos.class).setParameter("id", id).getSingleResult();
+    return session.get(Productos.class, i);
+  }
+
+  public static List findByCategoria(String cat) throws NoResultException {
+    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    Session session = sessionFactory.getCurrentSession();
+    session.beginTransaction();
+    return session.createQuery("from Productos p where p.categoria = :categoria").setParameter("categoria", cat).getResultList();
   }
 }

@@ -30,4 +30,10 @@ public class utilsLenguaje {
     this.mensaje = ResourceBundle.getBundle(this.fichero, this.local);
   }
 
+  public utilsLenguaje(String lenguaje) throws IOException {
+    this.local = new Locale(new Locale(lenguaje).getLanguage());
+    this.mensaje = ResourceBundle.getBundle("lang/" + lenguaje, this.local);
+  }
+
+
 }

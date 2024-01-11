@@ -4,12 +4,11 @@
  */
 package org.tienda.Components;
 
-import com.formdev.flatlaf.FlatIntelliJLaf;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import org.tienda.Objects.Productos;
+import org.tienda.Model.Productos;
 
 
 /**
@@ -28,13 +27,13 @@ public class jPanelProducts extends javax.swing.JPanel {
     initComponents();
     setSize(350, 450);
     setDatos(producto);
+    putClientProperty("FlatLaf.style", "arc: 16");
   }
 
   private void setDatos(Productos producto) {
     Nombre.setText(producto.getNombre() == null ? "undefined" : producto.getNombre());
     Precio.setText(String.valueOf(producto.getPrecio()));
     Descripcion.setText(producto.getDescripcion() == null ? "undefined" : producto.getDescripcion());
-
   }
 
   /**
