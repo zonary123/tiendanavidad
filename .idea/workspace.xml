@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c118b3c5-02f1-461f-8e3e-749fcbeb622f" name="Changes" comment="Todos los controladores y modelos correctamente funcionando.">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
+    <list default="true" id="c118b3c5-02f1-461f-8e3e-749fcbeb622f" name="Changes" comment="un main">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/tienda/Controller/controllerHomeTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Utils/utilsAccesibilidad.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Utils/utilsLenguaje.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Utils/utilsLenguaje.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,10 +62,13 @@
   <component name="ProjectViewState">
     <option name="abbreviatePackageNames" value="true" />
     <option name="autoscrollFromSource" value="true" />
+    <option name="flattenPackages" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
+    <option name="sortByType" value="true" />
+    <option name="sortKey" value="BY_TYPE" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
@@ -176,7 +178,7 @@
       <workItem from="1704729890455" duration="2085000" />
       <workItem from="1704877552327" duration="4162000" />
       <workItem from="1704881786102" duration="310000" />
-      <workItem from="1704951470707" duration="3798000" />
+      <workItem from="1704951470707" duration="5129000" />
     </task>
     <task id="LOCAL-00001" summary="hibernate mapeado">
       <option name="closed" value="true" />
@@ -242,7 +244,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704953892307</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="un main">
+      <option name="closed" value="true" />
+      <created>1704955439910</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1704955439910</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,7 +279,8 @@
     <MESSAGE value="controllerRegister -&gt; Arreglado" />
     <MESSAGE value="Todos los controladores corregidos" />
     <MESSAGE value="Todos los controladores y modelos correctamente funcionando." />
-    <option name="LAST_COMMIT_MESSAGE" value="Todos los controladores y modelos correctamente funcionando." />
+    <MESSAGE value="un main" />
+    <option name="LAST_COMMIT_MESSAGE" value="un main" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
