@@ -17,6 +17,7 @@ import lombok.Getter;
 import org.tienda.Controller.controllerLogin;
 import org.tienda.DB.Alimentacion;
 import org.tienda.DB.Estructura;
+import org.tienda.Model.Usuarios;
 import org.tienda.Utils.utilsLenguaje;
 
 /**
@@ -33,8 +34,8 @@ public class Login extends javax.swing.JFrame {
    */
   public Login(String user) {
     try {
-      Estructura estructura = new Estructura();
-      Alimentacion alimentacion = new Alimentacion();
+      new Estructura();
+      new Alimentacion();
       FlatIntelliJLaf.setPreferredFontFamily(Font.createFont(Font.PLAIN, new File("src/main/resources/font/inter/Inter-VariableFont_slnt,wght.ttf")).getFontName());
     } catch (IOException | FontFormatException e) {
       throw new RuntimeException(e);
@@ -42,6 +43,7 @@ public class Login extends javax.swing.JFrame {
     FlatIntelliJLaf.setup();
     initComponents();
     this.cLogin = new controllerLogin(this);
+    jTextFieldUsername.setText(user);
   }
 
 
