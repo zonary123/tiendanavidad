@@ -9,7 +9,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.tienda.Controller.cForgotPasswordPassword;
 import org.tienda.Model.modelForgotPasswordPassword;
-import org.tienda.Objects.Usuarios;
+import org.tienda.Model.Usuarios;
 
 import javax.swing.*;
 import java.awt.*;

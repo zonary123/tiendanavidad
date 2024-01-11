@@ -6,7 +6,6 @@ package org.tienda.Views;
 
 import lombok.Getter;
 import org.tienda.Controller.controllerRegister;
-import org.tienda.Model.modelRegister;
 import org.tienda.Utils.utilsLenguaje;
 
 import java.io.IOException;
@@ -17,7 +16,6 @@ import java.io.IOException;
 @Getter
 public class Register extends javax.swing.JFrame {
   private final controllerRegister cRegister;
-  private final modelRegister mRegister;
   private utilsLenguaje lenguaje;
 
   /**
@@ -32,8 +30,7 @@ public class Register extends javax.swing.JFrame {
       System.err.println(e.getMessage());
     }
     this.cRegister = new controllerRegister(this, lenguaje);
-    this.mRegister = new modelRegister(this, lenguaje);
-    mRegister.actualizarBoton(getJButtonClose(), 999);
+    cRegister.actualizarBoton(getJButtonClose(), 999);
     getJPanelLogin().putClientProperty("FlatLaf.style", "arc:" + 8);
   }
 

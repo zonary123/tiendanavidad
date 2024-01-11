@@ -5,7 +5,7 @@ import org.hibernate.SessionFactory;
 
 import org.mindrot.jbcrypt.BCrypt;
 import org.tienda.Utils.EmailUtil;
-import org.tienda.Objects.Usuarios;
+import org.tienda.Model.Usuarios;
 import org.tienda.Utils.utilsLenguaje;
 import org.tienda.Views.ForgotPasswordCode;
 import org.tienda.Views.ForgotPasswordEmail;
@@ -13,8 +13,6 @@ import org.tienda.Views.Login;
 
 import javax.mail.MessagingException;
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.Random;
 

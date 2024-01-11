@@ -4,7 +4,7 @@
  */
 package org.tienda.Views;
 
-import org.tienda.Objects.Usuarios;
+import org.tienda.Model.Usuarios;
 
 /**
  * @author Carlos Varas Alonso

@@ -1,8 +1,7 @@
 package org.tienda.Model;
 
-import org.tienda.Objects.Productos;
 import org.tienda.Views.Pruebas;
-import org.tienda.Interfaces.models;
+import org.tienda.Interfaces.controllers;
 import org.tienda.Components.jPanelProducts;
 
 import javax.swing.*;
@@ -12,7 +11,7 @@ import java.util.List;
 /**
  * @author Carlos Varas Alonso
  */
-public class mHome implements models {
+public class mHome implements controllers {
   private Pruebas vista;
 
   /**

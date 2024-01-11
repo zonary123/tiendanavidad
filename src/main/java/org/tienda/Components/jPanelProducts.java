@@ -4,12 +4,11 @@
  */
 package org.tienda.Components;
 
-import com.formdev.flatlaf.FlatIntelliJLaf;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import org.tienda.Objects.Productos;
+import org.tienda.Model.Productos;
 
 
 /**

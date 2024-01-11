@@ -8,7 +8,7 @@ import javax.swing.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.mindrot.jbcrypt.BCrypt;
-import org.tienda.Objects.Usuarios;
+import org.tienda.Model.Usuarios;
 import org.tienda.Utils.utilsLenguaje;
 import org.tienda.Views.ForgotPasswordEmail;
 import org.tienda.Views.HomeUser;

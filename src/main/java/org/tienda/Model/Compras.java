@@ -1,11 +1,10 @@
-package org.tienda.Objects;
+package org.tienda.Model;
 // Generated 21 dic 2023 17:36:10 by Hibernate Tools 6.3.1.Final
 
 import lombok.Data;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.sql.Timestamp;
 
 /**
  * @author Carlos Varas Alonso

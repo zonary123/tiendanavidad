@@ -1,4 +1,4 @@
-package org.tienda.Objects;
+package org.tienda.Model;
 
 import lombok.Data;
 

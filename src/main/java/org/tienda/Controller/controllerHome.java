@@ -2,7 +2,7 @@ package org.tienda.Controller;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.tienda.Objects.Productos;
+import org.tienda.Model.Productos;
 
 import java.util.List;
 
