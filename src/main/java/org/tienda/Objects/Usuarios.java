@@ -100,16 +100,16 @@ public class Usuarios implements java.io.Serializable {
     this.activacion = activacion;
     this.codigo = codigo;
   }
-  
 
-  public static Usuarios findById(int s) throws NoResultException {
+
+  public static Usuarios findById(int id) throws NoResultException {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.getCurrentSession();
     session.beginTransaction();
-    return session.createQuery("from Usuarios u WHERE id = :id", Usuarios.class).setParameter("id", s).getSingleResult();
+    return session.createQuery("from Usuarios u WHERE id = :id", Usuarios.class).setParameter("id", id).getSingleResult();
   }
 
-  public static Usuarios findByUsernameOrEmail(String s) throws NoResultException {
+  public static Usuarios findByUsernameOrEmail(String s). throws NoResultException {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.getCurrentSession();
     session.beginTransaction();
