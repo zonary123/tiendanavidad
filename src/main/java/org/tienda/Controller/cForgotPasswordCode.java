@@ -79,7 +79,7 @@ public class cForgotPasswordCode {
     Usuarios user = new Usuarios();
     user.setCodigo(null);
     user.setEmail(vista.getUsuario().getEmail());
-    Usuarios.update(user);
+    Usuarios.updateCodigo(user);
   }
 
   /**
@@ -99,6 +99,8 @@ public class cForgotPasswordCode {
   public void actualizarEstilos() {
     TextField.actualizarTextField(vista.getJTextFieldCodigo(), lenguaje.getMensaje().getString("forgot.code.placeholder"), 16, "img/svg/Candado.svg", 22, 24, "#575DFB");
     vista.getJButtonConfirmar().putClientProperty("FlatLaf.style", "arc:" + 16);
+    vista.getJPanelForgot().putClientProperty("FlatLaf.style", "arc:" + 16);
+    vista.getJButtonClose().putClientProperty("FlatLaf.style", "arc:" + 999);
 
   }
 }

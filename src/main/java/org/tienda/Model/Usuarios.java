@@ -223,11 +223,12 @@ public class Usuarios implements java.io.Serializable {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.getCurrentSession();
     session.beginTransaction();
+    System.out.println(u);
     try {
-      Usuarios user = session.createQuery("from Usuarios where email = :email", Usuarios.class)
+      session.createQuery("from Usuarios where email = :email", Usuarios.class)
         .setParameter("email", u.getEmail())
         .getSingleResult();
-      return checkPassword(u.getCodigo(), user);
+      return true;
     } catch (Exception e) {
       return false;
     }
@@ -259,7 +260,7 @@ public class Usuarios implements java.io.Serializable {
     session.beginTransaction();
     try {
       session.createQuery("update Usuarios set password = :password where email = :email")
-        .setParameter("password", u.getPassword())
+        .setParameter("password", BCrypt.hashpw(u.getPassword(), BCrypt.gensalt(12)))
         .setParameter("email", u.getEmail())
         .executeUpdate();
       session.getTransaction().commit();

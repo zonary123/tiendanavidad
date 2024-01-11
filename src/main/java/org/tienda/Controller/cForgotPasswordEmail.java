@@ -62,6 +62,7 @@ public class cForgotPasswordEmail implements controllers {
           JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("forgot.email.send") + " " + vista.getJTextFieldEmail().getText(),
             "Codigo", JOptionPane.INFORMATION_MESSAGE);
           vista.dispose();
+          System.out.println(u);
           new ForgotPasswordCode(u).setVisible(true);
         } else {
           JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("forgot.email.notexist"),
@@ -85,7 +86,7 @@ public class cForgotPasswordEmail implements controllers {
     u = new Usuarios();
     u.setEmail(vista.getJTextFieldEmail().getText());
     u.setCodigo(generarCodigo(6));
-    Usuarios.updateCodigo(u);
+
     if (Usuarios.updateCodigo(u)) {
       EmailUtil.confMail(u);
     } else {
@@ -132,5 +133,7 @@ public class cForgotPasswordEmail implements controllers {
   public void actualizarEstilos() {
     TextField.actualizarTextField(vista.getJTextFieldEmail(), lenguaje.getMensaje().getString("forgot.email.placeholder"), 16, "img/svg/Email.svg", 22, 24, "#575DFB");
     vista.getJButtonConfirmar().putClientProperty("FlatLaf.style", "arc:" + 16);
+    vista.getJPanelForgot().putClientProperty("FlatLaf.style", "arc:" + 16);
+    vista.getJButtonClose().putClientProperty("FlatLaf.style", "arc:" + 999);
   }
 }

@@ -60,6 +60,8 @@ public class cForgotPasswordPassword implements controllers {
   @Override public void actualizarEstilos() {
     TextField.actualizarTextField(vista.getJPasswordFieldPassword(), "******", 16, "img/svg/Email.svg", 22, 24, "#575DFB");
     vista.getJButtonConfirmar().putClientProperty("FlatLaf.style", "arc:" + 16);
+    vista.getJPanelForgot().putClientProperty("FlatLaf.style", "arc:" + 16);
+    vista.getJButtonClose().putClientProperty("FlatLaf.style", "arc:" + 999);
   }
 
   /**

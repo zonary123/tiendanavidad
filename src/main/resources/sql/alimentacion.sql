@@ -1,7 +1,7 @@
 -- Test Usuario
 INSERT INTO usuarios (idusuario, username, password, nombre, apellidos, email, imagen, lenguaje, permisos, roles,
                       activacion,
-                      codigo) VALUE (1, 'test', '$2a$12$iONMT82mekOunGBjSQoJn.eUmdqMCbUp0EtFEO.ipreqSgDWFFbAy',
+                      codigo) VALUE (1, 'test', '$2a$12$r7KpmujbFdsp4Xy1lvie0edS86Xd3ooFdYwdhKXlBhziavQo6t9DO',
                                      'test',
                                      'test', 'carlos.varalo@educa.jcyl.es', NULL, 'es_ES', NULL, NULL, 1,
                                      NULL);
