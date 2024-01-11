@@ -8,7 +8,6 @@ package org.tienda.Views;
 import lombok.Getter;
 import lombok.Setter;
 import org.tienda.Controller.cForgotPasswordEmail;
-import org.tienda.Model.modelForgotPasswordEmail;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,8 +20,7 @@ import java.util.logging.Logger;
  */
 @Getter @Setter
 public class ForgotPasswordEmail extends JFrame {
-  private cForgotPasswordEmail controller = null;
-  private modelForgotPasswordEmail modelo = null;
+  private cForgotPasswordEmail controller;
 
   /**
    * Creates new form ForgotPasswordPassword
@@ -31,7 +29,6 @@ public class ForgotPasswordEmail extends JFrame {
     initComponents();
     try {
       this.controller = new cForgotPasswordEmail(this);
-      this.modelo = new modelForgotPasswordEmail(this);
     } catch (IOException e) {
       e.printStackTrace();
     }

@@ -10,6 +10,7 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses(
   {org.tienda.model.UsuariosTest.class,
     org.tienda.model.ProductosTest.class,
+    org.tienda.lang.langTest.class
   }
 )
 public class TestSuite {

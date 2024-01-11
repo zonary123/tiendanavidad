@@ -8,7 +8,6 @@ package org.tienda.Views;
 import lombok.Getter;
 import lombok.Setter;
 import org.tienda.Controller.cForgotPasswordCode;
-import org.tienda.Model.modelForgotPasswordCode;
 import org.tienda.Model.Usuarios;
 
 import javax.swing.*;
@@ -22,8 +21,7 @@ import java.util.logging.Logger;
  */
 @Getter @Setter
 public class ForgotPasswordCode extends JFrame {
-  private cForgotPasswordCode controller = null;
-  private modelForgotPasswordCode modelo = null;
+  private cForgotPasswordCode controller;
   private Usuarios usuario;
 
   /**
@@ -34,7 +32,6 @@ public class ForgotPasswordCode extends JFrame {
     this.usuario = u;
     try {
       controller = new cForgotPasswordCode(this);
-      modelo = new modelForgotPasswordCode(this);
     } catch (IOException e) {
       throw new RuntimeException(e);
     }

@@ -1,9 +1,6 @@
 package org.tienda.Controller;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-
-import org.mindrot.jbcrypt.BCrypt;
+import org.tienda.Interfaces.controllers;
 import org.tienda.Utils.EmailUtil;
 import org.tienda.Model.Usuarios;
 import org.tienda.Utils.utilsLenguaje;
@@ -16,13 +13,25 @@ import javax.swing.*;
 import java.io.*;
 import java.util.Random;
 
+import org.tienda.Utils.utilsTextField;
+
 /**
  * @author Carlos Varas Alonso
  */
-public class cForgotPasswordEmail {
+public class cForgotPasswordEmail implements controllers {
   private static ForgotPasswordEmail vista;
   private static utilsLenguaje lenguaje;
+
+  static {
+    try {
+      lenguaje = new utilsLenguaje();
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+  }
+
   private static Usuarios u;
+  private static utilsTextField TextField = new utilsTextField();
 
   /**
    * Constructor de la clase
@@ -32,8 +41,9 @@ public class cForgotPasswordEmail {
    */
   public cForgotPasswordEmail(ForgotPasswordEmail vista) throws IOException {
     cForgotPasswordEmail.vista = vista;
-    lenguaje = new utilsLenguaje();
     initEvents();
+    actualizarEstilos();
+    actualizarLenguaje();
   }
 
   /**
@@ -72,28 +82,15 @@ public class cForgotPasswordEmail {
    * @throws MessagingException Error de envio de correo
    */
   public static boolean sendCode() throws MessagingException, IOException {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
-    assert sessionFactory != null;
-    Session session = sessionFactory.getCurrentSession();
-    session.beginTransaction();
-
     u = new Usuarios();
     u.setEmail(vista.getJTextFieldEmail().getText());
     u.setCodigo(generarCodigo(6));
-
-    // Usar el correo
-    boolean update = session.createQuery("update Usuarios set codigo = :codigo where email = :email")
-      .setParameter("codigo", BCrypt.hashpw(u.getCodigo(), BCrypt.gensalt()))
-      .setParameter("email", u.getEmail())
-      .executeUpdate() > 0;
-    session.getTransaction().commit();
-    sessionFactory.close();
-    if (update) {
+    Usuarios.updateCodigo(u);
+    if (Usuarios.updateCodigo(u)) {
       EmailUtil.confMail(u);
     } else {
       return false;
     }
-
     return true;
   }
 
@@ -117,5 +114,23 @@ public class cForgotPasswordEmail {
     }
 
     return codigoBuilder.toString();
+  }
+
+  public void actualizarLenguaje() {
+    try {
+      lenguaje = new utilsLenguaje();
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+    vista.getJLabeltitulo().setText((lenguaje.getMensaje().getString("forgot.h1")));
+    vista.getJLabelDescripcion().setText(lenguaje.getMensaje().getString("forgot.email.descripcion"));
+    vista.getJLabelTFEmail().setText((lenguaje.getMensaje().getString("forgot.email")));
+    vista.getJTextFieldEmail().setText(null);
+    vista.getJButtonConfirmar().setText((lenguaje.getMensaje().getString("forgot.button.confirm")));
+  }
+
+  public void actualizarEstilos() {
+    TextField.actualizarTextField(vista.getJTextFieldEmail(), lenguaje.getMensaje().getString("forgot.email.placeholder"), 16, "img/svg/Email.svg", 22, 24, "#575DFB");
+    vista.getJButtonConfirmar().putClientProperty("FlatLaf.style", "arc:" + 16);
   }
 }

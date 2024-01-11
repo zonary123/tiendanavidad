@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.mindrot.jbcrypt.BCrypt;
 import org.tienda.Model.Usuarios;
+import org.tienda.Utils.utilsTextField;
 import org.tienda.Views.ForgotPasswordCode;
 import org.tienda.Utils.utilsLenguaje;
 import org.tienda.Views.ForgotPasswordPassword;
@@ -17,22 +18,33 @@ import java.io.IOException;
  * @author Carlos Varas Alonso
  */
 public class cForgotPasswordCode {
+  private static utilsLenguaje lenguaje;
+  private static utilsTextField TextField = new utilsTextField();
   private ForgotPasswordCode vista;
-  private utilsLenguaje lenguaje;
+
+  static {
+    try {
+      lenguaje = new utilsLenguaje();
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+  }
+
   private int intentos = 0;
-  private static final int CODE_CLEAR_TIME = 60 * 1000;
 
 
   /**
    * Constructor de la clase
    *
-   * @param vista
-   * @throws IOException
+   * @param vista Vista de la clase
+   * @throws IOException Error de lectura de archivo
    */
   public cForgotPasswordCode(ForgotPasswordCode vista) throws IOException {
     this.vista = vista;
     lenguaje = new utilsLenguaje();
     initEvents();
+    actualizarEstilos();
+    actualizarLenguaje();
   }
 
   /**
@@ -40,7 +52,7 @@ public class cForgotPasswordCode {
    */
   private void initEvents() {
     vista.getJButtonConfirmar().addActionListener(e -> {
-      if (comprobarCodigo()) {
+      if (Usuarios.checkCodigo(vista.getUsuario())) {
         intentos = 0;
         vista.setVisible(false);
         vista.dispose();
@@ -61,35 +73,32 @@ public class cForgotPasswordCode {
   }
 
   /**
-   * Comprueba si el codigo introducido es correcto
-   *
-   * @return boolean true si es correcto, false si no
-   */
-  public boolean comprobarCodigo() {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
-    Session session = sessionFactory.getCurrentSession();
-    session.beginTransaction();
-    try {
-      Usuarios u = session.createQuery("SELECT u FROM Usuarios u WHERE u.email = :email", Usuarios.class)
-        .setParameter("email", vista.getUsuario().getEmail())
-        .getSingleResult();
-      return BCrypt.checkpw(vista.getJTextFieldCodigo().getText(), u.getCodigo());
-    } catch (NoResultException e) {
-      return false;
-    }
-  }
-
-  /**
    * Borra el codigo de la base de datos
    */
   public void borrarCodigo() {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
-    Session session = sessionFactory.getCurrentSession();
-    session.beginTransaction();
-    session.createQuery("UPDATE Usuarios u SET u.codigo = null WHERE u.email = :email")
-      .setParameter("email", vista.getUsuario().getEmail())
-      .executeUpdate();
-    session.getTransaction().commit();
-    session.close();
+    Usuarios user = new Usuarios();
+    user.setCodigo(null);
+    user.setEmail(vista.getUsuario().getEmail());
+    Usuarios.update(user);
+  }
+
+  /**
+   * Actualiza el lenguaje de la vista
+   */
+  public void actualizarLenguaje() {
+    vista.getJLabeltitulo().setText((lenguaje.getMensaje().getString("forgot.h1")));
+    vista.getJLabelDescripcion().setText(lenguaje.getMensaje().getString("forgot.code.descripcion"));
+    vista.getJLabelTFCodigo().setText((lenguaje.getMensaje().getString("forgot.code")));
+    vista.getJTextFieldCodigo().setText(null);
+    vista.getJButtonConfirmar().setText((lenguaje.getMensaje().getString("forgot.button.confirm")));
+  }
+
+  /**
+   * Actualiza los estilos de la vista
+   */
+  public void actualizarEstilos() {
+    TextField.actualizarTextField(vista.getJTextFieldCodigo(), lenguaje.getMensaje().getString("forgot.code.placeholder"), 16, "img/svg/Candado.svg", 22, 24, "#575DFB");
+    vista.getJButtonConfirmar().putClientProperty("FlatLaf.style", "arc:" + 16);
+
   }
 }

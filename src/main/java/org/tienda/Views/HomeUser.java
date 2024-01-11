@@ -4,11 +4,13 @@
  */
 package org.tienda.Views;
 
+import lombok.Data;
 import org.tienda.Model.Usuarios;
 
 /**
  * @author Carlos Varas Alonso
  */
+@Data
 public class HomeUser extends javax.swing.JFrame {
 
   /**
@@ -26,17 +28,18 @@ public class HomeUser extends javax.swing.JFrame {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
-    jPanel1 = new javax.swing.JPanel();
+    Container = new javax.swing.JPanel();
     header = new javax.swing.JPanel();
     User = new javax.swing.JPanel();
     jLabel1 = new javax.swing.JLabel();
     jLabelUsername = new javax.swing.JLabel();
+    ContainerProducts = new javax.swing.JPanel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-    jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-    jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+    Container.setBackground(new java.awt.Color(255, 255, 255));
+    Container.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
     header.setBackground(new java.awt.Color(231, 231, 231));
     header.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -53,9 +56,12 @@ public class HomeUser extends javax.swing.JFrame {
 
     header.add(User, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 7, -1, 36));
 
-    jPanel1.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 10, 1410, 50));
+    Container.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 10, 1410, 50));
 
-    getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1445, 1000));
+    ContainerProducts.setBackground(new java.awt.Color(255, 51, 51));
+    Container.add(ContainerProducts, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, 660, 480));
+
+    getContentPane().add(Container, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1445, 1000));
 
     pack();
     setLocationRelativeTo(null);
@@ -97,10 +103,11 @@ public class HomeUser extends javax.swing.JFrame {
   }
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
+  private javax.swing.JPanel Container;
+  private javax.swing.JPanel ContainerProducts;
   private javax.swing.JPanel User;
   private javax.swing.JPanel header;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabelUsername;
-  private javax.swing.JPanel jPanel1;
   // End of variables declaration//GEN-END:variables
 }

@@ -5,11 +5,14 @@ import java.awt.event.KeyEvent;
 import javax.persistence.NoResultException;
 import javax.swing.*;
 
+import com.formdev.flatlaf.extras.FlatSVGIcon;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.mindrot.jbcrypt.BCrypt;
+import org.tienda.Interfaces.controllers;
 import org.tienda.Model.Usuarios;
 import org.tienda.Utils.utilsLenguaje;
+import org.tienda.Utils.utilsTextField;
 import org.tienda.Views.ForgotPasswordEmail;
 import org.tienda.Views.HomeUser;
 import org.tienda.Views.Login;
@@ -18,21 +21,53 @@ import org.tienda.Views.Register;
 /**
  * @author Carlos Varas Alonso
  */
-public class controllerLogin {
+public class controllerLogin implements controllers {
 
-  private final Login login;
-  private final utilsLenguaje lenguaje;
+  private final Login vista;
+  private static utilsLenguaje lenguaje;
   private Usuarios usuario;
+  private static utilsTextField TextField = new utilsTextField();
+
+  static {
+    try {
+      lenguaje = new utilsLenguaje();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
 
   /**
-   * Instantiates a new Controller login.
+   * Constructor de la clase
    *
-   * @param login    El Jframe login
-   * @param lenguaje Objeto utilsLenguaje para el idioma
+   * @param vista la vista de login
    */
-  public controllerLogin(Login login, utilsLenguaje lenguaje) {
-    this.login = login;
-    this.lenguaje = lenguaje;
+  public controllerLogin(Login vista) {
+    this.vista = vista;
+    initEvents();
+    actualizarEstilos();
+    actualizarLenguaje();
+  }
+
+  /**
+   * Actualiza el lenguaje de la vista
+   */
+  @Override public void actualizarLenguaje() {
+    this.vista.getJButtonPasswordOlvidada().setText(lenguaje.getMensaje().getString("login.button.forgotpassword"));
+    this.vista.getJButtonLogin().setText(lenguaje.getMensaje().getString("login.button.login"));
+    this.vista.getJButtonRegistrarse().setText(lenguaje.getMensaje().getString("login.button.register"));
+    this.vista.getJLabelLogin().setText(lenguaje.getMensaje().getString("login.h1"));
+    this.vista.getJLabelPassword().setText(lenguaje.getMensaje().getString("login.label.password"));
+    this.vista.getJLabelNoCuenta().setText(lenguaje.getMensaje().getString("login.label.notaccount"));
+  }
+
+  /**
+   * Actualiza los estilos de la vista
+   */
+  @Override public void actualizarEstilos() {
+    TextField.actualizarTextField(vista.getJTextFieldUsername(), lenguaje.getMensaje().getString("forgot.email.placeholder"), 16, "img/svg/Email.svg", 22, 24, "#575DFB");
+    TextField.actualizarTextField(vista.getJPasswordFieldPassword(), lenguaje.getMensaje().getString("forgot.password.descripcion"), 16, "img/svg/Candado.svg", 22, 24, "#575DFB");
+    vista.getJButtonClose().putClientProperty("FlatLaf.style", "arc:" + 999);
+    vista.getJButtonLogin().putClientProperty("FlatLaf.style", "arc:" + 16);
   }
 
   /**
@@ -40,66 +75,65 @@ public class controllerLogin {
    */
   public void initEvents() throws NoResultException {
     // ! Eventos Presionar teclado
-    login.getJTextFieldUsername().addKeyListener(new KeyAdapter() {
+    vista.getJTextFieldUsername().addKeyListener(new KeyAdapter() {
       @Override
       public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE && e.isControlDown()) {
-          login.getJTextFieldUsername().setText(null);
+          vista.getJTextFieldUsername().setText(null);
         }
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-          login.getJPasswordFieldPassword().requestFocus();
+          vista.getJPasswordFieldPassword().requestFocus();
         }
       }
     });
-    login.getJPasswordFieldPassword().addKeyListener(new KeyAdapter() {
+    vista.getJPasswordFieldPassword().addKeyListener(new KeyAdapter() {
       @Override
       public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE && e.isControlDown()) {
-          login.getJPasswordFieldPassword().setText(null);
+          vista.getJPasswordFieldPassword().setText(null);
         }
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-          login.getJButtonLogin().requestFocus();
+          vista.getJButtonLogin().requestFocus();
         }
       }
     });
     // ! Eventos Presionar boton
-    login.getJButtonLogin().addActionListener(e -> {
-      login.initTextFields();
+    vista.getJButtonLogin().addActionListener(e -> {
       // Llevar a la vista principal
-      if (login.getJTextFieldUsername().getText().isEmpty()) {
+      if (vista.getJTextFieldUsername().getText().isEmpty()) {
         JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("login.void.username"), lenguaje.getMensaje().getString("login.joptionpanel.title"), JOptionPane.ERROR_MESSAGE);
-        login.getJTextFieldUsername().putClientProperty("JComponent.outline", "warning");
+        vista.getJTextFieldUsername().putClientProperty("JComponent.outline", "warning");
       }
-      if (String.valueOf(login.getJPasswordFieldPassword().getPassword()).isEmpty()) {
+      if (String.valueOf(vista.getJPasswordFieldPassword().getPassword()).isEmpty()) {
         JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("login.void.password"), lenguaje.getMensaje().getString("login.joptionpanel.title"), JOptionPane.ERROR_MESSAGE);
-        login.getJPasswordFieldPassword().putClientProperty("JComponent.outline", "warning");
+        vista.getJPasswordFieldPassword().putClientProperty("JComponent.outline", "warning");
         return;
       }
-      if (validarCredenciales(login.getJTextFieldUsername().getText(), login.getJPasswordFieldPassword().getPassword()) == null) {
+      if (validarCredenciales(vista.getJTextFieldUsername().getText(), vista.getJPasswordFieldPassword().getPassword()) == null) {
         JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("login.joptionpanel.notexist"), lenguaje.getMensaje().getString("login.joptionpanel.title"), JOptionPane.ERROR_MESSAGE);
-      } else if (Boolean.TRUE.equals(validarCredenciales(login.getJTextFieldUsername().getText(), login.getJPasswordFieldPassword().getPassword()))) {
+      } else if (Boolean.TRUE.equals(validarCredenciales(vista.getJTextFieldUsername().getText(), vista.getJPasswordFieldPassword().getPassword()))) {
         JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("login.joptionpanel.true.credenciales"), lenguaje.getMensaje().getString("login.joptionpanel.title"), JOptionPane.INFORMATION_MESSAGE);
-        login.removeAll();
-        login.dispose();
+        vista.removeAll();
+        vista.dispose();
         new HomeUser(usuario).setVisible(true);
       } else {
         JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("login.joptionpanel.false.credenciales"), lenguaje.getMensaje().getString("login.joptionpanel.title"), JOptionPane.ERROR_MESSAGE);
       }
     });
-    login.getJButtonRegistrarse().addActionListener(e -> {
-      login.removeAll();
-      login.dispose();
+    vista.getJButtonRegistrarse().addActionListener(e -> {
+      vista.removeAll();
+      vista.dispose();
       new Register().setVisible(true);
     });
-    login.getJButtonPasswordOlvidada().addActionListener(e -> {
-      login.removeAll();
-      login.dispose();
+    vista.getJButtonPasswordOlvidada().addActionListener(e -> {
+      vista.removeAll();
+      vista.dispose();
       new ForgotPasswordEmail().setVisible(true);
 
     });
     // ! Eventos Cerrar ventana
-    login.getJButtonClose().addActionListener(e -> System.exit(0));
-    login.getJButtonBack().addActionListener(e -> System.exit(0));
+    vista.getJButtonClose().addActionListener(e -> System.exit(0));
+    vista.getJButtonBack().addActionListener(e -> System.exit(0));
   }
 
   /**
@@ -133,5 +167,4 @@ public class controllerLogin {
 
     return true;
   }
-
 }

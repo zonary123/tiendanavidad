@@ -104,19 +104,6 @@ public class Usuarios implements java.io.Serializable {
     this.codigo = codigo;
   }
 
-  public static void main(String[] args) {
-    System.out.println(" Guardado de usuario -> " + save(new Usuarios(
-      "nombreUsuario",
-      "contrasenaSecreta",
-      "Nombre",
-      "Apellidos",
-      "correo@example.com",
-      "es_ES",
-      "[\"admin\"]",
-      true
-    )));
-  }
-
   public static Usuarios findbyId(Integer id) {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.getCurrentSession();
@@ -231,4 +218,59 @@ public class Usuarios implements java.io.Serializable {
     }
     return user;
   }
+
+  public static boolean checkCodigo(Usuarios u) {
+    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    Session session = sessionFactory.getCurrentSession();
+    session.beginTransaction();
+    try {
+      Usuarios user = session.createQuery("from Usuarios where email = :email", Usuarios.class)
+        .setParameter("email", u.getEmail())
+        .getSingleResult();
+      return checkPassword(u.getCodigo(), user);
+    } catch (Exception e) {
+      return false;
+    }
+  }
+
+  public static boolean updateCodigo(Usuarios u) {
+    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    Session session = sessionFactory.getCurrentSession();
+    session.beginTransaction();
+    try {
+      session.createQuery("update Usuarios set codigo = :codigo where email = :email")
+        .setParameter("codigo", u.getCodigo())
+        .setParameter("email", u.getEmail())
+        .executeUpdate();
+      session.getTransaction().commit();
+      return true;
+    } catch (Exception e) {
+      if (session.getTransaction() != null) {
+        session.getTransaction().rollback();
+      }
+      e.printStackTrace();
+    }
+    return false;
+  }
+
+  public static boolean updatePassword(Usuarios u) {
+    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    Session session = sessionFactory.getCurrentSession();
+    session.beginTransaction();
+    try {
+      session.createQuery("update Usuarios set password = :password where email = :email")
+        .setParameter("password", u.getPassword())
+        .setParameter("email", u.getEmail())
+        .executeUpdate();
+      session.getTransaction().commit();
+      return true;
+    } catch (Exception e) {
+      if (session.getTransaction() != null) {
+        session.getTransaction().rollback();
+      }
+      e.printStackTrace();
+    }
+    return false;
+  }
+
 }

@@ -3,7 +3,10 @@ package org.tienda.Controller;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.mindrot.jbcrypt.BCrypt;
+import org.tienda.Interfaces.controllers;
+import org.tienda.Model.Usuarios;
 import org.tienda.Utils.utilsLenguaje;
+import org.tienda.Utils.utilsTextField;
 import org.tienda.Views.ForgotPasswordPassword;
 import org.tienda.Views.Login;
 
@@ -13,9 +16,19 @@ import java.io.IOException;
 /**
  * @author Carlos Varas Alonso
  */
-public class cForgotPasswordPassword {
+public class cForgotPasswordPassword implements controllers {
   private ForgotPasswordPassword vista;
-  private utilsLenguaje lenguaje;
+  private static utilsLenguaje lenguaje;
+
+  static {
+    try {
+      lenguaje = new utilsLenguaje();
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+  }
+
+  private static utilsTextField TextField = new utilsTextField();
 
   /**
    * Constructor de la clase
@@ -25,18 +38,35 @@ public class cForgotPasswordPassword {
    */
   public cForgotPasswordPassword(ForgotPasswordPassword vista) throws IOException {
     this.vista = vista;
-    this.lenguaje = new utilsLenguaje();
     initEvents();
+    actualizarEstilos();
+    actualizarLenguaje();
+  }
+
+  /**
+   * Actualiza el lenguaje de la vista
+   */
+  @Override public void actualizarLenguaje() {
+    vista.getJLabeltitulo().setText((lenguaje.getMensaje().getString("forgot.h1")));
+    vista.getJLabelDescripcion().setText(lenguaje.getMensaje().getString("forgot.email.descripcion"));
+    vista.getJLabelTFEmail().setText((lenguaje.getMensaje().getString("forgot.email")));
+    vista.getJPasswordFieldPassword().setText("");
+    vista.getJButtonConfirmar().setText((lenguaje.getMensaje().getString("forgot.button.confirm")));
+  }
+
+  /**
+   * Actualiza los estilos de la vista
+   */
+  @Override public void actualizarEstilos() {
+    TextField.actualizarTextField(vista.getJPasswordFieldPassword(), "******", 16, "img/svg/Email.svg", 22, 24, "#575DFB");
+    vista.getJButtonConfirmar().putClientProperty("FlatLaf.style", "arc:" + 16);
   }
 
   /**
    * Inicializacion de eventos de la vista
    */
   public void initEvents() {
-    vista.getJButtonClose().addActionListener(
-      e -> {
-        vista.dispose();
-      });
+    vista.getJButtonClose().addActionListener(e -> vista.dispose());
     vista.getJButtonBack().addActionListener(
       e -> {
         vista.dispose();
@@ -45,7 +75,9 @@ public class cForgotPasswordPassword {
     vista.getJButtonConfirmar().addActionListener(
       e -> {
         if (vista.getJPasswordFieldPassword().getPassword().length > 5) {
-          changePassword();
+          vista.getUsuario().setPassword(String.valueOf(vista.getJPasswordFieldPassword().getPassword()));
+          if (!Usuarios.updatePassword(vista.getUsuario()))
+            JOptionPane.showMessageDialog(null, "Error al actualizar la contrasenya", "Error", JOptionPane.INFORMATION_MESSAGE);
           vista.dispose();
           new Login(null).setVisible(true);
         } else {
@@ -58,19 +90,4 @@ public class cForgotPasswordPassword {
       });
   }
 
-  /**
-   * Cambia la contraseña del usuario
-   */
-  public void changePassword() {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
-    Session session = sessionFactory.getCurrentSession();
-    session.beginTransaction();
-    System.out.println(vista.getJPasswordFieldPassword().getPassword());
-    System.out.println(vista.getUsuario().toString());
-    session.createQuery("UPDATE Usuarios SET password = :password WHERE email = :email")
-      .setParameter("password", BCrypt.hashpw(String.valueOf(vista.getJPasswordFieldPassword().getPassword()), BCrypt.gensalt()))
-      .setParameter("email", vista.getUsuario().getEmail())
-      .executeUpdate();
-    session.getTransaction().commit();
-  }
 }
