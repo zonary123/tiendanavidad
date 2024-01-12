@@ -88,7 +88,7 @@ public class cForgotPasswordEmail implements controllers {
     u.setCodigo(generarCodigo(6));
 
     if (Usuarios.updateCodigo(u)) {
-      EmailUtil.confMail(u);
+      EmailUtil.confMail(u, EmailUtil.OPCION_ENVIAR_CODIGO);
     } else {
       return false;
     }

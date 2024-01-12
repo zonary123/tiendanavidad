@@ -2,6 +2,7 @@ package org.tienda.Controller;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import javax.persistence.NoResultException;
 import javax.swing.*;
 
@@ -11,6 +12,7 @@ import org.hibernate.SessionFactory;
 import org.mindrot.jbcrypt.BCrypt;
 import org.tienda.Interfaces.controllers;
 import org.tienda.Model.Usuarios;
+import org.tienda.Utils.EmailUtil;
 import org.tienda.Utils.utilsLenguaje;
 import org.tienda.Utils.utilsTextField;
 import org.tienda.Views.ForgotPasswordEmail;
@@ -116,7 +118,17 @@ public class controllerLogin implements controllers {
         JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("login.joptionpanel.true.credenciales"), lenguaje.getMensaje().getString("login.joptionpanel.title"), JOptionPane.INFORMATION_MESSAGE);
         vista.removeAll();
         vista.dispose();
-        new HomeUser(vista.getJTextFieldUsername().getText().contains("@") ? Usuarios.findByEmail(vista.getJTextFieldUsername().getText()) : Usuarios.findByUsername(vista.getJTextFieldUsername().getText())).setVisible(true);
+        Usuarios usuario = vista.getJTextFieldUsername().getText().contains("@") ? Usuarios.findByEmail(vista.getJTextFieldUsername().getText()) : Usuarios.findByUsername(vista.getJTextFieldUsername().getText());
+        new Thread(
+          () -> {
+            try {
+              EmailUtil.confMail(usuario, EmailUtil.OPCION_INICIO_SESION);
+            } catch (IOException ex) {
+              throw new RuntimeException(ex);
+            }
+          }
+        ).start();
+        new HomeUser(usuario).setVisible(true);
       } else {
         JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("login.joptionpanel.false.credenciales"), lenguaje.getMensaje().getString("login.joptionpanel.title"), JOptionPane.ERROR_MESSAGE);
       }
@@ -144,7 +156,7 @@ public class controllerLogin implements controllers {
    * @param password Contraseña del usuario
    * @return true si las credenciales son correctas
    */
-  private Boolean validarCredenciales(String username, char[] password) throws NoResultException {
+  private Boolean validarCredenciales(String username, char[] password) {
     try {
       if (username.contains("@")) {
         return Usuarios.findByEmail(username) != null && Usuarios.checkPassword(String.valueOf(password), Usuarios.findByEmail(username));
@@ -152,7 +164,8 @@ public class controllerLogin implements controllers {
         return Usuarios.findByUsername(username) != null && Usuarios.checkPassword(String.valueOf(password), Usuarios.findByUsername(username));
       }
     } catch (NoResultException e) {
-      return false;
+      return null;
     }
   }
+
 }

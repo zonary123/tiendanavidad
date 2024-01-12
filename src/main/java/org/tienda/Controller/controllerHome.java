@@ -31,7 +31,6 @@ public class controllerHome implements controllers {
 
   @Override public void actualizarEstilos() {
     vista.getJLabelUsername().setPreferredSize(new Dimension( vista.getJLabelUsername().getWidth() - 30, vista.getJLabelUsername().getHeight()));
-
     // ? Propiedades
     // vista.getScrollContainerProducts().putClientProperty("FlatLaf.style", "arc: 16");
     vista.getContainerProducts().putClientProperty("FlatLaf.style", "arc: 16");
@@ -51,7 +50,8 @@ public class controllerHome implements controllers {
     panelProductos.removeAll();
 
     for (Productos producto : productos) {
-      panelProductos.add(new jPanelProducts(producto));
+      System.out.println(vista.getJLabelUsername().getText().trim());
+      panelProductos.add(new jPanelProducts(vista.getJLabelUsername().getText().trim(),producto));
     }
 
     panelProductos.revalidate();

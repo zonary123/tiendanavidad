@@ -1,8 +1,6 @@
 package org.tienda.Model;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.mindrot.jbcrypt.BCrypt;
@@ -18,6 +16,9 @@ import javax.persistence.*;
  * @author Carlos Varas Alonso
  */
 @Data
+@Getter
+@Setter
+@EqualsAndHashCode
 @ToString(exclude = {"idusuario", "activacion", "imagen"})
 @Entity
 @Table(name = "usuarios")
@@ -111,14 +112,14 @@ public class Usuarios implements java.io.Serializable {
     return session.get(Usuarios.class, id);
   }
 
-  public static Usuarios findByEmail(String mail) {
+  public static Usuarios findByEmail(String mail) throws NoResultException {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.getCurrentSession();
     session.beginTransaction();
     return session.createQuery("from Usuarios where email = :mail", Usuarios.class).setParameter("mail", mail).getSingleResult();
   }
 
-  public static Usuarios findByUsername(String Username) {
+  public static Usuarios findByUsername(String Username) throws NoResultException {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.getCurrentSession();
     session.beginTransaction();

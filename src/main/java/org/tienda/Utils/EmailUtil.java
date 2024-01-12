@@ -22,7 +22,11 @@ import javax.mail.internet.MimeMessage;
 public class EmailUtil {
   private final static String FROMEMAIL = "carlosvarasalonso.clases@gmail.com";
   private final static String PASSWORD = "kaptgyvimqwszdva";
+  public final static int OPCION_ENVIAR_CODIGO = 1;
+  public final static int OPCION_CAMBIO_PASSWORD = 2;
+  public final static int OPCION_INICIO_SESION = 3;
   private final static utilsLenguaje lenguaje;
+
 
   static {
     try {
@@ -41,7 +45,7 @@ public class EmailUtil {
    * @param body    el cuerpo del mensaje
    * @throws MessagingException el error de mensajeria
    */
-  public static void sendEmail(Session session, String toEmail, String subject, String body) {
+  public static boolean sendEmail(Session session, String toEmail, String subject, String body) {
     try {
       MimeMessage msg = new MimeMessage(session);
       msg.addHeader("Content-type", "text/HTML; charset-UTF-8");
@@ -52,11 +56,11 @@ public class EmailUtil {
       msg.setSentDate(new Date());
       msg.setContent(body, "text/html; charset=UTF-8");  // Corrige esta línea
       msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail, false));
-      System.out.println("Message is ready");
       Transport.send(msg);
-      System.out.println("Email sent successfully");
+      return true;
     } catch (Exception e) {
       e.printStackTrace();
+      return false;
     }
   }
 
@@ -67,7 +71,7 @@ public class EmailUtil {
    * @throws MessagingException el error de mensajeria
    * @throws IOException        el error de entrada y salida
    */
-  public static void confMail(Usuarios u) throws IOException {
+  public static boolean confMail(Usuarios u, int opcion) throws IOException {
     Properties props = new Properties();
     props.put("mail.smtp.host", "smtp.gmail.com");
     props.put("mail.smtp.starttls.enable", "true");
@@ -81,13 +85,29 @@ public class EmailUtil {
         return new PasswordAuthentication(FROMEMAIL, PASSWORD);
       }
     };
-    System.out.println(u.toString());
+
     javax.mail.Session session = javax.mail.Session.getDefaultInstance(props, auth);
     if (u.getEmail() != null && !u.getEmail().isEmpty()) {
-      sendEmail(session, u.getEmail(), "Tienda Navidad", emailCode(String.valueOf(u.getCodigo())));
+      return opciones(opcion, u, session);
     } else {
       System.out.println("Error: La dirección de correo electrónico del destinatario es nula o vacía.");
+      return false;
     }
+  }
+
+  private static boolean opciones(int opcion, Usuarios u, Session session) throws IOException {
+    switch (opcion) {
+      case OPCION_ENVIAR_CODIGO:
+        return sendEmail(session, u.getEmail(), "tienda navidad", emailCode(u.getCodigo()));
+      case OPCION_CAMBIO_PASSWORD:
+        return sendEmail(session, u.getEmail(), "tienda navidad", "Cambio de contraseña en tienda navidad");
+      case OPCION_INICIO_SESION:
+        return sendEmail(session, u.getEmail(), "tienda navidad", "Inicio de sesión en tienda navidad");
+      default:
+        System.out.println("Error: Opción no válida.");
+        break;
+    }
+    return false;
   }
 
   /**

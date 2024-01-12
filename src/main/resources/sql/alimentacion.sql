@@ -9,4 +9,4 @@ INSERT INTO usuarios (idusuario, username, password, nombre, apellidos, email, i
 
 -- Productos
 INSERT INTO productos (nombre, descripcion, precio, descuento, categoria, imagen, stock)
-VALUES ('Cama', 'Cama de 3 plaza', 200.00, 0.00, 'mueble', NULL, 10);
+VALUES ('Cama', 'Cama de 3 plaza', 2000000.00, 0.00, 'mueble', NULL, 10);
