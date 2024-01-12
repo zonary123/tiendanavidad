@@ -1,10 +1,7 @@
 package org.tienda.Model;
 // Generated 21 dic 2023 17:36:10 by Hibernate Tools 6.3.1.Final
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -20,8 +17,10 @@ import org.tienda.Controller.hibernateUtil;
 @Entity
 @Table(name = "productos")
 @ToString(exclude = {"idproducto"})
+@Data
 @Getter
 @Setter
+@EqualsAndHashCode
 public class Productos {
 
   @Id
@@ -76,6 +75,6 @@ public class Productos {
     session.beginTransaction();
     return session.createQuery("from Productos p where p.categoria = :categoria").setParameter("categoria", cat).getResultList();
   }
-  
+
 
 }

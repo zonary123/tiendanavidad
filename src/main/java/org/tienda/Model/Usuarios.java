@@ -1,8 +1,6 @@
 package org.tienda.Model;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.mindrot.jbcrypt.BCrypt;
@@ -18,6 +16,9 @@ import javax.persistence.*;
  * @author Carlos Varas Alonso
  */
 @Data
+@Getter
+@Setter
+@EqualsAndHashCode
 @ToString(exclude = {"idusuario", "activacion", "imagen"})
 @Entity
 @Table(name = "usuarios")

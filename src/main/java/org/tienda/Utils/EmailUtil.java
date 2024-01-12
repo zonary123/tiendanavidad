@@ -45,7 +45,7 @@ public class EmailUtil {
    * @param body    el cuerpo del mensaje
    * @throws MessagingException el error de mensajeria
    */
-  public static void sendEmail(Session session, String toEmail, String subject, String body) {
+  public static boolean sendEmail(Session session, String toEmail, String subject, String body) {
     try {
       MimeMessage msg = new MimeMessage(session);
       msg.addHeader("Content-type", "text/HTML; charset-UTF-8");
@@ -56,11 +56,11 @@ public class EmailUtil {
       msg.setSentDate(new Date());
       msg.setContent(body, "text/html; charset=UTF-8");  // Corrige esta línea
       msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail, false));
-      System.out.println("Message is ready");
       Transport.send(msg);
-      System.out.println("Email sent successfully");
+      return true;
     } catch (Exception e) {
       e.printStackTrace();
+      return false;
     }
   }
 
@@ -71,7 +71,7 @@ public class EmailUtil {
    * @throws MessagingException el error de mensajeria
    * @throws IOException        el error de entrada y salida
    */
-  public static void confMail(Usuarios u, int opcion) throws IOException {
+  public static boolean confMail(Usuarios u, int opcion) throws IOException {
     Properties props = new Properties();
     props.put("mail.smtp.host", "smtp.gmail.com");
     props.put("mail.smtp.starttls.enable", "true");
@@ -88,27 +88,26 @@ public class EmailUtil {
 
     javax.mail.Session session = javax.mail.Session.getDefaultInstance(props, auth);
     if (u.getEmail() != null && !u.getEmail().isEmpty()) {
-      opciones(opcion, u, session);
+      return opciones(opcion, u, session);
     } else {
       System.out.println("Error: La dirección de correo electrónico del destinatario es nula o vacía.");
+      return false;
     }
   }
 
-  private static void opciones(int opcion, Usuarios u, Session session) throws IOException {
+  private static boolean opciones(int opcion, Usuarios u, Session session) throws IOException {
     switch (opcion) {
       case OPCION_ENVIAR_CODIGO:
-        sendEmail(session, u.getEmail(), "tienda navidad", emailCode(u.getCodigo()));
-        break;
+        return sendEmail(session, u.getEmail(), "tienda navidad", emailCode(u.getCodigo()));
       case OPCION_CAMBIO_PASSWORD:
-        sendEmail(session, u.getEmail(), "tienda navidad", "Cambio de contraseña en tienda navidad");
-        break;
+        return sendEmail(session, u.getEmail(), "tienda navidad", "Cambio de contraseña en tienda navidad");
       case OPCION_INICIO_SESION:
-        sendEmail(session, u.getEmail(), "tienda navidad", "Inicio de sesión en tienda navidad");
-        break;
+        return sendEmail(session, u.getEmail(), "tienda navidad", "Inicio de sesión en tienda navidad");
       default:
         System.out.println("Error: Opción no válida.");
         break;
     }
+    return false;
   }
 
   /**
