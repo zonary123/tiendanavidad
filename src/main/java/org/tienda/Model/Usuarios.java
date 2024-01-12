@@ -111,14 +111,14 @@ public class Usuarios implements java.io.Serializable {
     return session.get(Usuarios.class, id);
   }
 
-  public static Usuarios findByEmail(String mail) {
+  public static Usuarios findByEmail(String mail) throws NoResultException {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.getCurrentSession();
     session.beginTransaction();
     return session.createQuery("from Usuarios where email = :mail", Usuarios.class).setParameter("mail", mail).getSingleResult();
   }
 
-  public static Usuarios findByUsername(String Username) {
+  public static Usuarios findByUsername(String Username) throws NoResultException {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.getCurrentSession();
     session.beginTransaction();

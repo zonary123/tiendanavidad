@@ -18,14 +18,12 @@ public class ProductosTest {
   @Test
   public void findById() {
     System.out.println("Test findById");
-    System.out.println(Productos.findbyId(1));
     Assert.assertNotNull(Productos.findbyId(1));
   }
 
   @Test
   public void findByCategoria() {
     System.out.println("Test findByCategoria");
-    System.out.println(Productos.findByCategoria("mueble"));
-    Assert.assertNotNull(Productos.findByCategoria("mueble"));
+    Assert.assertNotNull(Productos.findByCategoria("test"));
   }
 }

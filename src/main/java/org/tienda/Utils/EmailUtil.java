@@ -22,7 +22,11 @@ import javax.mail.internet.MimeMessage;
 public class EmailUtil {
   private final static String FROMEMAIL = "carlosvarasalonso.clases@gmail.com";
   private final static String PASSWORD = "kaptgyvimqwszdva";
+  public final static int OPCION_ENVIAR_CODIGO = 1;
+  public final static int OPCION_CAMBIO_PASSWORD = 2;
+  public final static int OPCION_INICIO_SESION = 3;
   private final static utilsLenguaje lenguaje;
+
 
   static {
     try {
@@ -67,7 +71,7 @@ public class EmailUtil {
    * @throws MessagingException el error de mensajeria
    * @throws IOException        el error de entrada y salida
    */
-  public static void confMail(Usuarios u) throws IOException {
+  public static void confMail(Usuarios u, int opcion) throws IOException {
     Properties props = new Properties();
     props.put("mail.smtp.host", "smtp.gmail.com");
     props.put("mail.smtp.starttls.enable", "true");
@@ -81,12 +85,29 @@ public class EmailUtil {
         return new PasswordAuthentication(FROMEMAIL, PASSWORD);
       }
     };
-    System.out.println(u.toString());
+
     javax.mail.Session session = javax.mail.Session.getDefaultInstance(props, auth);
     if (u.getEmail() != null && !u.getEmail().isEmpty()) {
-      sendEmail(session, u.getEmail(), "Tienda Navidad", emailCode(String.valueOf(u.getCodigo())));
+      opciones(opcion, u, session);
     } else {
       System.out.println("Error: La dirección de correo electrónico del destinatario es nula o vacía.");
+    }
+  }
+
+  private static void opciones(int opcion, Usuarios u, Session session) throws IOException {
+    switch (opcion) {
+      case OPCION_ENVIAR_CODIGO:
+        sendEmail(session, u.getEmail(), "tienda navidad", emailCode(u.getCodigo()));
+        break;
+      case OPCION_CAMBIO_PASSWORD:
+        sendEmail(session, u.getEmail(), "tienda navidad", "Cambio de contraseña en tienda navidad");
+        break;
+      case OPCION_INICIO_SESION:
+        sendEmail(session, u.getEmail(), "tienda navidad", "Inicio de sesión en tienda navidad");
+        break;
+      default:
+        System.out.println("Error: Opción no válida.");
+        break;
     }
   }
 

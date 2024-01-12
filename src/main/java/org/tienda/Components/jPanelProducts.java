@@ -8,7 +8,14 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import org.tienda.Model.Carrito;
+import org.tienda.Model.CarritoId;
 import org.tienda.Model.Productos;
+import org.tienda.Model.Usuarios;
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.Locale;
 
 
 /**
@@ -19,21 +26,48 @@ import org.tienda.Model.Productos;
 @Getter
 @Setter
 public class jPanelProducts extends javax.swing.JPanel {
+  private int id;
+  private String username;
 
   /**
    * Creates new form jPanelProducts
    */
-  public jPanelProducts(Productos producto) {
+  public jPanelProducts(String username, Productos producto) {
+    this.id = producto.getIdproducto();
+    this.username = username;
     initComponents();
     setSize(350, 450);
     setDatos(producto);
+    posicionar();
+    putClientProperty("FlatLaf.style", "arc: 16");
+    getComprar().putClientProperty("FlatLaf.style", "arc: 16");
+    eventos();
+  }
+
+  private void eventos() {
+    getComprar().addActionListener(e ->
+    {
+      if (true) {
+        Carrito.updateCant(id, Usuarios.findByUsername(username));
+      } else {
+        Carrito.save(new CarritoId(id, Usuarios.findByUsername(username).getIdusuario()), 1);
+      }
+    });
+  }
+
+  private void posicionar() {
+/*    int anchoOriginal = (int) Precio.getPreferredSize().getWidth();
+    Precio.setLocation(Precio.getX(), Precio.getY());
+    Precio.setPreferredSize(new Dimension(anchoOriginal * 2, (int) Precio.getPreferredSize().getHeight()));*/
+
   }
 
   private void setDatos(Productos producto) {
     Nombre.setText(producto.getNombre() == null ? "undefined" : producto.getNombre());
-    Precio.setText(String.valueOf(producto.getPrecio()));
+    Precio.setText("<html>\n" +
+      "  <p style='text-align: right; font-size: 12px;'>" + producto.getPrecio() + "€</p>\n" +
+      "</html>\n");
     Descripcion.setText(producto.getDescripcion() == null ? "undefined" : producto.getDescripcion());
-
   }
 
   /**
@@ -52,7 +86,7 @@ public class jPanelProducts extends javax.swing.JPanel {
     Nombre = new javax.swing.JLabel();
     Precio = new javax.swing.JLabel();
     Descripcion = new javax.swing.JLabel();
-    jButton2 = new javax.swing.JButton();
+    Comprar = new javax.swing.JButton();
 
     jButton1.setText("jButton1");
 
@@ -74,29 +108,31 @@ public class jPanelProducts extends javax.swing.JPanel {
 
     Precio.setFont(new java.awt.Font("Inter SemiBold", 0, 20)); // NOI18N
     Precio.setForeground(new java.awt.Color(87, 93, 251));
+    Precio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
     Precio.setText("200€");
+    Precio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
     Precio.setPreferredSize(new java.awt.Dimension(53, 15));
-    informacion.add(Precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 26, -1, -1));
+    informacion.add(Precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, -1, 20));
 
     Descripcion.setText("Descripcion");
     informacion.add(Descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 56, 300, 78));
 
     add(informacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 235, 300, 134));
 
-    jButton2.setBackground(new java.awt.Color(15, 109, 142));
-    jButton2.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
-    jButton2.setForeground(new java.awt.Color(255, 255, 255));
-    jButton2.setText("Comprar");
-    add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 403, 302, 35));
+    Comprar.setBackground(new java.awt.Color(15, 109, 142));
+    Comprar.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
+    Comprar.setForeground(new java.awt.Color(255, 255, 255));
+    Comprar.setText("Comprar");
+    add(Comprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 403, 302, 35));
   }// </editor-fold>//GEN-END:initComponents
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
+  private javax.swing.JButton Comprar;
   private javax.swing.JLabel Descripcion;
   private javax.swing.JLabel IMG;
   private javax.swing.JLabel Nombre;
   private javax.swing.JLabel Precio;
   private javax.swing.JPanel informacion;
   private javax.swing.JButton jButton1;
-  private javax.swing.JButton jButton2;
   // End of variables declaration//GEN-END:variables
 }
