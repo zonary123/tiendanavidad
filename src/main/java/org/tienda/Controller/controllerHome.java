@@ -38,6 +38,8 @@ public class controllerHome implements controllers {
     vista.getContainerProducts().putClientProperty("FlatLaf.style", "arc: 16");
     vista.getHeader().putClientProperty("FlatLaf.style", "arc: 999");
     vista.getUser().putClientProperty("FlatLaf.style", "arc: 999");
+    vista.getSignOut().putClientProperty("FlatLaf.style", "arc: 16");
+    vista.getSideBar().putClientProperty("FlatLaf.style", "arc: 8");
     // TextField
     textField.actualizarTextField(vista.getSearch(), "Buscar", 999, "img/svg/search.svg", 22, 24, "#FFFFFF");
 

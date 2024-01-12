@@ -41,6 +41,8 @@ public class HomeUser extends javax.swing.JFrame {
     Search = new javax.swing.JTextField();
     ScrollContainerProducts = new javax.swing.JScrollPane();
     ContainerProducts = new javax.swing.JPanel();
+    sideBar = new javax.swing.JPanel();
+    signOut = new javax.swing.JButton();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     setUndecorated(true);
@@ -69,9 +71,21 @@ public class HomeUser extends javax.swing.JFrame {
 
     Container.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 10, 1410, 50));
 
+    ContainerProducts.setBackground(new java.awt.Color(255, 255, 255));
     ScrollContainerProducts.setViewportView(ContainerProducts);
 
     Container.add(ScrollContainerProducts, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 72, 1100, 916));
+
+    sideBar.setBackground(new java.awt.Color(231, 231, 231));
+    sideBar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+    signOut.setBackground(new java.awt.Color(255, 86, 86));
+    signOut.setFont(new java.awt.Font("Inter", 1, 16)); // NOI18N
+    signOut.setForeground(new java.awt.Color(255, 255, 255));
+    signOut.setText("Sign Out");
+    sideBar.add(signOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 848, 272, 56));
+
+    Container.add(sideBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 72, 300, 916));
 
     getContentPane().add(Container, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1445, 1000));
 
@@ -88,5 +102,7 @@ public class HomeUser extends javax.swing.JFrame {
   private javax.swing.JPanel header;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabelUsername;
+  private javax.swing.JPanel sideBar;
+  private javax.swing.JButton signOut;
   // End of variables declaration//GEN-END:variables
 }
