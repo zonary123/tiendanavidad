@@ -4,6 +4,7 @@ import org.hibernate.engine.jdbc.Size;
 import org.tienda.Components.jPanelProducts;
 import org.tienda.Interfaces.controllers;
 import org.tienda.Model.Productos;
+import org.tienda.Utils.utilsTextField;
 import org.tienda.Views.HomeUser;
 
 import javax.swing.*;
@@ -16,6 +17,7 @@ import java.util.List;
 public class controllerHome implements controllers {
 
   private HomeUser vista;
+  private utilsTextField textField = new utilsTextField();
 
   public controllerHome(HomeUser vista) {
     this.vista = vista;
@@ -26,16 +28,19 @@ public class controllerHome implements controllers {
   }
 
   @Override public void actualizarLenguaje() {
-
+    vista.getSearch().setText(null);
   }
 
   @Override public void actualizarEstilos() {
-    vista.getJLabelUsername().setPreferredSize(new Dimension( vista.getJLabelUsername().getWidth() - 30, vista.getJLabelUsername().getHeight()));
+    vista.getUser().setSize(new Dimension((int) (vista.getJLabelUsername().getWidth() * 1.5) + 5, vista.getJLabelUsername().getHeight()));
     // ? Propiedades
     // vista.getScrollContainerProducts().putClientProperty("FlatLaf.style", "arc: 16");
     vista.getContainerProducts().putClientProperty("FlatLaf.style", "arc: 16");
     vista.getHeader().putClientProperty("FlatLaf.style", "arc: 999");
     vista.getUser().putClientProperty("FlatLaf.style", "arc: 999");
+    // TextField
+    textField.actualizarTextField(vista.getSearch(), "Buscar", 999, "img/svg/search.svg", 22, 24, "#FFFFFF");
+
   }
 
   /**
@@ -46,12 +51,11 @@ public class controllerHome implements controllers {
 
   public void mostrarProductos(List<Productos> productos) {
     JPanel panelProductos = this.vista.getContainerProducts();
-    panelProductos.setLayout(new GridLayout(0, 3, 16, 13));
+    panelProductos.setLayout(new GridLayout(0, 3, 10, 10));
     panelProductos.removeAll();
 
     for (Productos producto : productos) {
-      System.out.println(vista.getJLabelUsername().getText().trim());
-      panelProductos.add(new jPanelProducts(vista.getJLabelUsername().getText().trim(),producto));
+      panelProductos.add(new jPanelProducts(vista.getJLabelUsername().getText().trim(), producto));
     }
 
     panelProductos.revalidate();

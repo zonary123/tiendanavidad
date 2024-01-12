@@ -16,7 +16,7 @@ import org.tienda.Controller.hibernateUtil;
  */
 @Entity
 @Table(name = "productos")
-@ToString(exclude = {"idproducto"})
+@ToString
 @Data
 @Getter
 @Setter
