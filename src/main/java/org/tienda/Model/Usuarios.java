@@ -19,7 +19,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @EqualsAndHashCode
-@ToString(exclude = {"idusuario", "activacion", "imagen"})
+@ToString(exclude = {"activacion", "imagen"})
 @Entity
 @Table(name = "usuarios")
 public class Usuarios implements java.io.Serializable {

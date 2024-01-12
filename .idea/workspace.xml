@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c118b3c5-02f1-461f-8e3e-749fcbeb622f" name="Changes" comment="Arreglando test" />
+    <list default="true" id="c118b3c5-02f1-461f-8e3e-749fcbeb622f" name="Changes" comment="Todos los controladores y modelos correctamente funcionando.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/CarritoId.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/CarritoId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/Compras.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/Compras.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/ComprasId.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/ComprasId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/Productos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/Productos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/Usuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/Usuarios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Utils/EmailUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Utils/EmailUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tienda/utils/EmailTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tienda/utils/EmailTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,36 +68,43 @@
   <component name="ProjectViewState">
     <option name="abbreviatePackageNames" value="true" />
     <option name="autoscrollFromSource" value="true" />
+    <option name="flattenPackages" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
+    <option name="sortByType" value="true" />
+    <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Pruebas.executor": "Run",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "JUnit.Unnamed.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Alumno/Desktop/tiendanavidad",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Principal.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Pruebas.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Alumno/Desktop/tiendanavidad&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
     ]
   }
-}]]></component>
-  <component name="RunManager" selected="JUnit.Unnamed">
-    <configuration name="Pruebas" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.tienda.suite.TestSuite" />
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Alumno\Desktop\tiendanavidad\src\main\resources\img\svg" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Principal">
+    <configuration name="Principal" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="org.tienda.Views.Login" />
       <module name="tiendanavidad" />
       <extension name="coverage">
         <pattern>
@@ -100,7 +116,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Unnamed" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+    <configuration name="TestSuite" type="JUnit" factoryName="JUnit">
       <module name="tiendanavidad" />
       <option name="PACKAGE_NAME" value="org.tienda.suite" />
       <option name="MAIN_CLASS_NAME" value="org.tienda.suite.TestSuite" />
@@ -122,14 +138,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Pruebas" />
-      <item itemvalue="JUnit.Unnamed" />
+      <item itemvalue="Application.Principal" />
+      <item itemvalue="JUnit.TestSuite" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Principal" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.9-corretto-17.0.9-f644763e9732-ebaef533" />
+        <option value="jdk-17.0.9-corretto-17.0.9-3183f394aec4-8f899f12" />
       </set>
     </attachedChunks>
   </component>
@@ -139,120 +160,33 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c118b3c5-02f1-461f-8e3e-749fcbeb622f" name="Changes" comment="Todos los controladores corregidos" />
+      <changelist id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="" />
       <created>1704897626224</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1703090010605</updated>
-      <workItem from="1703090015930" duration="2160000" />
-      <workItem from="1703094054493" duration="3715000" />
-      <workItem from="1703175891465" duration="1618000" />
-      <workItem from="1703177536937" duration="3467000" />
-      <workItem from="1703182204877" duration="2903000" />
-      <workItem from="1704725181422" duration="529000" />
-      <workItem from="1704727752416" duration="773000" />
-      <workItem from="1704729105125" duration="665000" />
-      <workItem from="1704729890455" duration="2085000" />
-      <workItem from="1704877552327" duration="4162000" />
-      <workItem from="1704881786102" duration="310000" />
-      <workItem from="1704951470707" duration="3798000" />
+      <updated>1704897626224</updated>
+      <workItem from="1704897630865" duration="134000" />
+      <workItem from="1704897798929" duration="74000" />
+      <workItem from="1704897889558" duration="112000" />
+      <workItem from="1704899867917" duration="1535000" />
+      <workItem from="1704903550563" duration="2062000" />
+      <workItem from="1705071928060" duration="1393000" />
+      <workItem from="1705073527955" duration="2407000" />
+      <workItem from="1705083976736" duration="4460000" />
     </task>
-    <task id="LOCAL-00001" summary="hibernate mapeado">
+    <task id="LOCAL-00001" summary="Arreglos en Home">
       <option name="closed" value="true" />
-      <created>1703099746982</created>
+      <created>1705087077472</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1703099746982</updated>
+      <updated>1705087077472</updated>
     </task>
-    <task id="LOCAL-00002" summary="Hibernate arreglado. Por ahora (Los errores en el futuro los arreglara mi yo del futuro)">
-      <option name="closed" value="true" />
-      <created>1703181133978</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1703181133978</updated>
-    </task>
-    <task id="LOCAL-00003" summary="se me olvido añadirlo al commit anterior">
-      <option name="closed" value="true" />
-      <created>1703181208190</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1703181208190</updated>
-    </task>
-    <task id="LOCAL-00004" summary="mHome, cHome, componente Productos, hecho muestra los productos">
-      <option name="closed" value="true" />
-      <created>1704864591284</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1704864591284</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Author in all">
-      <option name="closed" value="true" />
-      <created>1704879898911</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1704879898912</updated>
-    </task>
-    <task id="LOCAL-00006" summary="controllerRegister -&gt; Arreglado">
-      <option name="closed" value="true" />
-      <created>1704946797340</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1704946797340</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Todos los controladores corregidos">
-      <option name="closed" value="true" />
-      <created>1704951160414</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1704951160414</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Todos los controladores y modelos correctamente funcionando.">
-      <option name="closed" value="true" />
-      <created>1704953892307</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1704953892307</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Todos los controladores y modelos correctamente funcionando.">
-      <option name="closed" value="true" />
-      <created>1705023893799</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1705023893799</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Arreglando test">
-      <option name="closed" value="true" />
-      <created>1705027830387</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1705027830387</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="arreglos" />
@@ -265,8 +199,7 @@
     <MESSAGE value="Todos los controladores corregidos" />
     <MESSAGE value="Test emails, Opciones de correo" />
     <MESSAGE value="Todos los controladores y modelos correctamente funcionando." />
-    <MESSAGE value="Arreglando test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Arreglando test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Todos los controladores y modelos correctamente funcionando." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

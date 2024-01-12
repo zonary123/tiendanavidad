@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * @author Carlos Varas Alonso
@@ -11,6 +12,7 @@ import lombok.Data;
 @Entity
 @Table(name = "historialusuarios")
 @Data
+@EqualsAndHashCode
 public class Historialusuarios implements java.io.Serializable {
 
   @EmbeddedId
