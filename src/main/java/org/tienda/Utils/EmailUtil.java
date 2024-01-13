@@ -17,13 +17,24 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 /**
+ * The type Email util.
+ *
  * @author Carlos Varas Alonso
  */
 public class EmailUtil {
   private final static String FROMEMAIL = "carlosvarasalonso.clases@gmail.com";
   private final static String PASSWORD = "kaptgyvimqwszdva";
+  /**
+   * The constant OPCION_ENVIAR_CODIGO.
+   */
   public final static int OPCION_ENVIAR_CODIGO = 1;
+  /**
+   * The constant OPCION_CAMBIO_PASSWORD.
+   */
   public final static int OPCION_CAMBIO_PASSWORD = 2;
+  /**
+   * The constant OPCION_INICIO_SESION.
+   */
   public final static int OPCION_INICIO_SESION = 3;
   private final static utilsLenguaje lenguaje;
 
@@ -43,7 +54,8 @@ public class EmailUtil {
    * @param toEmail el email del destinatario
    * @param subject el asunto
    * @param body    el cuerpo del mensaje
-   * @throws MessagingException el error de mensajeria
+   *
+   * @return the boolean
    */
   public static boolean sendEmail(Session session, String toEmail, String subject, String body) {
     try {
@@ -67,9 +79,12 @@ public class EmailUtil {
   /**
    * Configura el email
    *
-   * @param u el usuario
-   * @throws MessagingException el error de mensajeria
-   * @throws IOException        el error de entrada y salida
+   * @param u      el usuario
+   * @param opcion the opcion
+   *
+   * @return the boolean
+   *
+   * @throws IOException el error de entrada y salida
    */
   public static boolean confMail(Usuarios u, int opcion) throws IOException {
     Properties props = new Properties();
@@ -114,7 +129,9 @@ public class EmailUtil {
    * Crea el cuerpo del email
    *
    * @param codigo el codigo
+   *
    * @return el cuerpo del email
+   *
    * @throws IOException el error de entrada y salida
    */
   public static String emailCode(String codigo) throws IOException {
@@ -129,7 +146,7 @@ public class EmailUtil {
       } else if (linea.contains("{{msg}}")) {
         body.append(linea.replace("{{msg}}", "Enviado por Tienda Navidad"));
       } else if (linea.contains("{{title}}")) {
-        body.append(linea.replace("{{title}}", "Código de recuperación"));
+        body.append(linea.replace("{{title}}", "Codigo de recuperación"));
       } else {
         body.append(linea);
       }

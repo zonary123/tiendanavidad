@@ -8,11 +8,18 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 /**
+ * The type Estructura.
+ *
  * @author Carlos Varas Alonso - 10/01/2024 10:45
  */
 public class Estructura {
   private final static String PATH = "src/main/resources/sql/estructura.sql";
 
+  /**
+   * Instantiates a new Estructura.
+   *
+   * @throws FileNotFoundException the file not found exception
+   */
   public Estructura() throws FileNotFoundException {
     crearEstructura();
   }

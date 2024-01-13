@@ -17,6 +17,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
+ * The type Forgot password code.
+ *
  * @author Carlos Varas Alonso
  */
 @Getter @Setter
@@ -26,6 +28,8 @@ public class ForgotPasswordCode extends JFrame {
 
   /**
    * Creates new form ForgotPasswordPassword
+   *
+   * @param u the u
    */
   public ForgotPasswordCode(Usuarios u) {
     initComponents();
@@ -115,7 +119,7 @@ public class ForgotPasswordCode extends JFrame {
     pack();
     setLocationRelativeTo(null);
   }// </editor-fold>//GEN-END:initComponents
-  
+
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JPanel Container;
   private javax.swing.JButton jButtonBack;

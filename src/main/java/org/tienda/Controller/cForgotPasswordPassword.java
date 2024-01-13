@@ -14,6 +14,8 @@ import javax.swing.*;
 import java.io.IOException;
 
 /**
+ * The type C forgot password password.
+ *
  * @author Carlos Varas Alonso
  */
 public class cForgotPasswordPassword implements controllers {
@@ -34,6 +36,7 @@ public class cForgotPasswordPassword implements controllers {
    * Constructor de la clase
    *
    * @param vista Vista de la clase
+   *
    * @throws IOException Error de lectura de archivo
    */
   public cForgotPasswordPassword(ForgotPasswordPassword vista) throws IOException {
@@ -68,6 +71,7 @@ public class cForgotPasswordPassword implements controllers {
    * Inicializacion de eventos de la vista
    */
   public void initEvents() {
+    vista.getJPasswordFieldPassword().requestFocus();
     vista.getJButtonClose().addActionListener(e -> vista.dispose());
     vista.getJButtonBack().addActionListener(
       e -> {

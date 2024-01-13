@@ -21,6 +21,8 @@ import org.tienda.Model.Usuarios;
 import org.tienda.Utils.utilsLenguaje;
 
 /**
+ * The type Login.
+ *
  * @author Carlos Varas Alonso
  */
 @Getter
@@ -31,6 +33,8 @@ public class Login extends javax.swing.JFrame {
 
   /**
    * Creates new form Login
+   *
+   * @param user the user
    */
   public Login(String user) {
     try {

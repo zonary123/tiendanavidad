@@ -4,15 +4,45 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c118b3c5-02f1-461f-8e3e-749fcbeb622f" name="Changes" comment="Todos los controladores y modelos correctamente funcionando.">
+    <list default="true" id="c118b3c5-02f1-461f-8e3e-749fcbeb622f" name="Changes" comment="A">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Components/jPanelProducts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Components/jPanelProducts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/cForgotPasswordCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/cForgotPasswordCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/cForgotPasswordEmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/cForgotPasswordEmail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/cForgotPasswordPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/cForgotPasswordPassword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/controllerHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/controllerHome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/controllerLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/controllerLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/controllerRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/controllerRegister.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/hibernateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/hibernateUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/DB/Alimentacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/DB/Alimentacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/DB/Estructura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/DB/Estructura.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Interfaces/controllers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Interfaces/controllers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/Carrito.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/Carrito.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/CarritoId.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/CarritoId.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/Compras.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/Compras.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/ComprasId.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/ComprasId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/Historialusuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/Historialusuarios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/HistorialusuariosId.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/HistorialusuariosId.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/Productos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/Productos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/Usuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/Usuarios.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Utils/EmailUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Utils/EmailUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/tienda/utils/EmailTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tienda/utils/EmailTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Utils/utilsLenguaje.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Utils/utilsLenguaje.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Utils/utilsTextField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Utils/utilsTextField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/ForgotPasswordCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/ForgotPasswordCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/ForgotPasswordEmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/ForgotPasswordEmail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/ForgotPasswordPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/ForgotPasswordPassword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/HomeUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/HomeUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Register.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/svg/Vector.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/svg/carrito.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tienda/Views/HomeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tienda/test/Views/HomeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tienda/lang/langTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tienda/model/ProductosTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tienda/model/UsuariosTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tienda/suite/TestSuite.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tienda/utils/EmailTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +54,7 @@
       <list>
         <option value="Class" />
         <option value="HTML File" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -68,41 +99,43 @@
   <component name="ProjectViewState">
     <option name="abbreviatePackageNames" value="true" />
     <option name="autoscrollFromSource" value="true" />
-    <option name="flattenPackages" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
+    <option name="showScratchesAndConsoles" value="false" />
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Principal.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Pruebas.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Alumno/Desktop/tiendanavidad&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Principal.executor": "Run",
+    "Application.Pruebas.executor": "Run",
+    "JUnit.TestSuite.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Alumno/Desktop/tiendanavidad",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mariadb&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Alumno\Desktop\tiendanavidad\src\main\resources\img\svg" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Principal">
+  <component name="RunManager" selected="JUnit.TestSuite">
     <configuration name="Principal" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="org.tienda.Views.Login" />
       <module name="tiendanavidad" />
@@ -118,8 +151,8 @@
     </configuration>
     <configuration name="TestSuite" type="JUnit" factoryName="JUnit">
       <module name="tiendanavidad" />
-      <option name="PACKAGE_NAME" value="org.tienda.suite" />
-      <option name="MAIN_CLASS_NAME" value="org.tienda.suite.TestSuite" />
+      <option name="PACKAGE_NAME" value="org.tienda.test.suite" />
+      <option name="MAIN_CLASS_NAME" value="org.tienda.test.suite.TestSuite" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
@@ -150,7 +183,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.9-corretto-17.0.9-3183f394aec4-8f899f12" />
+        <option value="jdk-17.0.9-corretto-17.0.9-f644763e9732-ebaef533" />
       </set>
     </attachedChunks>
   </component>
@@ -160,7 +193,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="" />
+      <changelist id="c118b3c5-02f1-461f-8e3e-749fcbeb622f" name="Changes" comment="A" />
       <created>1704897626224</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -173,6 +206,9 @@
       <workItem from="1705071928060" duration="1393000" />
       <workItem from="1705073527955" duration="2407000" />
       <workItem from="1705083976736" duration="4460000" />
+      <workItem from="1705094054884" duration="1481000" />
+      <workItem from="1705117485263" duration="1637000" />
+      <workItem from="1705120058426" duration="6300000" />
     </task>
     <task id="LOCAL-00001" summary="Arreglos en Home">
       <option name="closed" value="true" />

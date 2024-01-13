@@ -12,6 +12,8 @@ import java.util.Set;
 import org.tienda.Controller.hibernateUtil;
 
 /**
+ * The type Productos.
+ *
  * @author Carlos Varas Alonso
  */
 @Entity
@@ -55,21 +57,48 @@ public class Productos {
   @OneToMany(mappedBy = "productos", fetch = FetchType.LAZY)
   private Set<Compras> comprases;
 
+  /**
+   * Este método se encarga de devolver todos los productos de la base de datos
+   *
+   * @return con todos los productos de la base de datos
+   *
+   * @throws NoResultException si no hay productos en la base de datos
+   */
   public static List<Productos> findAll() throws NoResultException {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.getCurrentSession();
     session.beginTransaction();
-    return session.createQuery("from Productos").getResultList();
+    List<Productos> productos = session.createQuery("from Productos").getResultList();
+    return productos;
   }
 
-  public static Productos findbyId(int i) throws NoResultException {
+  /**
+   * Este método se encarga de devolver un producto de la base de datos
+   *
+   * @param id id del producto a devolver
+   *
+   * @return Productos con el id especificado
+   *
+   * @throws NoResultException si no hay productos con el id especificado
+   */
+  public static Productos findbyId(int id) throws NoResultException {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.getCurrentSession();
     session.beginTransaction();
-    return session.get(Productos.class, i);
+    return session.get(Productos.class, id);
   }
 
-  public static List findByCategoria(String cat) throws NoResultException {
+  /**
+   * Este método se encarga de devolver todos los productos de la base de datos
+   * que pertenezcan a una categoría
+   *
+   * @param cat categoría de los productos a devolver
+   *
+   * @return List<Productos>   con todos los productos de la base de datos que pertenezcan a una categoría
+   *
+   * @throws NoResultException si no hay productos en la categoría especificada
+   */
+  public static List<Productos> findByCategoria(String cat) throws NoResultException {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.getCurrentSession();
     session.beginTransaction();

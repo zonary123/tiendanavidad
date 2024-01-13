@@ -10,6 +10,8 @@ import javax.persistence.*;
 import java.sql.Date;
 
 /**
+ * The type Compras.
+ *
  * @author Carlos Varas Alonso
  */
 @Data
@@ -40,14 +42,23 @@ public class Compras {
   @Column(name = "fechaentrega")
   private Date fechaentrega;
 
+  /**
+   * Constructor vacio de la clase
+   */
+  public Compras() {
+
+  }
+
+  /**
+   * Constructor de la clase
+   *
+   * @param idComppras Id de la compra
+   * @param cantidad   Cantidad de productos
+   */
   public Compras(ComprasId idComppras, int cantidad) {
     this.id = idComppras;
     this.cantidad = cantidad;
     this.fechacompra = new Date(System.currentTimeMillis());
     this.fechaentrega = new Date(System.currentTimeMillis());
-  }
-
-  public Compras() {
-
   }
 }

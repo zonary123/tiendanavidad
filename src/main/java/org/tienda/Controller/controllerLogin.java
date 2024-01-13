@@ -3,6 +3,8 @@ package org.tienda.Controller;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import javax.persistence.NoResultException;
 import javax.swing.*;
 
@@ -11,6 +13,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.mindrot.jbcrypt.BCrypt;
 import org.tienda.Interfaces.controllers;
+import org.tienda.Model.Historialusuarios;
+import org.tienda.Model.HistorialusuariosId;
 import org.tienda.Model.Usuarios;
 import org.tienda.Utils.EmailUtil;
 import org.tienda.Utils.utilsLenguaje;
@@ -21,6 +25,8 @@ import org.tienda.Views.Login;
 import org.tienda.Views.Register;
 
 /**
+ * The type Controller login.
+ *
  * @author Carlos Varas Alonso
  */
 public class controllerLogin implements controllers {
@@ -77,6 +83,7 @@ public class controllerLogin implements controllers {
    * Inicializacion de eventos de la vista
    */
   public void initEvents() throws NoResultException {
+    vista.getJTextFieldUsername().requestFocus();
     // ! Eventos Presionar teclado
     vista.getJTextFieldUsername().addKeyListener(new KeyAdapter() {
       @Override
@@ -128,6 +135,8 @@ public class controllerLogin implements controllers {
             }
           }
         ).start();
+        Historialusuarios inicioSesion = new Historialusuarios(new HistorialusuariosId(usuario.getIdusuario(), Timestamp.valueOf(LocalDateTime.now())), usuario);
+        Historialusuarios.save(inicioSesion);
         new HomeUser(usuario).setVisible(true);
       } else {
         JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("login.joptionpanel.false.credenciales"), lenguaje.getMensaje().getString("login.joptionpanel.title"), JOptionPane.ERROR_MESSAGE);
@@ -154,6 +163,7 @@ public class controllerLogin implements controllers {
    *
    * @param username Nombre del usuario
    * @param password Contraseña del usuario
+   *
    * @return true si las credenciales son correctas
    */
   private Boolean validarCredenciales(String username, char[] password) {

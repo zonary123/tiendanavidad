@@ -7,6 +7,8 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 /**
+ * The type Utils lenguaje.
+ *
  * @author Carlos Varas Alonso
  */
 @Data
@@ -36,6 +38,7 @@ public class utilsLenguaje {
    * Establece el lenguaje y el país.
    *
    * @param lenguaje el lenguaje
+   *
    * @throws IOException error de lectura del fichero
    */
   public utilsLenguaje(String lenguaje) throws IOException {

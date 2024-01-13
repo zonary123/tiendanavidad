@@ -1,9 +1,10 @@
 package org.tienda.Interfaces;
 
 /**
+ * The interface Controllers.
+ *
  * @author Carlos Varas Alonso
  */
-
 public interface controllers {
   /**
    * Actualiza el lenguaje de la vista
@@ -15,5 +16,8 @@ public interface controllers {
    */
   void actualizarEstilos();
 
+  /**
+   * Init events.
+   */
   void initEvents();
 }
