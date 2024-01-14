@@ -1,48 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_TEST_SOURCES" value="false" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c118b3c5-02f1-461f-8e3e-749fcbeb622f" name="Changes" comment="A">
+    <list default="true" id="c118b3c5-02f1-461f-8e3e-749fcbeb622f" name="Changes" comment="JavaDocs">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Components/jPanelProducts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Components/jPanelProducts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/cForgotPasswordCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/cForgotPasswordCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/cForgotPasswordEmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/cForgotPasswordEmail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/cForgotPasswordPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/cForgotPasswordPassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/controllerHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/controllerHome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/controllerLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/controllerLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/controllerRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/controllerRegister.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/hibernateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/hibernateUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/DB/Alimentacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/DB/Alimentacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/DB/Estructura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/DB/Estructura.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Interfaces/controllers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Interfaces/controllers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/Carrito.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/Carrito.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/CarritoId.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/CarritoId.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/Compras.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/Compras.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/ComprasId.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/ComprasId.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/Historialusuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/Historialusuarios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/HistorialusuariosId.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/HistorialusuariosId.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/Productos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/Productos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/Usuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/Usuarios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Utils/EmailUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Utils/EmailUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Utils/utilsLenguaje.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Utils/utilsLenguaje.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Utils/utilsTextField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Utils/utilsTextField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/ForgotPasswordCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/ForgotPasswordCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/ForgotPasswordEmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/ForgotPasswordEmail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/ForgotPasswordPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/ForgotPasswordPassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/HomeUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/HomeUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Login.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Login.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Register.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/svg/Vector.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/svg/carrito.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/tienda/Views/HomeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tienda/test/Views/HomeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/tienda/lang/langTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/tienda/model/ProductosTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/tienda/model/UsuariosTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/tienda/suite/TestSuite.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/tienda/utils/EmailTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/email/Codigo.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/email/Codigo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/inter/Inter-VariableFont_slnt,wght.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/inter/OFL.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/inter/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/inter/static/Inter-Black.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/inter/static/Inter-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/inter/static/Inter-ExtraBold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/inter/static/Inter-ExtraLight.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/inter/static/Inter-Light.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/inter/static/Inter-Medium.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/inter/static/Inter-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/inter/static/Inter-SemiBold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/inter/static/Inter-Thin.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/alimentacion.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/alimentacion.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/estructura.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/estructura.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +73,9 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -107,35 +102,35 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Principal.executor": "Run",
-    "Application.Pruebas.executor": "Run",
-    "JUnit.TestSuite.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Alumno/Desktop/tiendanavidad",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Principal.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Pruebas.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestSuite.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Alumno/Desktop/tiendanavidad&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Alumno\Desktop\tiendanavidad\src\main\resources\img\svg" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestSuite">
+  <component name="RunManager" selected="Application.Principal">
     <configuration name="Principal" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="org.tienda.Views.Login" />
       <module name="tiendanavidad" />
@@ -208,7 +203,14 @@
       <workItem from="1705083976736" duration="4460000" />
       <workItem from="1705094054884" duration="1481000" />
       <workItem from="1705117485263" duration="1637000" />
-      <workItem from="1705120058426" duration="6300000" />
+      <workItem from="1705120058426" duration="6962000" />
+      <workItem from="1705127101376" duration="32000" />
+      <workItem from="1705127205343" duration="1884000" />
+      <workItem from="1705207283562" duration="521000" />
+      <workItem from="1705207988121" duration="667000" />
+      <workItem from="1705208975683" duration="11723000" />
+      <workItem from="1705264220025" duration="427000" />
+      <workItem from="1705264812463" duration="2118000" />
     </task>
     <task id="LOCAL-00001" summary="Arreglos en Home">
       <option name="closed" value="true" />
@@ -218,7 +220,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705087077472</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="JavaDocs">
+      <option name="closed" value="true" />
+      <created>1705126407885</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1705126407885</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,7 +245,8 @@
     <MESSAGE value="Todos los controladores corregidos" />
     <MESSAGE value="Test emails, Opciones de correo" />
     <MESSAGE value="Todos los controladores y modelos correctamente funcionando." />
-    <option name="LAST_COMMIT_MESSAGE" value="Todos los controladores y modelos correctamente funcionando." />
+    <MESSAGE value="JavaDocs" />
+    <option name="LAST_COMMIT_MESSAGE" value="JavaDocs" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -2,6 +2,8 @@ package org.tienda.Controller;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
@@ -126,6 +128,8 @@ public class controllerLogin implements controllers {
         vista.removeAll();
         vista.dispose();
         Usuarios usuario = vista.getJTextFieldUsername().getText().contains("@") ? Usuarios.findByEmail(vista.getJTextFieldUsername().getText()) : Usuarios.findByUsername(vista.getJTextFieldUsername().getText());
+        usuario.setCodigo(null);
+        Usuarios.updateCodigo(usuario);
         new Thread(
           () -> {
             try {

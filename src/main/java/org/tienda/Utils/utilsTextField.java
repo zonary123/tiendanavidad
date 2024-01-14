@@ -112,7 +112,7 @@ public class utilsTextField {
     textFieldCustom.setLeadingIcon(new FlatSVGIcon(icon, width, height));
     textFieldCustom.setOutLineColor(color);
     textFieldCustom.setOutLineWidth(1);
-    textFieldCustom.setMargin(0, 14, 0, 0);
+    textFieldCustom.setMargin(0, 4, 0, 0);
   }
 }
 

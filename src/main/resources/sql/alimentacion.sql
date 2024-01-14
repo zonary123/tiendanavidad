@@ -1,12 +1,19 @@
--- Test Usuario
-INSERT INTO usuarios (idusuario, username, password, nombre, apellidos, email, imagen, lenguaje, permisos, roles,
-                      activacion,
-                      codigo) VALUE (1, 'test', '$2a$12$r7KpmujbFdsp4Xy1lvie0edS86Xd3ooFdYwdhKXlBhziavQo6t9DO',
-                                     'test',
-                                     'test', 'carlos.varalo@educa.jcyl.es', NULL, 'es_ES', NULL, NULL, 1,
-                                     NULL);
--- Usuarios
+USE tienda;
 
--- Productos
-INSERT INTO productos (nombre, descripcion, precio, descuento, categoria, imagen, stock)
-VALUES ('Cama', 'Cama de 3 plaza', 2000000.00, 0.00, 'mueble', NULL, 10);
+INSERT IGNORE INTO usuarios (idusuario, username, password, nombre, apellidos, email, imagen, lenguaje, permisos,
+                             roles,
+                             activacion, codigo)
+VALUES (1, 'test', '$2a$12$ETWmKHOOG.ZVX5HvdBcXfudIRNpiar39SWoIs7MYIJXdxly/C/266', 'test', 'test',
+        'carlos.varalo@educa.jcyl.es', NULL, 'es_ES', NULL, '["user"]', 1, NULL),
+       (2, 'testadmin', '$2a$12$TaF/Ylk6DZAJqNxLaKGweuQ.84zQxGMW1Qu5.Aen0dBv3WaVSsDRq', 'testadmin', 'testadmin',
+        'carlosvarasalonso10@gmail.com', NULL, 'es_ES', NULL, '["user"]', 1, NULL);
+
+INSERT IGNORE INTO productos (idproducto, nombre, descripcion, precio, descuento, categoria, imagen, stock)
+VALUES (1, 'Play', 'Play 4', 2000.00, 0.00, 'Consola', NULL, 10),
+       (2, 'Play', 'Play 4', 2000.00, 0.00, 'Consola', NULL, 10),
+       (3, 'Play', 'Play 4', 2000.00, 0.00, 'Consola', NULL, 10),
+       (4, 'Play', 'Play 4', 2000.00, 0.00, 'Consola', NULL, 10),
+       (5, 'Play', 'Play 4', 2000.00, 0.00, 'Consola', NULL, 10),
+       (6, 'Play', 'Play 4', 2000.00, 0.00, 'Consola', NULL, 10),
+       (7, 'Play', 'Play 4', 2000.00, 0.00, 'Consola', NULL, 10),
+       (8, 'Play', 'Play 4', 2000.00, 0.00, 'Consola', NULL, 10);

@@ -66,7 +66,7 @@ public class Productos {
    */
   public static List<Productos> findAll() throws NoResultException {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
-    Session session = sessionFactory.getCurrentSession();
+    Session session = sessionFactory.openSession();
     session.beginTransaction();
     List<Productos> productos = session.createQuery("from Productos").getResultList();
     return productos;
@@ -83,7 +83,7 @@ public class Productos {
    */
   public static Productos findbyId(int id) throws NoResultException {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
-    Session session = sessionFactory.getCurrentSession();
+    Session session = sessionFactory.openSession();
     session.beginTransaction();
     return session.get(Productos.class, id);
   }
@@ -100,7 +100,7 @@ public class Productos {
    */
   public static List<Productos> findByCategoria(String cat) throws NoResultException {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
-    Session session = sessionFactory.getCurrentSession();
+    Session session = sessionFactory.openSession();
     session.beginTransaction();
     return session.createQuery("from Productos p where p.categoria = :categoria").setParameter("categoria", cat).getResultList();
   }

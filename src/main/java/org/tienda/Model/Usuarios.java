@@ -80,7 +80,7 @@ public class Usuarios implements java.io.Serializable {
    * @param nombre     nombre
    * @param apellidos  apellidos
    * @param email      email
-   * @param lenguaje   lenguaje
+   * @param lenguaje   lenguaje ej: es_ES, en_US
    * @param roles      roles
    * @param activacion activacion
    */
@@ -160,7 +160,7 @@ public class Usuarios implements java.io.Serializable {
    */
   public static Usuarios findbyId(Integer id) {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
-    Session session = sessionFactory.getCurrentSession();
+    Session session = sessionFactory.openSession();
     session.beginTransaction();
     return session.get(Usuarios.class, id);
   }
@@ -176,7 +176,7 @@ public class Usuarios implements java.io.Serializable {
    */
   public static Usuarios findByEmail(String mail) throws NoResultException {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
-    Session session = sessionFactory.getCurrentSession();
+    Session session = sessionFactory.openSession();
     session.beginTransaction();
     return session.createQuery("from Usuarios where email = :mail", Usuarios.class).setParameter("mail", mail).getSingleResult();
   }
@@ -190,11 +190,17 @@ public class Usuarios implements java.io.Serializable {
    *
    * @throws NoResultException NoResultException
    */
-  public static Usuarios findByUsername(String Username) throws NoResultException {
+  public static Usuarios findByUsername(String Username) {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
-    Session session = sessionFactory.getCurrentSession();
+    Session session = sessionFactory.openSession();
     session.beginTransaction();
-    return session.createQuery("from Usuarios where username = :username", Usuarios.class).setParameter("username", Username).getSingleResult();
+    try {
+      return session.createQuery("from Usuarios where username = :username", Usuarios.class).setParameter("username", Username).getSingleResult();
+    } catch (NoResultException e) {
+      return null;
+    } finally {
+      session.close();
+    }
   }
 
   /**
@@ -204,7 +210,7 @@ public class Usuarios implements java.io.Serializable {
    */
   public static List<Usuarios> findAll() {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
-    Session session = sessionFactory.getCurrentSession();
+    Session session = sessionFactory.openSession();
     session.beginTransaction();
     return session.createQuery("from Usuarios", Usuarios.class).list();
   }
@@ -218,7 +224,7 @@ public class Usuarios implements java.io.Serializable {
    */
   public static boolean save(Usuarios usuario) {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
-    Session session = sessionFactory.getCurrentSession();
+    Session session = sessionFactory.openSession();
     try {
       session.beginTransaction();
       usuario.setPassword(BCrypt.hashpw(usuario.getPassword(), BCrypt.gensalt(12)));
@@ -247,7 +253,7 @@ public class Usuarios implements java.io.Serializable {
    */
   public static boolean delete(Usuarios usuario) {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
-    Session session = sessionFactory.getCurrentSession();
+    Session session = sessionFactory.openSession();
 
     try {
       session.beginTransaction();
@@ -276,7 +282,7 @@ public class Usuarios implements java.io.Serializable {
    */
   public static boolean update(Usuarios usuario) {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
-    Session session = sessionFactory.getCurrentSession();
+    Session session = sessionFactory.openSession();
 
     try {
       session.beginTransaction();
@@ -317,7 +323,7 @@ public class Usuarios implements java.io.Serializable {
    */
   public static Usuarios existUser(Usuarios usuario) {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
-    Session session = sessionFactory.getCurrentSession();
+    Session session = sessionFactory.openSession();
     session.beginTransaction();
     Usuarios user;
     try {
@@ -341,7 +347,7 @@ public class Usuarios implements java.io.Serializable {
    */
   public static boolean checkCodigo(Usuarios u, String codigo) {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
-    Session session = sessionFactory.getCurrentSession();
+    Session session = sessionFactory.openSession();
     session.beginTransaction();
     System.out.println(u);
     try {
@@ -364,7 +370,7 @@ public class Usuarios implements java.io.Serializable {
    */
   public static boolean updateCodigo(Usuarios u) {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
-    Session session = sessionFactory.getCurrentSession();
+    Session session = sessionFactory.openSession();
     session.beginTransaction();
     try {
       session.createQuery("update Usuarios set codigo = :codigo where email = :email")
@@ -391,7 +397,7 @@ public class Usuarios implements java.io.Serializable {
    */
   public static boolean updatePassword(Usuarios u) {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
-    Session session = sessionFactory.getCurrentSession();
+    Session session = sessionFactory.openSession();
     session.beginTransaction();
     try {
       session.createQuery("update Usuarios set password = :password where email = :email")

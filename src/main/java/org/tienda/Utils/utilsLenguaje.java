@@ -32,6 +32,11 @@ public class utilsLenguaje {
     this.mensaje = ResourceBundle.getBundle(this.fichero, this.local);
   }
 
+  public String getText(String clave) {
+    //return mensaje.getStri ng(clave);
+    return null;
+  }
+
   /**
    * Constructor de la clase utilsLenguaje.
    * <br>
