@@ -1,10 +1,11 @@
 package org.tienda.Utils;
 
-import lombok.Data;
-
 import java.io.*;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * The type Utils lenguaje.
@@ -12,7 +13,10 @@ import java.util.ResourceBundle;
  * @author Carlos Varas Alonso
  */
 @Data
+@Getter
+@Setter
 public class utilsLenguaje {
+
   private String fichero;
   private Locale local;
   private ResourceBundle mensaje;
@@ -50,6 +54,5 @@ public class utilsLenguaje {
     this.local = new Locale(new Locale(lenguaje).getLanguage());
     this.mensaje = ResourceBundle.getBundle("lang/" + lenguaje, this.local);
   }
-
 
 }
