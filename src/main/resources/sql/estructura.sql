@@ -1,4 +1,4 @@
-CREATE DATABASE tienda;
+CREATE DATABASE IF NOT EXISTS tienda;
 
 USE tienda;
 

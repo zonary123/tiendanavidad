@@ -9,6 +9,8 @@ import lombok.Setter;
 import java.sql.Timestamp;
 
 /**
+ * The type Historialusuarios id.
+ *
  * @author Carlos Varas Alonso
  */
 @Data
@@ -18,10 +20,19 @@ public class HistorialusuariosId implements java.io.Serializable {
   private Timestamp fechainiciosesion;
   private int idusuario;
 
+  /**
+   * Instantiates a new Historialusuarios id.
+   */
   public HistorialusuariosId() {
   }
 
-  public HistorialusuariosId(Timestamp fechainiciosesion, int idusuario) {
+  /**
+   * Instantiates a new Historialusuarios id.
+   *
+   * @param idusuario         the idusuario
+   * @param fechainiciosesion the fechainiciosesion
+   */
+  public HistorialusuariosId(int idusuario, Timestamp fechainiciosesion) {
     this.fechainiciosesion = fechainiciosesion;
     this.idusuario = idusuario;
   }

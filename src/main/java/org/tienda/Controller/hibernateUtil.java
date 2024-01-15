@@ -11,6 +11,8 @@ import org.hibernate.cfg.Configuration;
 import javax.swing.*;
 
 /**
+ * The type Hibernate util.
+ *
  * @author Carlos Varas Alonso
  */
 @Data
@@ -20,7 +22,7 @@ public class hibernateUtil {
   /**
    * Inicializacion de la conexion con la base de datos
    *
-   * @return SessionFactory
+   * @return SessionFactory session factory
    */
   public static SessionFactory buildSessionFactory() {
     Configuration configuration = new Configuration();

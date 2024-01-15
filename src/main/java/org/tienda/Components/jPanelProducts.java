@@ -4,6 +4,7 @@
  */
 package org.tienda.Components;
 
+import com.formdev.flatlaf.extras.FlatSVGIcon;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -14,8 +15,11 @@ import org.tienda.Model.Productos;
 import org.tienda.Model.Usuarios;
 
 import java.awt.*;
+import java.util.function.Function;
 
 /**
+ * The type J panel products.
+ *
  * @author Carlos Varas Alonso
  */
 @Data
@@ -29,24 +33,39 @@ public class jPanelProducts extends javax.swing.JPanel {
 
   /**
    * Creates new form jPanelProducts
+   *
+   * @param user     the user
+   * @param producto the producto
    */
-  public jPanelProducts(String username, Productos producto) {
+  public jPanelProducts(Usuarios user, Productos producto) {
     this.id = producto.getIdproducto();
-    this.username = username;
+    this.username = user.getUsername();
     initComponents();
     setSize(350, 450);
     setDatos(producto);
     posicionar();
+    actualizarEstilos();
+    eventos();
+  }
+
+  private void actualizarEstilos() {
     putClientProperty("FlatLaf.style", "arc: 16");
     getComprar().putClientProperty("FlatLaf.style", "arc: 16");
-    eventos();
+    getComprar().putClientProperty("FlatLaf.leadingIcon", new FlatSVGIcon("img/svg/carrito.svg"));
+
+    FlatSVGIcon icon = new FlatSVGIcon("img/svg/carrito.svg");
+    Function<Color, Color> colors = c -> new Color(255, 255, 255);
+    icon.setColorFilter(new FlatSVGIcon.ColorFilter(colors));
+    getComprar().setIcon(icon);
+    getComprar().setIconTextGap(10);
+
   }
 
   private void eventos() {
     getComprar().addActionListener(e
       -> {
       Usuarios u = Usuarios.findByUsername(username);
-      if (true) {
+      if (Carrito.findById(id, u)) {
         Carrito.updateCant(id, u);
       } else {
         Carrito.save(new CarritoId(id, u.getIdusuario()), 1);

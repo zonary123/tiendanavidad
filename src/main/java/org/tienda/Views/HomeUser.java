@@ -10,17 +10,23 @@ import org.tienda.Controller.controllerHome;
 import org.tienda.Model.Usuarios;
 
 /**
+ * The type Home user.
+ *
  * @author Carlos Varas Alonso
  */
 @Getter
 @Setter
 public class HomeUser extends javax.swing.JFrame {
+  private Usuarios usuario;
 
   /**
    * Creates new form HomeUser
+   *
+   * @param user the user
    */
   public HomeUser(Usuarios user) {
     initComponents();
+    this.usuario = user;
     jLabelUsername.setText(user.getUsername());
     controllerHome cHome = new controllerHome(this);
 

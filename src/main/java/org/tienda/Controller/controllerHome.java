@@ -3,15 +3,23 @@ package org.tienda.Controller;
 import org.hibernate.engine.jdbc.Size;
 import org.tienda.Components.jPanelProducts;
 import org.tienda.Interfaces.controllers;
+import org.tienda.Model.Historialusuarios;
+import org.tienda.Model.HistorialusuariosId;
 import org.tienda.Model.Productos;
+import org.tienda.Model.Usuarios;
 import org.tienda.Utils.utilsTextField;
 import org.tienda.Views.HomeUser;
+import org.tienda.Views.Login;
 
 import javax.swing.*;
 import java.awt.*;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
+ * The type Controller home.
+ *
  * @author Carlos Varas Alonso
  */
 public class controllerHome implements controllers {
@@ -19,6 +27,11 @@ public class controllerHome implements controllers {
   private HomeUser vista;
   private utilsTextField textField = new utilsTextField();
 
+  /**
+   * Constructor de la clase
+   *
+   * @param vista Vista de la clase
+   */
   public controllerHome(HomeUser vista) {
     this.vista = vista;
     initEvents();
@@ -27,10 +40,16 @@ public class controllerHome implements controllers {
     actualizarEstilos();
   }
 
+  /**
+   * Actualiza el lenguaje de la vista
+   */
   @Override public void actualizarLenguaje() {
     vista.getSearch().setText(null);
   }
 
+  /**
+   * Actualiza los estilos de la vista
+   */
   @Override public void actualizarEstilos() {
     vista.getUser().setSize(new Dimension((int) (vista.getJLabelUsername().getWidth() * 1.5) + 5, vista.getJLabelUsername().getHeight()));
     // ? Propiedades
@@ -48,15 +67,28 @@ public class controllerHome implements controllers {
    * Inicializacion de eventos de la vista
    */
   public void initEvents() {
+    vista.getSignOut().addActionListener(e -> {
+      Historialusuarios historialusuarios = new Historialusuarios();
+      historialusuarios.setId(Historialusuarios.findRecent(vista.getUsuario()).getId());
+      historialusuarios.setFechafinsesion(Timestamp.valueOf(LocalDateTime.now()));
+      //Historialusuarios.update(historialusuarios);
+      vista.dispose();
+      new Login(null).setVisible(true);
+    });
   }
 
+  /**
+   * Este metodo se encarga de mostrar los productos en la vista
+   *
+   * @param productos Lista de productos
+   */
   public void mostrarProductos(List<Productos> productos) {
     JPanel panelProductos = this.vista.getContainerProducts();
     panelProductos.setLayout(new GridLayout(0, 3, 10, 10));
     panelProductos.removeAll();
 
     for (Productos producto : productos) {
-      panelProductos.add(new jPanelProducts(vista.getJLabelUsername().getText().trim(), producto));
+      panelProductos.add(new jPanelProducts(vista.getUsuario(), producto));
     }
 
     panelProductos.revalidate();

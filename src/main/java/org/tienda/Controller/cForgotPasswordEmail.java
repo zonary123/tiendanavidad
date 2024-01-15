@@ -16,6 +16,8 @@ import java.util.Random;
 import org.tienda.Utils.utilsTextField;
 
 /**
+ * The type C forgot password email.
+ *
  * @author Carlos Varas Alonso
  */
 public class cForgotPasswordEmail implements controllers {
@@ -37,6 +39,7 @@ public class cForgotPasswordEmail implements controllers {
    * Constructor de la clase
    *
    * @param vista Vista de la clase
+   *
    * @throws IOException Error de lectura de archivo
    */
   public cForgotPasswordEmail(ForgotPasswordEmail vista) throws IOException {
@@ -50,6 +53,7 @@ public class cForgotPasswordEmail implements controllers {
    * Inicializacion de eventos de la vista
    */
   public void initEvents() {
+    vista.getJTextFieldEmail().requestFocus();
     vista.getJButtonClose().addActionListener(e -> vista.dispose());
     vista.getJButtonBack().addActionListener(
       e -> {
@@ -62,6 +66,7 @@ public class cForgotPasswordEmail implements controllers {
           JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("forgot.email.send") + " " + vista.getJTextFieldEmail().getText(),
             "Codigo", JOptionPane.INFORMATION_MESSAGE);
           vista.dispose();
+
           new ForgotPasswordCode(u).setVisible(true);
         } else {
           JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("forgot.email.notexist"),
@@ -77,9 +82,10 @@ public class cForgotPasswordEmail implements controllers {
   /**
    * Genera un codigo aleatorio de 6 caracteres y lo envia al correo
    *
-   * @return boolean
-   * @throws IOException        Error de lectura de archivo
+   * @return boolean boolean
+   *
    * @throws MessagingException Error de envio de correo
+   * @throws IOException        Error de lectura de archivo
    */
   public static boolean sendCode() throws MessagingException, IOException {
     u = new Usuarios();
@@ -87,7 +93,15 @@ public class cForgotPasswordEmail implements controllers {
     u.setCodigo(generarCodigo(6));
 
     if (Usuarios.updateCodigo(u)) {
-      EmailUtil.confMail(u, EmailUtil.OPCION_ENVIAR_CODIGO);
+      new Thread(
+        () -> {
+          try {
+            EmailUtil.confMail(u, EmailUtil.OPCION_ENVIAR_CODIGO);
+          } catch (IOException ex) {
+            throw new RuntimeException(ex);
+          }
+        }
+      ).start();
     } else {
       return false;
     }
@@ -98,7 +112,8 @@ public class cForgotPasswordEmail implements controllers {
    * Genera un codigo aleatorio de la longitud especificada
    *
    * @param longitud Longitud del codigo
-   * @return String
+   *
+   * @return String string
    */
   public static String generarCodigo(int longitud) {
     String caracteres = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";

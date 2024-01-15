@@ -17,6 +17,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
+ * The type Forgot password email.
+ *
  * @author Carlos Varas Alonso
  */
 @Getter @Setter

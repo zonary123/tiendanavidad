@@ -2,7 +2,11 @@ package org.tienda.Controller;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import javax.persistence.NoResultException;
 import javax.swing.*;
 
@@ -11,6 +15,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.mindrot.jbcrypt.BCrypt;
 import org.tienda.Interfaces.controllers;
+import org.tienda.Model.Historialusuarios;
+import org.tienda.Model.HistorialusuariosId;
 import org.tienda.Model.Usuarios;
 import org.tienda.Utils.EmailUtil;
 import org.tienda.Utils.utilsLenguaje;
@@ -21,6 +27,8 @@ import org.tienda.Views.Login;
 import org.tienda.Views.Register;
 
 /**
+ * The type Controller login.
+ *
  * @author Carlos Varas Alonso
  */
 public class controllerLogin implements controllers {
@@ -53,8 +61,7 @@ public class controllerLogin implements controllers {
   /**
    * Actualiza el lenguaje de la vista
    */
-  @Override
-  public void actualizarLenguaje() {
+  @Override public void actualizarLenguaje() {
     vista.getJButtonPasswordOlvidada().setText(lenguaje.getMensaje().getString("login.button.forgotpassword"));
     vista.getJButtonLogin().setText(lenguaje.getMensaje().getString("login.button.login"));
     vista.getJButtonRegistrarse().setText(lenguaje.getMensaje().getString("login.button.register"));
@@ -66,12 +73,9 @@ public class controllerLogin implements controllers {
   /**
    * Actualiza los estilos de la vista
    */
-  @Override
-  public void actualizarEstilos() {
-    TextField.actualizarTextField(vista.getJTextFieldUsername(),
-      lenguaje.getMensaje().getString("forgot.email.placeholder"), 16, "img/svg/Email.svg", 22, 24, "#575DFB");
-    TextField.actualizarTextField(vista.getJPasswordFieldPassword(),
-      lenguaje.getMensaje().getString("forgot.password.descripcion"), 16, "img/svg/Candado.svg", 22, 24, "#575DFB");
+  @Override public void actualizarEstilos() {
+    TextField.actualizarTextField(vista.getJTextFieldUsername(), lenguaje.getMensaje().getString("forgot.email.placeholder"), 16, "img/svg/Email.svg", 22, 24, "#575DFB");
+    TextField.actualizarTextField(vista.getJPasswordFieldPassword(), lenguaje.getMensaje().getString("forgot.password.descripcion"), 16, "img/svg/Candado.svg", 22, 24, "#575DFB");
     vista.getJButtonClose().putClientProperty("FlatLaf.style", "arc:" + 999);
     vista.getJButtonLogin().putClientProperty("FlatLaf.style", "arc:" + 16);
     vista.getJPanelLogin().putClientProperty("FlatLaf.style", "arc:" + 8);
@@ -81,6 +85,7 @@ public class controllerLogin implements controllers {
    * Inicializacion de eventos de la vista
    */
   public void initEvents() throws NoResultException {
+    vista.getJTextFieldUsername().requestFocus();
     // ! Eventos Presionar teclado
     vista.getJTextFieldUsername().addKeyListener(new KeyAdapter() {
       @Override
@@ -108,40 +113,33 @@ public class controllerLogin implements controllers {
     vista.getJButtonLogin().addActionListener(e -> {
       // Llevar a la vista principal
       if (vista.getJTextFieldUsername().getText().isEmpty()) {
-        JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("login.void.username"),
-          lenguaje.getMensaje().getString("login.joptionpanel.title"), JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("login.void.username"), lenguaje.getMensaje().getString("login.joptionpanel.title"), JOptionPane.ERROR_MESSAGE);
         vista.getJTextFieldUsername().putClientProperty("JComponent.outline", "warning");
       }
       if (String.valueOf(vista.getJPasswordFieldPassword().getPassword()).isEmpty()) {
-        JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("login.void.password"),
-          lenguaje.getMensaje().getString("login.joptionpanel.title"), JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("login.void.password"), lenguaje.getMensaje().getString("login.joptionpanel.title"), JOptionPane.ERROR_MESSAGE);
         vista.getJPasswordFieldPassword().putClientProperty("JComponent.outline", "warning");
         return;
       }
-      if (validarCredenciales(vista.getJTextFieldUsername().getText(),
-        vista.getJPasswordFieldPassword().getPassword()) == null) {
-        JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("login.joptionpanel.notexist"),
-          lenguaje.getMensaje().getString("login.joptionpanel.title"), JOptionPane.ERROR_MESSAGE);
-      } else if (Boolean.TRUE.equals(validarCredenciales(vista.getJTextFieldUsername().getText(),
-        vista.getJPasswordFieldPassword().getPassword()))) {
-        JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("login.joptionpanel.true.credenciales"),
-          lenguaje.getMensaje().getString("login.joptionpanel.title"), JOptionPane.INFORMATION_MESSAGE);
+      if (validarCredenciales(vista.getJTextFieldUsername().getText(), vista.getJPasswordFieldPassword().getPassword()) == null) {
+        JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("login.joptionpanel.notexist"), lenguaje.getMensaje().getString("login.joptionpanel.title"), JOptionPane.ERROR_MESSAGE);
+      } else if (Boolean.TRUE.equals(validarCredenciales(vista.getJTextFieldUsername().getText(), vista.getJPasswordFieldPassword().getPassword()))) {
+        JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("login.joptionpanel.true.credenciales"), lenguaje.getMensaje().getString("login.joptionpanel.title"), JOptionPane.INFORMATION_MESSAGE);
         vista.removeAll();
         vista.dispose();
-        Usuarios usuario = vista.getJTextFieldUsername().getText().contains("@")
-          ? Usuarios.findByEmail(vista.getJTextFieldUsername().getText())
-          : Usuarios.findByUsername(vista.getJTextFieldUsername().getText());
-
-        try {
-          EmailUtil.confMail(usuario, EmailUtil.OPCION_INICIO_SESION);
-        } catch (IOException ex) {
-          throw new RuntimeException(ex);
-        }
-
+        Usuarios usuario = vista.getJTextFieldUsername().getText().contains("@") ? Usuarios.findByEmail(vista.getJTextFieldUsername().getText()) : Usuarios.findByUsername(vista.getJTextFieldUsername().getText());
+        new Thread(
+          () -> {
+            try {
+              EmailUtil.confMail(usuario, EmailUtil.OPCION_INICIO_SESION);
+            } catch (IOException ex) {
+              throw new RuntimeException(ex);
+            }
+          }
+        ).start();
         new HomeUser(usuario).setVisible(true);
       } else {
-        JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("login.joptionpanel.false.credenciales"),
-          lenguaje.getMensaje().getString("login.joptionpanel.title"), JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("login.joptionpanel.false.credenciales"), lenguaje.getMensaje().getString("login.joptionpanel.title"), JOptionPane.ERROR_MESSAGE);
       }
     });
     vista.getJButtonRegistrarse().addActionListener(e -> {
@@ -165,16 +163,15 @@ public class controllerLogin implements controllers {
    *
    * @param username Nombre del usuario
    * @param password Contraseña del usuario
+   *
    * @return true si las credenciales son correctas
    */
   private Boolean validarCredenciales(String username, char[] password) {
     try {
       if (username.contains("@")) {
-        return Usuarios.findByEmail(username) != null
-          && Usuarios.checkPassword(String.valueOf(password), Usuarios.findByEmail(username));
+        return Usuarios.findByEmail(username) != null && Usuarios.checkPassword(String.valueOf(password), Usuarios.findByEmail(username));
       } else {
-        return Usuarios.findByUsername(username) != null
-          && Usuarios.checkPassword(String.valueOf(password), Usuarios.findByUsername(username));
+        return Usuarios.findByUsername(username) != null && Usuarios.checkPassword(String.valueOf(password), Usuarios.findByUsername(username));
       }
     } catch (NoResultException e) {
       return null;

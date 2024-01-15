@@ -10,9 +10,10 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
+ * The type Carrito id.
+ *
  * @author Carlos Varas Alonso
  */
-
 @Data
 @Getter
 @Setter
@@ -22,9 +23,18 @@ public class CarritoId implements Serializable {
   private int idproducto;
   private int idusuario;
 
+  /**
+   * Instantiates a new Carrito id.
+   */
   public CarritoId() {
   }
 
+  /**
+   * Instantiates a new Carrito id.
+   *
+   * @param idproducto the idproducto
+   * @param idusuario  the idusuario
+   */
   public CarritoId(int idproducto, int idusuario) {
     this.idproducto = idproducto;
     this.idusuario = idusuario;

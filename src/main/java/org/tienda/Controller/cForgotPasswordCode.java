@@ -15,6 +15,8 @@ import javax.swing.*;
 import java.io.IOException;
 
 /**
+ * The type C forgot password code.
+ *
  * @author Carlos Varas Alonso
  */
 public class cForgotPasswordCode {
@@ -37,6 +39,7 @@ public class cForgotPasswordCode {
    * Constructor de la clase
    *
    * @param vista Vista de la clase
+   *
    * @throws IOException Error de lectura de archivo
    */
   public cForgotPasswordCode(ForgotPasswordCode vista) throws IOException {
@@ -51,8 +54,9 @@ public class cForgotPasswordCode {
    * Inicializacion de eventos de la vista
    */
   private void initEvents() {
+    vista.getJTextFieldCodigo().requestFocus();
     vista.getJButtonConfirmar().addActionListener(e -> {
-      if (Usuarios.checkCodigo(vista.getUsuario())) {
+      if (Usuarios.checkCodigo(vista.getUsuario(), vista.getJTextFieldCodigo().getText())) {
         intentos = 0;
         vista.setVisible(false);
         vista.dispose();

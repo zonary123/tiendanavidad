@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
+ * The type Compras id.
+ *
  * @author Carlos Varas Alonso
  */
 @Data
@@ -19,9 +21,19 @@ public class ComprasId implements java.io.Serializable {
   private int idproducto;
   private int idusuario;
 
+  /**
+   * Instantiates a new Compras id.
+   */
   public ComprasId() {
   }
 
+  /**
+   * Instantiates a new Compras id.
+   *
+   * @param idcompra   the idcompra
+   * @param idproducto the idproducto
+   * @param idusuario  the idusuario
+   */
   public ComprasId(int idcompra, int idproducto, int idusuario) {
     this.idcompra = idcompra;
     this.idproducto = idproducto;

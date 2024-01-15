@@ -11,6 +11,8 @@ import org.tienda.Utils.utilsLenguaje;
 import java.io.IOException;
 
 /**
+ * The type Register.
+ *
  * @author Carlos Varas Alonso
  */
 @Getter

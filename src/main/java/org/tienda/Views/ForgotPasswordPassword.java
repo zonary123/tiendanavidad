@@ -17,6 +17,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
+ * The type Forgot password password.
+ *
  * @author Carlos Varas Alonso
  */
 @Getter @Setter
@@ -26,6 +28,8 @@ public class ForgotPasswordPassword extends JFrame {
 
   /**
    * Creates new form ForgotPasswordPassword
+   *
+   * @param u the u
    */
   public ForgotPasswordPassword(Usuarios u) {
     initComponents();

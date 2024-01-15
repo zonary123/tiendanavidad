@@ -7,6 +7,8 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 /**
+ * The type Utils lenguaje.
+ *
  * @author Carlos Varas Alonso
  */
 @Data
@@ -30,12 +32,18 @@ public class utilsLenguaje {
     this.mensaje = ResourceBundle.getBundle(this.fichero, this.local);
   }
 
+  public String getText(String clave) {
+    //return mensaje.getStri ng(clave);
+    return null;
+  }
+
   /**
    * Constructor de la clase utilsLenguaje.
    * <br>
    * Establece el lenguaje y el país.
    *
    * @param lenguaje el lenguaje
+   *
    * @throws IOException error de lectura del fichero
    */
   public utilsLenguaje(String lenguaje) throws IOException {

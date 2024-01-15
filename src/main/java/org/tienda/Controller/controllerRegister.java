@@ -1,10 +1,6 @@
 package org.tienda.Controller;
 
 import com.formdev.flatlaf.extras.FlatSVGIcon;
-import net.bytebuddy.asm.Advice;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.mindrot.jbcrypt.BCrypt;
 
 import org.tienda.Interfaces.controllers;
 import org.tienda.Utils.utilsLenguaje;
@@ -17,11 +13,13 @@ import javax.swing.*;
 import java.util.Locale;
 
 /**
+ * The type Controller register.
+ *
  * @author Carlos Varas Alonso
  */
 public class controllerRegister implements controllers {
   private static final String REGEX_EMAIL = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
-  private final Register register;
+  private final Register vista;
   private final utilsLenguaje lenguaje;
   private Usuarios usuario = null;
   private utilsTextField textField;
@@ -29,11 +27,11 @@ public class controllerRegister implements controllers {
   /**
    * Instantiates a new Controller login.
    *
-   * @param register El Jframe login
+   * @param vista    El Jframe login
    * @param lenguaje Objeto utilsLenguaje para el idioma
    */
-  public controllerRegister(Register register, utilsLenguaje lenguaje) {
-    this.register = register;
+  public controllerRegister(Register vista, utilsLenguaje lenguaje) {
+    this.vista = vista;
     this.lenguaje = lenguaje;
     initEvents();
     actualizarEstilos();
@@ -44,21 +42,22 @@ public class controllerRegister implements controllers {
    */
   @Override
   public void initEvents() {
-    register.getJButtonBack().addActionListener(e -> {
-      register.dispose();
+    vista.getJTextFieldEmail().requestFocus();
+    vista.getJButtonBack().addActionListener(e -> {
+      vista.dispose();
       new Login(usuario == null ? null : usuario.getUsername()).setVisible(true);
     });
-    register.getJButtonIniciarSesion().addActionListener(e -> {
-      register.dispose();
+    vista.getJButtonIniciarSesion().addActionListener(e -> {
+      vista.dispose();
       new Login(usuario == null ? null : usuario.getUsername()).setVisible(true);
     });
-    register.getJButtonRegistrarse().addActionListener(e -> {
+    vista.getJButtonRegistrarse().addActionListener(e -> {
       if (comprobaciones() && registrarse()) {
-        register.dispose();
+        vista.dispose();
         new Login(usuario == null ? null : usuario.getUsername()).setVisible(true);
       }
     });
-    register.getJButtonClose().addActionListener(e -> register.dispose());
+    vista.getJButtonClose().addActionListener(e -> vista.dispose());
   }
 
   /**
@@ -82,47 +81,47 @@ public class controllerRegister implements controllers {
     int errores = 0;
     String mensaje = "";
 
-    if (register.getJTextFieldEmail().getText().isEmpty()) {
+    if (vista.getJTextFieldEmail().getText().isEmpty()) {
       mensaje += lenguaje.getMensaje().getString("void.email") + "\n";
-      register.getJTextFieldEmail().putClientProperty("JComponent.outline", "warning");
+      vista.getJTextFieldEmail().putClientProperty("JComponent.outline", "warning");
       errores++;
     }
 
-    if (!register.getJTextFieldEmail().getText().matches(REGEX_EMAIL)) {
+    if (!vista.getJTextFieldEmail().getText().matches(REGEX_EMAIL)) {
       mensaje += lenguaje.getMensaje().getString("regex.email") + "\n";
-      register.getJTextFieldEmail().putClientProperty("JComponent.outline", "warning");
+      vista.getJTextFieldEmail().putClientProperty("JComponent.outline", "warning");
       errores++;
     }
 
-    if (register.getJTextFieldUsername().getText().isEmpty()) {
+    if (vista.getJTextFieldUsername().getText().isEmpty()) {
       mensaje += lenguaje.getMensaje().getString("void.username") + "\n";
-      register.getJTextFieldUsername().putClientProperty("JComponent.outline", "warning");
+      vista.getJTextFieldUsername().putClientProperty("JComponent.outline", "warning");
       errores++;
     }
 
-    if (register.getJTextFieldNombre().getText().isEmpty()) {
+    if (vista.getJTextFieldNombre().getText().isEmpty()) {
       mensaje += lenguaje.getMensaje().getString("void.name") + "\n";
-      register.getJTextFieldNombre().putClientProperty("JComponent.outline", "warning");
+      vista.getJTextFieldNombre().putClientProperty("JComponent.outline", "warning");
       errores++;
     }
 
-    if (!register.getJTextFieldNombre().getText().matches("^[a-zA-Z]+$")) {
+    if (!vista.getJTextFieldNombre().getText().matches("^[a-zA-Z]+$")) {
       mensaje += lenguaje.getMensaje().getString("regex.name") + "\n";
-      register.getJTextFieldNombre().putClientProperty("JComponent.outline", "warning");
+      vista.getJTextFieldNombre().putClientProperty("JComponent.outline", "warning");
       errores++;
     }
 
-    String apellidosText = register.getJTextFieldApellidos().getText();
+    String apellidosText = vista.getJTextFieldApellidos().getText();
 
     if (!apellidosText.isEmpty() && !apellidosText.matches("^[a-zA-Z\\s]+$")) {
       mensaje += lenguaje.getMensaje().getString("regex.lastname") + "\n";
-      register.getJTextFieldApellidos().putClientProperty("JComponent.outline", "warning");
+      vista.getJTextFieldApellidos().putClientProperty("JComponent.outline", "warning");
       errores++;
     }
 
-    if (String.valueOf(register.getJPasswordFieldPassword().getPassword()).isEmpty()) {
+    if (String.valueOf(vista.getJPasswordFieldPassword().getPassword()).isEmpty()) {
       mensaje += lenguaje.getMensaje().getString("void.password") + "\n";
-      register.getJPasswordFieldPassword().putClientProperty("JComponent.outline", "warning");
+      vista.getJPasswordFieldPassword().putClientProperty("JComponent.outline", "warning");
       errores++;
     }
 
@@ -140,8 +139,8 @@ public class controllerRegister implements controllers {
   private boolean registrarse() {
 
     // Verificar si el usuario o el correo ya existen
-    String username = register.getJTextFieldUsername().getText();
-    String email = register.getJTextFieldEmail().getText();
+    String username = vista.getJTextFieldUsername().getText();
+    String email = vista.getJTextFieldEmail().getText();
     Usuarios existingUser = new Usuarios();
     existingUser.setUsername(username);
     existingUser.setEmail(email);
@@ -155,11 +154,11 @@ public class controllerRegister implements controllers {
       return false;
     }
     this.usuario = new Usuarios();
-    usuario.setEmail(register.getJTextFieldEmail().getText());
-    usuario.setUsername(register.getJTextFieldUsername().getText());
-    usuario.setPassword(String.valueOf(register.getJPasswordFieldPassword().getPassword()));
-    usuario.setNombre(register.getJTextFieldNombre().getText());
-    usuario.setApellidos(register.getJTextFieldApellidos().getText());
+    usuario.setEmail(vista.getJTextFieldEmail().getText());
+    usuario.setUsername(vista.getJTextFieldUsername().getText());
+    usuario.setPassword(String.valueOf(vista.getJPasswordFieldPassword().getPassword()));
+    usuario.setNombre(vista.getJTextFieldNombre().getText());
+    usuario.setApellidos(vista.getJTextFieldApellidos().getText());
     usuario.setLenguaje(Locale.getDefault().toString());
     usuario.setRoles("[\"user\"]");
     usuario.setActivacion(true);
@@ -169,15 +168,15 @@ public class controllerRegister implements controllers {
 
   @Override
   public void actualizarLenguaje() {
-    register.getJLabelEmail().setText(lenguaje.getMensaje().getString("register.label.email"));
-    register.getJLabelNombre().setText(lenguaje.getMensaje().getString("register.label.name"));
-    register.getJLabelApellidos().setText(lenguaje.getMensaje().getString("register.label.lastname"));
-    register.getJLabelPassword().setText(lenguaje.getMensaje().getString("register.label.password"));
-    register.getJLabelUsername().setText(lenguaje.getMensaje().getString("register.label.username"));
-    register.getJLabelRegistrar().setText(lenguaje.getMensaje().getString("register.signup"));
-    register.getJButtonRegistrarse().setText(lenguaje.getMensaje().getString("register.signup"));
-    register.getJButtonIniciarSesion().setText(lenguaje.getMensaje().getString("register.signin"));
-    register.getJLabelConCuenta().setText(lenguaje.getMensaje().getString("register.label.ConCuenta"));
+    vista.getJLabelEmail().setText(lenguaje.getMensaje().getString("register.label.email"));
+    vista.getJLabelNombre().setText(lenguaje.getMensaje().getString("register.label.name"));
+    vista.getJLabelApellidos().setText(lenguaje.getMensaje().getString("register.label.lastname"));
+    vista.getJLabelPassword().setText(lenguaje.getMensaje().getString("register.label.password"));
+    vista.getJLabelUsername().setText(lenguaje.getMensaje().getString("register.label.username"));
+    vista.getJLabelRegistrar().setText(lenguaje.getMensaje().getString("register.signup"));
+    vista.getJButtonRegistrarse().setText(lenguaje.getMensaje().getString("register.signup"));
+    vista.getJButtonIniciarSesion().setText(lenguaje.getMensaje().getString("register.signin"));
+    vista.getJLabelConCuenta().setText(lenguaje.getMensaje().getString("register.label.ConCuenta"));
   }
 
   /**
@@ -185,15 +184,26 @@ public class controllerRegister implements controllers {
    */
   @Override
   public void actualizarEstilos() {
-    actualizarTextField(this.register.getJTextFieldNombre(), this.lenguaje.getMensaje().getString("register.name.placeholder"), 16, "img/svg/Person.svg", 16, 19, "#575DFB");
-    actualizarTextField(this.register.getJTextFieldApellidos(), this.lenguaje.getMensaje().getString("register.lastname.placeholder"), 16, "img/svg/Person.svg", 16, 19, "#575DFB");
-    actualizarTextField(this.register.getJTextFieldEmail(), this.lenguaje.getMensaje().getString("register.email.placeholder"), 16, "img/svg/Email.svg", 19, 19, "#575DFB");
-    actualizarTextField(this.register.getJTextFieldUsername(), this.lenguaje.getMensaje().getString("register.username.placeholder"), 16, "img/svg/Person.svg", 16, 19, "#575DFB");
-    actualizarTextField(this.register.getJPasswordFieldPassword(), this.lenguaje.getMensaje().getString("register.password.placeholder"), 16, "img/svg/Candado.svg", 16, 19, "#575DFB");
+    actualizarTextField(this.vista.getJTextFieldNombre(), this.lenguaje.getMensaje().getString("register.name.placeholder"), 16, "img/svg/Person.svg", 16, 19, "#575DFB");
+    actualizarTextField(this.vista.getJTextFieldApellidos(), this.lenguaje.getMensaje().getString("register.lastname.placeholder"), 16, "img/svg/Person.svg", 16, 19, "#575DFB");
+    actualizarTextField(this.vista.getJTextFieldEmail(), this.lenguaje.getMensaje().getString("register.email.placeholder"), 16, "img/svg/Email.svg", 19, 19, "#575DFB");
+    actualizarTextField(this.vista.getJTextFieldUsername(), this.lenguaje.getMensaje().getString("register.username.placeholder"), 16, "img/svg/Person.svg", 16, 19, "#575DFB");
+    actualizarTextField(this.vista.getJPasswordFieldPassword(), this.lenguaje.getMensaje().getString("register.password.placeholder"), 16, "img/svg/Candado.svg", 16, 19, "#575DFB");
 
-    actualizarBoton(register.getJButtonRegistrarse(), 16);
+    actualizarBoton(vista.getJButtonRegistrarse(), 16);
   }
 
+  /**
+   * Actualizar text field.
+   *
+   * @param textField   the text field
+   * @param placeholder the placeholder
+   * @param arc         the arc
+   * @param icon        the icon
+   * @param width       the width
+   * @param height      the height
+   * @param color       the color
+   */
   public void actualizarTextField(JTextField textField, String placeholder, int arc, String icon, int width, int height, String color) {
     this.textField = new utilsTextField(textField);
     this.textField.setPlaceholder(placeholder);
@@ -204,6 +214,12 @@ public class controllerRegister implements controllers {
     this.textField.setMargin(0, 14, 0, 0);
   }
 
+  /**
+   * Actualizar boton.
+   *
+   * @param boton the boton
+   * @param arc   the arc
+   */
   public void actualizarBoton(JButton boton, int arc) {
     boton.putClientProperty("FlatLaf.style", "arc:" + arc);
   }
