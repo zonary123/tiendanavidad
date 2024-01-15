@@ -1,16 +1,14 @@
 package org.tienda.Model;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import javax.persistence.*;
 import lombok.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.mindrot.jbcrypt.BCrypt;
 import org.tienda.Controller.hibernateUtil;
-
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import javax.persistence.*;
 
 /**
  * @author Carlos Varas Alonso
@@ -41,7 +39,7 @@ public class Usuarios implements java.io.Serializable {
   @Column(length = 50)
   private String apellidos;
 
-  @Column(unique = true, nullable = false, length = 75)
+  @Column(unique = true, length = 75)
   private String email;
   private byte[] imagen;
 

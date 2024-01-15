@@ -62,7 +62,6 @@ public class cForgotPasswordEmail implements controllers {
           JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("forgot.email.send") + " " + vista.getJTextFieldEmail().getText(),
             "Codigo", JOptionPane.INFORMATION_MESSAGE);
           vista.dispose();
-          System.out.println(u);
           new ForgotPasswordCode(u).setVisible(true);
         } else {
           JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("forgot.email.notexist"),

@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="Arreglos en Home">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/svg/Vector.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/svg/clarity_home-solid.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/svg/mdi_bell.svg" afterDir="false" />
+    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="Iconos para el Home">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/cForgotPasswordEmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/cForgotPasswordEmail.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/controllerHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/controllerHome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/HomeUser.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/HomeUser.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/HomeUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/HomeUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/controllerLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Controller/controllerLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Model/Usuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Model/Usuarios.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,33 +74,34 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Principal.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Pruebas.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Alumno/Desktop/tiendanavidad&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Principal.executor": "Run",
+    "Application.Pruebas.executor": "Run",
+    "JUnit.TestSuite.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Alumno/Desktop/tiendanavidad",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mariadb&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Alumno\Desktop\tiendanavidad\src\main\resources\img\svg" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Principal">
+  <component name="RunManager" selected="JUnit.TestSuite">
     <configuration name="Principal" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="org.tienda.Views.Login" />
       <module name="tiendanavidad" />
@@ -171,7 +171,10 @@
       <workItem from="1704903550563" duration="2062000" />
       <workItem from="1705071928060" duration="1393000" />
       <workItem from="1705073527955" duration="2407000" />
-      <workItem from="1705083976736" duration="4460000" />
+      <workItem from="1705083976736" duration="4499000" />
+      <workItem from="1705088955899" duration="1105000" />
+      <workItem from="1705334678418" duration="196000" />
+      <workItem from="1705336578876" duration="4048000" />
     </task>
     <task id="LOCAL-00001" summary="Arreglos en Home">
       <option name="closed" value="true" />
@@ -181,7 +184,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705087077472</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Iconos para el Home">
+      <option name="closed" value="true" />
+      <created>1705088731712</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1705088731712</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,6 +200,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Arreglos en Home" />
-    <option name="LAST_COMMIT_MESSAGE" value="Arreglos en Home" />
+    <MESSAGE value="Iconos para el Home" />
+    <option name="LAST_COMMIT_MESSAGE" value="Iconos para el Home" />
   </component>
 </project>
