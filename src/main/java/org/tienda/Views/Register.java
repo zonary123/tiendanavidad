@@ -18,7 +18,6 @@ import java.io.IOException;
 @Getter
 public class Register extends javax.swing.JFrame {
   private final controllerRegister cRegister;
-  private utilsLenguaje lenguaje;
 
   /**
    * Creates new form Register
@@ -26,12 +25,7 @@ public class Register extends javax.swing.JFrame {
   public Register() {
     initComponents();
     this.getJTextFieldEmail().requestFocus();
-    try {
-      this.lenguaje = new utilsLenguaje();
-    } catch (IOException e) {
-      System.err.println(e.getMessage());
-    }
-    this.cRegister = new controllerRegister(this, lenguaje);
+    this.cRegister = new controllerRegister(this);
     cRegister.actualizarBoton(getJButtonClose(), 999);
     getJPanelLogin().putClientProperty("FlatLaf.style", "arc:" + 8);
   }

@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import javax.persistence.*;
+
 import lombok.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -18,8 +19,7 @@ import org.tienda.Controller.hibernateUtil;
 @Data
 @Getter
 @Setter
-@EqualsAndHashCode
-@ToString(exclude = {"activacion", "imagen"})
+@EqualsAndHashCode(exclude = {"historialusuarioses", "carritos", "comprases"})
 @Entity
 @Table(name = "usuarios")
 public class Usuarios implements java.io.Serializable {
@@ -45,7 +45,7 @@ public class Usuarios implements java.io.Serializable {
   private String email;
   private byte[] imagen;
 
-  @Column(nullable = false, length = 6)
+  @Column(nullable = false, length = 6, columnDefinition = "varchar(6) default 'es_ES'")
   private String lenguaje;
   private String permisos;
   private String roles;
@@ -54,13 +54,16 @@ public class Usuarios implements java.io.Serializable {
   private boolean activacion;
   private String codigo;
 
-  @OneToMany(mappedBy = "usuarios", cascade = CascadeType.ALL)
+  @OneToMany(fetch = FetchType.EAGER, mappedBy = "usuarios")
+  @ToString.Exclude
   private Set<Historialusuarios> historialusuarioses = new HashSet<>();
 
-  @OneToMany(mappedBy = "usuarios", cascade = CascadeType.ALL)
+  @OneToMany(mappedBy = "usuarios")
+  @ToString.Exclude
   private Set<Carrito> carritos = new HashSet<>();
 
-  @OneToMany(mappedBy = "usuarios", cascade = CascadeType.ALL)
+  @OneToMany(mappedBy = "usuarios")
+  @ToString.Exclude
   private Set<Compras> comprases = new HashSet<>();
 
   /**

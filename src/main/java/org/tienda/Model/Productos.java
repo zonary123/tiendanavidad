@@ -52,9 +52,11 @@ public class Productos {
   private Integer stock;
 
   @OneToMany(mappedBy = "productos", fetch = FetchType.LAZY)
+  @ToString.Exclude
   private Set<Carrito> carritos;
 
   @OneToMany(mappedBy = "productos", fetch = FetchType.LAZY)
+  @ToString.Exclude
   private Set<Compras> comprases;
 
   /**
@@ -103,6 +105,16 @@ public class Productos {
     Session session = sessionFactory.openSession();
     session.beginTransaction();
     return session.createQuery("from Productos p where p.categoria = :categoria").setParameter("categoria", cat).getResultList();
+  }
+
+  public static List<Productos> findByNombre(String nombre) throws NoResultException {
+    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    Session session = sessionFactory.openSession();
+    session.beginTransaction();
+
+    return session.createQuery("from Productos p WHERE p.nombre LIKE  :nombre")
+      .setParameter("nombre", nombre + "%")
+      .getResultList();
   }
 
 

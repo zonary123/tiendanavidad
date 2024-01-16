@@ -1,11 +1,20 @@
 package org.tienda.Utils;
 
 import java.io.*;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.ResourceBundle;
+
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import org.tienda.Model.Usuarios;
 
 /**
  * The type Utils lenguaje.
@@ -20,7 +29,7 @@ public class utilsLenguaje {
   private String fichero;
   private Locale local;
   private ResourceBundle mensaje;
-  private final static String PATH = "src/main/resources/configuracion.csv";
+  private final static String PATH = "configuracion.csv";
 
   /**
    * Constructor de la clase utilsLenguaje.
@@ -30,15 +39,12 @@ public class utilsLenguaje {
    * @throws IOException error de lectura del fichero
    */
   public utilsLenguaje() throws IOException {
-    BufferedReader br = new BufferedReader(new FileReader(PATH));
-    this.fichero = "lang/" + br.readLine().split(",")[0];
+    InputStream is = getClass().getClassLoader().getResourceAsStream(PATH);
+    BufferedReader br = new BufferedReader(new InputStreamReader(is));
+    this.fichero = "lang/" + br.readLine();
     this.local = new Locale(this.fichero.split("_")[0]);
+    System.out.println(local + "---" + fichero);
     this.mensaje = ResourceBundle.getBundle(this.fichero, this.local);
-  }
-
-  public String getText(String clave) {
-    //return mensaje.getStri ng(clave);
-    return null;
   }
 
   /**
@@ -55,4 +61,13 @@ public class utilsLenguaje {
     this.mensaje = ResourceBundle.getBundle("lang/" + lenguaje, this.local);
   }
 
+
+  public utilsLenguaje(Usuarios usuario) {
+    this.local = new Locale(usuario.getLenguaje());
+    this.mensaje = ResourceBundle.getBundle("lang/" + usuario.getLenguaje(), this.local);
+  }
+
+
 }
+
+

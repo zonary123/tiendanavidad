@@ -13,8 +13,10 @@ import org.tienda.Model.Carrito;
 import org.tienda.Model.CarritoId;
 import org.tienda.Model.Productos;
 import org.tienda.Model.Usuarios;
+import org.tienda.Utils.utilsLenguaje;
 
 import java.awt.*;
+import java.io.IOException;
 import java.util.function.Function;
 
 /**
@@ -29,23 +31,27 @@ import java.util.function.Function;
 public class jPanelProducts extends javax.swing.JPanel {
 
   private int id;
-  private String username;
+  private Usuarios usuario;
+  private static utilsLenguaje lenguaje;
+
 
   /**
    * Creates new form jPanelProducts
    *
-   * @param user     the user
+   * @param usuario  the user
    * @param producto the producto
    */
-  public jPanelProducts(Usuarios user, Productos producto) {
+  public jPanelProducts(Usuarios usuario, Productos producto) throws IOException {
     this.id = producto.getIdproducto();
-    this.username = user.getUsername();
+    this.usuario = usuario;
+    lenguaje = new utilsLenguaje(usuario.getLenguaje());
     initComponents();
     setSize(350, 450);
     setDatos(producto);
     posicionar();
     actualizarEstilos();
-    eventos();
+    actualizarLenguaje();
+    initEvents();
   }
 
   private void actualizarEstilos() {
@@ -61,16 +67,24 @@ public class jPanelProducts extends javax.swing.JPanel {
 
   }
 
-  private void eventos() {
+  /**
+   * Init events.
+   */
+  public void initEvents() {
     getComprar().addActionListener(e
       -> {
-      Usuarios u = Usuarios.findByUsername(username);
+      Usuarios u = Usuarios.findByUsername(usuario.getUsername());
       if (Carrito.findById(id, u)) {
         Carrito.updateCant(id, u);
       } else {
         Carrito.save(new CarritoId(id, u.getIdusuario()), 1);
       }
     });
+  }
+
+
+  private void actualizarLenguaje() {
+    getComprar().setText(lenguaje.getMensaje().getString("component.jPanelProducts.button.comprar"));
   }
 
   private void posicionar() {

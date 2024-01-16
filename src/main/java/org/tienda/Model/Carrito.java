@@ -1,9 +1,6 @@
 package org.tienda.Model;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.tienda.Controller.hibernateUtil;
@@ -20,6 +17,7 @@ import javax.persistence.*;
 @Setter
 @EqualsAndHashCode
 @Entity
+@ToString
 @Table(name = "carrito")
 public class Carrito {
 
