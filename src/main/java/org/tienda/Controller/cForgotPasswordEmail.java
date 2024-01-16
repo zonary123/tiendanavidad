@@ -9,6 +9,7 @@ import org.tienda.Views.Login;
 
 import javax.mail.MessagingException;
 import javax.swing.*;
+import java.awt.*;
 import java.io.*;
 import java.util.Random;
 
@@ -148,5 +149,9 @@ public class cForgotPasswordEmail {
     vista.getJButtonConfirmar().putClientProperty("FlatLaf.style", "arc:" + 16);
     vista.getJPanelForgot().putClientProperty("FlatLaf.style", "arc:" + 16);
     vista.getJButtonClose().putClientProperty("FlatLaf.style", "arc:" + 999);
+
+    vista.getJButtonClose().setCursor(new Cursor(Cursor.HAND_CURSOR));
+    vista.getJButtonBack().setCursor(new Cursor(Cursor.HAND_CURSOR));
+    vista.getJButtonConfirmar().setCursor(new Cursor(Cursor.HAND_CURSOR));
   }
 }

@@ -64,7 +64,7 @@ public class jPanelProducts extends javax.swing.JPanel {
     icon.setColorFilter(new FlatSVGIcon.ColorFilter(colors));
     getComprar().setIcon(icon);
     getComprar().setIconTextGap(10);
-
+    getComprar().setCursor(new Cursor(Cursor.HAND_CURSOR));
   }
 
   /**

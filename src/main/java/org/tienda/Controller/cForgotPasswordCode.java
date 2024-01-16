@@ -12,6 +12,7 @@ import org.tienda.Views.Login;
 
 import javax.persistence.NoResultException;
 import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 
 /**
@@ -95,6 +96,10 @@ public class cForgotPasswordCode {
     vista.getJLabelTFCodigo().setText((lenguaje.getMensaje().getString("forgot.code")));
     vista.getJTextFieldCodigo().setText(null);
     vista.getJButtonConfirmar().setText((lenguaje.getMensaje().getString("forgot.button.confirm")));
+
+    vista.getJButtonClose().setCursor(new Cursor(Cursor.HAND_CURSOR));
+    vista.getJButtonBack().setCursor(new Cursor(Cursor.HAND_CURSOR));
+    vista.getJButtonConfirmar().setCursor(new Cursor(Cursor.HAND_CURSOR));
   }
 
   /**

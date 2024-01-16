@@ -1,5 +1,6 @@
 package org.tienda.Controller;
 
+import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
@@ -72,6 +73,13 @@ public class cLogin {
     vista.getJButtonClose().putClientProperty("FlatLaf.style", "arc:" + 999);
     vista.getJButtonLogin().putClientProperty("FlatLaf.style", "arc:" + 16);
     vista.getJPanelLogin().putClientProperty("FlatLaf.style", "arc:" + 8);
+
+    // Cursores
+    vista.getJButtonClose().setCursor(new Cursor(Cursor.HAND_CURSOR));
+    vista.getJButtonBack().setCursor(new Cursor(Cursor.HAND_CURSOR));
+    vista.getJButtonLogin().setCursor(new Cursor(Cursor.HAND_CURSOR));
+    vista.getJButtonRegistrarse().setCursor(new Cursor(Cursor.HAND_CURSOR));
+    vista.getJButtonPasswordOlvidada().setCursor(new Cursor(Cursor.HAND_CURSOR));
   }
 
   /**

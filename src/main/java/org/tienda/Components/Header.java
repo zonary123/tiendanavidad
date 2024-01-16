@@ -134,6 +134,11 @@ public class Header extends javax.swing.JPanel {
     getCampana().setIcon(new FlatSVGIcon("img/svg/mdi_bell.svg"));
     getHome().setIcon(new FlatSVGIcon("img/svg/clarity_home-solid.svg"));
 
+    // Cursores
+    getCarrito().setCursor(new Cursor(Cursor.HAND_CURSOR));
+    getCampana().setCursor(new Cursor(Cursor.HAND_CURSOR));
+    getHome().setCursor(new Cursor(Cursor.HAND_CURSOR));
+    
     // textFields
     textField.actualizarTextField(getSearch(), lenguaje.getMensaje().getString("buscar"), 999, "img/svg/search.svg", 22, 24, "#FFFFFF");
   }

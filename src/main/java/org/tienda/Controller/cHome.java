@@ -79,6 +79,9 @@ public class cHome {
     vista.getSignOut().putClientProperty("FlatLaf.style", "arc: 16");
     vista.getSideBar().putClientProperty("FlatLaf.style", "arc: 8");
 
+    // Cursores
+    vista.getSignOut().setCursor(new Cursor(Cursor.HAND_CURSOR));
+
   }
 
 
@@ -131,7 +134,9 @@ public class cHome {
     panelProductos.removeAll();
 
     for (Productos producto : productos) {
-      panelProductos.add(new jPanelProducts(vista.getUsuario(), producto));
+      jPanelProducts jPanelProducts = new jPanelProducts(vista.getUsuario(), producto);
+      jPanelProducts.setSize(350, 450);
+      panelProductos.add(jPanelProducts);
     }
 
     panelProductos.revalidate();

@@ -9,6 +9,7 @@ import org.tienda.Views.Register;
 import org.tienda.Model.Usuarios;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 import java.util.Locale;
 
@@ -42,6 +43,7 @@ public class controllerRegister {
     this.vista = vista;
 
     initEvents();
+    actualizarLenguaje();
     actualizarEstilos();
   }
 
@@ -196,6 +198,11 @@ public class controllerRegister {
     actualizarTextField(this.vista.getJPasswordFieldPassword(), this.lenguaje.getMensaje().getString("register.password.placeholder"), 16, "img/svg/Candado.svg", 16, 19, "#575DFB");
 
     actualizarBoton(vista.getJButtonRegistrarse(), 16);
+
+    vista.getJButtonRegistrarse().setCursor(new Cursor(Cursor.HAND_CURSOR));
+    vista.getJButtonBack().setCursor(new Cursor(Cursor.HAND_CURSOR));
+    vista.getJButtonIniciarSesion().setCursor(new Cursor(Cursor.HAND_CURSOR));
+    vista.getJButtonClose().setCursor(new Cursor(Cursor.HAND_CURSOR));
   }
 
   /**
