@@ -1,0 +1,1 @@
+java -jar target/tiendanavidad_CarlosVarasAlonso-1.0-SNAPSHOT-jar-with-dependencies.jar

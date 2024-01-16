@@ -1,10 +1,7 @@
 package org.tienda.Model;
 // Generated 21 dic 2023 17:36:10 by Hibernate Tools 6.3.1.Final
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -19,6 +16,7 @@ import java.sql.Date;
 @Setter
 @EqualsAndHashCode
 @Entity
+@ToString
 @Table(name = "compras")
 public class Compras {
 

@@ -2,19 +2,15 @@ package org.tienda.Controller;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import javax.persistence.NoResultException;
 import javax.swing.*;
 
-import com.formdev.flatlaf.extras.FlatSVGIcon;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.mindrot.jbcrypt.BCrypt;
-import org.tienda.Interfaces.controllers;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.tienda.Model.Historialusuarios;
 import org.tienda.Model.HistorialusuariosId;
 import org.tienda.Model.Usuarios;
@@ -31,28 +27,25 @@ import org.tienda.Views.Register;
  *
  * @author Carlos Varas Alonso
  */
-public class controllerLogin implements controllers {
+@Getter
+@Setter
+public class cLogin {
 
   private final Login vista;
-  private static utilsLenguaje lenguaje;
+  private utilsLenguaje lenguaje;
   private Usuarios usuario;
   private static utilsTextField TextField = new utilsTextField();
 
-  static {
-    try {
-      lenguaje = new utilsLenguaje();
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
-  }
 
   /**
    * Constructor de la clase
    *
    * @param vista la vista de login
    */
-  public controllerLogin(Login vista) {
+  public cLogin(Login vista) throws IOException {
     this.vista = vista;
+    lenguaje = new utilsLenguaje();
+    System.out.println(lenguaje.getLocal());
     initEvents();
     actualizarEstilos();
     actualizarLenguaje();
@@ -61,7 +54,7 @@ public class controllerLogin implements controllers {
   /**
    * Actualiza el lenguaje de la vista
    */
-  @Override public void actualizarLenguaje() {
+  public void actualizarLenguaje() {
     vista.getJButtonPasswordOlvidada().setText(lenguaje.getMensaje().getString("login.button.forgotpassword"));
     vista.getJButtonLogin().setText(lenguaje.getMensaje().getString("login.button.login"));
     vista.getJButtonRegistrarse().setText(lenguaje.getMensaje().getString("login.button.register"));
@@ -73,7 +66,7 @@ public class controllerLogin implements controllers {
   /**
    * Actualiza los estilos de la vista
    */
-  @Override public void actualizarEstilos() {
+  public void actualizarEstilos() {
     TextField.actualizarTextField(vista.getJTextFieldUsername(), lenguaje.getMensaje().getString("forgot.email.placeholder"), 16, "img/svg/Email.svg", 22, 24, "#575DFB");
     TextField.actualizarTextField(vista.getJPasswordFieldPassword(), lenguaje.getMensaje().getString("forgot.password.descripcion"), 16, "img/svg/Candado.svg", 22, 24, "#575DFB");
     vista.getJButtonClose().putClientProperty("FlatLaf.style", "arc:" + 999);
@@ -127,16 +120,13 @@ public class controllerLogin implements controllers {
         JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("login.joptionpanel.true.credenciales"), lenguaje.getMensaje().getString("login.joptionpanel.title"), JOptionPane.INFORMATION_MESSAGE);
         vista.removeAll();
         vista.dispose();
-        Usuarios usuario = vista.getJTextFieldUsername().getText().contains("@") ? Usuarios.findByEmail(vista.getJTextFieldUsername().getText()) : Usuarios.findByUsername(vista.getJTextFieldUsername().getText());
-        new Thread(
-          () -> {
-            try {
-              EmailUtil.confMail(usuario, EmailUtil.OPCION_INICIO_SESION);
-            } catch (IOException ex) {
-              throw new RuntimeException(ex);
-            }
-          }
-        ).start();
+        this.usuario = vista.getJTextFieldUsername().getText().contains("@") ? Usuarios.findByEmail(vista.getJTextFieldUsername().getText()) : Usuarios.findByUsername(vista.getJTextFieldUsername().getText());
+        Historialusuarios historialusuarios = new Historialusuarios();
+        HistorialusuariosId historialusuariosId = new HistorialusuariosId();
+        historialusuariosId.setIdusuario(usuario.getIdusuario());
+        historialusuariosId.setFechainiciosesion(Timestamp.valueOf(LocalDateTime.now()));
+        historialusuarios.setId(historialusuariosId);
+        Historialusuarios.save(historialusuarios);
         new HomeUser(usuario).setVisible(true);
       } else {
         JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("login.joptionpanel.false.credenciales"), lenguaje.getMensaje().getString("login.joptionpanel.title"), JOptionPane.ERROR_MESSAGE);

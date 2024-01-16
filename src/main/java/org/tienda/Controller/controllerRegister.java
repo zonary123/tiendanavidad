@@ -2,7 +2,6 @@ package org.tienda.Controller;
 
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 
-import org.tienda.Interfaces.controllers;
 import org.tienda.Utils.utilsLenguaje;
 import org.tienda.Utils.utilsTextField;
 import org.tienda.Views.Login;
@@ -10,6 +9,7 @@ import org.tienda.Views.Register;
 import org.tienda.Model.Usuarios;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.util.Locale;
 
 /**
@@ -17,22 +17,30 @@ import java.util.Locale;
  *
  * @author Carlos Varas Alonso
  */
-public class controllerRegister implements controllers {
+public class controllerRegister {
   private static final String REGEX_EMAIL = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
   private final Register vista;
-  private final utilsLenguaje lenguaje;
+  private static utilsLenguaje lenguaje;
+
   private Usuarios usuario = null;
   private utilsTextField textField;
+
+  static {
+    try {
+      lenguaje = new utilsLenguaje();
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+  }
 
   /**
    * Instantiates a new Controller login.
    *
-   * @param vista    El Jframe login
-   * @param lenguaje Objeto utilsLenguaje para el idioma
+   * @param vista El Jframe login
    */
-  public controllerRegister(Register vista, utilsLenguaje lenguaje) {
+  public controllerRegister(Register vista) {
     this.vista = vista;
-    this.lenguaje = lenguaje;
+
     initEvents();
     actualizarEstilos();
   }
@@ -40,7 +48,6 @@ public class controllerRegister implements controllers {
   /**
    * Inicializacion de eventos de la vista
    */
-  @Override
   public void initEvents() {
     vista.getJTextFieldEmail().requestFocus();
     vista.getJButtonBack().addActionListener(e -> {
@@ -166,7 +173,6 @@ public class controllerRegister implements controllers {
     return true;
   }
 
-  @Override
   public void actualizarLenguaje() {
     vista.getJLabelEmail().setText(lenguaje.getMensaje().getString("register.label.email"));
     vista.getJLabelNombre().setText(lenguaje.getMensaje().getString("register.label.name"));
@@ -182,7 +188,6 @@ public class controllerRegister implements controllers {
   /**
    * Actualiza los estilos de la vista
    */
-  @Override
   public void actualizarEstilos() {
     actualizarTextField(this.vista.getJTextFieldNombre(), this.lenguaje.getMensaje().getString("register.name.placeholder"), 16, "img/svg/Person.svg", 16, 19, "#575DFB");
     actualizarTextField(this.vista.getJTextFieldApellidos(), this.lenguaje.getMensaje().getString("register.lastname.placeholder"), 16, "img/svg/Person.svg", 16, 19, "#575DFB");

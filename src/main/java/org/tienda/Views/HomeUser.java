@@ -6,7 +6,7 @@ package org.tienda.Views;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.tienda.Controller.controllerHome;
+import org.tienda.Controller.cHome;
 import org.tienda.Model.Usuarios;
 
 /**
@@ -27,8 +27,8 @@ public class HomeUser extends javax.swing.JFrame {
   public HomeUser(Usuarios user) {
     initComponents();
     this.usuario = user;
-    jLabelUsername.setText(user.getUsername());
-    controllerHome cHome = new controllerHome(this);
+
+    cHome cHome = new cHome(this);
 
   }
 
@@ -40,11 +40,6 @@ public class HomeUser extends javax.swing.JFrame {
   private void initComponents() {
 
     Container = new javax.swing.JPanel();
-    header = new javax.swing.JPanel();
-    User = new javax.swing.JPanel();
-    jLabel1 = new javax.swing.JLabel();
-    jLabelUsername = new javax.swing.JLabel();
-    Search = new javax.swing.JTextField();
     ScrollContainerProducts = new javax.swing.JScrollPane();
     ContainerProducts = new javax.swing.JPanel();
     sideBar = new javax.swing.JPanel();
@@ -56,26 +51,6 @@ public class HomeUser extends javax.swing.JFrame {
 
     Container.setBackground(new java.awt.Color(255, 255, 255));
     Container.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-    header.setBackground(new java.awt.Color(231, 231, 231));
-    header.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-    User.setBackground(new java.awt.Color(255, 255, 255));
-    User.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-    jLabel1.setText("img");
-    User.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 5, 26, 26));
-
-    jLabelUsername.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
-    jLabelUsername.setText("Username");
-    User.add(jLabelUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
-
-    header.add(User, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 7, -1, 36));
-
-    Search.setText("Buscar");
-    header.add(Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 7, 300, 36));
-
-    Container.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 10, 1410, 50));
 
     ContainerProducts.setBackground(new java.awt.Color(255, 255, 255));
     ScrollContainerProducts.setViewportView(ContainerProducts);
@@ -103,11 +78,6 @@ public class HomeUser extends javax.swing.JFrame {
   private javax.swing.JPanel Container;
   private javax.swing.JPanel ContainerProducts;
   private javax.swing.JScrollPane ScrollContainerProducts;
-  private javax.swing.JTextField Search;
-  private javax.swing.JPanel User;
-  private javax.swing.JPanel header;
-  private javax.swing.JLabel jLabel1;
-  private javax.swing.JLabel jLabelUsername;
   private javax.swing.JPanel sideBar;
   private javax.swing.JButton signOut;
   // End of variables declaration//GEN-END:variables

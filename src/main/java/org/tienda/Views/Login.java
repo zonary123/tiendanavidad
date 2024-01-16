@@ -6,19 +6,11 @@ package org.tienda.Views;
 
 import com.formdev.flatlaf.FlatIntelliJLaf;
 
-import java.awt.*;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import javax.persistence.NoResultException;
-import javax.swing.*;
 
 import lombok.Getter;
-import org.tienda.Controller.controllerLogin;
-import org.tienda.DB.Alimentacion;
+import org.tienda.Controller.cLogin;
 import org.tienda.DB.Estructura;
-import org.tienda.Model.Usuarios;
-import org.tienda.Utils.utilsLenguaje;
 
 /**
  * The type Login.
@@ -28,8 +20,7 @@ import org.tienda.Utils.utilsLenguaje;
 @Getter
 public class Login extends javax.swing.JFrame {
 
-  private final controllerLogin cLogin;
-  private utilsLenguaje lenguaje;
+  private final cLogin cLogin;
 
   /**
    * Creates new form Login
@@ -37,15 +28,14 @@ public class Login extends javax.swing.JFrame {
    * @param user the user
    */
   public Login(String user) {
+    FlatIntelliJLaf.setup();
+    initComponents();
     try {
       new Estructura();
-      new Alimentacion();
+      this.cLogin = new cLogin(this);
     } catch (IOException e) {
       throw new RuntimeException(e);
     }
-    FlatIntelliJLaf.setup();
-    initComponents();
-    this.cLogin = new controllerLogin(this);
     jTextFieldUsername.setText(user);
   }
 

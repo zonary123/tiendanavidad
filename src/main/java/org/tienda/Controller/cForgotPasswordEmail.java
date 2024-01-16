@@ -1,6 +1,5 @@
 package org.tienda.Controller;
 
-import org.tienda.Interfaces.controllers;
 import org.tienda.Utils.EmailUtil;
 import org.tienda.Model.Usuarios;
 import org.tienda.Utils.utilsLenguaje;
@@ -20,7 +19,7 @@ import org.tienda.Utils.utilsTextField;
  *
  * @author Carlos Varas Alonso
  */
-public class cForgotPasswordEmail implements controllers {
+public class cForgotPasswordEmail {
   private static ForgotPasswordEmail vista;
   private static utilsLenguaje lenguaje;
 

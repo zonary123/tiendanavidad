@@ -35,6 +35,7 @@ public class UsuariosTest {
   public void findById() {
     System.out.println("Test findById");
     // Ejecuta la prueba
+    System.out.println(Usuarios.findbyId(TEST_USER_ID));
     Assert.assertNotNull(Usuarios.findbyId(TEST_USER_ID));
     Assert.assertEquals(Usuarios.findbyId(TEST_USER_ID).getEmail(), TEST_EMAIL);
     Assert.assertEquals(Usuarios.findbyId(TEST_USER_ID).getNombre(), TEST_NAME);
@@ -94,7 +95,7 @@ public class UsuariosTest {
       "Nombre",
       "Apellidos",
       "correo@example.com",
-      "es_ES",
+      "es_ES_Test",
       "[\"admin\"]",
       true
     );

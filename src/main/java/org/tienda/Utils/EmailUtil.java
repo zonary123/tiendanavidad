@@ -7,9 +7,7 @@ package org.tienda.Utils;
 
 import org.tienda.Model.Usuarios;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.Date;
 import java.util.Properties;
 import javax.mail.*;
@@ -24,6 +22,7 @@ import javax.mail.internet.MimeMessage;
 public class EmailUtil {
   private final static String FROMEMAIL = "carlosvarasalonso.clases@gmail.com";
   private final static String PASSWORD = "kaptgyvimqwszdva";
+  private final static String PATH_HTML_CODE = "email/Codigo.html";
   /**
    * The constant OPCION_ENVIAR_CODIGO.
    */
@@ -36,16 +35,6 @@ public class EmailUtil {
    * The constant OPCION_INICIO_SESION.
    */
   public final static int OPCION_INICIO_SESION = 3;
-  private final static utilsLenguaje lenguaje;
-
-
-  static {
-    try {
-      lenguaje = new utilsLenguaje();
-    } catch (IOException e) {
-      throw new RuntimeException(e);
-    }
-  }
 
   /**
    * Envia un email
@@ -137,7 +126,8 @@ public class EmailUtil {
   public static String emailCode(String codigo) throws IOException {
     StringBuilder body = new StringBuilder();
     String linea;
-    BufferedReader bw = new BufferedReader(new FileReader("src\\main\\resources\\email\\Codigo.html"));
+    InputStream inputStream = utilsLenguaje.class.getClassLoader().getResourceAsStream(PATH_HTML_CODE);
+    BufferedReader bw = new BufferedReader(new InputStreamReader(inputStream));
 
     while ((linea = bw.readLine()) != null) {
 
@@ -151,6 +141,8 @@ public class EmailUtil {
         body.append(linea);
       }
     }
+    bw.close();
+    inputStream.close();
     return body.toString();
   }
 

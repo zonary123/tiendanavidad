@@ -2,12 +2,10 @@ package org.tienda.Model;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Iterator;
 import java.util.List;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.tienda.Controller.hibernateUtil;
@@ -22,13 +20,14 @@ import org.tienda.Controller.hibernateUtil;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 @EqualsAndHashCode
 public class Historialusuarios implements java.io.Serializable {
 
   @EmbeddedId
   private HistorialusuariosId id;
 
-  @ManyToOne(fetch = FetchType.LAZY)
+  @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "idusuario", referencedColumnName = "idusuario", nullable = false, insertable = false, updatable = false)
   private Usuarios usuarios;
 
@@ -71,33 +70,42 @@ public class Historialusuarios implements java.io.Serializable {
    *
    * @return the list
    */
-  public List<Historialusuarios> findAll() {
-    return null;
+  public static List<Historialusuarios> findAll() {
+    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    try (Session session = sessionFactory.openSession()) {
+      session.beginTransaction();
+      try {
+        List<Historialusuarios> historialusuarios = session.createQuery("FROM Historialusuarios", Historialusuarios.class).list();
+        session.getTransaction().commit();
+        return historialusuarios;
+      } catch (Exception e) {
+        session.getTransaction().rollback();
+        throw e; // Re-lanza la excepción para que pueda ser manejada en un nivel superior si es necesario
+      }
+    }
   }
 
-  /**
-   * Find recent historialusuarios.
-   *
-   * @param user the user
-   *
-   * @return the historialusuarios
-   */
-  public static Historialusuarios findRecent(Usuarios user) {
+
+  public static Historialusuarios findRecent(Usuarios usuario) {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
-    Session session = sessionFactory.openSession();
-    session.beginTransaction();
-    try {
-      Historialusuarios historialusuarios = session.createQuery("FROM Historialusuarios WHERE idusuario = :idusuario ORDER BY fechainiciosesion DESC", Historialusuarios.class)
-        .setParameter("idusuario", user.getIdusuario())
-        .setMaxResults(1)
-        .uniqueResult();
-      session.getTransaction().commit();
-      return historialusuarios;
-    } catch (Exception e) {
-      session.getTransaction().rollback();
-      return null;
-    } finally {
-      session.close();
+    try (Session session = sessionFactory.openSession()) {
+      session.beginTransaction();
+
+      try {
+        Query query = session.createQuery(
+            "FROM Historialusuarios h WHERE h.id.idusuario = :idUsuario " +
+              "ORDER BY h.id.fechainiciosesion DESC", Historialusuarios.class)
+          .setParameter("idUsuario", usuario.getIdusuario())
+          .setMaxResults(1);
+
+        Historialusuarios resultado = (Historialusuarios) query.getSingleResult();
+
+        session.getTransaction().commit();
+        return resultado;
+      } catch (Exception e) {
+        session.getTransaction().rollback();
+        throw e;
+      }
     }
   }
 
@@ -136,9 +144,10 @@ public class Historialusuarios implements java.io.Serializable {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.openSession();
     session.beginTransaction();
+
     try {
-      session.getTransaction().commit();
       session.update(historialusuarios);
+      session.getTransaction().commit();
       return true;
     } catch (Exception e) {
       session.getTransaction().rollback();
@@ -147,4 +156,5 @@ public class Historialusuarios implements java.io.Serializable {
       session.close();
     }
   }
+
 }

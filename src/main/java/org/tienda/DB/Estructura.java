@@ -2,10 +2,9 @@ package org.tienda.DB;
 
 import org.hibernate.SessionFactory;
 import org.tienda.Controller.hibernateUtil;
+import org.tienda.Utils.utilsLenguaje;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 
 /**
  * The type Estructura.
@@ -13,7 +12,7 @@ import java.io.FileReader;
  * @author Carlos Varas Alonso - 10/01/2024 10:45
  */
 public class Estructura {
-  private final static String PATH = "src/main/resources/sql/estructura.sql";
+  private final static String PATH = "sql/estructura.sql";
 
   /**
    * Instantiates a new Estructura.
@@ -32,7 +31,8 @@ public class Estructura {
    */
   public static void crearEstructura() throws FileNotFoundException {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
-    BufferedReader br = new BufferedReader(new FileReader(PATH));
+    InputStream inputStream = utilsLenguaje.class.getClassLoader().getResourceAsStream(PATH);
+    BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
     String archivo = br.lines().reduce("", (a, b) -> a + b);
     String[] sentencias = archivo.split(";");
     sessionFactory.getCurrentSession().beginTransaction();

@@ -3,7 +3,6 @@ package org.tienda.Controller;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.mindrot.jbcrypt.BCrypt;
-import org.tienda.Interfaces.controllers;
 import org.tienda.Model.Usuarios;
 import org.tienda.Utils.utilsLenguaje;
 import org.tienda.Utils.utilsTextField;
@@ -18,7 +17,7 @@ import java.io.IOException;
  *
  * @author Carlos Varas Alonso
  */
-public class cForgotPasswordPassword implements controllers {
+public class cForgotPasswordPassword {
   private ForgotPasswordPassword vista;
   private static utilsLenguaje lenguaje;
 
@@ -49,7 +48,7 @@ public class cForgotPasswordPassword implements controllers {
   /**
    * Actualiza el lenguaje de la vista
    */
-  @Override public void actualizarLenguaje() {
+  public void actualizarLenguaje() {
     vista.getJLabeltitulo().setText((lenguaje.getMensaje().getString("forgot.h1")));
     vista.getJLabelDescripcion().setText(lenguaje.getMensaje().getString("forgot.email.descripcion"));
     vista.getJLabelTFEmail().setText((lenguaje.getMensaje().getString("forgot.email")));
@@ -60,7 +59,7 @@ public class cForgotPasswordPassword implements controllers {
   /**
    * Actualiza los estilos de la vista
    */
-  @Override public void actualizarEstilos() {
+  public void actualizarEstilos() {
     TextField.actualizarTextField(vista.getJPasswordFieldPassword(), "******", 16, "img/svg/Email.svg", 22, 24, "#575DFB");
     vista.getJButtonConfirmar().putClientProperty("FlatLaf.style", "arc:" + 16);
     vista.getJPanelForgot().putClientProperty("FlatLaf.style", "arc:" + 16);
