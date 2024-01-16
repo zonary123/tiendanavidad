@@ -1,4 +1,4 @@
-package org.tienda.lang;
+package org.tienda.test.lang;
 
 import org.junit.Assert;
 import org.junit.Test;

@@ -7,15 +7,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="Arreglos en Home">
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/tienda/test/lang/langTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/tienda/test/model/ProductosTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/tienda/test/model/UsuariosTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/tienda/test/suite/TestSuite.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/tienda/test/utils/EmailTest.java" afterDir="false" />
+    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="Tests que fueron borrados o no subidos por algo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Utils/utilsLenguaje.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Utils/utilsLenguaje.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/tienda/test/Views/HomeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tienda/test/Views/HomeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/Views/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tienda/test/lang/langTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tienda/test/lang/langTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tienda/test/model/ProductosTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tienda/test/model/ProductosTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tienda/test/model/UsuariosTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tienda/test/model/UsuariosTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tienda/test/suite/TestSuite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tienda/test/suite/TestSuite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tienda/test/utils/EmailTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tienda/test/utils/EmailTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,34 +81,34 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Principal.executor": "Run",
-    "Application.Pruebas.executor": "Run",
-    "JUnit.TestSuite.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Alumno/Desktop/tiendanavidad",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Principal.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Pruebas.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestSuite.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Alumno/Desktop/tiendanavidad&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Alumno\Desktop\tiendanavidad\src\main\resources\img\svg" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestSuite">
+  <component name="RunManager" selected="Application.Principal">
     <configuration name="Principal" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="org.tienda.Views.Login" />
       <module name="tiendanavidad" />

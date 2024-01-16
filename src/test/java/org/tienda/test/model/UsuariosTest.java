@@ -1,4 +1,4 @@
-package org.tienda.model;
+package org.tienda.test.model;
 
 import org.junit.Assert;
 import org.junit.Test;
