@@ -1,9 +1,8 @@
 package org.tienda.test.Views;
 
-import org.junit.Assert;
 import org.junit.Test;
-import org.tienda.Model.Usuarios;
-import org.tienda.Views.HomeUser;
+import org.tienda.model.Usuarios;
+import org.tienda.views.HomeUser;
 
 /**
  * The type Home test.

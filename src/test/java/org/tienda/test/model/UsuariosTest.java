@@ -2,7 +2,7 @@ package org.tienda.test.model;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.tienda.Model.Usuarios;
+import org.tienda.model.Usuarios;
 
 /**
  * Pruebas unitarias para la clase Usuarios.
