@@ -12,10 +12,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="Validaciones, Vista Carrito">
+    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="Modulos, Carrito">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/model/Carrito.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/model/Carrito.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/model/CarritoId.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/model/CarritoId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/model/Productos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/model/Productos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tiendanavidad_CarlosVarasAlonso.iml" beforeDir="false" afterPath="$PROJECT_DIR$/tiendanavidad_CarlosVarasAlonso.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,14 +55,16 @@
       </UrlAndAccount>
     </option>
   </component>
-  <component name="JpbToolWindowState">
-    <option name="isToolWindowVisible" value="false" />
-  </component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="NamedScopeManager">
+    <order>
+      <scope name="Proyectos" />
+    </order>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -102,7 +104,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.haulmont.jpb.viewMode&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.com.haulmont.jpb.tools&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
@@ -119,8 +121,10 @@
   </component>
   <component name="RunManager" selected="Application.Principal">
     <configuration name="Principal" type="Application" factoryName="Application" temporary="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="org.tienda.views.Login" />
-      <module name="tiendanavidad" />
+      <module name="tiendanavidad_CarlosVarasAlonso" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.tienda.suite.*" />
@@ -132,7 +136,9 @@
       </method>
     </configuration>
     <configuration name="TestSuite" type="JUnit" factoryName="JUnit">
-      <module name="tiendanavidad" />
+      <module name="tiendanavidad_CarlosVarasAlonso" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="PACKAGE_NAME" value="org.tienda.test.suite" />
       <option name="MAIN_CLASS_NAME" value="org.tienda.test.suite.TestSuite" />
       <option name="METHOD_NAME" value="" />
@@ -145,7 +151,6 @@
       <option name="WORKING_DIRECTORY" value="C:\Users\carlos\Desktop\tiendanavidad" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
-      <module name="tiendanavidad" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="JetRunConfigurationType">
@@ -161,8 +166,8 @@
     </configuration>
     <list>
       <item itemvalue="Application.Principal" />
-      <item itemvalue="JUnit.TestSuite" />
       <item itemvalue="JAR Application.Unnamed" />
+      <item itemvalue="JUnit.TestSuite" />
     </list>
     <recent_temporary>
       <list>
@@ -173,7 +178,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.9-corretto-17.0.9-f644763e9732-ebaef533" />
+        <option value="jdk-17.0.9-corretto-17.0.9-3183f394aec4-8f899f12" />
       </set>
     </attachedChunks>
   </component>
@@ -212,8 +217,15 @@
       <workItem from="1705473496631" duration="899000" />
       <workItem from="1705474776740" duration="179000" />
       <workItem from="1705475005827" duration="164000" />
-      <workItem from="1705475195701" duration="4571000" />
-      <workItem from="1705497356926" duration="422000" />
+      <workItem from="1705475195701" duration="4365000" />
+      <workItem from="1705505333310" duration="2106000" />
+      <workItem from="1705508825926" duration="325000" />
+      <workItem from="1705509612349" duration="251000" />
+      <workItem from="1705509937041" duration="68000" />
+      <workItem from="1705518974074" duration="619000" />
+      <workItem from="1705520039532" duration="23000" />
+      <workItem from="1705520079172" duration="572000" />
+      <workItem from="1705521002060" duration="605000" />
     </task>
     <task id="LOCAL-00001" summary="Arreglos en Home">
       <option name="closed" value="true" />
@@ -255,13 +267,13 @@
       <option name="project" value="LOCAL" />
       <updated>1705474228802</updated>
     </task>
-    <task id="LOCAL-00006" summary="Validaciones, Vista Carrito">
+    <task id="LOCAL-00006" summary="Modulos, Carrito">
       <option name="closed" value="true" />
-      <created>1705479767489</created>
+      <created>1705503411289</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1705479767489</updated>
+      <updated>1705503411289</updated>
     </task>
     <option name="localTasksCounter" value="7" />
     <servers />
@@ -285,8 +297,8 @@
     <MESSAGE value="Creacion de jar, Terminando Home, Haciendo test, implementando cambio de idioma, Historial, Componentes" />
     <MESSAGE value="Cursor manita" />
     <MESSAGE value="Quitando imports, Modificando Models, controller" />
-    <MESSAGE value="Validaciones, Vista Carrito" />
-    <option name="LAST_COMMIT_MESSAGE" value="Validaciones, Vista Carrito" />
+    <MESSAGE value="Modulos, Carrito" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modulos, Carrito" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

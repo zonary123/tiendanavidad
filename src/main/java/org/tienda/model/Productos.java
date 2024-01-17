@@ -73,8 +73,8 @@ public class Productos {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.openSession();
     session.beginTransaction();
-    List<Productos> productos = session.createQuery("from Productos").getResultList();
-    return productos;
+
+    return session.createQuery("from Productos", Productos.class).getResultList();
   }
 
   /**
