@@ -10,7 +10,6 @@ import java.io.IOException;
 
 import lombok.Getter;
 import org.tienda.Controller.cLogin;
-import org.tienda.DB.Estructura;
 
 /**
  * The type Login.
@@ -31,7 +30,6 @@ public class Login extends javax.swing.JFrame {
     FlatIntelliJLaf.setup();
     initComponents();
     try {
-      new Estructura();
       this.cLogin = new cLogin(this);
     } catch (IOException e) {
       throw new RuntimeException(e);

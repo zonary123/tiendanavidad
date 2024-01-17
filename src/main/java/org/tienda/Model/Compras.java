@@ -2,19 +2,20 @@ package org.tienda.Model;
 // Generated 21 dic 2023 17:36:10 by Hibernate Tools 6.3.1.Final
 
 import lombok.*;
+import org.hibernate.proxy.HibernateProxy;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Objects;
 
 /**
  * The type Compras.
  *
  * @author Carlos Varas Alonso
  */
-@Data
+@RequiredArgsConstructor
 @Getter
 @Setter
-@EqualsAndHashCode
 @Entity
 @ToString
 @Table(name = "compras")
@@ -24,11 +25,11 @@ public class Compras {
   private ComprasId id;
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "idproducto", insertable = false, updatable = false)
+  @JoinColumn(name = "idproducto", insertable = false, updatable = false) @ToString.Exclude
   private Productos productos;
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "idusuario", insertable = false, updatable = false)
+  @JoinColumn(name = "idusuario", insertable = false, updatable = false) @ToString.Exclude
   private Usuarios usuarios;
 
   @Column(name = "cantidad", nullable = false)
@@ -41,13 +42,6 @@ public class Compras {
   private Date fechaentrega;
 
   /**
-   * Constructor vacio de la clase
-   */
-  public Compras() {
-
-  }
-
-  /**
    * Constructor de la clase
    *
    * @param idComppras Id de la compra
@@ -58,5 +52,21 @@ public class Compras {
     this.cantidad = cantidad;
     this.fechacompra = new Date(System.currentTimeMillis());
     this.fechaentrega = new Date(System.currentTimeMillis());
+  }
+
+  @Override
+  public final boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null) return false;
+    Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
+    Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
+    if (thisEffectiveClass != oEffectiveClass) return false;
+    Compras compras = (Compras) o;
+    return getId() != null && Objects.equals(getId(), compras.getId());
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id);
   }
 }

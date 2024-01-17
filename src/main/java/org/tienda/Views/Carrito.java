@@ -6,19 +6,25 @@ package org.tienda.Views;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.tienda.Controller.cCarrito;
+import org.tienda.Model.Usuarios;
 
 /**
  * @author Carlos Varas Alonso
  */
+
 @Getter
 @Setter
 public class Carrito extends javax.swing.JFrame {
+  private static Usuarios usuario;
 
   /**
    * Creates new form Carrito
    */
-  public Carrito() {
+  public Carrito(Usuarios usuario) {
+    this.usuario = usuario;
     initComponents();
+    cCarrito cCarrito = new cCarrito(this);
   }
 
   /**
@@ -28,55 +34,14 @@ public class Carrito extends javax.swing.JFrame {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
-    Container = new javax.swing.JPanel();
-    Informacion = new javax.swing.JPanel();
-    PrecioTotal = new javax.swing.JLabel();
-    ScrollPaneCarritoProductos = new javax.swing.JScrollPane();
-    CarritoProductos = new javax.swing.JPanel();
-
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-    setPreferredSize(new java.awt.Dimension(1445, 1000));
     getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-    Container.setBackground(new java.awt.Color(255, 255, 255));
-    Container.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-    Informacion.setBackground(new java.awt.Color(87, 93, 251));
-    Informacion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-    PrecioTotal.setFont(new java.awt.Font("Inter ExtraBold", 1, 32)); // NOI18N
-    PrecioTotal.setForeground(new java.awt.Color(255, 255, 255));
-    PrecioTotal.setText("Total: 200€");
-    Informacion.add(PrecioTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 36, -1, -1));
-
-    Container.add(Informacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 72, 1392, 96));
-
-    javax.swing.GroupLayout CarritoProductosLayout = new javax.swing.GroupLayout(CarritoProductos);
-    CarritoProductos.setLayout(CarritoProductosLayout);
-    CarritoProductosLayout.setHorizontalGroup(
-      CarritoProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGap(0, 1383, Short.MAX_VALUE)
-    );
-    CarritoProductosLayout.setVerticalGroup(
-      CarritoProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGap(0, 898, Short.MAX_VALUE)
-    );
-
-    ScrollPaneCarritoProductos.setViewportView(CarritoProductos);
-
-    Container.add(ScrollPaneCarritoProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 192, 1385, 795));
-
-    getContentPane().add(Container, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1445, 1000));
-
     pack();
+    setLocationRelativeTo(null);
   }// </editor-fold>//GEN-END:initComponents
 
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JPanel CarritoProductos;
-  private javax.swing.JPanel Container;
-  private javax.swing.JPanel Informacion;
-  private javax.swing.JLabel PrecioTotal;
-  private javax.swing.JScrollPane ScrollPaneCarritoProductos;
   // End of variables declaration//GEN-END:variables
 }

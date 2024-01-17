@@ -79,7 +79,7 @@ public class Header extends javax.swing.JPanel {
 
       @Override public void mouseReleased(MouseEvent e) {
         vista.dispose();
-        new Carrito().setVisible(true);
+        new Carrito(usuario).setVisible(true);
       }
 
       @Override public void mouseEntered(MouseEvent e) {
@@ -118,7 +118,7 @@ public class Header extends javax.swing.JPanel {
       new HomeUser(getUsuario()).setVisible(true);
     }
     if (vista.getClass().getName().equals("org.tienda.Views.Carrito")) {
-      new Carrito().setVisible(true);
+      new Carrito(usuario).setVisible(true);
     }
   }
 
@@ -138,7 +138,7 @@ public class Header extends javax.swing.JPanel {
     getCarrito().setCursor(new Cursor(Cursor.HAND_CURSOR));
     getCampana().setCursor(new Cursor(Cursor.HAND_CURSOR));
     getHome().setCursor(new Cursor(Cursor.HAND_CURSOR));
-    
+
     // textFields
     textField.actualizarTextField(getSearch(), lenguaje.getMensaje().getString("buscar"), 999, "img/svg/search.svg", 22, 24, "#FFFFFF");
   }

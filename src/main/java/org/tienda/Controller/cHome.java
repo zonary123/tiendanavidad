@@ -15,8 +15,7 @@ import org.tienda.Views.Login;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.*;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
@@ -90,13 +89,7 @@ public class cHome {
    */
   public void initEvents() {
     vista.getSignOut().addActionListener(e -> {
-      Historialusuarios historialusuarios = new Historialusuarios();
-      historialusuarios.setId(Historialusuarios.findRecent(vista.getUsuario()).getId());
-      historialusuarios.setFechafinsesion(Timestamp.valueOf(LocalDateTime.now()));
-      System.out.println("Historial ->" + historialusuarios);
-      System.out.println("Mas reciente -> " + Historialusuarios.findRecent(vista.getUsuario()).getId());
-      Historialusuarios.update(historialusuarios);
-      vista.dispose();
+      historial();
       new Login(null).setVisible(true);
     });
     int p = 0;
@@ -120,8 +113,22 @@ public class cHome {
 
     //System.out.println(header.getSearch());
 
+    // Salir del programa
+    vista.addWindowListener(new WindowAdapter() {
+      @Override public void windowClosing(WindowEvent e) {
+        historial();
+      }
+    });
+
   }
 
+  private void historial() {
+    Historialusuarios historialusuarios = new Historialusuarios();
+    historialusuarios.setId(Historialusuarios.findRecent(vista.getUsuario()).getId());
+    historialusuarios.setFechafinsesion(Timestamp.valueOf(LocalDateTime.now()));
+    Historialusuarios.update(historialusuarios);
+    vista.dispose();
+  }
 
   /**
    * Este metodo se encarga de mostrar los productos en la vista

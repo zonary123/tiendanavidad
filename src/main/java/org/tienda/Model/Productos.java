@@ -1,15 +1,19 @@
 package org.tienda.Model;
 // Generated 21 dic 2023 17:36:10 by Hibernate Tools 6.3.1.Final
 
-import lombok.*;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.proxy.HibernateProxy;
+import org.tienda.Controller.hibernateUtil;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
-
-import org.tienda.Controller.hibernateUtil;
 
 /**
  * The type Productos.
@@ -19,10 +23,9 @@ import org.tienda.Controller.hibernateUtil;
 @Entity
 @Table(name = "productos")
 @ToString
-@Data
+@RequiredArgsConstructor
 @Getter
 @Setter
-@EqualsAndHashCode
 public class Productos {
 
   @Id
@@ -117,5 +120,19 @@ public class Productos {
       .getResultList();
   }
 
+  @Override
+  public final boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null) return false;
+    Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
+    Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
+    if (thisEffectiveClass != oEffectiveClass) return false;
+    Productos productos = (Productos) o;
+    return getIdproducto() != null && Objects.equals(getIdproducto(), productos.getIdproducto());
+  }
 
+  @Override
+  public final int hashCode() {
+    return this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass().hashCode() : getClass().hashCode();
+  }
 }

@@ -6,9 +6,6 @@ package org.tienda.Views;
 
 import lombok.Getter;
 import org.tienda.Controller.controllerRegister;
-import org.tienda.Utils.utilsLenguaje;
-
-import java.io.IOException;
 
 /**
  * The type Register.

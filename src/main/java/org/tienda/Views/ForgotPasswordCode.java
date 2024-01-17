@@ -11,10 +11,7 @@ import org.tienda.Controller.cForgotPasswordCode;
 import org.tienda.Model.Usuarios;
 
 import javax.swing.*;
-import java.awt.*;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * The type Forgot password code.

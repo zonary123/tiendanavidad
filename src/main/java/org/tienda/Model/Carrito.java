@@ -3,19 +3,20 @@ package org.tienda.Model;
 import lombok.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.proxy.HibernateProxy;
 import org.tienda.Controller.hibernateUtil;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 /**
  * The type Carrito.
  *
  * @author Carlos Varas Alonso
  */
-@Data
+@RequiredArgsConstructor
 @Getter
 @Setter
-@EqualsAndHashCode
 @Entity
 @ToString
 @Table(name = "carrito")
@@ -25,21 +26,15 @@ public class Carrito {
   private CarritoId id;
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "idproducto", insertable = false, updatable = false)
+  @JoinColumn(name = "idproducto", insertable = false, updatable = false) @ToString.Exclude
   private Productos productos;
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "idusuario", insertable = false, updatable = false)
+  @JoinColumn(name = "idusuario", insertable = false, updatable = false) @ToString.Exclude
   private Usuarios usuarios;
 
   @Column(name = "cantidad")
   private Integer cantidad;
-
-  /**
-   * Instantiates a new Carrito.
-   */
-  public Carrito() {
-  }
 
   /**
    * Instantiates a new Carrito.
@@ -134,5 +129,19 @@ public class Carrito {
     return true;
   }
 
+  @Override
+  public final boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null) return false;
+    Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
+    Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
+    if (thisEffectiveClass != oEffectiveClass) return false;
+    Carrito carrito = (Carrito) o;
+    return getId() != null && Objects.equals(getId(), carrito.getId());
+  }
 
+  @Override
+  public int hashCode() {
+    return Objects.hash(id);
+  }
 }

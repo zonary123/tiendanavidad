@@ -8,13 +8,9 @@ package org.tienda.Views;
 import lombok.Getter;
 import lombok.Setter;
 import org.tienda.Controller.cForgotPasswordEmail;
-import org.tienda.Model.Usuarios;
 
 import javax.swing.*;
-import java.awt.*;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * The type Forgot password email.

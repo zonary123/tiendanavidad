@@ -1,14 +1,15 @@
 package org.tienda.Model;
 
-import javax.persistence.*;
-import java.sql.Timestamp;
-import java.util.Iterator;
-import java.util.List;
-
 import lombok.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.proxy.HibernateProxy;
 import org.tienda.Controller.hibernateUtil;
+
+import javax.persistence.*;
+import java.sql.Timestamp;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * The type Historialusuarios.
@@ -17,11 +18,10 @@ import org.tienda.Controller.hibernateUtil;
  */
 @Entity
 @Table(name = "historialusuarios")
-@Data
+@Getter @Setter
+@RequiredArgsConstructor
 @AllArgsConstructor
-@NoArgsConstructor
 @ToString
-@EqualsAndHashCode
 public class Historialusuarios implements java.io.Serializable {
 
   @EmbeddedId
@@ -157,4 +157,19 @@ public class Historialusuarios implements java.io.Serializable {
     }
   }
 
+  @Override
+  public final boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null) return false;
+    Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
+    Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
+    if (thisEffectiveClass != oEffectiveClass) return false;
+    Historialusuarios that = (Historialusuarios) o;
+    return getId() != null && Objects.equals(getId(), that.getId());
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id);
+  }
 }

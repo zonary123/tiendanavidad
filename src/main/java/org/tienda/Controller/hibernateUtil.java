@@ -1,11 +1,7 @@
 package org.tienda.Controller;
 
 import lombok.Data;
-import lombok.Getter;
-import org.hibernate.HibernateError;
-import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
 import javax.swing.*;

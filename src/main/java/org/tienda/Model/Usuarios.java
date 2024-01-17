@@ -1,25 +1,26 @@
 package org.tienda.Model;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import javax.persistence.*;
-
 import lombok.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.proxy.HibernateProxy;
 import org.mindrot.jbcrypt.BCrypt;
 import org.tienda.Controller.hibernateUtil;
+
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  * The type Usuarios.
  *
  * @author Carlos Varas Alonso
  */
-@Data
+@ToString @RequiredArgsConstructor
 @Getter
 @Setter
-@EqualsAndHashCode(exclude = {"historialusuarioses", "carritos", "comprases"})
 @Entity
 @Table(name = "usuarios")
 public class Usuarios implements java.io.Serializable {
@@ -65,13 +66,6 @@ public class Usuarios implements java.io.Serializable {
   @OneToMany(mappedBy = "usuarios")
   @ToString.Exclude
   private Set<Compras> comprases = new HashSet<>();
-
-  /**
-   * Instantiates a new Usuarios.
-   */
-  public Usuarios() {
-
-  }
 
   /**
    * Constructor de Usuarios
@@ -416,4 +410,19 @@ public class Usuarios implements java.io.Serializable {
     return false;
   }
 
+  @Override
+  public final boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null) return false;
+    Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
+    Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
+    if (thisEffectiveClass != oEffectiveClass) return false;
+    Usuarios usuarios = (Usuarios) o;
+    return getIdusuario() != null && Objects.equals(getIdusuario(), usuarios.getIdusuario());
+  }
+
+  @Override
+  public final int hashCode() {
+    return this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass().hashCode() : getClass().hashCode();
+  }
 }
