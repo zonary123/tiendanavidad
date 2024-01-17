@@ -3,7 +3,7 @@ package org.tienda.Controller;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
-import org.tienda.Components.Header;
+//import org.tienda.Components.Header;
 import org.tienda.Components.jPanelProducts;
 import org.tienda.Model.Historialusuarios;
 import org.tienda.Model.HistorialusuariosId;
@@ -35,7 +35,7 @@ public class cHome {
   private HomeUser vista;
   private utilsTextField textField = new utilsTextField();
   private static utilsLenguaje lenguaje;
-  private static Header header;
+  //private static Header header;
 
   /**
    * Constructor de la clase
@@ -52,8 +52,8 @@ public class cHome {
   }
 
   private void componentes() {
-    header = new Header(vista, vista.getUsuario());
-    vista.getContainer().add(header, new AbsoluteConstraints(15, 10, 1410, 50));
+    //header = new Header(vista, vista.getUsuario());
+    //vista.getContainer().add(header, new AbsoluteConstraints(15, 10, 1410, 50));
     try {
       mostrarProductos(Productos.findAll());
     } catch (IOException e) {
@@ -96,7 +96,7 @@ public class cHome {
       vista.dispose();
       new Login(null).setVisible(true);
     });
-    int p = 0;
+    /*
     header.getSearch().addKeyListener(new KeyListener() {
       @Override public void keyTyped(KeyEvent e) {
 
@@ -114,7 +114,7 @@ public class cHome {
         }
       }
     });
-
+*/
     //System.out.println(header.getSearch());
 
   }
