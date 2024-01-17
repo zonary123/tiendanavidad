@@ -2,7 +2,7 @@ package org.tienda.test.model;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.tienda.Model.Productos;
+import org.tienda.model.Productos;
 
 /**
  * @author Carlos Varas Alonso - 11/01/2024 4:23

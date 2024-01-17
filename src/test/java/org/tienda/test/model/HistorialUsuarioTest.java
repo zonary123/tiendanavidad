@@ -1,10 +1,9 @@
 package org.tienda.test.model;
 
-import org.junit.Assert;
 import org.junit.Test;
-import org.tienda.Model.Historialusuarios;
-import org.tienda.Model.HistorialusuariosId;
-import org.tienda.Model.Usuarios;
+import org.tienda.model.Historialusuarios;
+import org.tienda.model.HistorialusuariosId;
+import org.tienda.model.Usuarios;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;

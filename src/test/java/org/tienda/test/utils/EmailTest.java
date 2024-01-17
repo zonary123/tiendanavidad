@@ -2,8 +2,8 @@ package org.tienda.test.utils;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.tienda.Model.Usuarios;
-import org.tienda.Utils.EmailUtil;
+import org.tienda.model.Usuarios;
+import org.tienda.utils.EmailUtil;
 
 import java.io.IOException;
 

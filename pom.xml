@@ -91,7 +91,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>org.tienda.Views.Login</mainClass>
+              <mainClass>org.tienda.views.Login</mainClass>
             </manifest>
           </archive>
           <descriptorRefs>

@@ -2,8 +2,8 @@ package org.tienda.test.lang;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.tienda.Utils.utilsLenguaje;
-import org.tienda.Views.Login;
+import org.tienda.utils.utilsLenguaje;
+import org.tienda.views.Login;
 
 import java.io.IOException;
 
