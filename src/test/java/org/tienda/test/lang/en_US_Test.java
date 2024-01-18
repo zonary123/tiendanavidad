@@ -14,7 +14,6 @@ import java.io.IOException;
 public class en_US_Test {
   private static utilsLenguaje lenguaje;
   private static final String idioma = "en_US";
-  private static Login vista = new Login(null);
 
   static {
     try {
@@ -24,15 +23,13 @@ public class en_US_Test {
     }
   }
 
-  @Before
-  public void setUp() throws IOException {
-    vista.getCLogin().setLenguaje(new utilsLenguaje(idioma));
-    vista.getCLogin().actualizarLenguaje();
-  }
 
   @Test
   public void Login() throws IOException {
     System.out.println("Test de lenguaje - Vista Login");
+    Login vista = new Login(null);
+    vista.getCLogin().setLenguaje(lenguaje);
+    vista.getCLogin().actualizarLenguaje();
     Assert.assertEquals(lenguaje.getMensaje().getString("login.h1"), vista.getJLabelLogin().getText());
     Assert.assertEquals(lenguaje.getMensaje().getString("login.button.login"), vista.getJButtonLogin().getText());
     Assert.assertEquals(lenguaje.getMensaje().getString("login.button.register"), vista.getJButtonRegistrarse().getText());

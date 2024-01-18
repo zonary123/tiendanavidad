@@ -27,3 +27,6 @@ VALUES ('Play', 'Play 4', 2000.00, 0.00, 'Consola', NULL, 10),
        ('Televisor', 'Play 4', 2000.00, 0.00, 'Consola', NULL, 10),
        ('Monitor', 'Play 4', 2000.00, 0.00, 'Consola', NULL, 10),
        ('Play', 'Play 4', 2000.00, 0.00, 'Consola', NULL, 10);
+
+
+INSERT INTO productos (nombre, descripcion, precio, descuento, categoria, imagen, stock) VALUE ('Play', 'Play 4', 2000.00, 0.00, 'Consola', NULL, 10);
