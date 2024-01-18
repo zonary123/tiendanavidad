@@ -54,10 +54,8 @@ public class cHome {
     header = new Header(vista, vista.getUsuario());
     vista.getContainer().add(header, new AbsoluteConstraints(15, 10, 1410, 50));
     if (vista.getUsuario().getRoles().split("\"")[1].equals("admin")) {
-      System.out.println("Tiene un gran porro en la mano");
       botonAñadir();
 
-      System.out.println(vista.getScrollContainerProducts().getSize() + " - " + vista.getScrollContainerProducts().getLocation());
       vista.getScrollContainerProducts().setSize(vista.getScrollContainerProducts().getWidth(), 858);
       vista.getScrollContainerProducts().setLocation(vista.getScrollContainerProducts().getX(), 130);
       vista.getContainerProducts().setSize(vista.getContainerProducts().getWidth(), 858);
