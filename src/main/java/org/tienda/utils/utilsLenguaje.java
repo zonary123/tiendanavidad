@@ -32,9 +32,7 @@ public class utilsLenguaje {
    * @throws IOException error de lectura del fichero
    */
   public utilsLenguaje() throws IOException {
-    InputStream is = getClass().getClassLoader().getResourceAsStream(PATH);
-    BufferedReader br = new BufferedReader(new InputStreamReader(is));
-    this.fichero = "lang/" + br.readLine();
+    this.fichero = "lang/" + Locale.getDefault();
     this.local = new Locale(this.fichero.split("_")[0]);
     System.out.println(local + "---" + fichero);
     this.mensaje = ResourceBundle.getBundle(this.fichero, this.local);

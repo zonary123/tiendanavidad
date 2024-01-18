@@ -12,6 +12,7 @@ import org.tienda.utils.utilsLenguaje;
 import org.tienda.utils.utilsTextField;
 import org.tienda.views.Carrito;
 import org.tienda.views.HomeUser;
+import org.tienda.views.Usuario;
 
 import javax.swing.*;
 import java.awt.*;
@@ -61,6 +62,13 @@ public class Header extends javax.swing.JPanel {
 
     });
 
+    getUser().addMouseListener(new MouseAdapter() {
+      @Override public void mouseReleased(MouseEvent e) {
+        vista.dispose();
+        new Usuario(usuario).setVisible(true);
+      }
+    });
+
     getIdioma().addActionListener(e -> {
       switch (getIdioma().getSelectedIndex()) {
         case 1:
@@ -90,6 +98,9 @@ public class Header extends javax.swing.JPanel {
     if (vista.getClass().getName().equals("org.tienda.views.Carrito")) {
       new Carrito(usuario).setVisible(true);
     }
+    if (vista.getClass().getName().equals("org.tienda.views.Usuario")) {
+      new Usuario(usuario).setVisible(true);
+    }
   }
 
   private void actualizarEstilos() {
@@ -108,7 +119,7 @@ public class Header extends javax.swing.JPanel {
     getCarrito().setCursor(new Cursor(Cursor.HAND_CURSOR));
     getCampana().setCursor(new Cursor(Cursor.HAND_CURSOR));
     getHome().setCursor(new Cursor(Cursor.HAND_CURSOR));
-
+    getUser().setCursor(new Cursor(Cursor.HAND_CURSOR));
     // textFields
     textField.actualizarTextField(getSearch(), lenguaje.getMensaje().getString("buscar"), 999, "img/svg/search.svg", 22, 24, "#FFFFFF");
   }

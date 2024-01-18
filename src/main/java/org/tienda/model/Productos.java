@@ -135,4 +135,22 @@ public class Productos {
   public final int hashCode() {
     return this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass().hashCode() : getClass().hashCode();
   }
+
+  // Pruebas de eventos
+  @PostUpdate
+  public void postUpdate() {
+    System.out.println("PostUpdate");
+  }
+
+  @PostPersist
+  public void postPersist() {
+    System.out.println("PostPersist");
+  }
+
+  @PostRemove
+  public void postRemove() {
+    System.out.println("PostRemove");
+  }
+
+
 }

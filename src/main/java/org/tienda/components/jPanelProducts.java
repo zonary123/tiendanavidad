@@ -15,6 +15,7 @@ import org.tienda.model.Productos;
 import org.tienda.model.Usuarios;
 import org.tienda.utils.utilsLenguaje;
 
+import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 import java.util.function.Function;
@@ -46,12 +47,26 @@ public class jPanelProducts extends javax.swing.JPanel {
     this.usuario = usuario;
     lenguaje = new utilsLenguaje(usuario.getLenguaje());
     initComponents();
+
     setSize(350, 450);
     setDatos(producto);
     posicionar();
     actualizarEstilos();
     actualizarLenguaje();
     initEvents();
+    admin();
+  }
+
+  private void admin() {
+    if (usuario.getRoles().split("\"")[1].equals("admin")) {
+      //System.out.println("admin");
+      getComprar().setSize(90, 35);
+      getComprar().setLocation(25, 403);
+      SwingUtilities.invokeLater(() -> {
+        revalidate();
+        repaint();
+      });
+    }
   }
 
   private void actualizarEstilos() {
@@ -91,7 +106,6 @@ public class jPanelProducts extends javax.swing.JPanel {
     int anchoOriginal = (int) Precio.getPreferredSize().getWidth();
     Precio.setLocation(Precio.getX(), Precio.getY());
     Precio.setPreferredSize(new Dimension(anchoOriginal * 2, (int) Precio.getPreferredSize().getHeight()));
-
   }
 
   private void setDatos(Productos producto) {
@@ -122,7 +136,8 @@ public class jPanelProducts extends javax.swing.JPanel {
     setPreferredSize(new java.awt.Dimension(350, 450));
     setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-    IMG.setBackground(new java.awt.Color(157, 157, 157));
+    IMG.setBackground(new java.awt.Color(255, 255, 255));
+    IMG.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
     IMG.setText("IMG");
     IMG.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
     add(IMG, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 300, 200));
@@ -138,7 +153,7 @@ public class jPanelProducts extends javax.swing.JPanel {
     Precio.setText("200€");
     Precio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
     Precio.setPreferredSize(new java.awt.Dimension(100, 15));
-    add(Precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 266, -1, 20));
+    add(Precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, -1, 20));
     Precio.getAccessibleContext().setAccessibleParent(this);
 
     Descripcion.setText("Descripcion");

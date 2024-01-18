@@ -7,7 +7,9 @@ import org.hibernate.proxy.HibernateProxy;
 import org.tienda.utils.hibernateUtil;
 
 import javax.persistence.*;
+import javax.swing.*;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
@@ -157,6 +159,18 @@ public class Historialusuarios implements java.io.Serializable {
     }
   }
 
+  /**
+   * Este metodo se encarga de cerrar la sesion del usuario
+   * y de actualizar el historial de sesiones
+   */
+  public static void sessionCerrada(JFrame vista, Usuarios usuario) {
+    Historialusuarios historialusuarios = new Historialusuarios();
+    historialusuarios.setId(Historialusuarios.findRecent(usuario).getId());
+    historialusuarios.setFechafinsesion(Timestamp.valueOf(LocalDateTime.now()));
+    Historialusuarios.update(historialusuarios);
+    vista.dispose();
+  }
+
   @Override
   public final boolean equals(Object o) {
     if (this == o) return true;
@@ -172,4 +186,5 @@ public class Historialusuarios implements java.io.Serializable {
   public int hashCode() {
     return Objects.hash(id);
   }
+
 }

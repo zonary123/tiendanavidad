@@ -27,7 +27,6 @@ public class HomeUser extends javax.swing.JFrame {
   public HomeUser(Usuarios user) {
     initComponents();
     this.usuario = user;
-
     cHome cHome = new cHome(this);
 
   }

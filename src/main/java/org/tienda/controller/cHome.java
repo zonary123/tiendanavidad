@@ -3,8 +3,10 @@ package org.tienda.controller;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.tienda.components.Header;
 import org.tienda.components.jPanelProducts;
+import org.tienda.model.Carrito;
 import org.tienda.model.Historialusuarios;
 import org.tienda.model.Productos;
+import org.tienda.model.Usuarios;
 import org.tienda.utils.utilsTextField;
 import org.tienda.views.HomeUser;
 import org.tienda.views.Login;
@@ -18,6 +20,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import org.tienda.utils.utilsLenguaje;
+import org.tienda.views.crearProducto;
 
 /**
  * The type controller home.
@@ -30,6 +33,8 @@ public class cHome {
   private utilsTextField textField = new utilsTextField();
   private static utilsLenguaje lenguaje;
   private static Header header;
+  private static JButton btnAddProduct = new JButton();
+
 
   /**
    * Constructor de la clase
@@ -39,20 +44,45 @@ public class cHome {
   public cHome(HomeUser vista) {
     this.vista = vista;
     lenguaje = new utilsLenguaje(vista.getUsuario());
-    componentes();
     actualizarLenguaje();
     actualizarEstilos();
+    componentes();
     initEvents();
   }
 
   private void componentes() {
     header = new Header(vista, vista.getUsuario());
     vista.getContainer().add(header, new AbsoluteConstraints(15, 10, 1410, 50));
+    if (vista.getUsuario().getRoles().split("\"")[1].equals("admin")) {
+      System.out.println("Tiene un gran porro en la mano");
+      botonAñadir();
+
+      System.out.println(vista.getScrollContainerProducts().getSize() + " - " + vista.getScrollContainerProducts().getLocation());
+      vista.getScrollContainerProducts().setSize(vista.getScrollContainerProducts().getWidth(), 858);
+      vista.getScrollContainerProducts().setLocation(vista.getScrollContainerProducts().getX(), 130);
+      vista.getContainerProducts().setSize(vista.getContainerProducts().getWidth(), 858);
+      vista.getContainerProducts().setLocation(vista.getContainerProducts().getX(), 130);
+      vista.getContainerProducts().revalidate();
+      vista.getContainerProducts().repaint();
+      vista.getScrollContainerProducts().revalidate();
+      vista.getScrollContainerProducts().repaint();
+
+
+    }
     try {
       mostrarProductos(Productos.findAll());
     } catch (IOException e) {
       throw new RuntimeException(e);
     }
+  }
+
+  // No va
+  private void botonAñadir() {
+    btnAddProduct.setText(lenguaje.getMensaje().getString("Añadir"));
+    btnAddProduct.setForeground(Color.WHITE);
+    btnAddProduct.setBackground(Color.decode("#58D12E"));
+    btnAddProduct.setSize(279, 56);
+    btnAddProduct.setLocation(728, 67);
   }
 
   /**
@@ -69,10 +99,10 @@ public class cHome {
 
     // vista.getScrollContainerProducts().putClientProperty("FlatLaf.style", "arc: 16");
     vista.getContainerProducts().putClientProperty("FlatLaf.style", "arc: 16");
-
+    btnAddProduct.putClientProperty("FlatLaf.style", "arc: 16");
     vista.getSignOut().putClientProperty("FlatLaf.style", "arc: 16");
     vista.getSideBar().putClientProperty("FlatLaf.style", "arc: 8");
-
+    vista.getContainer().putClientProperty("FlatLaf.style", "arc: 8");
     // Cursores
     vista.getSignOut().setCursor(new Cursor(Cursor.HAND_CURSOR));
 
@@ -84,13 +114,12 @@ public class cHome {
    */
   public void initEvents() {
     vista.getSignOut().addActionListener(e -> {
-      historial();
+      Historialusuarios.sessionCerrada(vista, vista.getUsuario());
       new Login(null).setVisible(true);
     });
-    int p = 0;
-    header.getSearch().addKeyListener(new KeyAdapter() {
 
-      @Override public void keyReleased(KeyEvent e) {
+    header.getSearch().addActionListener(new ActionListener() {
+      @Override public void actionPerformed(ActionEvent e) {
         try {
           mostrarProductos(Productos.findByNombre(header.getSearch().getText()) == null ? Productos.findAll() : Productos.findByNombre(header.getSearch().getText()));
         } catch (IOException ioException) {
@@ -99,24 +128,20 @@ public class cHome {
       }
     });
 
+    btnAddProduct.addActionListener(e -> {
+      new crearProducto().setVisible(true);
+    });
     //System.out.println(header.getSearch());
 
     // Salir del programa
     vista.addWindowListener(new WindowAdapter() {
       @Override public void windowClosing(WindowEvent e) {
-        historial();
+        Historialusuarios.sessionCerrada(vista, vista.getUsuario());
       }
     });
 
   }
 
-  private void historial() {
-    Historialusuarios historialusuarios = new Historialusuarios();
-    historialusuarios.setId(Historialusuarios.findRecent(vista.getUsuario()).getId());
-    historialusuarios.setFechafinsesion(Timestamp.valueOf(LocalDateTime.now()));
-    Historialusuarios.update(historialusuarios);
-    vista.dispose();
-  }
 
   /**
    * Este metodo se encarga de mostrar los productos en la vista

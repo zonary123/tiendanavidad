@@ -7,6 +7,7 @@ import org.hibernate.proxy.HibernateProxy;
 import org.tienda.utils.hibernateUtil;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -74,6 +75,33 @@ public class Carrito {
     return false;
   }
 
+  public static Carrito findByProductoAndUsuario(Productos producto, Usuarios usuario) {
+    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    Session session = sessionFactory.openSession();
+    session.beginTransaction();
+    try {
+      return (Carrito) session.createQuery("SELECT c FROM Carrito c WHERE c.id.idproducto = :idproducto AND c.id.idusuario = :idusuario").setParameter("idproducto", producto.getIdproducto()).setParameter("idusuario", usuario.getIdusuario()).getSingleResult();
+    } catch (Exception e) {
+      session.getTransaction().rollback();
+      return null;
+    } finally {
+      session.close();
+    }
+  }
+
+  public static List<Productos> getProductos(Usuarios usuario) {
+    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    Session session = sessionFactory.openSession();
+    session.beginTransaction();
+    try {
+      return session.createQuery("SELECT p FROM Carrito c INNER JOIN Productos p ON c.id.idproducto = p.idproducto AND c.id.idusuario = :id").setParameter("id", usuario.getIdusuario()).list();
+    } catch (Exception e) {
+      session.getTransaction().rollback();
+      return null;
+    } finally {
+      session.close();
+    }
+  }
   // ? UPDATES
 
   /**
@@ -143,6 +171,20 @@ public class Carrito {
     }
   }
 
+  public static void deleteProducto(Usuarios usuario, Productos producto) {
+    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    Session session = sessionFactory.openSession();
+    session.beginTransaction();
+    try {
+      session.createQuery("DELETE FROM Carrito WHERE id.idproducto = :idproducto AND id.idusuario = :idusuario").setParameter("idproducto", producto.getIdproducto()).setParameter("idusuario", usuario.getIdusuario()).executeUpdate();
+      session.getTransaction().commit();
+    } catch (Exception e) {
+      session.getTransaction().rollback();
+    } finally {
+      session.close();
+    }
+  }
+
   @Override
   public final boolean equals(Object o) {
     if (this == o) return true;
@@ -157,5 +199,20 @@ public class Carrito {
   @Override
   public int hashCode() {
     return Objects.hash(id);
+  }
+
+  @PostUpdate
+  public void postUpdate() {
+    System.out.println("PostUpdate");
+  }
+
+  @PostPersist
+  public void postPersist() {
+    System.out.println("PostPersist");
+  }
+
+  @PostRemove
+  public void postRemove() {
+    System.out.println("PostRemove");
   }
 }

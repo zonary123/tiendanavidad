@@ -60,6 +60,7 @@ public class cLogin {
     vista.getJLabelLogin().setText(lenguaje.getMensaje().getString("login.h1"));
     vista.getJLabelPassword().setText(lenguaje.getMensaje().getString("login.label.password"));
     vista.getJLabelNoCuenta().setText(lenguaje.getMensaje().getString("login.label.notaccount"));
+    vista.getJLabelUsername().setText(lenguaje.getMensaje().getString("login.label.username"));
   }
 
   /**
