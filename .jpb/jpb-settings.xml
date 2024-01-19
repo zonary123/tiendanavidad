@@ -8,4 +8,16 @@
     <option name="isLombokNoArgsConstructor" value="true" />
     <option name="scaffoldingLanguage" />
   </component>
+  <component name="PersistenceUnitSettings">
+    <persistence-units>
+      <persistence-unit name="Default">
+        <packages>
+          <package value="org.tienda.model" />
+        </packages>
+        <entities>
+          <entity value="org.tienda.model.Carrito" />
+        </entities>
+      </persistence-unit>
+    </persistence-units>
+  </component>
 </project>

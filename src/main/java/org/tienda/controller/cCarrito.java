@@ -30,6 +30,7 @@ public class cCarrito {
     lenguaje = new utilsLenguaje(vista.getUsuario());
     actualizarLenguaje();
     actualizarEstilos();
+    vista.getComprar().isSelected();
     initEvents();
     try {
       mostrarProductos(org.tienda.model.Carrito.getProductos(vista.getUsuario()));
