@@ -12,12 +12,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="a">
+    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="cosas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jpb/jpb-settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.jpb/jpb-settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TODO.MD" beforeDir="false" afterPath="$PROJECT_DIR$/TODO.MD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cCarrito.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cCarrito.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/validator/validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/validator/validator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/components/Header.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/components/Header.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/Usuario.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/datosUsuario.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/datosUsuario.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,7 +235,8 @@
       <workItem from="1705604608211" duration="41000" />
       <workItem from="1705682596956" duration="836000" />
       <workItem from="1705688722635" duration="166000" />
-      <workItem from="1705688909783" duration="4503000" />
+      <workItem from="1705688909783" duration="4685000" />
+      <workItem from="1705941855639" duration="1204000" />
     </task>
     <task id="LOCAL-00001" summary="Arreglos en Home">
       <option name="closed" value="true" />
@@ -302,7 +302,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705682605452</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="cosas">
+      <option name="closed" value="true" />
+      <created>1705694593300</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1705694593300</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,7 +335,8 @@
     <MESSAGE value="Modulos, Carrito" />
     <MESSAGE value="error informacion del carrito arreglado" />
     <MESSAGE value="a" />
-    <option name="LAST_COMMIT_MESSAGE" value="a" />
+    <MESSAGE value="cosas" />
+    <option name="LAST_COMMIT_MESSAGE" value="cosas" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

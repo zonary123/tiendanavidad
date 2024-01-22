@@ -12,7 +12,7 @@ import org.tienda.utils.utilsLenguaje;
 import org.tienda.utils.utilsTextField;
 import org.tienda.views.Carrito;
 import org.tienda.views.HomeUser;
-import org.tienda.views.Usuario;
+import org.tienda.views.datosUsuario;
 
 import javax.swing.*;
 import java.awt.*;
@@ -65,7 +65,7 @@ public class Header extends javax.swing.JPanel {
     getUser().addMouseListener(new MouseAdapter() {
       @Override public void mouseReleased(MouseEvent e) {
         vista.dispose();
-        new Usuario(usuario).setVisible(true);
+        new datosUsuario(usuario).setVisible(true);
       }
     });
 
@@ -99,7 +99,7 @@ public class Header extends javax.swing.JPanel {
       new Carrito(usuario).setVisible(true);
     }
     if (vista.getClass().getName().equals("org.tienda.views.Usuario")) {
-      new Usuario(usuario).setVisible(true);
+      new datosUsuario(usuario).setVisible(true);
     }
   }
 
