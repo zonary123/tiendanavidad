@@ -12,8 +12,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="Completando Carrito">
+    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="cosas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/components/Header.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/components/Header.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/Usuario.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/datosUsuario.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/datosUsuario.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,9 +56,6 @@
         <option name="url" value="https://github.com/zonary123/tiendanavidad" />
       </UrlAndAccount>
     </option>
-  </component>
-  <component name="JpbToolWindowState">
-    <option name="isToolWindowVisible" value="false" />
   </component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -107,7 +107,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.com.haulmont.jpb.tools&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
@@ -127,7 +127,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="org.tienda.views.Login" />
-      <module name="tiendanavidad" />
+      <module name="tiendanavidad_CarlosVarasAlonso" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.tienda.suite.*" />
@@ -181,7 +181,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.9-corretto-17.0.9-f644763e9732-ebaef533" />
+        <option value="jdk-17.0.9-corretto-17.0.9-3183f394aec4-8f899f12" />
       </set>
     </attachedChunks>
   </component>
@@ -230,10 +230,13 @@
       <workItem from="1705520079172" duration="572000" />
       <workItem from="1705521002060" duration="605000" />
       <workItem from="1705534106889" duration="7540000" />
-      <workItem from="1705544425133" duration="5679000" />
-      <workItem from="1705639183434" duration="35000" />
-      <workItem from="1705650740677" duration="3000" />
-      <workItem from="1705672775877" duration="11000" />
+      <workItem from="1705544425133" duration="5610000" />
+      <workItem from="1705603442802" duration="1078000" />
+      <workItem from="1705604608211" duration="41000" />
+      <workItem from="1705682596956" duration="836000" />
+      <workItem from="1705688722635" duration="166000" />
+      <workItem from="1705688909783" duration="4685000" />
+      <workItem from="1705941855639" duration="1204000" />
     </task>
     <task id="LOCAL-00001" summary="Arreglos en Home">
       <option name="closed" value="true" />
@@ -283,15 +286,31 @@
       <option name="project" value="LOCAL" />
       <updated>1705503411289</updated>
     </task>
-    <task id="LOCAL-00007" summary="Completando Carrito">
+    <task id="LOCAL-00007" summary="error informacion del carrito arreglado">
       <option name="closed" value="true" />
-      <created>1705550558446</created>
+      <created>1705604640644</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1705550558446</updated>
+      <updated>1705604640644</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="a">
+      <option name="closed" value="true" />
+      <created>1705682605452</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1705682605452</updated>
+    </task>
+    <task id="LOCAL-00009" summary="cosas">
+      <option name="closed" value="true" />
+      <created>1705694593300</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1705694593300</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -314,8 +333,10 @@
     <MESSAGE value="Cursor manita" />
     <MESSAGE value="Quitando imports, Modificando Models, controller" />
     <MESSAGE value="Modulos, Carrito" />
-    <MESSAGE value="Completando Carrito" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completando Carrito" />
+    <MESSAGE value="error informacion del carrito arreglado" />
+    <MESSAGE value="a" />
+    <MESSAGE value="cosas" />
+    <option name="LAST_COMMIT_MESSAGE" value="cosas" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
