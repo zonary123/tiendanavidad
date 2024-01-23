@@ -12,11 +12,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="cosas">
+    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="A">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cDatosUsuario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/components/Header.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/components/Header.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/Usuario.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/datosUsuario.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/datosUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cRegister.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/datosUsuario.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/datosUsuario.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/datosUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/datosUsuario.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +30,8 @@
         <option value="HTML File" />
         <option value="Interface" />
         <option value="com.haulmont.jpb.JpaEntity" />
-        <option value="Class" />
         <option value="com.haulmont.jpb.NewClass" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -116,6 +117,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.tienda.views" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\carlos\Desktop\tiendanavidad\src\main\java\org\tienda\Views" />
       <recent name="C:\Users\carlos\Desktop\tiendanavidad\src\main\resources\font\inter" />
@@ -127,7 +131,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="org.tienda.views.Login" />
-      <module name="tiendanavidad_CarlosVarasAlonso" />
+      <module name="tiendanavidad" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.tienda.suite.*" />
