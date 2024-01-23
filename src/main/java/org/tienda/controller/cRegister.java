@@ -212,7 +212,6 @@ public class cRegister {
     actualizarTextField(this.vista.getJTextFieldEmail(), this.lenguaje.getMensaje().getString("register.email.placeholder"), 16, "img/svg/Email.svg", 19, 19, "#575DFB");
     actualizarTextField(this.vista.getJTextFieldUsername(), this.lenguaje.getMensaje().getString("register.username.placeholder"), 16, "img/svg/Person.svg", 16, 19, "#575DFB");
     actualizarTextField(this.vista.getJPasswordFieldPassword(), this.lenguaje.getMensaje().getString("register.password.placeholder"), 16, "img/svg/Candado.svg", 16, 19, "#575DFB");
-
     actualizarBoton(vista.getJButtonRegistrarse(), 16);
 
     vista.getJButtonRegistrarse().setCursor(new Cursor(Cursor.HAND_CURSOR));

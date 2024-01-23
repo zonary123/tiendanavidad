@@ -12,8 +12,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="Interfaz de modificar los datos del usuario">
+    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="A">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cDatosUsuario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cRegister.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/datosUsuario.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/datosUsuario.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/datosUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/datosUsuario.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +30,8 @@
         <option value="HTML File" />
         <option value="Interface" />
         <option value="com.haulmont.jpb.JpaEntity" />
-        <option value="Class" />
         <option value="com.haulmont.jpb.NewClass" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -113,6 +117,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.tienda.views" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\carlos\Desktop\tiendanavidad\src\main\java\org\tienda\Views" />
       <recent name="C:\Users\carlos\Desktop\tiendanavidad\src\main\resources\font\inter" />
@@ -124,7 +131,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="org.tienda.views.Login" />
-      <module name="tiendanavidad_CarlosVarasAlonso" />
+      <module name="tiendanavidad" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.tienda.suite.*" />
@@ -233,7 +240,7 @@
       <workItem from="1705682596956" duration="836000" />
       <workItem from="1705688722635" duration="166000" />
       <workItem from="1705688909783" duration="4685000" />
-      <workItem from="1705941855639" duration="1788000" />
+      <workItem from="1705941855639" duration="1204000" />
     </task>
     <task id="LOCAL-00001" summary="Arreglos en Home">
       <option name="closed" value="true" />
@@ -307,15 +314,7 @@
       <option name="project" value="LOCAL" />
       <updated>1705694593300</updated>
     </task>
-    <task id="LOCAL-00010" summary="Interfaz de modificar los datos del usuario">
-      <option name="closed" value="true" />
-      <created>1705948085316</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1705948085316</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -341,8 +340,7 @@
     <MESSAGE value="error informacion del carrito arreglado" />
     <MESSAGE value="a" />
     <MESSAGE value="cosas" />
-    <MESSAGE value="Interfaz de modificar los datos del usuario" />
-    <option name="LAST_COMMIT_MESSAGE" value="Interfaz de modificar los datos del usuario" />
+    <option name="LAST_COMMIT_MESSAGE" value="cosas" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
