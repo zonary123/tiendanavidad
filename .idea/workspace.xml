@@ -12,11 +12,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="a">
+    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="pantalla de cambiar los datos del usuario">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/components/Header.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/components/Header.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/components/Header.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/components/Header.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cDatosUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cDatosUsuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/model/Carrito.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/model/Carrito.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/validator/validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/validator/validator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/model/Usuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/model/Usuarios.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/datosUsuario.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/datosUsuario.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/datosUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/datosUsuario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/lang/en_US.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lang/en_US.properties" afterDir="false" />
@@ -90,35 +91,35 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Alimentacion.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Principal.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Pruebas.executor&quot;: &quot;Run&quot;,
-    &quot;Application.utilsLenguaje.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.HistorialUsuarioTest.findRecent.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.TestSuite.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Alumno/Desktop/tiendanavidad&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Alimentacion.executor": "Run",
+    "Application.Principal.executor": "Run",
+    "Application.Pruebas.executor": "Run",
+    "Application.utilsLenguaje.executor": "Run",
+    "JUnit.HistorialUsuarioTest.findRecent.executor": "Debug",
+    "JUnit.TestSuite.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Alumno/Desktop/tiendanavidad",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.keymap"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mariadb&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.tienda.views" />
@@ -134,7 +135,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="org.tienda.views.Login" />
-      <module name="tiendanavidad_CarlosVarasAlonso" />
+      <module name="tiendanavidad" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.tienda.suite.*" />
@@ -188,7 +189,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.9-corretto-17.0.9-3183f394aec4-8f899f12" />
+        <option value="jdk-17.0.9-corretto-17.0.9-f644763e9732-ebaef533" />
       </set>
     </attachedChunks>
   </component>
@@ -244,6 +245,10 @@
       <workItem from="1705688722635" duration="166000" />
       <workItem from="1705688909783" duration="4685000" />
       <workItem from="1705941855639" duration="1204000" />
+      <workItem from="1706065178356" duration="1730000" />
+      <workItem from="1706066971739" duration="100000" />
+      <workItem from="1706067177319" duration="1114000" />
+      <workItem from="1706068383122" duration="1424000" />
     </task>
     <task id="LOCAL-00001" summary="Arreglos en Home">
       <option name="closed" value="true" />

@@ -281,6 +281,7 @@ public class Usuarios implements java.io.Serializable {
 
     try {
       session.beginTransaction();
+      usuario.setPassword(BCrypt.hashpw(usuario.getPassword(), BCrypt.gensalt(12)));
       session.update(usuario);
       session.getTransaction().commit();
       return true;
