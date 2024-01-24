@@ -12,7 +12,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="pantalla de cambiar los datos del usuario" />
+    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="a">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cDatosUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cDatosUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/model/Carrito.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/model/Carrito.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/validator/validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/validator/validator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/datosUsuario.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/datosUsuario.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/datosUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/datosUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/lang/en_US.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lang/en_US.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/lang/es_ES.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lang/es_ES.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -125,7 +134,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="org.tienda.views.Login" />
-      <module name="tiendanavidad" />
+      <module name="tiendanavidad_CarlosVarasAlonso" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.tienda.suite.*" />
@@ -179,7 +188,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.9-corretto-17.0.9-f644763e9732-ebaef533" />
+        <option value="jdk-17.0.9-corretto-17.0.9-3183f394aec4-8f899f12" />
       </set>
     </attachedChunks>
   </component>
@@ -235,7 +244,6 @@
       <workItem from="1705688722635" duration="166000" />
       <workItem from="1705688909783" duration="4685000" />
       <workItem from="1705941855639" duration="1204000" />
-      <workItem from="1705989187539" duration="136000" />
     </task>
     <task id="LOCAL-00001" summary="Arreglos en Home">
       <option name="closed" value="true" />
@@ -309,15 +317,7 @@
       <option name="project" value="LOCAL" />
       <updated>1705694593300</updated>
     </task>
-    <task id="LOCAL-00010" summary="pantalla de cambiar los datos del usuario">
-      <option name="closed" value="true" />
-      <created>1705989316489</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1705989316489</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -343,8 +343,7 @@
     <MESSAGE value="error informacion del carrito arreglado" />
     <MESSAGE value="a" />
     <MESSAGE value="cosas" />
-    <MESSAGE value="pantalla de cambiar los datos del usuario" />
-    <option name="LAST_COMMIT_MESSAGE" value="pantalla de cambiar los datos del usuario" />
+    <option name="LAST_COMMIT_MESSAGE" value="cosas" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

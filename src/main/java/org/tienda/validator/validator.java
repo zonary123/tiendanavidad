@@ -11,12 +11,10 @@ public class validator {
   private static final String USERNAME_PATTERN = "^[a-zA-Z0-9]{4,30}$";
 
 
-  // Usuario
-
   /**
-   * Es un nombre
+   * Esta funcion comprueba si el nombre es valido
    *
-   * @param nombre Nombre
+   * @param nombre Se espera un nombre
    *
    * @return devuelve true si es un nombre valido
    */
@@ -25,9 +23,9 @@ public class validator {
   }
 
   /**
-   * Es un apellido
+   * Esta funcion comprueba si el apellido es valido
    *
-   * @param apellido Apellido
+   * @param apellido Se espera un apellido
    *
    * @return devuelve true si es un apellido valido
    */
@@ -36,9 +34,9 @@ public class validator {
   }
 
   /**
-   * Es un email
+   * Esta funcion comprueba si el email es valido
    *
-   * @param email Email
+   * @param email Se espera un correo
    *
    * @return devuelve true si es un email valido
    */
@@ -47,9 +45,9 @@ public class validator {
   }
 
   /**
-   * Es un username
+   * Esta funcion comprueba si el username valido
    *
-   * @param username Texto
+   * @param username Se espera un username
    *
    * @return devuelve true si es un username valido
    */
@@ -58,9 +56,9 @@ public class validator {
   }
 
   /**
-   * Es un password
+   * Esta funcion comprueba si la password es valida
    *
-   * @param password Password
+   * @param password Se espera una password
    *
    * @return devuelve true si es un password valido
    */

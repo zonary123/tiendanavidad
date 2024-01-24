@@ -157,6 +157,12 @@ public class Carrito {
     return true;
   }
 
+  /**
+   * Calcula el precio total de los artículos en el carrito de compras para un usuario dado.
+   *
+   * @param usuario El usuario para el cual se calculará el precio total.
+   * @return El precio total de los artículos en el carrito de compras, o 0 si ocurre un error.
+   */
   public static double calcTotal(Usuarios usuario) {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.openSession();
@@ -171,6 +177,12 @@ public class Carrito {
     }
   }
 
+  /**
+   * Elimina un producto del carrito de compras de un usuario.
+   *
+   * @param usuario  el usuario cuyo carrito de compras será modificado
+   * @param producto el producto que se eliminará del carrito de compras
+   */
   public static void deleteProducto(Usuarios usuario, Productos producto) {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.openSession();
@@ -185,6 +197,12 @@ public class Carrito {
     }
   }
 
+  /**
+    * Indica si algún otro objeto es "igual a" este.
+    *
+    * @param o el objeto de referencia con el que se va a comparar.
+    * @return true si este objeto es igual al argumento o; false en caso contrario.
+    */
   @Override
   public final boolean equals(Object o) {
     if (this == o) return true;
@@ -196,23 +214,14 @@ public class Carrito {
     return getId() != null && Objects.equals(getId(), carrito.getId());
   }
 
+  /**
+    * Devuelve el valor del código hash para este objeto Carrito.
+    * El código hash se basa en el campo id.
+    *
+    * @return el valor del código hash para este objeto Carrito.
+    */
   @Override
   public int hashCode() {
     return Objects.hash(id);
-  }
-
-  @PostUpdate
-  public void postUpdate() {
-    System.out.println("PostUpdate");
-  }
-
-  @PostPersist
-  public void postPersist() {
-    System.out.println("PostPersist");
-  }
-
-  @PostRemove
-  public void postRemove() {
-    System.out.println("PostRemove");
   }
 }
