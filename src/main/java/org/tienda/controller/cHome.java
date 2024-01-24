@@ -48,6 +48,18 @@ public class cHome {
     actualizarEstilos();
     componentes();
     initEvents();
+    ponercategorias();
+  }
+
+  private void ponercategorias() {
+    JPanel sidebar = vista.getSideBar();
+    List<String> categorias = Productos.getAllProductos();
+    int x;
+    int y;
+    for (String c : categorias) {
+      JLabel jlabel = new JLabel();
+      sidebar.add(jlabel);
+    }
   }
 
   private void componentes() {
@@ -160,5 +172,6 @@ public class cHome {
     panelProductos.revalidate();
     panelProductos.repaint();
   }
+
 
 }
