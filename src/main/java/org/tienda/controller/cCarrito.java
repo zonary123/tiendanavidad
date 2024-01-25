@@ -2,7 +2,7 @@ package org.tienda.controller;
 
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.tienda.components.Header;
-import org.tienda.components.jPanelProducts;
+import org.tienda.components.ProductosUser;
 import org.tienda.model.Historialusuarios;
 import org.tienda.model.Productos;
 import org.tienda.views.Carrito;

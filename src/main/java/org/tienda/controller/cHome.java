@@ -2,7 +2,8 @@ package org.tienda.controller;
 
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.tienda.components.Header;
-import org.tienda.components.jPanelProducts;
+import org.tienda.components.ProductosAdmin;
+import org.tienda.components.ProductosUser;
 import org.tienda.model.Carrito;
 import org.tienda.model.Historialusuarios;
 import org.tienda.model.Productos;
@@ -52,38 +53,68 @@ public class cHome {
   }
 
   private void ponercategorias() {
-    JPanel sidebar = vista.getSideBar();
+    JPanel sidebar = vista.getContainerCategories();
     List<String> categorias = Productos.getAllProductos();
-    int x;
-    int y;
+    sidebar.setLayout(new BoxLayout(sidebar, BoxLayout.Y_AXIS));
+
     for (String c : categorias) {
-      JLabel jlabel = new JLabel();
+      JLabel jlabel = new JLabel(c);
+      jlabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+      jlabel.addMouseListener(new MouseAdapter() {
+
+        @Override public void mouseReleased(MouseEvent e) {
+          try {
+            mostrarProductos(Productos.findByCategoria(c));
+          } catch (IOException ioException) {
+            ioException.printStackTrace();
+          }
+        }
+      });
       sidebar.add(jlabel);
     }
+
+    JLabel jlabel = new JLabel("Todos");
+    jlabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+    jlabel.addMouseListener(new MouseAdapter() {
+
+      @Override public void mouseReleased(MouseEvent e) {
+        try {
+          mostrarProductos(Productos.findAll());
+        } catch (IOException ioException) {
+          ioException.printStackTrace();
+        }
+      }
+    });
+    sidebar.add(jlabel);
   }
 
   private void componentes() {
     header = new Header(vista, vista.getUsuario());
     vista.getContainer().add(header, new AbsoluteConstraints(15, 10, 1410, 50));
-    if (vista.getUsuario().getRoles().split("\"")[1].equals("admin")) {
-      botonAñadir();
-
-      vista.getScrollContainerProducts().setSize(vista.getScrollContainerProducts().getWidth(), 858);
-      vista.getScrollContainerProducts().setLocation(vista.getScrollContainerProducts().getX(), 130);
-      vista.getContainerProducts().setSize(vista.getContainerProducts().getWidth(), 858);
-      vista.getContainerProducts().setLocation(vista.getContainerProducts().getX(), 130);
-      vista.getContainerProducts().revalidate();
-      vista.getContainerProducts().repaint();
-      vista.getScrollContainerProducts().revalidate();
-      vista.getScrollContainerProducts().repaint();
-
-
-    }
+    //if (vista.getUsuario().getRoles().split("\"")[1].equals("admin")) {
+    Admin();
+    //}
     try {
       mostrarProductos(Productos.findAll());
     } catch (IOException e) {
       throw new RuntimeException(e);
     }
+  }
+
+
+  private void Admin() {
+    System.out.println("Vista admin");
+    ajustarComponente(vista.getScrollContainerProducts(), 858, 130);
+    ajustarComponente(vista.getContainerProducts(), 858, 130);
+    vista.revalidate();
+    vista.repaint();
+  }
+
+  private void ajustarComponente(Component componente, int altura, int ubicacionY) {
+    componente.setSize(componente.getWidth(), altura);
+    componente.setLocation(componente.getX(), ubicacionY);
+    componente.revalidate();
+    componente.repaint();
   }
 
   // No va
@@ -113,6 +144,7 @@ public class cHome {
     vista.getSignOut().putClientProperty("FlatLaf.style", "arc: 16");
     vista.getSideBar().putClientProperty("FlatLaf.style", "arc: 8");
     vista.getContainer().putClientProperty("FlatLaf.style", "arc: 8");
+    vista.getTitleCategorias().putClientProperty("FlatLaf.style", "arc: 8");
     // Cursores
     vista.getSignOut().setCursor(new Cursor(Cursor.HAND_CURSOR));
 
@@ -139,7 +171,7 @@ public class cHome {
     });
 
     btnAddProduct.addActionListener(e -> {
-      new crearProducto().setVisible(true);
+      //new crearProducto().setVisible(true);
     });
     //System.out.println(header.getSearch());
 
@@ -164,7 +196,13 @@ public class cHome {
     panelProductos.removeAll();
 
     for (Productos producto : productos) {
-      jPanelProducts jPanelProducts = new jPanelProducts(vista.getUsuario(), producto);
+      JPanel jPanelProducts;
+/*      if (!vista.getUsuario().getRoles().split("\"")[1].equals("admin")) {
+        jPanelProducts = new ProductosUser(vista.getUsuario(), producto);
+      } else {
+        jPanelProducts = new ProductosAdmin(vista.getUsuario(), producto);
+      }*/
+      jPanelProducts = new ProductosAdmin(vista.getUsuario(), producto, vista);
       jPanelProducts.setSize(350, 450);
       panelProductos.add(jPanelProducts);
     }

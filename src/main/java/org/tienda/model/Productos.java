@@ -73,8 +73,9 @@ public class Productos {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.openSession();
     session.beginTransaction();
-
-    return session.createQuery("from Productos", Productos.class).getResultList();
+    List<Productos> productos = session.createQuery("from Productos").getResultList();
+    session.close();
+    return productos;
   }
 
   /**
@@ -89,8 +90,9 @@ public class Productos {
   public static Productos findbyId(int id) throws NoResultException {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.openSession();
-    session.beginTransaction();
-    return session.get(Productos.class, id);
+    Productos producto = session.get(Productos.class, id);
+    session.close();
+    return producto;
   }
 
   /**
@@ -106,25 +108,45 @@ public class Productos {
   public static List<Productos> findByCategoria(String cat) throws NoResultException {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.openSession();
-    session.beginTransaction();
-    return session.createQuery("from Productos p where p.categoria = :categoria").setParameter("categoria", cat).getResultList();
+    List<Productos> productos = session.createQuery("from Productos p where p.categoria = :categoria").setParameter("categoria", cat).getResultList();
+    session.close();
+    return productos;
   }
 
   public static List<Productos> findByNombre(String nombre) throws NoResultException {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.openSession();
-    session.beginTransaction();
-
-    return session.createQuery("from Productos p WHERE p.nombre LIKE  :nombre")
+    List<Productos> productos = session.createQuery("from Productos p WHERE p.nombre LIKE  :nombre")
       .setParameter("nombre", nombre + "%")
       .getResultList();
+    session.close();
+    return productos;
   }
 
   public static List<String> getAllProductos() {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.openSession();
     List<String> categorias = session.createQuery("SELECT distinct(categoria) from Productos").getResultList();
+    session.close();
     return categorias;
+  }
+
+  public static void delete(Productos producto) {
+    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    Session session = sessionFactory.openSession();
+    session.beginTransaction();
+    session.delete(producto);
+    session.getTransaction().commit();
+    session.close();
+  }
+
+  public static void update(Productos producto) {
+    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    Session session = sessionFactory.openSession();
+    session.beginTransaction();
+    session.update(producto);
+    session.getTransaction().commit();
+    session.close();
   }
 
   @Override
