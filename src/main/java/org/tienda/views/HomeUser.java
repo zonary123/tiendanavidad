@@ -43,6 +43,7 @@ public class HomeUser extends javax.swing.JFrame {
     ContainerProducts = new javax.swing.JPanel();
     sideBar = new javax.swing.JPanel();
     signOut = new javax.swing.JButton();
+    jLabelCategorias = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     setUndecorated(true);
@@ -65,6 +66,12 @@ public class HomeUser extends javax.swing.JFrame {
     signOut.setText("Sign Out");
     sideBar.add(signOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 848, 272, 56));
 
+    jLabelCategorias.setBackground(new java.awt.Color(87, 93, 251));
+    jLabelCategorias.setFont(new java.awt.Font("Inter", 2, 16)); // NOI18N
+    jLabelCategorias.setForeground(new java.awt.Color(255, 255, 255));
+    jLabelCategorias.setText("Categorias");
+    sideBar.add(jLabelCategorias, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 280, 24));
+
     Container.add(sideBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 72, 300, 916));
 
     getContentPane().add(Container, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1445, 1000));
@@ -77,6 +84,7 @@ public class HomeUser extends javax.swing.JFrame {
   private javax.swing.JPanel Container;
   private javax.swing.JPanel ContainerProducts;
   private javax.swing.JScrollPane ScrollContainerProducts;
+  private javax.swing.JLabel jLabelCategorias;
   private javax.swing.JPanel sideBar;
   private javax.swing.JButton signOut;
   // End of variables declaration//GEN-END:variables
