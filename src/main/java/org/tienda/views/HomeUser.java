@@ -17,6 +17,7 @@ import org.tienda.model.Usuarios;
 @Getter
 @Setter
 public class HomeUser extends javax.swing.JFrame {
+
   private Usuarios usuario;
 
   /**
@@ -28,7 +29,6 @@ public class HomeUser extends javax.swing.JFrame {
     initComponents();
     this.usuario = user;
     cHome cHome = new cHome(this);
-
   }
 
   /**

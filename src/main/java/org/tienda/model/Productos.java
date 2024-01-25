@@ -120,6 +120,13 @@ public class Productos {
       .getResultList();
   }
 
+  public static List<String> getAllProductos() {
+    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    Session session = sessionFactory.openSession();
+    List<String> categorias = session.createQuery("SELECT distinct(categoria) from Productos").getResultList();
+    return categorias;
+  }
+
   @Override
   public final boolean equals(Object o) {
     if (this == o) return true;
@@ -135,22 +142,5 @@ public class Productos {
   public final int hashCode() {
     return this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass().hashCode() : getClass().hashCode();
   }
-
-  // Pruebas de eventos
-  @PostUpdate
-  public void postUpdate() {
-    System.out.println("PostUpdate");
-  }
-
-  @PostPersist
-  public void postPersist() {
-    System.out.println("PostPersist");
-  }
-
-  @PostRemove
-  public void postRemove() {
-    System.out.println("PostRemove");
-  }
-
 
 }
