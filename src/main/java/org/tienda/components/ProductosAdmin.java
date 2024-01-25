@@ -14,9 +14,12 @@ import org.tienda.model.CarritoId;
 import org.tienda.model.Productos;
 import org.tienda.model.Usuarios;
 import org.tienda.utils.utilsLenguaje;
+import org.tienda.views.crearProducto;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.function.Function;
 
@@ -29,11 +32,12 @@ import java.util.function.Function;
 @EqualsAndHashCode(callSuper = true)
 @Getter
 @Setter
-public class jPanelProducts extends javax.swing.JPanel {
+public class ProductosAdmin extends javax.swing.JPanel {
 
   private int id;
   private Usuarios usuario;
   private static utilsLenguaje lenguaje;
+  private static JFrame vista;
 
 
   /**
@@ -42,50 +46,45 @@ public class jPanelProducts extends javax.swing.JPanel {
    * @param usuario  the user
    * @param producto the producto
    */
-  public jPanelProducts(Usuarios usuario, Productos producto) throws IOException {
+  public ProductosAdmin(Usuarios usuario, Productos producto, JFrame vista) throws IOException {
     this.id = producto.getIdproducto();
     this.usuario = usuario;
+    this.vista = vista;
     lenguaje = new utilsLenguaje(usuario.getLenguaje());
     initComponents();
-
     setSize(350, 450);
     setDatos(producto);
     posicionar();
     actualizarEstilos();
-    actualizarLenguaje();
-    initEvents();
-    admin();
+    initEvents(producto);
+
   }
 
-  private void admin() {
-    if (usuario.getRoles().split("\"")[1].equals("admin")) {
-      //System.out.println("admin");
-      getComprar().setSize(90, 35);
-      getComprar().setLocation(25, 403);
-      SwingUtilities.invokeLater(() -> {
-        revalidate();
-        repaint();
-      });
-    }
-  }
 
   private void actualizarEstilos() {
     putClientProperty("FlatLaf.style", "arc: 16");
     getComprar().putClientProperty("FlatLaf.style", "arc: 16");
-    getComprar().putClientProperty("FlatLaf.leadingIcon", new FlatSVGIcon("img/svg/carrito.svg"));
+    getEditar().putClientProperty("FlatLaf.style", "arc: 16");
+    getEliminar().putClientProperty("FlatLaf.style", "arc: 16");
+    getComprar().setIcon(obtenerIconoBlanco("img/svg/carrito.svg", new Dimension(26, 26)));
+    getComprar().setCursor(new Cursor(Cursor.HAND_CURSOR));
+    getEditar().setIcon(obtenerIconoBlanco("img/svg/editar.svg", new Dimension(26, 26)));
+    getEditar().setCursor(new Cursor(Cursor.HAND_CURSOR));
+    getEliminar().setIcon(obtenerIconoBlanco("img/svg/basura.svg", new Dimension(14, 18)));
+    getEliminar().setCursor(new Cursor(Cursor.HAND_CURSOR));
+  }
 
-    FlatSVGIcon icon = new FlatSVGIcon("img/svg/carrito.svg");
+  private FlatSVGIcon obtenerIconoBlanco(String path, Dimension dimensiones) {
+    FlatSVGIcon icon = new FlatSVGIcon(path, (int) dimensiones.getWidth(), (int) dimensiones.getHeight());
     Function<Color, Color> colors = c -> new Color(255, 255, 255);
     icon.setColorFilter(new FlatSVGIcon.ColorFilter(colors));
-    getComprar().setIcon(icon);
-    getComprar().setIconTextGap(10);
-    getComprar().setCursor(new Cursor(Cursor.HAND_CURSOR));
+    return icon;
   }
 
   /**
    * Init events.
    */
-  public void initEvents() {
+  public void initEvents(Productos producto) {
     getComprar().addActionListener(e
       -> {
       Usuarios u = Usuarios.findByUsername(usuario.getUsername());
@@ -95,11 +94,8 @@ public class jPanelProducts extends javax.swing.JPanel {
         Carrito.save(new CarritoId(id, u.getIdusuario()), 1);
       }
     });
-  }
-
-
-  private void actualizarLenguaje() {
-    getComprar().setText(lenguaje.getMensaje().getString("comprar"));
+    getEditar().addActionListener(e -> new crearProducto(producto, crearProducto.EDITAR).setVisible(true));
+    getEliminar().addActionListener(e -> Productos.delete(producto));
   }
 
   private void posicionar() {
@@ -129,6 +125,8 @@ public class jPanelProducts extends javax.swing.JPanel {
     Precio = new javax.swing.JLabel();
     Descripcion = new javax.swing.JLabel();
     Comprar = new javax.swing.JButton();
+    Editar = new javax.swing.JButton();
+    Eliminar = new javax.swing.JButton();
 
     jButton1.setText("jButton1");
 
@@ -163,13 +161,22 @@ public class jPanelProducts extends javax.swing.JPanel {
     Comprar.setBackground(new java.awt.Color(15, 109, 142));
     Comprar.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
     Comprar.setForeground(new java.awt.Color(255, 255, 255));
-    Comprar.setText("Comprar");
-    add(Comprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 403, 302, 35));
+    add(Comprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 403, 90, 35));
+
+    Editar.setBackground(new java.awt.Color(78, 108, 84));
+    Editar.setForeground(new java.awt.Color(255, 255, 255));
+    add(Editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 403, 90, 35));
+
+    Eliminar.setBackground(new java.awt.Color(255, 86, 86));
+    Eliminar.setForeground(new java.awt.Color(255, 255, 255));
+    add(Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 403, 90, 35));
   }// </editor-fold>//GEN-END:initComponents
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton Comprar;
   private javax.swing.JLabel Descripcion;
+  private javax.swing.JButton Editar;
+  private javax.swing.JButton Eliminar;
   private javax.swing.JLabel IMG;
   private javax.swing.JLabel Nombre;
   private javax.swing.JLabel Precio;
