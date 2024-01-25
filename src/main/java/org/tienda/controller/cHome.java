@@ -21,7 +21,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import org.tienda.utils.utilsLenguaje;
-import org.tienda.views.crearProducto;
+import org.tienda.views.CrearModificarProducto;
 
 /**
  * The type controller home.
@@ -171,7 +171,7 @@ public class cHome {
     });
 
     btnAddProduct.addActionListener(e -> {
-      //new crearProducto().setVisible(true);
+      //new CrearModificarProducto().setVisible(true);
     });
     //System.out.println(header.getSearch());
 

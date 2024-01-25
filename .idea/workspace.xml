@@ -12,23 +12,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="a">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/tienda/components/ProductosUser.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/tienda/components/ProductosUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cProducto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/svg/editar.svg" afterDir="false" />
+    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="Buscar por categorias, Haciendo el modificar y añadir productos, Eliminar productos hecho">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/components/jPanelProducts.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/components/ProductosAdmin.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/components/jPanelProducts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/components/ProductosAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cCarrito.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cCarrito.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cHome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/model/Productos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/model/Productos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/HomeUser.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/HomeUser.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/HomeUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/HomeUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/crearProducto.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/crearProducto.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/crearProducto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/crearProducto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/alimentacion.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/alimentacion.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/estructura.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/estructura.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +99,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Alumno/Desktop/tiendanavidad&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/carlos/OneDrive - Educacyl/2DAM/Acceso a datos/nba&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -266,7 +251,9 @@
       <workItem from="1706111867803" duration="879000" />
       <workItem from="1706124086149" duration="2274000" />
       <workItem from="1706151157508" duration="1105000" />
-      <workItem from="1706152310260" duration="326000" />
+      <workItem from="1706152310260" duration="994000" />
+      <workItem from="1706195480844" duration="52000" />
+      <workItem from="1706198626782" duration="8000" />
     </task>
     <task id="LOCAL-00001" summary="Arreglos en Home">
       <option name="closed" value="true" />
@@ -340,7 +327,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705694593300</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Buscar por categorias, Haciendo el modificar y añadir productos, Eliminar productos hecho">
+      <option name="closed" value="true" />
+      <created>1706153299988</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1706153299988</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -367,7 +362,8 @@
     <MESSAGE value="error informacion del carrito arreglado" />
     <MESSAGE value="a" />
     <MESSAGE value="cosas" />
-    <option name="LAST_COMMIT_MESSAGE" value="cosas" />
+    <MESSAGE value="Buscar por categorias, Haciendo el modificar y añadir productos, Eliminar productos hecho" />
+    <option name="LAST_COMMIT_MESSAGE" value="Buscar por categorias, Haciendo el modificar y añadir productos, Eliminar productos hecho" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

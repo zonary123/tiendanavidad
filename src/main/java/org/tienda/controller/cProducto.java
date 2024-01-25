@@ -1,7 +1,7 @@
 package org.tienda.controller;
 
 import org.tienda.model.Productos;
-import org.tienda.views.crearProducto;
+import org.tienda.views.CrearModificarProducto;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,28 +10,28 @@ import java.awt.event.ActionListener;
  * @author Carlos Varas Alonso - 25/01/2024 3:56
  */
 public class cProducto {
-  private static crearProducto vista;
+  private static CrearModificarProducto vista;
   private static Productos producto;
 
-  public cProducto(crearProducto vista, Productos producto) {
+  public cProducto(CrearModificarProducto vista, Productos producto) {
     this.vista = vista;
     this.producto = producto;
     actualizarEstilos();
     actualizarLenguaje();
     initEvents();
-    if (vista.getOpcion() == crearProducto.EDITAR) {
+    if (vista.getOpcion() == CrearModificarProducto.EDITAR) {
       setDatos(producto);
     }
   }
 
   private void initEvents() {
-    if (vista.getOpcion() == crearProducto.CREAR) {
+    if (vista.getOpcion() == CrearModificarProducto.CREAR) {
       vista.getBoton().addActionListener(new ActionListener() {
         @Override public void actionPerformed(ActionEvent e) {
 
         }
       });
-    } else if (vista.getOpcion() == crearProducto.EDITAR) {
+    } else if (vista.getOpcion() == CrearModificarProducto.EDITAR) {
       vista.getBoton().addActionListener(new ActionListener() {
         @Override public void actionPerformed(ActionEvent e) {
           producto.setNombre("");

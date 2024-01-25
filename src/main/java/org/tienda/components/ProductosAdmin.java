@@ -14,7 +14,7 @@ import org.tienda.model.CarritoId;
 import org.tienda.model.Productos;
 import org.tienda.model.Usuarios;
 import org.tienda.utils.utilsLenguaje;
-import org.tienda.views.crearProducto;
+import org.tienda.views.CrearModificarProducto;
 
 import javax.swing.*;
 import java.awt.*;
@@ -94,7 +94,7 @@ public class ProductosAdmin extends javax.swing.JPanel {
         Carrito.save(new CarritoId(id, u.getIdusuario()), 1);
       }
     });
-    getEditar().addActionListener(e -> new crearProducto(producto, crearProducto.EDITAR).setVisible(true));
+    getEditar().addActionListener(e -> new CrearModificarProducto(producto, CrearModificarProducto.EDITAR).setVisible(true));
     getEliminar().addActionListener(e -> Productos.delete(producto));
   }
 
