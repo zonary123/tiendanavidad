@@ -45,7 +45,7 @@ public class cProducto {
   }
 
   private void setDatos(Productos producto) {
-
+    
   }
 
   private void actualizarLenguaje() {

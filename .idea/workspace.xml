@@ -13,22 +13,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="a">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/tienda/components/ProductosUser.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/tienda/components/ProductosUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cProducto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/svg/editar.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/components/jPanelProducts.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/components/ProductosAdmin.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/components/jPanelProducts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/components/ProductosAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cCarrito.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cCarrito.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cHome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/model/Productos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/model/Productos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/HomeUser.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/HomeUser.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/HomeUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/HomeUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cProducto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cProducto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/crearProducto.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/crearProducto.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/crearProducto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/crearProducto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/alimentacion.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/alimentacion.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/estructura.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/estructura.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +138,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="org.tienda.views.Login" />
-      <module name="tiendanavidad" />
+      <module name="tiendanavidad_CarlosVarasAlonso" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.tienda.suite.*" />
@@ -203,7 +192,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.9-corretto-17.0.9-f644763e9732-ebaef533" />
+        <option value="jdk-17.0.9-corretto-17.0.9-3183f394aec4-8f899f12" />
       </set>
     </attachedChunks>
   </component>
@@ -267,6 +256,7 @@
       <workItem from="1706124086149" duration="2274000" />
       <workItem from="1706151157508" duration="1105000" />
       <workItem from="1706152310260" duration="326000" />
+      <workItem from="1706204595525" duration="400000" />
     </task>
     <task id="LOCAL-00001" summary="Arreglos en Home">
       <option name="closed" value="true" />
