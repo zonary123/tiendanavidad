@@ -105,7 +105,7 @@ public class utilsTextField {
    * @param height      el alto del icono
    * @param color       el color del borde
    */
-  public void actualizarTextField(JTextField textField, String placeholder, int arc, String icon, int width, int height, String color) {
+  public static void actualizarTextField(JTextField textField, String placeholder, int arc, String icon, int width, int height, String color) {
     utilsTextField textFieldCustom = new utilsTextField(textField);
     textFieldCustom.setPlaceholder(placeholder);
     textFieldCustom.setRounded(arc);

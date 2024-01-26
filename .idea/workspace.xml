@@ -13,11 +13,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="a">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/svg/descripcion.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/svg/descuento.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/svg/precio.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cProducto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cProducto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/crearProducto.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/crearProducto.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/crearProducto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/crearProducto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/components/ProductosAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/components/ProductosAdmin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cHome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cProducto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/controller/CCrearModificarProducto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/utils/utilsLenguaje.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/utils/utilsLenguaje.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/utils/utilsTextField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/utils/utilsTextField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/CrearModificarProducto.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/CrearModificarProducto.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/CrearModificarProducto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/CrearModificarProducto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/HomeUser.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/HomeUser.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/HomeUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/HomeUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/Login.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/Login.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/lang/en_US.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lang/en_US.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/lang/es_ES.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lang/es_ES.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +116,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Alumno/Desktop/tiendanavidad&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/carlos/OneDrive - Educacyl/2DAM/Acceso a datos/nba&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -138,13 +151,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="org.tienda.views.Login" />
-      <module name="tiendanavidad_CarlosVarasAlonso" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.tienda.suite.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <module name="tiendanavidad" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -192,7 +199,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.9-corretto-17.0.9-3183f394aec4-8f899f12" />
+        <option value="jdk-17.0.9-corretto-17.0.9-f644763e9732-ebaef533" />
       </set>
     </attachedChunks>
   </component>
@@ -255,8 +262,13 @@
       <workItem from="1706111867803" duration="879000" />
       <workItem from="1706124086149" duration="2274000" />
       <workItem from="1706151157508" duration="1105000" />
-      <workItem from="1706152310260" duration="326000" />
-      <workItem from="1706204595525" duration="400000" />
+      <workItem from="1706152310260" duration="994000" />
+      <workItem from="1706195480844" duration="52000" />
+      <workItem from="1706198626782" duration="8000" />
+      <workItem from="1706220863037" duration="272000" />
+      <workItem from="1706221313721" duration="7307000" />
+      <workItem from="1706234495047" duration="136000" />
+      <workItem from="1706234633237" duration="1748000" />
     </task>
     <task id="LOCAL-00001" summary="Arreglos en Home">
       <option name="closed" value="true" />
@@ -330,7 +342,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705694593300</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Buscar por categorias, Haciendo el modificar y añadir productos, Eliminar productos hecho">
+      <option name="closed" value="true" />
+      <created>1706153299988</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1706153299988</updated>
+    </task>
+    <task id="LOCAL-00011" summary="a">
+      <option name="closed" value="true" />
+      <created>1706220951916</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1706220951916</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,9 +383,10 @@
     <MESSAGE value="Quitando imports, Modificando Models, controller" />
     <MESSAGE value="Modulos, Carrito" />
     <MESSAGE value="error informacion del carrito arreglado" />
-    <MESSAGE value="a" />
     <MESSAGE value="cosas" />
-    <option name="LAST_COMMIT_MESSAGE" value="cosas" />
+    <MESSAGE value="Buscar por categorias, Haciendo el modificar y añadir productos, Eliminar productos hecho" />
+    <MESSAGE value="a" />
+    <option name="LAST_COMMIT_MESSAGE" value="a" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
