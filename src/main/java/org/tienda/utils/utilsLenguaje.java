@@ -34,7 +34,6 @@ public class utilsLenguaje {
   public utilsLenguaje() throws IOException {
     this.fichero = "lang/" + Locale.getDefault();
     this.local = new Locale(this.fichero.split("_")[0]);
-    System.out.println(local + "---" + fichero);
     this.mensaje = ResourceBundle.getBundle(this.fichero, this.local);
   }
 

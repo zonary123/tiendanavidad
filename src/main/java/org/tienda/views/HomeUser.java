@@ -46,6 +46,7 @@ public class HomeUser extends javax.swing.JFrame {
         titleCategorias = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         containerCategories = new javax.swing.JPanel();
+        Cerrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -84,6 +85,13 @@ public class HomeUser extends javax.swing.JFrame {
 
         Container.add(sideBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 72, 300, 916));
 
+        Cerrar.setBackground(new java.awt.Color(255, 86, 86));
+        Cerrar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        Cerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/svg/x.png"))); // NOI18N
+        Cerrar.setToolTipText("");
+        Cerrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Container.add(Cerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1420, 4, 20, 20));
+
         getContentPane().add(Container, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1445, 1000));
 
         pack();
@@ -91,6 +99,7 @@ public class HomeUser extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Cerrar;
     private javax.swing.JPanel Container;
     private javax.swing.JPanel ContainerProducts;
     private javax.swing.JScrollPane ScrollContainerProducts;

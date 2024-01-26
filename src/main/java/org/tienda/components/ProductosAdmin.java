@@ -94,7 +94,7 @@ public class ProductosAdmin extends javax.swing.JPanel {
         Carrito.save(new CarritoId(id, u.getIdusuario()), 1);
       }
     });
-    getEditar().addActionListener(e -> new CrearModificarProducto(producto, CrearModificarProducto.EDITAR).setVisible(true));
+    getEditar().addActionListener(e -> new CrearModificarProducto(producto, getUsuario(), CrearModificarProducto.EDITAR).setVisible(true));
     getEliminar().addActionListener(e -> Productos.delete(producto));
   }
 
