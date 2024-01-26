@@ -12,9 +12,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="Buscar por categorias, Haciendo el modificar y añadir productos, Eliminar productos hecho">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="Terminado el diseño de la creacion y modificacion de productos" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -135,12 +133,6 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="org.tienda.views.Login" />
       <module name="tiendanavidad" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.tienda.suite.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -254,6 +246,10 @@
       <workItem from="1706152310260" duration="994000" />
       <workItem from="1706195480844" duration="52000" />
       <workItem from="1706198626782" duration="8000" />
+      <workItem from="1706220863037" duration="272000" />
+      <workItem from="1706221313721" duration="7307000" />
+      <workItem from="1706234495047" duration="136000" />
+      <workItem from="1706234633237" duration="2498000" />
     </task>
     <task id="LOCAL-00001" summary="Arreglos en Home">
       <option name="closed" value="true" />
@@ -335,7 +331,23 @@
       <option name="project" value="LOCAL" />
       <updated>1706153299988</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="a">
+      <option name="closed" value="true" />
+      <created>1706220951916</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1706220951916</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Terminado el diseño de la creacion y modificacion de productos">
+      <option name="closed" value="true" />
+      <created>1706239864009</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1706239864009</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -360,10 +372,11 @@
     <MESSAGE value="Quitando imports, Modificando Models, controller" />
     <MESSAGE value="Modulos, Carrito" />
     <MESSAGE value="error informacion del carrito arreglado" />
-    <MESSAGE value="a" />
     <MESSAGE value="cosas" />
     <MESSAGE value="Buscar por categorias, Haciendo el modificar y añadir productos, Eliminar productos hecho" />
-    <option name="LAST_COMMIT_MESSAGE" value="Buscar por categorias, Haciendo el modificar y añadir productos, Eliminar productos hecho" />
+    <MESSAGE value="a" />
+    <MESSAGE value="Terminado el diseño de la creacion y modificacion de productos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Terminado el diseño de la creacion y modificacion de productos" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

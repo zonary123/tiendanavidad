@@ -44,7 +44,6 @@ public class cLogin {
   public cLogin(Login vista) throws IOException {
     this.vista = vista;
     lenguaje = new utilsLenguaje();
-    System.out.println(lenguaje.getLocal());
     initEvents();
     actualizarEstilos();
     actualizarLenguaje();

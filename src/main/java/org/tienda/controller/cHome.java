@@ -58,7 +58,7 @@ public class cHome {
     sidebar.setLayout(new BoxLayout(sidebar, BoxLayout.Y_AXIS));
 
     for (String c : categorias) {
-      JLabel jlabel = new JLabel(c);
+      JLabel jlabel = new JLabel("• " + c);
       jlabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
       jlabel.addMouseListener(new MouseAdapter() {
 
@@ -145,9 +145,10 @@ public class cHome {
     vista.getSideBar().putClientProperty("FlatLaf.style", "arc: 8");
     vista.getContainer().putClientProperty("FlatLaf.style", "arc: 8");
     vista.getTitleCategorias().putClientProperty("FlatLaf.style", "arc: 8");
+    vista.getCerrar().putClientProperty("FlatLaf.style", "arc: 999");
     // Cursores
     vista.getSignOut().setCursor(new Cursor(Cursor.HAND_CURSOR));
-
+    vista.getCerrar().setCursor(new Cursor(Cursor.HAND_CURSOR));
   }
 
 
@@ -155,6 +156,10 @@ public class cHome {
    * Inicializacion de eventos de la vista
    */
   public void initEvents() {
+    vista.getCerrar().addActionListener(e -> {
+      Historialusuarios.sessionCerrada(vista, vista.getUsuario());
+      vista.dispose();
+    });
     vista.getSignOut().addActionListener(e -> {
       Historialusuarios.sessionCerrada(vista, vista.getUsuario());
       new Login(null).setVisible(true);
