@@ -1,13 +1,11 @@
 package org.tienda.controller;
 
+import lombok.Getter;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.tienda.components.Header;
 import org.tienda.components.ProductosAdmin;
-import org.tienda.components.ProductosUser;
-import org.tienda.model.Carrito;
 import org.tienda.model.Historialusuarios;
 import org.tienda.model.Productos;
-import org.tienda.model.Usuarios;
 import org.tienda.utils.utilsTextField;
 import org.tienda.views.HomeUser;
 import org.tienda.views.Login;
@@ -16,12 +14,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.List;
 
 import org.tienda.utils.utilsLenguaje;
-import org.tienda.views.CrearModificarProducto;
 
 /**
  * The type controller home.
@@ -35,7 +30,7 @@ public class cHome {
   private static utilsLenguaje lenguaje;
   private static Header header;
   private static JButton btnAddProduct = new JButton();
-
+  @Getter private static List<Productos> productos;
 
   /**
    * Constructor de la clase
@@ -91,9 +86,9 @@ public class cHome {
   private void componentes() {
     header = new Header(vista, vista.getUsuario());
     vista.getContainer().add(header, new AbsoluteConstraints(15, 10, 1410, 50));
-    //if (vista.getUsuario().getRoles().split("\"")[1].equals("admin")) {
-    Admin();
-    //}
+    if (vista.getUsuario().getRoles().split("\"")[1].equals("admin")) {
+      Admin();
+    }
     try {
       mostrarProductos(Productos.findAll());
     } catch (IOException e) {
@@ -196,6 +191,7 @@ public class cHome {
    * @param productos Lista de productos
    */
   public void mostrarProductos(List<Productos> productos) throws IOException {
+    this.productos = productos;
     JPanel panelProductos = this.vista.getContainerProducts();
     panelProductos.setLayout(new GridLayout(0, 3, 10, 10));
     panelProductos.removeAll();

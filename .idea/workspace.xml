@@ -12,26 +12,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="a">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/svg/descripcion.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/svg/descuento.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/svg/precio.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/components/ProductosAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/components/ProductosAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cHome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cProducto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/controller/CCrearModificarProducto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/utils/utilsLenguaje.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/utils/utilsLenguaje.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/utils/utilsTextField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/utils/utilsTextField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/CrearModificarProducto.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/CrearModificarProducto.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/CrearModificarProducto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/CrearModificarProducto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/HomeUser.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/HomeUser.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/HomeUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/HomeUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/Login.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/Login.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/views/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/views/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/lang/en_US.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lang/en_US.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/lang/es_ES.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lang/es_ES.properties" afterDir="false" />
-    </list>
+    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="Actualizacion de las vistas a partir de las acciones modificar y eliminar de los productos." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -151,7 +132,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="org.tienda.views.Login" />
-      <module name="tiendanavidad" />
+      <module name="tiendanavidad_CarlosVarasAlonso" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -199,7 +180,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.9-corretto-17.0.9-f644763e9732-ebaef533" />
+        <option value="jdk-17.0.9-corretto-17.0.9-3183f394aec4-8f899f12" />
       </set>
     </attachedChunks>
   </component>
@@ -269,6 +250,9 @@
       <workItem from="1706221313721" duration="7307000" />
       <workItem from="1706234495047" duration="136000" />
       <workItem from="1706234633237" duration="1748000" />
+      <workItem from="1706286098221" duration="6000" />
+      <workItem from="1706293256937" duration="3926000" />
+      <workItem from="1706297631878" duration="1788000" />
     </task>
     <task id="LOCAL-00001" summary="Arreglos en Home">
       <option name="closed" value="true" />
@@ -358,7 +342,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706220951916</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Actualizacion de las vistas a partir de las acciones modificar y eliminar de los productos.">
+      <option name="closed" value="true" />
+      <created>1706299478844</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1706299478844</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -386,7 +378,8 @@
     <MESSAGE value="cosas" />
     <MESSAGE value="Buscar por categorias, Haciendo el modificar y añadir productos, Eliminar productos hecho" />
     <MESSAGE value="a" />
-    <option name="LAST_COMMIT_MESSAGE" value="a" />
+    <MESSAGE value="Actualizacion de las vistas a partir de las acciones modificar y eliminar de los productos." />
+    <option name="LAST_COMMIT_MESSAGE" value="Actualizacion de las vistas a partir de las acciones modificar y eliminar de los productos." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

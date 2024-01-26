@@ -1,26 +1,29 @@
 package org.tienda.controller;
 
-import com.formdev.flatlaf.extras.FlatSVGIcon;
 import org.tienda.model.Productos;
-import org.tienda.views.CrearModificarProducto;
+import org.tienda.components.CrearModificarProducto;
 import org.tienda.utils.utilsLenguaje;
 import org.tienda.utils.utilsTextField;
+import org.tienda.views.HomeUser;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 /**
  * @author Carlos Varas Alonso - 25/01/2024 3:56
  */
 public class CCrearModificarProducto {
-  private static CrearModificarProducto vista;
-  private static Productos producto;
-  private static utilsLenguaje lenguaje;
+  private final CrearModificarProducto vista;
+  private final Productos producto;
+  private final utilsLenguaje lenguaje;
+  private final HomeUser vistaHome;
 
-  public CCrearModificarProducto(CrearModificarProducto vista, Productos producto) {
+  public CCrearModificarProducto(CrearModificarProducto vista, HomeUser vistaHome, Productos producto) {
     this.vista = vista;
     this.producto = producto;
+    this.vistaHome = vistaHome;
     lenguaje = new utilsLenguaje(vista.getUsuario());
     actualizarEstilos();
     actualizarLenguaje();
@@ -92,11 +95,17 @@ public class CCrearModificarProducto {
       });
     } else if (vista.getOpcion() == CrearModificarProducto.EDITAR) {
       vista.getBoton().addActionListener(e -> {
-        producto.setNombre("");
-        producto.setDescripcion("");
-        producto.setPrecio(10);
-        producto.setDescuento(9.0f);
+        producto.setNombre(vista.getJTextFieldNombre().getText());
+        producto.setDescripcion(vista.getJTextFieldDescripcion().getText());
+        producto.setPrecio(Float.valueOf(vista.getJTextFieldPrecio().getText()));
+        producto.setDescuento(Float.valueOf(vista.getJTextFieldDescuento().getText()));
         Productos.update(producto);
+        vista.dispose();
+        try {
+          vistaHome.getChome().mostrarProductos(vistaHome.getChome().getProductos());
+        } catch (IOException ex) {
+          throw new RuntimeException(ex);
+        }
       });
     }
     vista.getCerrar().addActionListener(e -> vista.dispose());
