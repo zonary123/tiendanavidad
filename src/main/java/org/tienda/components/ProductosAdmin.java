@@ -14,13 +14,14 @@ import org.tienda.model.CarritoId;
 import org.tienda.model.Productos;
 import org.tienda.model.Usuarios;
 import org.tienda.utils.utilsLenguaje;
-import org.tienda.views.CrearModificarProducto;
+import org.tienda.views.HomeUser;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.List;
 import java.util.function.Function;
 
 /**
@@ -37,7 +38,7 @@ public class ProductosAdmin extends javax.swing.JPanel {
   private int id;
   private Usuarios usuario;
   private static utilsLenguaje lenguaje;
-  private static JFrame vista;
+  private static HomeUser vista;
 
 
   /**
@@ -46,7 +47,7 @@ public class ProductosAdmin extends javax.swing.JPanel {
    * @param usuario  the user
    * @param producto the producto
    */
-  public ProductosAdmin(Usuarios usuario, Productos producto, JFrame vista) throws IOException {
+  public ProductosAdmin(Usuarios usuario, Productos producto, HomeUser vista) throws IOException {
     this.id = producto.getIdproducto();
     this.usuario = usuario;
     this.vista = vista;
@@ -94,8 +95,19 @@ public class ProductosAdmin extends javax.swing.JPanel {
         Carrito.save(new CarritoId(id, u.getIdusuario()), 1);
       }
     });
-    getEditar().addActionListener(e -> new CrearModificarProducto(producto, getUsuario(), CrearModificarProducto.EDITAR).setVisible(true));
-    getEliminar().addActionListener(e -> Productos.delete(producto));
+    getEditar().addActionListener(e -> new CrearModificarProducto(producto, getUsuario(), CrearModificarProducto.EDITAR, vista).setVisible(true));
+    getEliminar().addActionListener(new ActionListener() {
+      @Override public void actionPerformed(ActionEvent e) {
+        Productos.delete(producto);
+        List<Productos> productos = vista.getChome().getProductos();
+        productos.remove(producto);
+        try {
+          vista.getChome().mostrarProductos(productos);
+        } catch (IOException ex) {
+          throw new RuntimeException(ex);
+        }
+      }
+    });
   }
 
   private void posicionar() {
