@@ -17,7 +17,7 @@ import org.tienda.model.Carrito;
 import org.tienda.model.Productos;
 
 /**
- * @author carlos
+ * @author Carlos Varas Alonso
  */
 public class carritoProductos extends javax.swing.JPanel {
 

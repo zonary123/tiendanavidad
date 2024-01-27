@@ -12,9 +12,8 @@ import org.tienda.views.HomeUser;
 
 
 /**
- * @author carlos
+ * @author Carlos Varas Alonso
  */
-
 @Getter
 public class CrearModificarProducto extends javax.swing.JFrame {
   public static final int CREAR = 0;
@@ -30,6 +29,13 @@ public class CrearModificarProducto extends javax.swing.JFrame {
     this.usuario = usuario;
     initComponents();
     CCrearModificarProducto c = new CCrearModificarProducto(this, vistaHome, producto);
+  }
+
+  public CrearModificarProducto(Usuarios usuario, int opcion, HomeUser vistaHome) {
+    this.opcion = opcion;
+    this.usuario = usuario;
+    initComponents();
+    CCrearModificarProducto c = new CCrearModificarProducto(this, vistaHome);
   }
 
   /**

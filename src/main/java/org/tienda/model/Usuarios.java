@@ -242,9 +242,9 @@ public class Usuarios implements java.io.Serializable {
   /**
    * Este metodo borra un usuario
    *
-   * @param usuario the usuario
+   * @param usuario el usuario a borrar
    *
-   * @return true si se ha borrado correctamente
+   * @return true si se ha borrado correctamente el usuario, false si no
    */
   public static boolean delete(Usuarios usuario) {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
@@ -273,7 +273,7 @@ public class Usuarios implements java.io.Serializable {
    *
    * @param usuario the usuario
    *
-   * @return true si se ha actualizado correctamente
+   * @return true si se ha actualizado correctamente el usuario, false si no
    */
   public static boolean update(Usuarios usuario) {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
@@ -301,10 +301,10 @@ public class Usuarios implements java.io.Serializable {
   /**
    * Este metodo comprueba la contraseña de un usuario
    *
-   * @param password the password
-   * @param usuario  the usuario
+   * @param password La contraseña
+   * @param usuario  El usuario
    *
-   * @return true si la contraseña es correcta
+   * @return true si la contraseña es correcta y false si no
    */
   public static boolean checkPassword(String password, Usuarios usuario) {
     return BCrypt.checkpw(password, usuario.getPassword());
@@ -313,9 +313,9 @@ public class Usuarios implements java.io.Serializable {
   /**
    * Este metodo comprueba si existe un usuario
    *
-   * @param usuario the usuario
+   * @param usuario el usuario
    *
-   * @return true si existe
+   * @return true si existe el usuario, false si no
    */
   public static Usuarios existUser(Usuarios usuario) {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
@@ -336,19 +336,19 @@ public class Usuarios implements java.io.Serializable {
   /**
    * Este metodo comprueba si el codigo de activacion es correcto
    *
-   * @param u      the u
-   * @param codigo the codigo
+   * @param usuario el usuario
+   * @param codigo  el codigo
    *
    * @return true si el codigo es correcto
    */
-  public static boolean checkCodigo(Usuarios u, String codigo) {
+  public static boolean checkCodigo(Usuarios usuario, String codigo) {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.openSession();
     session.beginTransaction();
-    System.out.println(u);
+    System.out.println(usuario);
     try {
       session.createQuery("from Usuarios where email = :email AND codigo = :codigo", Usuarios.class)
-        .setParameter("email", u.getEmail())
+        .setParameter("email", usuario.getEmail())
         .setParameter("codigo", codigo)
         .getSingleResult();
       return true;
