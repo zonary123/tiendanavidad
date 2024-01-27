@@ -113,6 +113,16 @@ public class Productos {
     return productos;
   }
 
+  /**
+   * Este método se encarga de devolver todos los productos de la base de datos
+   * que contengan el nombre especificado
+   *
+   * @param nombre nombre de los productos a devolver (no es necesario que sea el nombre completo)
+   *
+   * @return List<Productos>   con todos los productos de la base de datos que contengan el nombre especificado
+   *
+   * @throws NoResultException si no hay productos con el nombre especificado
+   */
   public static List<Productos> findByNombre(String nombre) throws NoResultException {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.openSession();
@@ -123,6 +133,13 @@ public class Productos {
     return productos;
   }
 
+  /**
+   * Este método se encarga de devolver todas las categorías de los productos de la base de datos
+   *
+   * @return List<String>   con todas las categorías de los productos de la base de datos
+   *
+   * @throws NoResultException si no hay productos en la base de datos
+   */
   public static List<String> getAllProductos() {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.openSession();
@@ -131,6 +148,11 @@ public class Productos {
     return categorias;
   }
 
+  /**
+   * Este método se encarga de eliminar un producto de la base de datos
+   *
+   * @param producto producto a eliminar
+   */
   public static void delete(Productos producto) {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.openSession();
@@ -140,11 +162,30 @@ public class Productos {
     session.close();
   }
 
+  /**
+   * Este método se encarga de actualizar un producto de la base de datos
+   *
+   * @param producto producto a actualizar
+   */
   public static void update(Productos producto) {
     SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
     Session session = sessionFactory.openSession();
     session.beginTransaction();
     session.update(producto);
+    session.getTransaction().commit();
+    session.close();
+  }
+
+  /**
+   * Este método se encarga de guardar un producto en la base de datos
+   *
+   * @param producto producto a guardar
+   */
+  public static void save(Productos producto) {
+    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    Session session = sessionFactory.openSession();
+    session.beginTransaction();
+    session.save(producto);
     session.getTransaction().commit();
     session.close();
   }

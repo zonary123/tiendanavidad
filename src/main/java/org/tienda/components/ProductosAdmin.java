@@ -25,8 +25,6 @@ import java.util.List;
 import java.util.function.Function;
 
 /**
- * The type J panel products.
- *
  * @author Carlos Varas Alonso
  */
 @Data

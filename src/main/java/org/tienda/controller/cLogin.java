@@ -85,6 +85,7 @@ public class cLogin {
    */
   public void initEvents() throws NoResultException {
     vista.getJTextFieldUsername().requestFocus();
+    vista.getRootPane().setDefaultButton(vista.getJButtonLogin());
     // ! Eventos Presionar teclado
     vista.getJTextFieldUsername().addKeyListener(new KeyAdapter() {
       @Override

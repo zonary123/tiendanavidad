@@ -4,8 +4,10 @@ import org.tienda.model.Productos;
 import org.tienda.components.CrearModificarProducto;
 import org.tienda.utils.utilsLenguaje;
 import org.tienda.utils.utilsTextField;
+import org.tienda.validator.validator;
 import org.tienda.views.HomeUser;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,8 +17,8 @@ import java.io.IOException;
  * @author Carlos Varas Alonso - 25/01/2024 3:56
  */
 public class CCrearModificarProducto {
-  private final CrearModificarProducto vista;
-  private final Productos producto;
+  private static CrearModificarProducto vista;
+  private Productos producto = null;
   private final utilsLenguaje lenguaje;
   private final HomeUser vistaHome;
 
@@ -31,6 +33,15 @@ public class CCrearModificarProducto {
     if (vista.getOpcion() == CrearModificarProducto.EDITAR) {
       setDatos(producto);
     }
+  }
+
+  public CCrearModificarProducto(CrearModificarProducto vista, HomeUser vistaHome) {
+    this.vista = vista;
+    this.vistaHome = vistaHome;
+    lenguaje = new utilsLenguaje(vista.getUsuario());
+    actualizarEstilos();
+    actualizarLenguaje();
+    initEvents();
   }
 
   private void setDatos(Productos producto) {
@@ -84,32 +95,91 @@ public class CCrearModificarProducto {
   }
 
   private void initEvents() {
+    vista.getRootPane().setDefaultButton(vista.getBoton());
     vista.getJTextFieldNombre().requestFocus();
     vista.getBoton().requestFocusInWindow();
 
     if (vista.getOpcion() == CrearModificarProducto.CREAR) {
-      vista.getBoton().addActionListener(new ActionListener() {
-        @Override public void actionPerformed(ActionEvent e) {
-
+      vista.getBoton().addActionListener(e -> {
+        producto = new Productos();
+        producto.setNombre(vista.getJTextFieldNombre().getText());
+        producto.setDescripcion(vista.getJTextFieldDescripcion().getText());
+        producto.setPrecio(vista.getJTextFieldPrecio().getText().isEmpty() ? 0 : Float.parseFloat(vista.getJTextFieldPrecio().getText()));
+        producto.setDescuento(vista.getJTextFieldDescuento().getText().isEmpty() ? 0 : Float.parseFloat(vista.getJTextFieldDescuento().getText()));
+        producto.setCategoria("PC");
+        if (comprobarDatosProducto(producto)) {
+          Productos.save(producto);
+          vista.dispose();
+          try {
+            vistaHome.getChome().mostrarProductos(cHome.getProductos());
+          } catch (IOException ex) {
+            throw new RuntimeException(ex);
+          }
+        } else {
+          System.out.println("Errores");
         }
       });
     } else if (vista.getOpcion() == CrearModificarProducto.EDITAR) {
       vista.getBoton().addActionListener(e -> {
         producto.setNombre(vista.getJTextFieldNombre().getText());
         producto.setDescripcion(vista.getJTextFieldDescripcion().getText());
-        producto.setPrecio(Float.valueOf(vista.getJTextFieldPrecio().getText()));
-        producto.setDescuento(Float.valueOf(vista.getJTextFieldDescuento().getText()));
-        Productos.update(producto);
-        vista.dispose();
-        try {
-          vistaHome.getChome().mostrarProductos(vistaHome.getChome().getProductos());
-        } catch (IOException ex) {
-          throw new RuntimeException(ex);
+        producto.setPrecio(vista.getJTextFieldPrecio().getText().isEmpty() ? 0 : Float.parseFloat(vista.getJTextFieldPrecio().getText()));
+        producto.setDescuento(vista.getJTextFieldDescuento().getText().isEmpty() ? 0 : Float.parseFloat(vista.getJTextFieldDescuento().getText()));
+        producto.setCategoria("PC");
+        if (comprobarDatosProducto(producto)) {
+          Productos.update(producto);
+          vista.dispose();
+          try {
+            vistaHome.getChome().mostrarProductos(cHome.getProductos());
+          } catch (IOException ex) {
+            throw new RuntimeException(ex);
+          }
+        } else {
+          System.out.println("Errores");
         }
       });
     }
     vista.getCerrar().addActionListener(e -> vista.dispose());
   }
 
+  private static boolean comprobarDatosProducto(Productos p) {
+    int fallos = 0;
+    String mensaje = "";
+    if (!p.getNombre().matches(validator.NOMBRE_PRODUCTO_PATTERN)) {
+      vista.getJTextFieldNombre().putClientProperty("JComponent.outline", "warning");
+      fallos++;
+      mensaje += "Nombre incorrecto\n";
+    } else {
+      vista.getJTextFieldNombre().putClientProperty("JComponent.outline", "default");
+    }
+    if (!p.getDescripcion().matches(validator.DESCRIPCION_PRODUCTO_PATTERN)) {
+      vista.getJTextFieldDescripcion().putClientProperty("JComponent.outline", "warning");
+      fallos++;
+      mensaje += "Descripcion incorrecta\n";
+    } else {
+      vista.getJTextFieldDescripcion().putClientProperty("JComponent.outline", "default");
+    }
+    if (p.getPrecio() == 0 || p.getPrecio() <= 1) {
+      vista.getJTextFieldPrecio().putClientProperty("JComponent.outline", "warning");
+      fallos++;
+      mensaje += "Precio incorrecto o menor a 1€\n";
+    } else {
+      vista.getJTextFieldPrecio().putClientProperty("JComponent.outline", "default");
+    }
+
+/*
+    if (p.getDescuento() == null) {
+      vista.getJTextFieldDescuento().putClientProperty("JComponent.outline", "warning");
+      fallos++;
+      mensaje += "Descuento vacio\n";
+    }
+*/
+
+    if (fallos > 0) {
+      JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.WARNING_MESSAGE);
+      return false;
+    }
+    return true;
+  }
 
 }

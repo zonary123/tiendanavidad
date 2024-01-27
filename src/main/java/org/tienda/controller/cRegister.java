@@ -50,6 +50,7 @@ public class cRegister {
    * Inicializacion de eventos de la vista
    */
   public void initEvents() {
+    vista.getRootPane().setDefaultButton(vista.getJButtonRegistrarse());
     vista.getJTextFieldEmail().requestFocus();
     vista.getJButtonBack().addActionListener(e -> {
       vista.dispose();

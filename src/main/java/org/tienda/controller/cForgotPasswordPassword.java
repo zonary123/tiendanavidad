@@ -73,6 +73,7 @@ public class cForgotPasswordPassword {
    * Inicializacion de eventos de la vista
    */
   public void initEvents() {
+    vista.getRootPane().setDefaultButton(vista.getJButtonConfirmar());
     vista.getJPasswordFieldPassword().requestFocus();
     vista.getJButtonClose().addActionListener(e -> vista.dispose());
     vista.getJButtonBack().addActionListener(
