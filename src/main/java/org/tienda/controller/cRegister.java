@@ -202,6 +202,10 @@ public class cRegister {
     vista.getJButtonRegistrarse().setText(lenguaje.getMensaje().getString("register.signup"));
     vista.getJButtonIniciarSesion().setText(lenguaje.getMensaje().getString("register.signin"));
     vista.getJLabelConCuenta().setText(lenguaje.getMensaje().getString("register.label.ConCuenta"));
+    vista.getJTextFieldEmail().setToolTipText(lenguaje.getMensaje().getString("tooltip.regex.Emaiil"));
+    vista.getJTextFieldUsername().setToolTipText(lenguaje.getMensaje().getString("tooltip.regex.username"));
+    vista.getJTextFieldNombre().setToolTipText(lenguaje.getMensaje().getString("tooltip.regex.name"));
+    vista.getJTextFieldApellidos().setToolTipText(lenguaje.getMensaje().getString("tooltip.regex.lastname"));
   }
 
   /**

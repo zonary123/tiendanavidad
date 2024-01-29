@@ -10,7 +10,7 @@ public class validator {
   public static final String APELLIDO_PATTERN = "^[a-zA-Z ]{4,30}$";
   public static final String PASSWORD_PATTERN = "^[a-zA-Z0-9]{4,30}$";
   public static final String USERNAME_PATTERN = "^[a-zA-Z0-9]{4,30}$";
-  public static final String NOMBRE_PRODUCTO_PATTERN = "^[a-zA-Z0-9 ]{4,30}$";
+  public static final String NOMBRE_PRODUCTO_PATTERN = "^[a-zA-Z0-9 ]{3,30}$";
   public static final String DESCRIPCION_PRODUCTO_PATTERN = "^[a-zA-Z0-9 ]{4,255}$";
   public static final String PRECIO_PRODUCTO_PATTERN = "^[1-9]\\d*(\\.\\d{1,2})?$";
   public static final String DESCUENTO_PRODUCTO_PATTERN = "^[1-9]\\d*(\\.\\d{1,2})?$";
