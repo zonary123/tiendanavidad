@@ -2,8 +2,10 @@ package org.tienda.controller;
 
 import lombok.Getter;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
+import org.tienda.components.CrearModificarProducto;
 import org.tienda.components.Header;
 import org.tienda.components.ProductosAdmin;
+import org.tienda.components.ProductosUser;
 import org.tienda.model.Historialusuarios;
 import org.tienda.model.Productos;
 import org.tienda.utils.utilsTextField;
@@ -29,7 +31,6 @@ public class cHome {
   private utilsTextField textField = new utilsTextField();
   private static utilsLenguaje lenguaje;
   private static Header header;
-  private static JButton btnAddProduct = new JButton();
   @Getter private static List<Productos> productos;
 
   /**
@@ -112,15 +113,6 @@ public class cHome {
     componente.repaint();
   }
 
-  // No va
-  private void botonAñadir() {
-    btnAddProduct.setText(lenguaje.getMensaje().getString("Añadir"));
-    btnAddProduct.setForeground(Color.WHITE);
-    btnAddProduct.setBackground(Color.decode("#58D12E"));
-    btnAddProduct.setSize(279, 56);
-    btnAddProduct.setLocation(728, 67);
-  }
-
   /**
    * Actualiza el lenguaje de la vista
    */
@@ -135,7 +127,7 @@ public class cHome {
 
     // vista.getScrollContainerProducts().putClientProperty("FlatLaf.style", "arc: 16");
     vista.getContainerProducts().putClientProperty("FlatLaf.style", "arc: 16");
-    btnAddProduct.putClientProperty("FlatLaf.style", "arc: 16");
+    vista.getBtnAdd().putClientProperty("FlatLaf.style", "arc: 16");
     vista.getSignOut().putClientProperty("FlatLaf.style", "arc: 16");
     vista.getSideBar().putClientProperty("FlatLaf.style", "arc: 8");
     vista.getContainer().putClientProperty("FlatLaf.style", "arc: 8");
@@ -160,6 +152,12 @@ public class cHome {
       new Login(null).setVisible(true);
     });
 
+    vista.getBtnAdd().addActionListener(new ActionListener() {
+      @Override public void actionPerformed(ActionEvent e) {
+        new CrearModificarProducto(vista.getUsuario(), CrearModificarProducto.CREAR, vista).setVisible(true);
+      }
+    });
+
     header.getSearch().addActionListener(new ActionListener() {
       @Override public void actionPerformed(ActionEvent e) {
         try {
@@ -170,10 +168,6 @@ public class cHome {
       }
     });
 
-    btnAddProduct.addActionListener(e -> {
-      //new CrearModificarProducto().setVisible(true);
-    });
-    //System.out.println(header.getSearch());
 
     // Salir del programa
     vista.addWindowListener(new WindowAdapter() {
@@ -198,12 +192,14 @@ public class cHome {
 
     for (Productos producto : productos) {
       JPanel jPanelProducts;
-/*      if (!vista.getUsuario().getRoles().split("\"")[1].equals("admin")) {
-        jPanelProducts = new ProductosUser(vista.getUsuario(), producto);
+      if (vista.getUsuario().getRoles().split("\"")[1].equals("admin")) {
+        jPanelProducts = new ProductosAdmin(vista.getUsuario(), producto, vista);
+        vista.getBtnAdd().setVisible(true);
+        vista.getBtnAdd().repaint();
       } else {
-        jPanelProducts = new ProductosAdmin(vista.getUsuario(), producto);
-      }*/
-      jPanelProducts = new ProductosAdmin(vista.getUsuario(), producto, vista);
+        jPanelProducts = new ProductosUser(vista.getUsuario(), producto);
+        vista.getBtnAdd().setVisible(false);
+      }
       jPanelProducts.setSize(350, 450);
       panelProductos.add(jPanelProducts);
     }
