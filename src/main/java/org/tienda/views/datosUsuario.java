@@ -15,6 +15,7 @@ import org.tienda.model.Usuarios;
 public class datosUsuario extends javax.swing.JFrame {
 
   private final Usuarios usuario;
+  private cDatosUsuario c;
 
   /**
    * Creates new form Usuario
@@ -22,7 +23,8 @@ public class datosUsuario extends javax.swing.JFrame {
   public datosUsuario(Usuarios usuario) {
     this.usuario = usuario;
     initComponents();
-    cDatosUsuario c = new cDatosUsuario(this);
+    this.c = new cDatosUsuario(this);
+
   }
 
   /**

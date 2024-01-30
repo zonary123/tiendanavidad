@@ -92,6 +92,7 @@ public class Header extends javax.swing.JPanel {
 
   private void vistas() {
     vista.dispose();
+    System.out.println("Clase de vista -> " + vista.getClass());
     if (vista.getClass().getName().equals("org.tienda.views.HomeUser")) {
       new HomeUser(getUsuario()).setVisible(true);
     }
@@ -102,6 +103,7 @@ public class Header extends javax.swing.JPanel {
       new datosUsuario(usuario).setVisible(true);
     }
     if (vista.getClass().getName().equals("org.tienda.views.datosUsuario")) {
+      getSearch().setVisible(false);
       new datosUsuario(usuario).setVisible(true);
     }
   }
@@ -187,19 +189,19 @@ public class Header extends javax.swing.JPanel {
     add(Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(554, 7, 300, 36));
 
     Idioma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Español", "Ingles"}));
-    add(Idioma, new org.netbeans.lib.awtextra.AbsoluteConstraints(1347, 8, 54, 34));
+    add(Idioma, new org.netbeans.lib.awtextra.AbsoluteConstraints(1291, 8, 110, 34));
 
     Campana.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
     Campana.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-    add(Campana, new org.netbeans.lib.awtextra.AbsoluteConstraints(1227, 12, 26, 26));
+    add(Campana, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 12, 26, 26));
 
     Carrito.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
     Carrito.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-    add(Carrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(1267, 14, 26, 24));
+    add(Carrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 14, 26, 24));
 
     Home.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
     Home.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-    add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(1307, 13, 26, 26));
+    add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 13, 26, 26));
   }// </editor-fold>//GEN-END:initComponents
 
 

@@ -19,19 +19,18 @@ import java.util.Objects;
 @Getter
 @Setter
 @Entity
-@ToString
 @Table(name = "carrito")
 public class Carrito {
 
   @EmbeddedId
   private CarritoId id;
 
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "idproducto", insertable = false, updatable = false) @ToString.Exclude
+  @ManyToOne(fetch = FetchType.EAGER)
+  @JoinColumn(name = "idproducto", insertable = false, updatable = false)
   private Productos productos;
 
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "idusuario", insertable = false, updatable = false) @ToString.Exclude
+  @ManyToOne(fetch = FetchType.EAGER)
+  @JoinColumn(name = "idusuario", insertable = false, updatable = false)
   private Usuarios usuarios;
 
   @Column(name = "cantidad")
@@ -130,6 +129,29 @@ public class Carrito {
     return true;
   }
 
+  public static boolean updateCant(int id, Usuarios usuario, int cantidad) {
+    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    Session session = sessionFactory.openSession();
+    session.beginTransaction();
+    try {
+      Carrito carrito = session.get(Carrito.class, new CarritoId(id, usuario.getIdusuario()));
+      if (cantidad == 0) {
+        session.delete(carrito);
+        session.getTransaction().commit();
+        return true;
+      }
+      carrito.setCantidad(cantidad);
+      session.update(carrito);
+      session.getTransaction().commit();
+    } catch (Exception e) {
+      session.getTransaction().rollback();
+      return false;
+    } finally {
+      session.close();
+    }
+    return true;
+  }
+
   // ? INSERTS
 
   /**
@@ -161,6 +183,7 @@ public class Carrito {
    * Calcula el precio total de los artículos en el carrito de compras para un usuario dado.
    *
    * @param usuario El usuario para el cual se calculará el precio total.
+   *
    * @return El precio total de los artículos en el carrito de compras, o 0 si ocurre un error.
    */
   public static double calcTotal(Usuarios usuario) {
@@ -197,12 +220,41 @@ public class Carrito {
     }
   }
 
+  public static Carrito findProductoByCarrito(Integer idproducto, Usuarios usuario) {
+    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    Session session = sessionFactory.openSession();
+    try {
+      return session.createQuery("FROM Carrito c WHERE c.id.idproducto = :idproducto AND c.id.idusuario = :idusuario", Carrito.class).setParameter("idproducto", idproducto).setParameter("idusuario", usuario.getIdusuario()).getSingleResult();
+    } catch (Exception e) {
+      session.getTransaction().rollback();
+      return null;
+    } finally {
+      session.close();
+    }
+  }
+
+  public static double calcTotal(Usuarios usuario, Integer idproducto) {
+    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    Session session = sessionFactory.openSession();
+    try {
+      String sql = "SELECT c.cantidad * c.productos.precio " +
+        "FROM Carrito c " +
+        "WHERE c.usuarios.id = :idUsuario AND c.productos.id = :idProducto";
+      return (double) session.createQuery(sql).setParameter("idProducto", idproducto).setParameter("idUsuario", usuario.getIdusuario()).uniqueResult();
+    } catch (Exception e) {
+      return 0;
+    } finally {
+      session.close();
+    }
+  }
+
   /**
-    * Indica si algún otro objeto es "igual a" este.
-    *
-    * @param o el objeto de referencia con el que se va a comparar.
-    * @return true si este objeto es igual al argumento o; false en caso contrario.
-    */
+   * Indica si algún otro objeto es "igual a" este.
+   *
+   * @param o el objeto de referencia con el que se va a comparar.
+   *
+   * @return true si este objeto es igual al argumento o; false en caso contrario.
+   */
   @Override
   public final boolean equals(Object o) {
     if (this == o) return true;
@@ -215,13 +267,22 @@ public class Carrito {
   }
 
   /**
-    * Devuelve el valor del código hash para este objeto Carrito.
-    * El código hash se basa en el campo id.
-    *
-    * @return el valor del código hash para este objeto Carrito.
-    */
+   * Devuelve el valor del código hash para este objeto Carrito.
+   * El código hash se basa en el campo id.
+   *
+   * @return el valor del código hash para este objeto Carrito.
+   */
   @Override
   public int hashCode() {
     return Objects.hash(id);
+  }
+
+  @Override public String toString() {
+    return "Carrito{" +
+      "id=" + id +
+      ", productos=" + productos +
+      ", usuarios=" + usuarios +
+      ", cantidad=" + cantidad +
+      '}';
   }
 }

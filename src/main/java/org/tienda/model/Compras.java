@@ -17,7 +17,6 @@ import java.util.Objects;
 @Getter
 @Setter
 @Entity
-@ToString
 @Table(name = "compras")
 public class Compras {
 
@@ -68,5 +67,16 @@ public class Compras {
   @Override
   public int hashCode() {
     return Objects.hash(id);
+  }
+
+  @Override public String toString() {
+    return "Compras{" +
+      "id=" + id +
+      ", productos=" + productos +
+      ", usuarios=" + usuarios.getUsername() +
+      ", cantidad=" + cantidad +
+      ", fechacompra=" + fechacompra +
+      ", fechaentrega=" + fechaentrega +
+      '}';
   }
 }

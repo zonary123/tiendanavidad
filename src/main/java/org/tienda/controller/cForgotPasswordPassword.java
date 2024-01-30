@@ -48,18 +48,22 @@ public class cForgotPasswordPassword {
    * Actualiza el lenguaje de la vista
    */
   public void actualizarLenguaje() {
-    vista.getJLabeltitulo().setText((lenguaje.getMensaje().getString("forgot.h1")));
-    vista.getJLabelDescripcion().setText(lenguaje.getMensaje().getString("forgot.email.descripcion"));
-    vista.getJLabelTFEmail().setText((lenguaje.getMensaje().getString("forgot.email")));
-    vista.getJPasswordFieldPassword().setText("");
-    vista.getJButtonConfirmar().setText((lenguaje.getMensaje().getString("forgot.button.confirm")));
+    vista.getJLabeltitulo().setText(lenguaje.getMensaje().getString("forgot.h1"));
+    vista.getJLabelDescripcion().setText(lenguaje.getMensaje().getString("forgot.password.descripcion"));
+    vista.getJLabelPassword().setText(lenguaje.getMensaje().getString("forgot.password.placeholder"));
+    vista.getJLabelPasswordRepeat().setText(lenguaje.getMensaje().getString("forgot.password.repeat"));
+    vista.getJButtonConfirmar().setText(lenguaje.getMensaje().getString("forgot.button.confirm"));
+    vista.getJPasswordFieldPassword().setToolTipText(lenguaje.getMensaje().getString("tooltip.regex.password"));
+    vista.getJPasswordFieldPassword1().setToolTipText(lenguaje.getMensaje().getString("tooltip.regex.password"));
   }
 
   /**
    * Actualiza los estilos de la vista
    */
   public void actualizarEstilos() {
-    TextField.actualizarTextField(vista.getJPasswordFieldPassword(), "******", 16, "img/svg/Email.svg", 22, 24, "#575DFB");
+    TextField.actualizarTextField(vista.getJPasswordFieldPassword(), lenguaje.getMensaje().getString("register.password.placeholder"), 16, "img/svg/Email.svg", 22, 24, "#575DFB");
+    TextField.actualizarTextField(vista.getJPasswordFieldPassword1(), lenguaje.getMensaje().getString("register.label.repeatpassword"), 16, "img/svg/Email.svg", 22, 24, "#575DFB");
+
     vista.getJButtonConfirmar().putClientProperty("FlatLaf.style", "arc:" + 16);
     vista.getJPanelForgot().putClientProperty("FlatLaf.style", "arc:" + 16);
     vista.getJButtonClose().putClientProperty("FlatLaf.style", "arc:" + 999);
@@ -83,12 +87,17 @@ public class cForgotPasswordPassword {
       });
     vista.getJButtonConfirmar().addActionListener(
       e -> {
-        if (validator.isPassword(String.valueOf(vista.getJPasswordFieldPassword().getPassword()))) {
+        String password = String.valueOf(vista.getJPasswordFieldPassword().getPassword());
+        String repeatPassword = String.valueOf(vista.getJPasswordFieldPassword1().getPassword());
+        if (password.matches(validator.PASSWORD_PATTERN) && password.equals(repeatPassword)) {
           vista.getUsuario().setPassword(String.valueOf(vista.getJPasswordFieldPassword().getPassword()));
           if (!Usuarios.updatePassword(vista.getUsuario()))
-            JOptionPane.showMessageDialog(null, "Error al actualizar la contrasenya", "Error", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("error.update.user.password"), "Error", JOptionPane.INFORMATION_MESSAGE);
           vista.dispose();
           new Login(null).setVisible(true);
+        } else {
+          vista.getJPasswordFieldPassword().putClientProperty("JComponent.outline", "error");
+          vista.getJPasswordFieldPassword1().putClientProperty("JComponent.outline", "error");
         }
       });
   }

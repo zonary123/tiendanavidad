@@ -198,4 +198,6 @@ public class cDatosUsuario {
     vista.getEnviar().setCursor(new Cursor(Cursor.HAND_CURSOR));
     vista.getJButtonImagen().setCursor(new Cursor(Cursor.HAND_CURSOR));
   }
+
+
 }
