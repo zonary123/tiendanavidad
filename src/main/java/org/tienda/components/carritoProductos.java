@@ -12,6 +12,8 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.List;
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import org.tienda.model.Carrito;
 import org.tienda.model.Productos;
@@ -20,9 +22,9 @@ import org.tienda.model.Productos;
  * @author Carlos Varas Alonso
  */
 public class carritoProductos extends javax.swing.JPanel {
-
   private final Productos producto;
   private final org.tienda.views.Carrito vista;
+  private Carrito carrito;
 
   /**
    * Creates new form carritoProductos
@@ -30,6 +32,7 @@ public class carritoProductos extends javax.swing.JPanel {
   public carritoProductos(org.tienda.views.Carrito vista, Productos producto) {
     this.producto = producto;
     this.vista = vista;
+    carrito = Carrito.findProductoByCarrito(producto.getIdproducto(), vista.getUsuario());
     initComponents();
     setSize(1392, 96);
     setPreferredSize(new Dimension(1392, 96));
@@ -40,7 +43,8 @@ public class carritoProductos extends javax.swing.JPanel {
 
   private void setDatos() {
     jLabelInformacion.setText(producto.getNombre());
-
+    cantidad.setValue(carrito.getCantidad());
+    precio.setText(carrito.getCantidad() * carrito.getProductos().getPrecio() + "€");
   }
 
   private void initEvents() {
@@ -53,6 +57,23 @@ public class carritoProductos extends javax.swing.JPanel {
           mostrarProductos(Carrito.getProductos(vista.getUsuario()));
         } catch (IOException ioException) {
           ioException.printStackTrace();
+        }
+        vista.getTotal().setText("Total: " + Carrito.calcTotal(vista.getUsuario()) + "€");
+      }
+    });
+    cantidad.addChangeListener(new ChangeListener() {
+      @Override public void stateChanged(ChangeEvent e) {
+
+        Carrito.updateCant(producto.getIdproducto(), vista.getUsuario(), (Integer) cantidad.getValue());
+        carrito.setCantidad((Integer) cantidad.getValue());
+        precio.setText(carrito.getCantidad() * carrito.getProductos().getPrecio() + "€");
+        if ((int) cantidad.getValue() < 1) {
+          Carrito.deleteProducto(vista.getUsuario(), producto);
+          try {
+            mostrarProductos(Carrito.getProductos(vista.getUsuario()));
+          } catch (IOException ioException) {
+            ioException.printStackTrace();
+          }
         }
         vista.getTotal().setText("Total: " + Carrito.calcTotal(vista.getUsuario()) + "€");
       }
@@ -89,6 +110,8 @@ public class carritoProductos extends javax.swing.JPanel {
     IMG = new javax.swing.JLabel();
     jLabelInformacion = new javax.swing.JLabel();
     delete = new javax.swing.JButton();
+    precio = new javax.swing.JLabel();
+    cantidad = new javax.swing.JSpinner();
 
     setBackground(new java.awt.Color(231, 231, 231));
     setPreferredSize(new java.awt.Dimension(1392, 96));
@@ -105,11 +128,21 @@ public class carritoProductos extends javax.swing.JPanel {
     delete.setBackground(new java.awt.Color(255, 86, 86));
     delete.setForeground(new java.awt.Color(255, 255, 255));
     add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(1254, 16, 124, 64));
+
+    precio.setFont(new java.awt.Font("Inter SemiBold", 0, 20)); // NOI18N
+    precio.setForeground(new java.awt.Color(87, 93, 251));
+    precio.setText("jLabel1");
+    add(precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 43, -1, -1));
+
+    cantidad.setFont(new java.awt.Font("Inter", 1, 16)); // NOI18N
+    add(cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(1143, 16, 90, 64));
   }// </editor-fold>//GEN-END:initComponents
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JLabel IMG;
+  private javax.swing.JSpinner cantidad;
   private javax.swing.JButton delete;
   private javax.swing.JLabel jLabelInformacion;
+  private javax.swing.JLabel precio;
   // End of variables declaration//GEN-END:variables
 }

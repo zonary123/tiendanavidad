@@ -64,8 +64,8 @@ public class cForgotPasswordEmail {
     vista.getJButtonConfirmar().addActionListener(e -> {
       try {
         if (sendCode()) {
-          JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("forgot.email.send") + " " + vista.getJTextFieldEmail().getText(),
-            "Codigo", JOptionPane.INFORMATION_MESSAGE);
+/*          JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("forgot.email.send") + " " + vista.getJTextFieldEmail().getText(),
+            "Codigo", JOptionPane.INFORMATION_MESSAGE);*/
           vista.dispose();
           new ForgotPasswordCode(u).setVisible(true);
         } else {

@@ -57,8 +57,10 @@ public class ForgotPasswordPassword extends JFrame {
     jLabeltitulo = new javax.swing.JLabel();
     jButtonConfirmar = new javax.swing.JButton();
     jLabelDescripcion = new javax.swing.JLabel();
-    jLabelTFEmail = new javax.swing.JLabel();
+    jLabelPassword = new javax.swing.JLabel();
     jPasswordFieldPassword = new javax.swing.JPasswordField();
+    jPasswordFieldPassword1 = new javax.swing.JPasswordField();
+    jLabelPasswordRepeat = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     setUndecorated(true);
@@ -97,21 +99,28 @@ public class ForgotPasswordPassword extends JFrame {
     jButtonConfirmar.setFont(new java.awt.Font("Inter", 1, 16)); // NOI18N
     jButtonConfirmar.setForeground(new java.awt.Color(255, 255, 255));
     jButtonConfirmar.setText(bundle.getString("forgot.button.confirm")); // NOI18N
-    jPanelForgot.add(jButtonConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 381, 343, 56));
+    jPanelForgot.add(jButtonConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 420, 343, 56));
 
     jLabelDescripcion.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
     jLabelDescripcion.setText(bundle.getString("forgot.password.descripcion")); // NOI18N
     jPanelForgot.add(jLabelDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 189, -1, -1));
     jLabelDescripcion.getAccessibleContext().setAccessibleName(bundle.getString("forgot.email.descripcion")); // NOI18N
 
-    jLabelTFEmail.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
-    jLabelTFEmail.setText(bundle.getString("forgot.password")); // NOI18N
-    jPanelForgot.add(jLabelTFEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 267, -1, -1));
+    jLabelPassword.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
+    jLabelPassword.setText(bundle.getString("forgot.password")); // NOI18N
+    jPanelForgot.add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 220, -1, -1));
 
     jPasswordFieldPassword.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
-    jPanelForgot.add(jPasswordFieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 297, 342, 55));
+    jPanelForgot.add(jPasswordFieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 250, 342, 55));
 
-    Container.add(jPanelForgot, new org.netbeans.lib.awtextra.AbsoluteConstraints(515, 269, 414, 462));
+    jPasswordFieldPassword1.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
+    jPanelForgot.add(jPasswordFieldPassword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 360, 342, 55));
+
+    jLabelPasswordRepeat.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
+    jLabelPasswordRepeat.setText(bundle.getString("forgot.password")); // NOI18N
+    jPanelForgot.add(jLabelPasswordRepeat, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 330, -1, -1));
+
+    Container.add(jPanelForgot, new org.netbeans.lib.awtextra.AbsoluteConstraints(515, 269, 414, 560));
 
     getContentPane().add(Container, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1445, 1000));
 
@@ -126,10 +135,12 @@ public class ForgotPasswordPassword extends JFrame {
   private javax.swing.JButton jButtonClose;
   private javax.swing.JButton jButtonConfirmar;
   private javax.swing.JLabel jLabelDescripcion;
-  private javax.swing.JLabel jLabelTFEmail;
+  private javax.swing.JLabel jLabelPassword;
+  private javax.swing.JLabel jLabelPasswordRepeat;
   private javax.swing.JLabel jLabeltitulo;
   private javax.swing.JPanel jPanelForgot;
   private javax.swing.JPasswordField jPasswordFieldPassword;
+  private javax.swing.JPasswordField jPasswordFieldPassword1;
   // End of variables declaration//GEN-END:variables
 
 }

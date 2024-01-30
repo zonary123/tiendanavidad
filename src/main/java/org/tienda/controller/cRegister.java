@@ -139,16 +139,34 @@ public class cRegister {
       }
     }
 
+    // Hadouken
     if (String.valueOf(vista.getJPasswordFieldPassword().getPassword()).isEmpty()) {
       mensaje += lenguaje.getMensaje().getString("void.password") + "\n";
       vista.getJPasswordFieldPassword().putClientProperty("JComponent.outline", "warning");
       errores++;
-    } else if (!validator.isPassword(String.valueOf(vista.getJPasswordFieldPassword().getPassword()))) {
-      mensaje += lenguaje.getMensaje().getString("regex.password") + "\n";
-      vista.getJPasswordFieldPassword().putClientProperty("JComponent.outline", "warning");
-      errores++;
     } else {
-      vista.getJPasswordFieldPassword().putClientProperty("JComponent.outline", new Color[]{Color.decode("#575DFB"), Color.decode("#575DFB")});
+      if (!String.valueOf(vista.getJPasswordFieldPassword().getPassword()).matches(validator.PASSWORD_PATTERN)) {
+        mensaje += lenguaje.getMensaje().getString("regex.password") + "\n";
+        vista.getJPasswordFieldPassword().putClientProperty("JComponent.outline", "warning");
+        errores++;
+      } else {
+        if (!String.valueOf(vista.getJPasswordFieldPassword1().getPassword()).matches(validator.PASSWORD_PATTERN)) {
+          mensaje += lenguaje.getMensaje().getString("regex.password") + "\n";
+          vista.getJPasswordFieldPassword1().putClientProperty("JComponent.outline", "warning");
+          errores++;
+        } else {
+          if (!String.valueOf(vista.getJPasswordFieldPassword().getPassword()).equals(String.valueOf(vista.getJPasswordFieldPassword1().getPassword()))) {
+            mensaje += lenguaje.getMensaje().getString("error.password.notequals") + "\n";
+            vista.getJPasswordFieldPassword().putClientProperty("JComponent.outline", "warning");
+            vista.getJPasswordFieldPassword1().putClientProperty("JComponent.outline", "warning");
+            errores++;
+          } else {
+            vista.getJPasswordFieldPassword().putClientProperty("JComponent.outline", new Color[]{Color.decode("#575DFB"), Color.decode("#575DFB")});
+            vista.getJPasswordFieldPassword1().putClientProperty("JComponent.outline", new Color[]{Color.decode("#575DFB"), Color.decode("#575DFB")});
+          }
+        }
+      }
+
     }
 
     if (errores > 0)
@@ -197,6 +215,7 @@ public class cRegister {
     vista.getJLabelNombre().setText(lenguaje.getMensaje().getString("register.label.name"));
     vista.getJLabelApellidos().setText(lenguaje.getMensaje().getString("register.label.lastname"));
     vista.getJLabelPassword().setText(lenguaje.getMensaje().getString("register.label.password"));
+    vista.getJLabelPassword1().setText(lenguaje.getMensaje().getString("register.label.repeatpassword"));
     vista.getJLabelUsername().setText(lenguaje.getMensaje().getString("register.label.username"));
     vista.getJLabelRegistrar().setText(lenguaje.getMensaje().getString("register.signup"));
     vista.getJButtonRegistrarse().setText(lenguaje.getMensaje().getString("register.signup"));
@@ -206,6 +225,8 @@ public class cRegister {
     vista.getJTextFieldUsername().setToolTipText(lenguaje.getMensaje().getString("tooltip.regex.username"));
     vista.getJTextFieldNombre().setToolTipText(lenguaje.getMensaje().getString("tooltip.regex.name"));
     vista.getJTextFieldApellidos().setToolTipText(lenguaje.getMensaje().getString("tooltip.regex.lastname"));
+    vista.getJPasswordFieldPassword().setToolTipText(lenguaje.getMensaje().getString("tooltip.regex.password"));
+    vista.getJPasswordFieldPassword1().setToolTipText(lenguaje.getMensaje().getString("tooltip.regex.password"));
   }
 
   /**
@@ -217,6 +238,7 @@ public class cRegister {
     actualizarTextField(this.vista.getJTextFieldEmail(), this.lenguaje.getMensaje().getString("register.email.placeholder"), 16, "img/svg/Email.svg", 19, 19, "#575DFB");
     actualizarTextField(this.vista.getJTextFieldUsername(), this.lenguaje.getMensaje().getString("register.username.placeholder"), 16, "img/svg/Person.svg", 16, 19, "#575DFB");
     actualizarTextField(this.vista.getJPasswordFieldPassword(), this.lenguaje.getMensaje().getString("register.password.placeholder"), 16, "img/svg/Candado.svg", 16, 19, "#575DFB");
+    actualizarTextField(this.vista.getJPasswordFieldPassword1(), this.lenguaje.getMensaje().getString("register.password.placeholder"), 16, "img/svg/Candado.svg", 16, 19, "#575DFB");
     actualizarBoton(vista.getJButtonRegistrarse(), 16);
 
     vista.getJButtonRegistrarse().setCursor(new Cursor(Cursor.HAND_CURSOR));

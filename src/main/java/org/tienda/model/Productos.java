@@ -11,6 +11,7 @@ import org.hibernate.proxy.HibernateProxy;
 import org.tienda.utils.hibernateUtil;
 
 import javax.persistence.*;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -22,7 +23,6 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "productos")
-@ToString
 @RequiredArgsConstructor
 @Getter
 @Setter
@@ -55,11 +55,9 @@ public class Productos {
   private Integer stock;
 
   @OneToMany(mappedBy = "productos", fetch = FetchType.LAZY)
-  @ToString.Exclude
   private Set<Carrito> carritos;
 
   @OneToMany(mappedBy = "productos", fetch = FetchType.LAZY)
-  @ToString.Exclude
   private Set<Compras> comprases;
 
   /**
@@ -206,4 +204,17 @@ public class Productos {
     return this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass().hashCode() : getClass().hashCode();
   }
 
+  @Override public String toString() {
+    return "Productos{" +
+      "idproducto=" + idproducto +
+      ", nombre='" + nombre + '\'' +
+      ", descripcion='" + descripcion + '\'' +
+      ", precio=" + precio +
+      ", descuento=" + descuento +
+      ", categoria='" + categoria + '\'' +
+      ", stock=" + stock +
+      ", carritos=" + carritos +
+      ", comprases=" + comprases +
+      '}';
+  }
 }
