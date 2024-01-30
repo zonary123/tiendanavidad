@@ -34,6 +34,7 @@ public class utilsLenguaje {
   public utilsLenguaje() throws IOException {
     this.fichero = "lang/" + Locale.getDefault();
     this.local = new Locale(this.fichero.split("_")[0]);
+    this.local.setDefault(Locale.getDefault());
     this.mensaje = ResourceBundle.getBundle(this.fichero, this.local);
   }
 
@@ -48,12 +49,14 @@ public class utilsLenguaje {
    */
   public utilsLenguaje(String lenguaje) throws IOException {
     this.local = new Locale(new Locale(lenguaje).getLanguage());
+    local.setDefault(local);
     this.mensaje = ResourceBundle.getBundle("lang/" + lenguaje, this.local);
   }
 
 
   public utilsLenguaje(Usuarios usuario) {
     this.local = new Locale(usuario.getLenguaje());
+    local.setDefault(local);
     this.mensaje = ResourceBundle.getBundle("lang/" + usuario.getLenguaje(), this.local);
   }
 
