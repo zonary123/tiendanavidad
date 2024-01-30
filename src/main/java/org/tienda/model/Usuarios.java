@@ -8,17 +8,14 @@ import org.mindrot.jbcrypt.BCrypt;
 import org.tienda.utils.hibernateUtil;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 /**
  * The type Usuarios.
  *
  * @author Carlos Varas Alonso
  */
-@ToString @RequiredArgsConstructor
+@RequiredArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -56,15 +53,12 @@ public class Usuarios implements java.io.Serializable {
   private String codigo;
 
   @OneToMany(fetch = FetchType.EAGER, mappedBy = "usuarios")
-  @ToString.Exclude
   private Set<Historialusuarios> historialusuarioses = new HashSet<>();
 
   @OneToMany(mappedBy = "usuarios")
-  @ToString.Exclude
   private Set<Carrito> carritos = new HashSet<>();
 
   @OneToMany(mappedBy = "usuarios")
-  @ToString.Exclude
   private Set<Compras> comprases = new HashSet<>();
 
   /**
@@ -425,5 +419,24 @@ public class Usuarios implements java.io.Serializable {
   @Override
   public final int hashCode() {
     return this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass().hashCode() : getClass().hashCode();
+  }
+
+  @Override public String toString() {
+    return "Usuarios{" +
+      "idusuario=" + idusuario +
+      ", username='" + username + '\'' +
+      ", password='" + password + '\'' +
+      ", nombre='" + nombre + '\'' +
+      ", apellidos='" + apellidos + '\'' +
+      ", email='" + email + '\'' +
+      ", lenguaje='" + lenguaje + '\'' +
+      ", permisos='" + permisos + '\'' +
+      ", roles='" + roles + '\'' +
+      ", activacion=" + activacion +
+      ", codigo='" + codigo + '\'' +
+      ", historialusuarioses=" + historialusuarioses +
+      ", carritos=" + carritos +
+      ", comprases=" + comprases +
+      '}';
   }
 }
