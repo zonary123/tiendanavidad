@@ -73,6 +73,25 @@ public class cForgotPasswordPassword {
     vista.getJButtonConfirmar().setCursor(new Cursor(Cursor.HAND_CURSOR));
   }
 
+  private static boolean comprobarPassword(JPasswordField newpassword, JPasswordField repeatpassword) {
+    String newPassword = String.valueOf(newpassword.getPassword());
+    String repeatPassword = String.valueOf(repeatpassword.getPassword());
+    if (newPassword.isEmpty() || repeatPassword.isEmpty()) {
+      newpassword.putClientProperty("JComponent.outline", new Color[]{Color.decode("#575DFB"), Color.decode("#575DFB")});
+      repeatpassword.putClientProperty("JComponent.outline", new Color[]{Color.decode("#575DFB"), Color.decode("#575DFB")});
+      return false;
+    }
+    if (newPassword.equals(repeatPassword)) {
+      newpassword.putClientProperty("JComponent.outline", new Color[]{Color.decode("#9bd185"), Color.decode("#9bd185")});
+      repeatpassword.putClientProperty("JComponent.outline", new Color[]{Color.decode("#9bd185"), Color.decode("#9bd185")});
+      return true;
+    } else {
+      newpassword.putClientProperty("JComponent.outline", "error");
+      repeatpassword.putClientProperty("JComponent.outline", "error");
+      return false;
+    }
+  }
+
   /**
    * Inicializacion de eventos de la vista
    */
@@ -87,9 +106,7 @@ public class cForgotPasswordPassword {
       });
     vista.getJButtonConfirmar().addActionListener(
       e -> {
-        String password = String.valueOf(vista.getJPasswordFieldPassword().getPassword());
-        String repeatPassword = String.valueOf(vista.getJPasswordFieldPassword1().getPassword());
-        if (password.matches(validator.PASSWORD_PATTERN) && password.equals(repeatPassword)) {
+        if (comprobarPassword(vista.getJPasswordFieldPassword(), vista.getJPasswordFieldPassword1())) {
           vista.getUsuario().setPassword(String.valueOf(vista.getJPasswordFieldPassword().getPassword()));
           if (!Usuarios.updatePassword(vista.getUsuario()))
             JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("error.update.user.password"), "Error", JOptionPane.INFORMATION_MESSAGE);

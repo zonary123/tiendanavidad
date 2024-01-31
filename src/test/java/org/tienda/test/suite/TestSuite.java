@@ -8,6 +8,7 @@ import org.tienda.test.lang.es_ES_Test;
 import org.tienda.test.model.HistorialUsuarioTest;
 import org.tienda.test.model.ProductosTest;
 import org.tienda.test.model.UsuariosTest;
+import org.tienda.test.utils.EmailTest;
 
 /**
  * @author Carlos Varas Alonso - 10/01/2024 22:22
@@ -16,7 +17,7 @@ import org.tienda.test.model.UsuariosTest;
 @Suite.SuiteClasses(
   {HomeTest.class,
 
-    //EmailTest.class,
+    EmailTest.class,
 
     HomeTest.class,
 

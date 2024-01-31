@@ -22,19 +22,11 @@ import javax.mail.internet.MimeMessage;
 public class EmailUtil {
   private final static String FROMEMAIL = "carlosvarasalonso.clases@gmail.com";
   private final static String PASSWORD = "kaptgyvimqwszdva";
-  private final static String PATH_HTML_CODE = "email/Codigo.html";
   /**
    * The constant OPCION_ENVIAR_CODIGO.
    */
   public final static int OPCION_ENVIAR_CODIGO = 1;
-  /**
-   * The constant OPCION_CAMBIO_PASSWORD.
-   */
-  public final static int OPCION_CAMBIO_PASSWORD = 2;
-  /**
-   * The constant OPCION_INICIO_SESION.
-   */
-  public final static int OPCION_INICIO_SESION = 3;
+  public final static int OPCION_BIENVENIDA = 2;
 
   /**
    * Envia un email
@@ -102,11 +94,9 @@ public class EmailUtil {
   private static boolean opciones(int opcion, Usuarios u, Session session) throws IOException {
     switch (opcion) {
       case OPCION_ENVIAR_CODIGO:
-        return sendEmail(session, u.getEmail(), "tienda navidad", emailCode(u.getCodigo()));
-      case OPCION_CAMBIO_PASSWORD:
-        return sendEmail(session, u.getEmail(), "tienda navidad", "Cambio de contraseña en tienda navidad");
-      case OPCION_INICIO_SESION:
-        return sendEmail(session, u.getEmail(), "tienda navidad", "Inicio de sesión en tienda navidad");
+        return sendEmail(session, u.getEmail(), "tienda navidad", emailCode("email/Codigo.html", u.getCodigo()));
+      case OPCION_BIENVENIDA:
+        return sendEmail(session, u.getEmail(), "tienda navidad", leerHtml("email/Bienvenida.html"));
       default:
         System.out.println("Error: Opción no válida.");
         break;
@@ -123,10 +113,10 @@ public class EmailUtil {
    *
    * @throws IOException el error de entrada y salida
    */
-  public static String emailCode(String codigo) throws IOException {
+  public static String emailCode(String path, String codigo) throws IOException {
     StringBuilder body = new StringBuilder();
     String linea;
-    InputStream inputStream = utilsLenguaje.class.getClassLoader().getResourceAsStream(PATH_HTML_CODE);
+    InputStream inputStream = utilsLenguaje.class.getClassLoader().getResourceAsStream(path);
     BufferedReader bw = new BufferedReader(new InputStreamReader(inputStream));
 
     while ((linea = bw.readLine()) != null) {
@@ -146,5 +136,17 @@ public class EmailUtil {
     return body.toString();
   }
 
+  public static String leerHtml(String path) throws IOException {
+    StringBuilder body = new StringBuilder();
+    String linea;
+    InputStream inputStream = utilsLenguaje.class.getClassLoader().getResourceAsStream(path);
+    BufferedReader bw = new BufferedReader(new InputStreamReader(inputStream));
 
+    while ((linea = bw.readLine()) != null) {
+      body.append(linea);
+    }
+    bw.close();
+    inputStream.close();
+    return body.toString();
+  }
 }
