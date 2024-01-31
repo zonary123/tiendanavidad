@@ -12,9 +12,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="Correo de Bienvenida.">
+    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="Hover en iconos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cForgotPasswordPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/controller/cForgotPasswordPassword.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,8 +174,8 @@
     </configuration>
     <list>
       <item itemvalue="Application.Principal" />
-      <item itemvalue="JUnit.TestSuite" />
       <item itemvalue="JAR Application.Unnamed" />
+      <item itemvalue="JUnit.TestSuite" />
     </list>
     <recent_temporary>
       <list>
@@ -267,6 +266,9 @@
       <workItem from="1706581279387" duration="216000" />
       <workItem from="1706581745547" duration="6150000" />
       <workItem from="1706628645356" duration="5232000" />
+      <workItem from="1706725489469" duration="63000" />
+      <workItem from="1706729139577" duration="1722000" />
+      <workItem from="1706731460404" duration="41000" />
     </task>
     <task id="LOCAL-00001" summary="Arreglos en Home">
       <option name="closed" value="true" />
@@ -356,7 +358,23 @@
       <option name="project" value="LOCAL" />
       <updated>1706220951916</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Comprobacion de repeticion de contraseña">
+      <option name="closed" value="true" />
+      <created>1706725543253</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1706725543253</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Hover en iconos">
+      <option name="closed" value="true" />
+      <created>1706731348825</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1706731348825</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -385,7 +403,9 @@
     <MESSAGE value="Buscar por categorias, Haciendo el modificar y añadir productos, Eliminar productos hecho" />
     <MESSAGE value="a" />
     <MESSAGE value="Poniendo comentarios en las clases y validando datos en CrearModificarProducto." />
-    <option name="LAST_COMMIT_MESSAGE" value="Poniendo comentarios en las clases y validando datos en CrearModificarProducto." />
+    <MESSAGE value="Comprobacion de repeticion de contraseña" />
+    <MESSAGE value="Hover en iconos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hover en iconos" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
