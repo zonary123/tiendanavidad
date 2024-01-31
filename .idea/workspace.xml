@@ -175,8 +175,8 @@
     </configuration>
     <list>
       <item itemvalue="Application.Principal" />
-      <item itemvalue="JUnit.TestSuite" />
       <item itemvalue="JAR Application.Unnamed" />
+      <item itemvalue="JUnit.TestSuite" />
     </list>
     <recent_temporary>
       <list>

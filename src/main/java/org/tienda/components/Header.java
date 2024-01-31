@@ -92,7 +92,7 @@ public class Header extends javax.swing.JPanel {
 
   private void vistas() {
     vista.dispose();
-    System.out.println("Clase de vista -> " + vista.getClass());
+    System.out.println("Clase de vista -> " + vista.getClass().getName());
     if (vista.getClass().getName().equals("org.tienda.views.HomeUser")) {
       new HomeUser(getUsuario()).setVisible(true);
     }
