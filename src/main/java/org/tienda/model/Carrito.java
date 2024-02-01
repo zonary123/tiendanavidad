@@ -57,7 +57,7 @@ public class Carrito {
    * @return true si existe, false si no
    */
   public static boolean findById(int idproducto, Usuarios u) {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
     session.beginTransaction();
     try {
@@ -75,7 +75,7 @@ public class Carrito {
   }
 
   public static Carrito findByProductoAndUsuario(Productos producto, Usuarios usuario) {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
     session.beginTransaction();
     try {
@@ -89,7 +89,7 @@ public class Carrito {
   }
 
   public static List<Productos> getProductos(Usuarios usuario) {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
     session.beginTransaction();
     try {
@@ -112,7 +112,7 @@ public class Carrito {
    * @return true si se ha actualizado, false si no
    */
   public static boolean updateCant(int id, Usuarios usuario) {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
     session.beginTransaction();
     try {
@@ -120,6 +120,7 @@ public class Carrito {
       carrito.setCantidad(carrito.getCantidad() + 1);
       session.update(carrito);
       session.getTransaction().commit();
+      session.close();
     } catch (Exception e) {
       session.getTransaction().rollback();
       return false;
@@ -130,7 +131,7 @@ public class Carrito {
   }
 
   public static boolean updateCant(int id, Usuarios usuario, int cantidad) {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
     session.beginTransaction();
     try {
@@ -138,18 +139,18 @@ public class Carrito {
       if (cantidad == 0) {
         session.delete(carrito);
         session.getTransaction().commit();
+        session.close();
         return true;
       }
       carrito.setCantidad(cantidad);
       session.update(carrito);
       session.getTransaction().commit();
+      session.close();
+      return true;
     } catch (Exception e) {
       session.getTransaction().rollback();
       return false;
-    } finally {
-      session.close();
     }
-    return true;
   }
 
   // ? INSERTS
@@ -163,13 +164,14 @@ public class Carrito {
    * @return true si se ha actualizado, false si no
    */
   public static boolean save(CarritoId id, Integer cantidad) {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
     session.beginTransaction();
     try {
       Carrito carrito = new Carrito(id, cantidad);
       session.save(carrito);
       session.getTransaction().commit();
+      session.close();
     } catch (Exception e) {
       session.getTransaction().rollback();
       return false;
@@ -187,11 +189,12 @@ public class Carrito {
    * @return El precio total de los artículos en el carrito de compras, o 0 si ocurre un error.
    */
   public static double calcTotal(Usuarios usuario) {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
-    session.beginTransaction();
     try {
-      return (double) session.createQuery("SELECT SUM(p.precio * c.cantidad) FROM Carrito c INNER JOIN Productos p ON c.id.idproducto = p.idproducto AND c.id.idusuario = :id").setParameter("id", usuario.getIdusuario()).getSingleResult();
+      double d = (double) session.createQuery("SELECT SUM(p.precio * c.cantidad) FROM Carrito c INNER JOIN Productos p ON c.id.idproducto = p.idproducto AND c.id.idusuario = :id").setParameter("id", usuario.getIdusuario()).getSingleResult();
+      session.close();
+      return d;
     } catch (Exception e) {
       session.getTransaction().rollback();
       return 0;
@@ -207,7 +210,7 @@ public class Carrito {
    * @param producto el producto que se eliminará del carrito de compras
    */
   public static void deleteProducto(Usuarios usuario, Productos producto) {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
     session.beginTransaction();
     try {
@@ -221,10 +224,12 @@ public class Carrito {
   }
 
   public static Carrito findProductoByCarrito(Integer idproducto, Usuarios usuario) {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
     try {
-      return session.createQuery("FROM Carrito c WHERE c.id.idproducto = :idproducto AND c.id.idusuario = :idusuario", Carrito.class).setParameter("idproducto", idproducto).setParameter("idusuario", usuario.getIdusuario()).getSingleResult();
+      Carrito c = session.createQuery("FROM Carrito c WHERE c.id.idproducto = :idproducto AND c.id.idusuario = :idusuario", Carrito.class).setParameter("idproducto", idproducto).setParameter("idusuario", usuario.getIdusuario()).getSingleResult();
+      session.close();
+      return c;
     } catch (Exception e) {
       session.getTransaction().rollback();
       return null;
@@ -234,7 +239,7 @@ public class Carrito {
   }
 
   public static double calcTotal(Usuarios usuario, Integer idproducto) {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
     try {
       String sql = "SELECT c.cantidad * c.productos.precio " +

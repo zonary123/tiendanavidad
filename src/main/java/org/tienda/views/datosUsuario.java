@@ -15,6 +15,7 @@ import org.tienda.model.Usuarios;
 public class datosUsuario extends javax.swing.JFrame {
 
   private final Usuarios usuario;
+  private cDatosUsuario controlador;
 
   /**
    * Creates new form Usuario
@@ -22,7 +23,8 @@ public class datosUsuario extends javax.swing.JFrame {
   public datosUsuario(Usuarios usuario) {
     this.usuario = usuario;
     initComponents();
-    cDatosUsuario c = new cDatosUsuario(this);
+    this.controlador = new cDatosUsuario(this);
+
   }
 
   /**
@@ -34,8 +36,6 @@ public class datosUsuario extends javax.swing.JFrame {
 
     Container = new javax.swing.JPanel();
     ContainerDatos = new javax.swing.JPanel();
-    email = new javax.swing.JLabel();
-    username = new javax.swing.JLabel();
     nombre = new javax.swing.JLabel();
     apellidos = new javax.swing.JLabel();
     password = new javax.swing.JLabel();
@@ -43,8 +43,6 @@ public class datosUsuario extends javax.swing.JFrame {
     repeatpassword = new javax.swing.JLabel();
     Enviar = new javax.swing.JButton();
     jButtonImagen = new javax.swing.JButton();
-    jTextFieldEmail = new javax.swing.JTextField();
-    jTextFieldUsername = new javax.swing.JTextField();
     jTextFieldNombre = new javax.swing.JTextField();
     jTextFieldApellidos = new javax.swing.JTextField();
     jPasswordFieldYourPassword = new javax.swing.JPasswordField();
@@ -62,66 +60,52 @@ public class datosUsuario extends javax.swing.JFrame {
     ContainerDatos.setBackground(new java.awt.Color(231, 231, 231));
     ContainerDatos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-    email.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
-    email.setText("jLabel1");
-    ContainerDatos.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 0, -1, -1));
-
-    username.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
-    username.setText("jLabel2");
-    ContainerDatos.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 114, -1, -1));
-
     nombre.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
     nombre.setText("jLabel3");
-    ContainerDatos.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 228, -1, -1));
+    ContainerDatos.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 10, -1, -1));
 
     apellidos.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
     apellidos.setText("jLabel4");
-    ContainerDatos.add(apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 342, -1, -1));
+    ContainerDatos.add(apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 130, -1, -1));
 
     password.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
     password.setText("jLabel5");
-    ContainerDatos.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 456, -1, -1));
+    ContainerDatos.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 240, -1, -1));
 
     newpassword.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
     newpassword.setText("jLabel6");
-    ContainerDatos.add(newpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 569, -1, -1));
+    ContainerDatos.add(newpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 350, -1, -1));
 
     repeatpassword.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
     repeatpassword.setText("jLabel7");
-    ContainerDatos.add(repeatpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 682, -1, -1));
+    ContainerDatos.add(repeatpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 470, -1, -1));
 
     Enviar.setBackground(new java.awt.Color(87, 93, 251));
     Enviar.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
     Enviar.setForeground(new java.awt.Color(255, 255, 255));
     Enviar.setText("Enviar");
-    ContainerDatos.add(Enviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 845, 343, 56));
+    ContainerDatos.add(Enviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 630, 343, 56));
 
     jButtonImagen.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
     jButtonImagen.setText("Seleccionar una imagen");
-    ContainerDatos.add(jButtonImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 789, 343, 34));
-
-    jTextFieldEmail.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
-    ContainerDatos.add(jTextFieldEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 30, 343, 56));
-
-    jTextFieldUsername.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
-    ContainerDatos.add(jTextFieldUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 144, 343, 56));
+    ContainerDatos.add(jButtonImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 570, 343, 34));
 
     jTextFieldNombre.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
-    ContainerDatos.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 258, 343, 56));
+    ContainerDatos.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 40, 343, 56));
 
     jTextFieldApellidos.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
-    ContainerDatos.add(jTextFieldApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 372, 343, 56));
+    ContainerDatos.add(jTextFieldApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 160, 343, 56));
 
     jPasswordFieldYourPassword.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
-    ContainerDatos.add(jPasswordFieldYourPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 486, 343, 55));
+    ContainerDatos.add(jPasswordFieldYourPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 270, 343, 55));
 
     jPasswordFieldRepeatPassword.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
-    ContainerDatos.add(jPasswordFieldRepeatPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 712, 343, 55));
+    ContainerDatos.add(jPasswordFieldRepeatPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 500, 343, 55));
 
     jPasswordFieldNewPassword.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
-    ContainerDatos.add(jPasswordFieldNewPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 599, 343, 55));
+    ContainerDatos.add(jPasswordFieldNewPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 380, 343, 55));
 
-    Container.add(ContainerDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(404, 79, 638, 912));
+    Container.add(ContainerDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(404, 175, 638, 700));
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
@@ -147,19 +131,15 @@ public class datosUsuario extends javax.swing.JFrame {
   private javax.swing.JPanel ContainerDatos;
   private javax.swing.JButton Enviar;
   private javax.swing.JLabel apellidos;
-  private javax.swing.JLabel email;
   private javax.swing.JButton jButtonImagen;
   private javax.swing.JPasswordField jPasswordFieldNewPassword;
   private javax.swing.JPasswordField jPasswordFieldRepeatPassword;
   private javax.swing.JPasswordField jPasswordFieldYourPassword;
   private javax.swing.JTextField jTextFieldApellidos;
-  private javax.swing.JTextField jTextFieldEmail;
   private javax.swing.JTextField jTextFieldNombre;
-  private javax.swing.JTextField jTextFieldUsername;
   private javax.swing.JLabel newpassword;
   private javax.swing.JLabel nombre;
   private javax.swing.JLabel password;
   private javax.swing.JLabel repeatpassword;
-  private javax.swing.JLabel username;
   // End of variables declaration//GEN-END:variables
 }

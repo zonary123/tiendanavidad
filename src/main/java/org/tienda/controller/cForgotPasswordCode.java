@@ -4,6 +4,7 @@ import org.tienda.model.Usuarios;
 import org.tienda.utils.utilsTextField;
 import org.tienda.views.ForgotPasswordCode;
 import org.tienda.utils.utilsLenguaje;
+import org.tienda.views.ForgotPasswordEmail;
 import org.tienda.views.ForgotPasswordPassword;
 import org.tienda.views.Login;
 
@@ -20,15 +21,6 @@ public class cForgotPasswordCode {
   private static utilsLenguaje lenguaje;
   private static utilsTextField TextField = new utilsTextField();
   private ForgotPasswordCode vista;
-
-  static {
-    try {
-      lenguaje = new utilsLenguaje();
-    } catch (IOException e) {
-      throw new RuntimeException(e);
-    }
-  }
-
   private int intentos = 0;
 
 
@@ -71,6 +63,14 @@ public class cForgotPasswordCode {
         }
 
       }
+    });
+    vista.getJButtonClose().addActionListener(e -> {
+      System.exit(0);
+    });
+    vista.getJButtonBack().addActionListener(e -> {
+      vista.setVisible(false);
+      vista.dispose();
+      new ForgotPasswordEmail().setVisible(true);
     });
   }
 

@@ -1,5 +1,7 @@
 package org.tienda.controller;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.tienda.components.Header;
 import org.tienda.components.ProductosUser;
@@ -22,12 +24,12 @@ import org.tienda.components.carritoProductos;
  */
 public class cCarrito {
   private final Carrito vista;
-  private static utilsLenguaje lenguaje;
+  @Setter private static utilsLenguaje lenguaje;
 
 
   public cCarrito(Carrito vista) {
     this.vista = vista;
-    lenguaje = new utilsLenguaje(vista.getUsuario());
+    this.lenguaje = new utilsLenguaje(vista.getUsuario());
     actualizarLenguaje();
     actualizarEstilos();
     vista.getComprar().isSelected();

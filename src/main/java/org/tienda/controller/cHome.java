@@ -1,6 +1,7 @@
 package org.tienda.controller;
 
 import lombok.Getter;
+import lombok.Setter;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.tienda.components.CrearModificarProducto;
 import org.tienda.components.Header;
@@ -25,11 +26,12 @@ import org.tienda.utils.utilsLenguaje;
  *
  * @author Carlos Varas Alonso
  */
+
 public class cHome {
 
   private HomeUser vista;
   private utilsTextField textField = new utilsTextField();
-  private static utilsLenguaje lenguaje;
+  @Getter @Setter private static utilsLenguaje lenguaje;
   private static Header header;
   @Getter private static List<Productos> productos;
 
@@ -47,6 +49,7 @@ public class cHome {
     initEvents();
     ponercategorias();
   }
+
 
   private void ponercategorias() {
     JPanel sidebar = vista.getContainerCategories();
@@ -99,7 +102,6 @@ public class cHome {
 
 
   private void Admin() {
-    System.out.println("Vista admin");
     ajustarComponente(vista.getScrollContainerProducts(), 858, 130);
     ajustarComponente(vista.getContainerProducts(), 858, 130);
     vista.revalidate();
@@ -118,6 +120,7 @@ public class cHome {
    */
   public void actualizarLenguaje() {
     vista.getSignOut().setText(lenguaje.getMensaje().getString("component.jPanelAsideBar.button.cerrarsession"));
+    vista.getBtnAdd().setText(lenguaje.getMensaje().getString("addproduct"));
   }
 
   /**

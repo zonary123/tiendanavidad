@@ -1,5 +1,6 @@
 package org.tienda.controller;
 
+import lombok.Setter;
 import org.mindrot.jbcrypt.BCrypt;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.tienda.components.Header;
@@ -23,11 +24,11 @@ import java.awt.event.KeyEvent;
 public class cDatosUsuario {
   private static datosUsuario vista;
   private static utilsTextField TextField;
-  private static utilsLenguaje lenguaje;
+  @Setter private static utilsLenguaje lenguaje;
   private static Header header;
 
   public cDatosUsuario(datosUsuario vista) {
-    this.vista = vista;
+    cDatosUsuario.vista = vista;
     lenguaje = new utilsLenguaje(vista.getUsuario());
     TextField = new utilsTextField();
     actualizarLenguaje();
@@ -39,12 +40,13 @@ public class cDatosUsuario {
 
   private void componentes() {
     header = new Header(vista, vista.getUsuario());
+    header.remove(header.getSearch());
     vista.getContainer().add(header, new AbsoluteConstraints(15, 10, 1410, 50));
   }
 
   private void setDatos() {
-    vista.getJTextFieldEmail().setText(vista.getUsuario().getEmail());
-    vista.getJTextFieldUsername().setText(vista.getUsuario().getUsername());
+/*    vista.getJTextFieldEmail().setText(vista.getUsuario().getEmail());
+    vista.getJTextFieldUsername().setText(vista.getUsuario().getUsername());*/
     vista.getJTextFieldNombre().setText(vista.getUsuario().getNombre());
     vista.getJTextFieldApellidos().setText(vista.getUsuario().getApellidos());
   }
@@ -93,8 +95,8 @@ public class cDatosUsuario {
         }
 
         if (newPassword.equals(repeatPassword)) {
-          vista.getUsuario().setEmail(vista.getJTextFieldEmail().getText());
-          vista.getUsuario().setUsername(vista.getJTextFieldUsername().getText());
+/*          vista.getUsuario().setEmail(vista.getJTextFieldEmail().getText());
+          vista.getUsuario().setUsername(vista.getJTextFieldUsername().getText());*/
           vista.getUsuario().setNombre(vista.getJTextFieldNombre().getText());
           vista.getUsuario().setApellidos(vista.getJTextFieldApellidos().getText());
           vista.getUsuario().setPassword(newPassword);
@@ -116,7 +118,7 @@ public class cDatosUsuario {
     String password = String.valueOf(vista.getJPasswordFieldYourPassword().getPassword());
     String newPassword = String.valueOf(vista.getJPasswordFieldNewPassword().getPassword());
     String repeatPassword = String.valueOf(vista.getJPasswordFieldRepeatPassword().getPassword());
-    if (vista.getJTextFieldEmail().getText().isEmpty() || !validator.isEmail(vista.getJTextFieldEmail().getText())) {
+/*    if (vista.getJTextFieldEmail().getText().isEmpty() || !validator.isEmail(vista.getJTextFieldEmail().getText())) {
       vista.getJTextFieldEmail().putClientProperty("JComponent.outline", "error");
       fallos++;
     }
@@ -124,7 +126,7 @@ public class cDatosUsuario {
     if (vista.getJTextFieldUsername().getText().isEmpty() || !validator.isUsername(vista.getJTextFieldUsername().getText())) {
       vista.getJTextFieldUsername().putClientProperty("JComponent.outline", "error");
       fallos++;
-    }
+    }*/
 
     if (vista.getJTextFieldNombre().getText().isEmpty() || !validator.isNombre(vista.getJTextFieldNombre().getText())) {
       vista.getJTextFieldNombre().putClientProperty("JComponent.outline", "error");
@@ -170,12 +172,12 @@ public class cDatosUsuario {
     }
   }
 
-  private static void actualizarLenguaje() {
-    vista.getEmail().setText(lenguaje.getMensaje().getString("register.label.email"));
+  public static void actualizarLenguaje() {
+    // vista.getEmail().setText(lenguaje.getMensaje().getString("register.label.email"));
     vista.getNombre().setText(lenguaje.getMensaje().getString("register.label.name"));
     vista.getApellidos().setText(lenguaje.getMensaje().getString("register.label.lastname"));
-    vista.getUsername().setText(lenguaje.getMensaje()
-      .getString("login.label.username"));
+/*    vista.getUsername().setText(lenguaje.getMensaje()
+      .getString("login.label.username"));*/
     vista.getPassword().setText(lenguaje.getMensaje().getString("login.label.password"));
     vista.getNewpassword().setText(lenguaje.getMensaje().getString("label.newpassword"));
     vista.getRepeatpassword().setText(lenguaje.getMensaje().getString("label.repeatpassword"));
@@ -183,14 +185,14 @@ public class cDatosUsuario {
     vista.getEnviar().setText(lenguaje.getMensaje().getString("button.send"));
   }
 
-  private static void actualizarEstilos() {
-    TextField.actualizarTextField(vista.getJTextFieldEmail(), lenguaje.getMensaje().getString("register.email.placeholder"), 16, "img/svg/Email.svg", 22, 24, "#575DFB");
-    TextField.actualizarTextField(vista.getJTextFieldUsername(), lenguaje.getMensaje().getString("register.username.placeholder"), 16, "img/svg/Person.svg", 22, 24, "#575DFB");
+  public static void actualizarEstilos() {
+    //TextField.actualizarTextField(vista.getJTextFieldEmail(), lenguaje.getMensaje().getString("register.email.placeholder"), 16, "img/svg/Email.svg", 22, 24, "#575DFB");
+    //TextField.actualizarTextField(vista.getJTextFieldUsername(), lenguaje.getMensaje().getString("register.username.placeholder"), 16, "img/svg/Person.svg", 22, 24, "#575DFB");
     TextField.actualizarTextField(vista.getJTextFieldNombre(), lenguaje.getMensaje().getString("register.name.placeholder"), 16, "img/svg/Person.svg", 22, 24, "#575DFB");
     TextField.actualizarTextField(vista.getJTextFieldApellidos(), lenguaje.getMensaje().getString("register.lastname.placeholder"), 16, "img/svg/Person.svg", 22, 24, "#575DFB");
-    TextField.actualizarTextField(vista.getJPasswordFieldYourPassword(), "******", 16, "img/svg/Candado.svg", 22, 24, "#575DFB");
-    TextField.actualizarTextField(vista.getJPasswordFieldNewPassword(), "******", 16, "img/svg/Candado.svg", 22, 24, "#575DFB");
-    TextField.actualizarTextField(vista.getJPasswordFieldRepeatPassword(), "******", 16, "img/svg/Candado.svg", 22, 24, "#575DFB");
+    TextField.actualizarTextField(vista.getJPasswordFieldYourPassword(), lenguaje.getMensaje().getString("register.password.placeholder"), 16, "img/svg/Candado.svg", 22, 24, "#575DFB");
+    TextField.actualizarTextField(vista.getJPasswordFieldNewPassword(), lenguaje.getMensaje().getString("label.newpassword"), 16, "img/svg/Candado.svg", 22, 24, "#575DFB");
+    TextField.actualizarTextField(vista.getJPasswordFieldRepeatPassword(), lenguaje.getMensaje().getString("register.label.repeatpassword"), 16, "img/svg/Candado.svg", 22, 24, "#575DFB");
     vista.getContainerDatos().putClientProperty("FlatLaf.style", "arc: 16");
     vista.getEnviar().putClientProperty("FlatLaf.style", "arc: 16");
     vista.getJButtonImagen().putClientProperty("FlatLaf.style", "arc: 999");
@@ -198,4 +200,6 @@ public class cDatosUsuario {
     vista.getEnviar().setCursor(new Cursor(Cursor.HAND_CURSOR));
     vista.getJButtonImagen().setCursor(new Cursor(Cursor.HAND_CURSOR));
   }
+
+
 }

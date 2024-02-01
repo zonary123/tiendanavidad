@@ -18,6 +18,7 @@ import org.tienda.utils.utilsLenguaje;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
+import java.util.Random;
 import java.util.function.Function;
 
 /**
@@ -32,7 +33,6 @@ public class ProductosUser extends javax.swing.JPanel {
   private int id;
   private Usuarios usuario;
   private static utilsLenguaje lenguaje;
-
 
   /**
    * Creates new form jPanelProducts
@@ -100,6 +100,9 @@ public class ProductosUser extends javax.swing.JPanel {
       + "  <p style='text-align: right; font-size: 12px;'>" + producto.getPrecio() + "€</p>\n"
       + "</html>\n");
     Descripcion.setText(producto.getDescripcion() == null ? "undefined" : producto.getDescripcion());
+    IMG.setText(null);
+    IMG.setIcon(new ImageIcon(getClass().getResource("/img/productos/" + new Random().nextInt(1, 4) + ".png")));
+    IMG.putClientProperty("FlatLaf.style", "arc: 16");
   }
 
   /**

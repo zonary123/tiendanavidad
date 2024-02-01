@@ -7,6 +7,8 @@ package org.tienda.components;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import lombok.Getter;
 import lombok.Setter;
+import org.tienda.controller.cHome;
+import org.tienda.model.Productos;
 import org.tienda.model.Usuarios;
 import org.tienda.utils.utilsLenguaje;
 import org.tienda.utils.utilsTextField;
@@ -18,6 +20,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 
 /**
  * @author Carlos Varas Alonso
@@ -40,8 +43,8 @@ public class Header extends javax.swing.JPanel {
     this.vista = vista;
     lenguaje = new utilsLenguaje(usuario);
     idioma(usuario.getLenguaje());
-    actualizarEstilos();
     actualizarLenguaje();
+    actualizarEstilos();
     initEvents();
   }
 
@@ -114,24 +117,45 @@ public class Header extends javax.swing.JPanel {
   }
 
   private void lang(String locale) {
-    getUsuario().setLenguaje(locale);
-    Usuarios.update(getUsuario());
+    usuario.setLenguaje(locale);
+    Usuarios.updateLang(getUsuario());
     vistas();
   }
 
   private void vistas() {
-    vista.dispose();
     if (vista.getClass().getName().equals("org.tienda.views.HomeUser")) {
-      new HomeUser(getUsuario()).setVisible(true);
+      HomeUser homeUser = (HomeUser) vista;
+      homeUser.getChome().setLenguaje(new utilsLenguaje(usuario));
+      homeUser.getChome().actualizarLenguaje();
+      homeUser.getChome().actualizarEstilos();
+      try {
+        homeUser.getChome().mostrarProductos(Productos.findAll());
+      } catch (IOException e) {
+        throw new RuntimeException(e);
+      }
+      vista.repaint();
+      vista.revalidate();
     }
     if (vista.getClass().getName().equals("org.tienda.views.Carrito")) {
-      new Carrito(usuario).setVisible(true);
-    }
-    if (vista.getClass().getName().equals("org.tienda.views.Usuario")) {
-      new datosUsuario(usuario).setVisible(true);
+      Carrito carrito = (Carrito) vista;
+      carrito.getControlador().setLenguaje(new utilsLenguaje(usuario));
+      carrito.getControlador().actualizarLenguaje();
+      carrito.getControlador().actualizarEstilos();
+      try {
+        carrito.getControlador().mostrarProductos(org.tienda.model.Carrito.getProductos(usuario));
+      } catch (IOException e) {
+        throw new RuntimeException(e);
+      }
+      vista.repaint();
+      vista.revalidate();
     }
     if (vista.getClass().getName().equals("org.tienda.views.datosUsuario")) {
-      new datosUsuario(usuario).setVisible(true);
+      datosUsuario carrito = (datosUsuario) vista;
+      carrito.getControlador().setLenguaje(new utilsLenguaje(usuario));
+      carrito.getControlador().actualizarLenguaje();
+      carrito.getControlador().actualizarEstilos();
+      vista.repaint();
+      vista.revalidate();
     }
   }
 
@@ -147,6 +171,7 @@ public class Header extends javax.swing.JPanel {
     getCarrito().setIcon(new FlatSVGIcon("img/svg/carrito.svg"));
     getCampana().setIcon(new FlatSVGIcon("img/svg/mdi_bell.svg"));
     getHome().setIcon(new FlatSVGIcon("img/svg/clarity_home-solid.svg"));
+    getJLabel1().setIcon(new ImageIcon(getClass().getResource("/img/user/user.png")));
 
     // Cursores
     getCarrito().setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -160,6 +185,7 @@ public class Header extends javax.swing.JPanel {
   private void actualizarLenguaje() {
     jLabelUsername.setText(usuario.getUsername() + "   ");
     getSearch().setText("");
+    jLabel1.setText(null);
 
   }
 
@@ -216,19 +242,19 @@ public class Header extends javax.swing.JPanel {
     add(Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(554, 7, 300, 36));
 
     Idioma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Español", "Ingles"}));
-    add(Idioma, new org.netbeans.lib.awtextra.AbsoluteConstraints(1347, 8, 54, 34));
+    add(Idioma, new org.netbeans.lib.awtextra.AbsoluteConstraints(1291, 8, 110, 34));
 
     Campana.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
     Campana.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-    add(Campana, new org.netbeans.lib.awtextra.AbsoluteConstraints(1227, 12, 26, 26));
+    add(Campana, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 12, 26, 26));
 
     Carrito.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
     Carrito.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-    add(Carrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(1267, 14, 26, 24));
+    add(Carrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 14, 26, 24));
 
     Home.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
     Home.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-    add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(1307, 13, 26, 26));
+    add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 13, 26, 26));
   }// </editor-fold>//GEN-END:initComponents
 
 

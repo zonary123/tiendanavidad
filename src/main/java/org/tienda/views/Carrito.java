@@ -16,6 +16,7 @@ import org.tienda.model.Usuarios;
 @Setter
 public class Carrito extends javax.swing.JFrame {
   private Usuarios usuario;
+  private cCarrito controlador;
 
   /**
    * Creates new form Carrito
@@ -23,7 +24,7 @@ public class Carrito extends javax.swing.JFrame {
   public Carrito(Usuarios usuario) {
     this.usuario = usuario;
     initComponents();
-    cCarrito cCarrito = new cCarrito(this);
+    controlador = new cCarrito(this);
   }
 
 

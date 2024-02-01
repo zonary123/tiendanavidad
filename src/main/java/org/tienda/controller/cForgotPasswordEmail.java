@@ -23,15 +23,6 @@ import org.tienda.utils.utilsTextField;
 public class cForgotPasswordEmail {
   private static ForgotPasswordEmail vista;
   private static utilsLenguaje lenguaje;
-
-  static {
-    try {
-      lenguaje = new utilsLenguaje();
-    } catch (IOException e) {
-      throw new RuntimeException(e);
-    }
-  }
-
   private static Usuarios u;
   private static utilsTextField TextField = new utilsTextField();
 
@@ -44,6 +35,7 @@ public class cForgotPasswordEmail {
    */
   public cForgotPasswordEmail(ForgotPasswordEmail vista) throws IOException {
     cForgotPasswordEmail.vista = vista;
+    lenguaje = new utilsLenguaje();
     initEvents();
     actualizarEstilos();
     actualizarLenguaje();
