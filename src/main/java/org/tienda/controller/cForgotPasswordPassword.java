@@ -10,6 +10,7 @@ import org.tienda.validator.validator;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
+import java.util.Locale;
 
 /**
  * The type C forgot password password.
@@ -19,14 +20,6 @@ import java.io.IOException;
 public class cForgotPasswordPassword {
   private ForgotPasswordPassword vista;
   private static utilsLenguaje lenguaje;
-
-  static {
-    try {
-      lenguaje = new utilsLenguaje();
-    } catch (IOException e) {
-      throw new RuntimeException(e);
-    }
-  }
 
   private static utilsTextField TextField = new utilsTextField();
 
@@ -39,6 +32,7 @@ public class cForgotPasswordPassword {
    */
   public cForgotPasswordPassword(ForgotPasswordPassword vista) throws IOException {
     this.vista = vista;
+    lenguaje = new utilsLenguaje();
     initEvents();
     actualizarEstilos();
     actualizarLenguaje();
@@ -74,8 +68,8 @@ public class cForgotPasswordPassword {
   }
 
   private static boolean comprobarPassword(JPasswordField newpassword, JPasswordField repeatpassword) {
-    String newPassword = String.valueOf(newpassword.getPassword());
-    String repeatPassword = String.valueOf(repeatpassword.getPassword());
+    String newPassword = String.valueOf(newpassword.getPassword()).trim();
+    String repeatPassword = String.valueOf(repeatpassword.getPassword()).trim();
     if (newPassword.isEmpty() || repeatPassword.isEmpty()) {
       newpassword.putClientProperty("JComponent.outline", new Color[]{Color.decode("#575DFB"), Color.decode("#575DFB")});
       repeatpassword.putClientProperty("JComponent.outline", new Color[]{Color.decode("#575DFB"), Color.decode("#575DFB")});
@@ -107,7 +101,7 @@ public class cForgotPasswordPassword {
     vista.getJButtonConfirmar().addActionListener(
       e -> {
         if (comprobarPassword(vista.getJPasswordFieldPassword(), vista.getJPasswordFieldPassword1())) {
-          vista.getUsuario().setPassword(String.valueOf(vista.getJPasswordFieldPassword().getPassword()));
+          vista.getUsuario().setPassword(String.valueOf(vista.getJPasswordFieldPassword().getPassword()).trim());
           if (!Usuarios.updatePassword(vista.getUsuario()))
             JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("error.update.user.password"), "Error", JOptionPane.INFORMATION_MESSAGE);
           vista.dispose();

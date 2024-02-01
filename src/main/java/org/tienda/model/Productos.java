@@ -68,7 +68,7 @@ public class Productos {
    * @throws NoResultException si no hay productos en la base de datos
    */
   public static List<Productos> findAll() throws NoResultException {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
     session.beginTransaction();
     List<Productos> productos = session.createQuery("from Productos").getResultList();
@@ -86,7 +86,7 @@ public class Productos {
    * @throws NoResultException si no hay productos con el id especificado
    */
   public static Productos findbyId(int id) throws NoResultException {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
     Productos producto = session.get(Productos.class, id);
     session.close();
@@ -104,7 +104,7 @@ public class Productos {
    * @throws NoResultException si no hay productos en la categoría especificada
    */
   public static List<Productos> findByCategoria(String cat) throws NoResultException {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
     List<Productos> productos = session.createQuery("from Productos p where p.categoria = :categoria").setParameter("categoria", cat).getResultList();
     session.close();
@@ -122,7 +122,7 @@ public class Productos {
    * @throws NoResultException si no hay productos con el nombre especificado
    */
   public static List<Productos> findByNombre(String nombre) throws NoResultException {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
     List<Productos> productos = session.createQuery("from Productos p WHERE p.nombre LIKE  :nombre")
       .setParameter("nombre", nombre + "%")
@@ -139,7 +139,7 @@ public class Productos {
    * @throws NoResultException si no hay productos en la base de datos
    */
   public static List<String> getAllProductos() {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
     List<String> categorias = session.createQuery("SELECT distinct(categoria) from Productos").getResultList();
     session.close();
@@ -152,7 +152,7 @@ public class Productos {
    * @param producto producto a eliminar
    */
   public static void delete(Productos producto) {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
     session.beginTransaction();
     session.delete(producto);
@@ -166,7 +166,7 @@ public class Productos {
    * @param producto producto a actualizar
    */
   public static void update(Productos producto) {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
     session.beginTransaction();
     session.update(producto);
@@ -180,7 +180,7 @@ public class Productos {
    * @param producto producto a guardar
    */
   public static void save(Productos producto) {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
     session.beginTransaction();
     session.save(producto);

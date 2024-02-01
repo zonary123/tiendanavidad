@@ -55,10 +55,10 @@ public class Usuarios implements java.io.Serializable {
   @OneToMany(fetch = FetchType.EAGER, mappedBy = "usuarios")
   private Set<Historialusuarios> historialusuarioses = new HashSet<>();
 
-  @OneToMany(mappedBy = "usuarios")
+  @OneToMany(fetch = FetchType.EAGER, mappedBy = "usuarios")
   private Set<Carrito> carritos = new HashSet<>();
 
-  @OneToMany(mappedBy = "usuarios")
+  @OneToMany(fetch = FetchType.EAGER, mappedBy = "usuarios")
   private Set<Compras> comprases = new HashSet<>();
 
   /**
@@ -148,7 +148,7 @@ public class Usuarios implements java.io.Serializable {
    * @return usuario usuarios
    */
   public static Usuarios findbyId(Integer id) {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
     session.beginTransaction();
     return session.get(Usuarios.class, id);
@@ -164,10 +164,12 @@ public class Usuarios implements java.io.Serializable {
    * @throws NoResultException NoResultException
    */
   public static Usuarios findByEmail(String mail) throws NoResultException {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
     session.beginTransaction();
-    return session.createQuery("from Usuarios where email = :mail", Usuarios.class).setParameter("mail", mail).getSingleResult();
+    Usuarios u = session.createQuery("from Usuarios where email = :mail", Usuarios.class).setParameter("mail", mail).getSingleResult();
+    session.close();
+    return u;
   }
 
   /**
@@ -180,7 +182,7 @@ public class Usuarios implements java.io.Serializable {
    * @throws NoResultException NoResultException
    */
   public static Usuarios findByUsername(String Username) {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
     session.beginTransaction();
     try {
@@ -198,10 +200,12 @@ public class Usuarios implements java.io.Serializable {
    * @return lista de usuarios
    */
   public static List<Usuarios> findAll() {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
     session.beginTransaction();
-    return session.createQuery("from Usuarios", Usuarios.class).list();
+    List<Usuarios> u = session.createQuery("from Usuarios", Usuarios.class).list();
+    session.close();
+    return u;
   }
 
   /**
@@ -212,11 +216,11 @@ public class Usuarios implements java.io.Serializable {
    * @return true si se ha guardado correctamente
    */
   public static boolean save(Usuarios usuario) {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
     try {
       session.beginTransaction();
-      usuario.setPassword(BCrypt.hashpw(usuario.getPassword(), BCrypt.gensalt(12)));
+      usuario.setPassword(BCrypt.hashpw(usuario.getPassword().trim(), BCrypt.gensalt(12)));
       session.save(usuario);
       session.getTransaction().commit();
       return true;
@@ -241,7 +245,7 @@ public class Usuarios implements java.io.Serializable {
    * @return true si se ha borrado correctamente el usuario, false si no
    */
   public static boolean delete(Usuarios usuario) {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
 
     try {
@@ -270,12 +274,12 @@ public class Usuarios implements java.io.Serializable {
    * @return true si se ha actualizado correctamente el usuario, false si no
    */
   public static boolean update(Usuarios usuario) {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
 
     try {
       session.beginTransaction();
-      usuario.setPassword(BCrypt.hashpw(usuario.getPassword(), BCrypt.gensalt(12)));
+      usuario.setPassword(BCrypt.hashpw(usuario.getPassword().trim(), BCrypt.gensalt(12)));
       session.update(usuario);
       session.getTransaction().commit();
       return true;
@@ -292,6 +296,16 @@ public class Usuarios implements java.io.Serializable {
     }
   }
 
+  public static boolean updateLang(Usuarios usuario) {
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
+    Session session = sessionFactory.openSession();
+    session.beginTransaction();
+    session.update(usuario);
+    session.getTransaction().commit();
+    session.close();
+    return true;
+  }
+
   /**
    * Este metodo comprueba la contraseña de un usuario
    *
@@ -301,7 +315,7 @@ public class Usuarios implements java.io.Serializable {
    * @return true si la contraseña es correcta y false si no
    */
   public static boolean checkPassword(String password, Usuarios usuario) {
-    return BCrypt.checkpw(password, usuario.getPassword());
+    return BCrypt.checkpw(password.trim(), usuario.getPassword());
   }
 
   /**
@@ -312,14 +326,14 @@ public class Usuarios implements java.io.Serializable {
    * @return true si existe el usuario, false si no
    */
   public static Usuarios existUser(Usuarios usuario) {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
     session.beginTransaction();
     Usuarios user;
     try {
       user = session.createQuery("from Usuarios where username = :username or email = :email", Usuarios.class)
-        .setParameter("username", usuario.getUsername())
-        .setParameter("email", usuario.getEmail())
+        .setParameter("username", usuario.getUsername().trim())
+        .setParameter("email", usuario.getEmail().trim())
         .getSingleResult();
     } catch (Exception e) {
       return null;
@@ -336,14 +350,13 @@ public class Usuarios implements java.io.Serializable {
    * @return true si el codigo es correcto
    */
   public static boolean checkCodigo(Usuarios usuario, String codigo) {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
     session.beginTransaction();
-    System.out.println(usuario);
     try {
       session.createQuery("from Usuarios where email = :email AND codigo = :codigo", Usuarios.class)
-        .setParameter("email", usuario.getEmail())
-        .setParameter("codigo", codigo)
+        .setParameter("email", usuario.getEmail().trim())
+        .setParameter("codigo", codigo.trim())
         .getSingleResult();
       return true;
     } catch (Exception e) {
@@ -359,13 +372,13 @@ public class Usuarios implements java.io.Serializable {
    * @return true si se ha actualizado correctamente
    */
   public static boolean updateCodigo(Usuarios u) {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
     session.beginTransaction();
     try {
       session.createQuery("update Usuarios set codigo = :codigo where email = :email")
-        .setParameter("codigo", u.getCodigo())
-        .setParameter("email", u.getEmail())
+        .setParameter("codigo", u.getCodigo().trim())
+        .setParameter("email", u.getEmail().trim())
         .executeUpdate();
       session.getTransaction().commit();
       return true;
@@ -386,13 +399,13 @@ public class Usuarios implements java.io.Serializable {
    * @return true si se ha actualizado correctamente
    */
   public static boolean updatePassword(Usuarios u) {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
     session.beginTransaction();
     try {
       session.createQuery("update Usuarios set password = :password where email = :email")
-        .setParameter("password", BCrypt.hashpw(u.getPassword(), BCrypt.gensalt(12)))
-        .setParameter("email", u.getEmail())
+        .setParameter("password", BCrypt.hashpw(u.getPassword().trim(), BCrypt.gensalt(12)))
+        .setParameter("email", u.getEmail().trim())
         .executeUpdate();
       session.getTransaction().commit();
       return true;
@@ -434,9 +447,6 @@ public class Usuarios implements java.io.Serializable {
       ", roles='" + roles + '\'' +
       ", activacion=" + activacion +
       ", codigo='" + codigo + '\'' +
-      ", historialusuarioses=" + historialusuarioses +
-      ", carritos=" + carritos +
-      ", comprases=" + comprases +
       '}';
   }
 }
