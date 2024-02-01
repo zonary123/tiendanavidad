@@ -32,8 +32,8 @@ public class utilsLenguaje {
    * @throws IOException error de lectura del fichero
    */
   public utilsLenguaje() throws IOException {
-    this.fichero = "lang/" + Locale.getDefault();
-    this.local = new Locale(this.fichero.split("_")[0]);
+    this.fichero = "lang/" + (Locale.getDefault().toString().equals("es_ES") ? "es_ES" : "en_US");
+    this.local = new Locale(Locale.getDefault().getLanguage().equals("es") ? "es" : "en");
     this.local.setDefault(Locale.getDefault());
     this.mensaje = ResourceBundle.getBundle(this.fichero, this.local);
   }

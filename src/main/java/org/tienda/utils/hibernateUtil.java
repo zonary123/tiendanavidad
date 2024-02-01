@@ -11,17 +11,24 @@ import org.hibernate.cfg.Configuration;
  */
 @Data
 public class hibernateUtil {
-  private static SessionFactory sessionFactory = buildSessionFactory();
+  private static final SessionFactory sessionFactory = buildSessionFactory("hibernate.cfg.xml");
 
-  /**
-   * Inicializacion de la conexion con la base de datos
-   *
-   * @return SessionFactory session factory
-   */
-  public static SessionFactory buildSessionFactory() {
-    Configuration configuration = new Configuration();
-    configuration.configure(
-      "hibernate.cfg.xml");
-    return configuration.buildSessionFactory();
+  private hibernateUtil() {
+    // Private constructor to enforce Singleton pattern
+  }
+
+  public static SessionFactory getSessionFactory() {
+    return sessionFactory;
+  }
+
+  public static SessionFactory buildSessionFactory(String configFilePath) {
+    try {
+      Configuration configuration = new Configuration();
+      configuration.configure(configFilePath);
+      return configuration.buildSessionFactory();
+    } catch (Throwable ex) {
+      System.err.println("SessionFactory creation failed." + ex);
+      throw new ExceptionInInitializerError(ex);
+    }
   }
 }

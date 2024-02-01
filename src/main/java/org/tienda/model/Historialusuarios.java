@@ -73,7 +73,7 @@ public class Historialusuarios implements java.io.Serializable {
    * @return the list
    */
   public static List<Historialusuarios> findAll() {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     try (Session session = sessionFactory.openSession()) {
       session.beginTransaction();
       try {
@@ -89,7 +89,7 @@ public class Historialusuarios implements java.io.Serializable {
 
 
   public static Historialusuarios findRecent(Usuarios usuario) {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     try (Session session = sessionFactory.openSession()) {
       session.beginTransaction();
 
@@ -120,7 +120,7 @@ public class Historialusuarios implements java.io.Serializable {
    */
   public static boolean save(Historialusuarios historialusuarios) {
 
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
     session.beginTransaction();
     try {
@@ -143,7 +143,7 @@ public class Historialusuarios implements java.io.Serializable {
    * @return the boolean
    */
   public static boolean update(Historialusuarios historialusuarios) {
-    SessionFactory sessionFactory = hibernateUtil.buildSessionFactory();
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
     session.beginTransaction();
 
@@ -167,6 +167,7 @@ public class Historialusuarios implements java.io.Serializable {
     Historialusuarios historialusuarios = new Historialusuarios();
     historialusuarios.setId(Historialusuarios.findRecent(usuario).getId());
     historialusuarios.setFechafinsesion(Timestamp.valueOf(LocalDateTime.now()));
+    historialusuarios.setUsuarios(usuario);
     Historialusuarios.update(historialusuarios);
     vista.dispose();
   }
