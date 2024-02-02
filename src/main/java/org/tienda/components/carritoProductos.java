@@ -47,7 +47,7 @@ public class carritoProductos extends javax.swing.JPanel {
     cantidad.setValue(carrito.getCantidad());
     //precio.setText(carrito.getCantidad() * carrito.getProductos().getPrecio() + "€");
     IMG.setText(null);
-    IMG.setIcon(new ImageIcon(getClass().getResource("/img/productos/" + new Random().nextInt(1, 4) + ".png")));
+    IMG.setIcon(new ImageIcon(getClass().getResource(producto.getImagen() == null ? "" : producto.getImagen())));
   }
 
   private void initEvents() {
