@@ -109,11 +109,11 @@ public class Header extends javax.swing.JPanel {
   }
 
   private void hoverEntered(JComponent componente) {
-    componente.setBackground(Color.gray);
+    componente.setForeground(Color.gray);
   }
 
   private void hoverExited(JComponent component) {
-    component.setBackground(Color.BLACK);
+    component.setForeground(Color.BLACK);
   }
 
   private void lang(String locale) {

@@ -47,7 +47,7 @@ public class carritoProductos extends javax.swing.JPanel {
     cantidad.setValue(carrito.getCantidad());
     //precio.setText(carrito.getCantidad() * carrito.getProductos().getPrecio() + "€");
     IMG.setText(null);
-    IMG.setIcon(new ImageIcon(getClass().getResource("/img/productos/" + new Random().nextInt(1, 4) + ".png")));
+    IMG.setIcon(new ImageIcon(getClass().getResource(producto.getImagen() == null ? "" : producto.getImagen())));
   }
 
   private void initEvents() {
@@ -70,7 +70,7 @@ public class carritoProductos extends javax.swing.JPanel {
         Carrito.updateCant(producto.getIdproducto(), vista.getUsuario(), (Integer) cantidad.getValue());
         carrito.setCantidad((Integer) cantidad.getValue());
         //precio.setText(carrito.getCantidad() * carrito.getProductos().getPrecio() + "€");
-        jLabelInformacion.setText(producto.getNombre() + (carrito.getCantidad() == 1 ? "" : " x " + carrito.getCantidad()) + " = " + carrito.getCantidad() * carrito.getProductos().getPrecio() + "€");
+        jLabelInformacion.setText("<html><span style='color: #0FF;'>" + producto.getNombre() + "</span><span style='color: #0FF;'>" + (carrito.getCantidad() * carrito.getProductos().getPrecio()) + "</span></span></html>€");
         if ((int) cantidad.getValue() < 1) {
           Carrito.deleteProducto(vista.getUsuario(), producto);
           try {

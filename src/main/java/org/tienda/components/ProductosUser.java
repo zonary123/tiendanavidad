@@ -101,8 +101,7 @@ public class ProductosUser extends javax.swing.JPanel {
       + "</html>\n");
     Descripcion.setText(producto.getDescripcion() == null ? "undefined" : producto.getDescripcion());
     IMG.setText(null);
-    IMG.setIcon(new ImageIcon(getClass().getResource("/img/productos/" + new Random().nextInt(1, 4) + ".png")));
-    IMG.putClientProperty("FlatLaf.style", "arc: 16");
+    IMG.setIcon(new ImageIcon(getClass().getResource(producto.getImagen() == null ? "" : producto.getImagen())));
   }
 
   /**
