@@ -85,6 +85,35 @@ public class Header extends javax.swing.JPanel {
           break;
       }
     });
+
+
+    getCarrito().addMouseListener(new MouseAdapter() {
+      @Override public void mouseEntered(MouseEvent e) {
+        hoverEntered(getCarrito());
+      }
+
+      @Override public void mouseExited(MouseEvent e) {
+        hoverExited(getCarrito());
+      }
+    });
+
+    getCampana().addMouseListener(new MouseAdapter() {
+      @Override public void mouseEntered(MouseEvent e) {
+        hoverEntered(getCampana());
+      }
+
+      @Override public void mouseExited(MouseEvent e) {
+        hoverExited(getCampana());
+      }
+    });
+  }
+
+  private void hoverEntered(JComponent componente) {
+    componente.setForeground(Color.gray);
+  }
+
+  private void hoverExited(JComponent component) {
+    component.setForeground(Color.BLACK);
   }
 
   private void lang(String locale) {

@@ -48,8 +48,8 @@ public class Productos {
   @Column(length = 30)
   private String categoria;
 
-  @Column(name = "imagen")
-  private byte[] imagen;
+  @Column(name = "imagen", length = 50)
+  private String imagen;
 
   @Column(name = "stock")
   private Integer stock;

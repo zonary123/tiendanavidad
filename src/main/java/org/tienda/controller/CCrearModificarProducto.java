@@ -12,6 +12,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.Random;
 
 /**
  * @author Carlos Varas Alonso - 25/01/2024 3:56
@@ -99,6 +100,8 @@ public class CCrearModificarProducto {
     vista.getJTextFieldNombre().requestFocus();
     vista.getBoton().requestFocusInWindow();
 
+
+    // No es necesario tanto if
     if (vista.getOpcion() == CrearModificarProducto.CREAR) {
       vista.getBoton().addActionListener(e -> {
         producto = new Productos();
@@ -107,6 +110,7 @@ public class CCrearModificarProducto {
         producto.setPrecio(vista.getJTextFieldPrecio().getText().isEmpty() ? 0 : Float.parseFloat(vista.getJTextFieldPrecio().getText()));
         producto.setDescuento(vista.getJTextFieldDescuento().getText().isEmpty() ? 0 : Float.parseFloat(vista.getJTextFieldDescuento().getText()));
         producto.setCategoria("PC");
+        producto.setImagen("/img/productos/" + new Random().nextInt(1, 3) + ".png");
         if (comprobarDatosProducto(producto)) {
           Productos.save(producto);
           vista.dispose();
@@ -126,6 +130,7 @@ public class CCrearModificarProducto {
         producto.setPrecio(vista.getJTextFieldPrecio().getText().isEmpty() ? 0 : Float.parseFloat(vista.getJTextFieldPrecio().getText()));
         producto.setDescuento(vista.getJTextFieldDescuento().getText().isEmpty() ? 0 : Float.parseFloat(vista.getJTextFieldDescuento().getText()));
         producto.setCategoria("PC");
+        producto.setImagen("/img/productos/" + new Random().nextInt(1, 3) + ".png");
         if (comprobarDatosProducto(producto)) {
           Productos.update(producto);
           vista.dispose();

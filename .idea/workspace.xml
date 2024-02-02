@@ -12,8 +12,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="a">
+    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="Hover en iconos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/components/Header.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/components/Header.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/components/ProductosAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/components/ProductosAdmin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/components/ProductosUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/components/ProductosUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/components/carritoProductos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/components/carritoProductos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/controller/CCrearModificarProducto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/controller/CCrearModificarProducto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/model/Productos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/model/Productos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/alimentacion.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/alimentacion.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +42,6 @@
     <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
-    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -112,7 +118,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
@@ -143,7 +149,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="org.tienda.views.Login" />
-      <module name="tiendanavidad" />
+      <module name="tiendanavidad_CarlosVarasAlonso" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -191,7 +197,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.9-corretto-17.0.9-f644763e9732-ebaef533" />
+        <option value="jdk-17.0.9-corretto-17.0.9-3183f394aec4-8f899f12" />
       </set>
     </attachedChunks>
   </component>
@@ -272,12 +278,9 @@
       <workItem from="1706581745547" duration="6150000" />
       <workItem from="1706628645356" duration="5232000" />
       <workItem from="1706744318820" duration="1979000" />
-      <workItem from="1706752380145" duration="5102000" />
-      <workItem from="1706764459469" duration="9000" />
-      <workItem from="1706786588015" duration="2519000" />
-      <workItem from="1706802068231" duration="823000" />
-      <workItem from="1706828247742" duration="276000" />
-      <workItem from="1706883155063" duration="23000" />
+      <workItem from="1706752380145" duration="4357000" />
+      <workItem from="1706890781427" duration="468000" />
+      <workItem from="1706898428692" duration="2146000" />
     </task>
     <task id="LOCAL-00001" summary="Arreglos en Home">
       <option name="closed" value="true" />
@@ -375,31 +378,7 @@
       <option name="project" value="LOCAL" />
       <updated>1706735735405</updated>
     </task>
-    <task id="LOCAL-00013" summary="Traduccion de vistas mejor hecho, Corregido actualizacion de contraseña al cambiar idioma, imagenes">
-      <option name="closed" value="true" />
-      <created>1706757361980</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1706757361980</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Traduccion de vistas mejor hecho, Corregido actualizacion de contraseña al cambiar idioma, imagenes">
-      <option name="closed" value="true" />
-      <created>1706802178485</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1706802178485</updated>
-    </task>
-    <task id="LOCAL-00015" summary="a">
-      <option name="closed" value="true" />
-      <created>1706828359818</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1706828359818</updated>
-    </task>
-    <option name="localTasksCounter" value="16" />
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -426,12 +405,10 @@
     <MESSAGE value="error informacion del carrito arreglado" />
     <MESSAGE value="cosas" />
     <MESSAGE value="Buscar por categorias, Haciendo el modificar y añadir productos, Eliminar productos hecho" />
+    <MESSAGE value="a" />
     <MESSAGE value="Poniendo comentarios en las clases y validando datos en CrearModificarProducto." />
     <MESSAGE value="Header" />
-    <MESSAGE value="Traduccion de vistas mejor hecho, Corregido actualizacion de contraseña al cambiar idioma, imagenes" />
-    <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/org/tienda/components/ProductosUser.java" />
-    <MESSAGE value="a" />
-    <option name="LAST_COMMIT_MESSAGE" value="a" />
+    <option name="LAST_COMMIT_MESSAGE" value="Header" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
