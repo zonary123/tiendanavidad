@@ -12,10 +12,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="Arreglando imagenes y imagenes en la base de datos como direcciones de carpeta">
+    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="a">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/components/carritoProductos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/components/carritoProductos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/img/svg/basura.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/svg/basura.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/estructura.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/estructura.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,38 +91,38 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Application.Alimentacion.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Principal.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Pruebas.executor&quot;: &quot;Run&quot;,
-    &quot;Application.utilsLenguaje.executor&quot;: &quot;Run&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;JUnit.HistorialUsuarioTest.findRecent.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.TestSuite.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/carlos/Desktop/tiendanavidad/src/main/resources/img/productos&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.Alimentacion.executor": "Run",
+    "Application.Principal.executor": "Run",
+    "Application.Pruebas.executor": "Run",
+    "Application.utilsLenguaje.executor": "Run",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JUnit.HistorialUsuarioTest.findRecent.executor": "Debug",
+    "JUnit.TestSuite.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/carlos/Desktop/tiendanavidad/src/main/resources/img/productos",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.new.ui"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mariadb&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.tienda.views" />
@@ -144,7 +146,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="org.tienda.views.Login" />
-      <module name="tiendanavidad_CarlosVarasAlonso" />
+      <module name="tiendanavidad" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -192,7 +194,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.9-corretto-17.0.9-3183f394aec4-8f899f12" />
+        <option value="jdk-17.0.9-corretto-17.0.9-f644763e9732-ebaef533" />
       </set>
     </attachedChunks>
   </component>
@@ -276,9 +278,7 @@
       <workItem from="1706752380145" duration="4357000" />
       <workItem from="1706890781427" duration="468000" />
       <workItem from="1706898428692" duration="2146000" />
-      <workItem from="1706901845834" duration="1565000" />
-      <workItem from="1706903432003" duration="168000" />
-      <workItem from="1706903684320" duration="840000" />
+      <workItem from="1707099499618" duration="34000" />
     </task>
     <task id="LOCAL-00001" summary="Arreglos en Home">
       <option name="closed" value="true" />
@@ -376,15 +376,7 @@
       <option name="project" value="LOCAL" />
       <updated>1706735735405</updated>
     </task>
-    <task id="LOCAL-00013" summary="Arreglando imagenes y imagenes en la base de datos como direcciones de carpeta">
-      <option name="closed" value="true" />
-      <created>1706903362028</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1706903362028</updated>
-    </task>
-    <option name="localTasksCounter" value="14" />
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -414,8 +406,7 @@
     <MESSAGE value="a" />
     <MESSAGE value="Poniendo comentarios en las clases y validando datos en CrearModificarProducto." />
     <MESSAGE value="Header" />
-    <MESSAGE value="Arreglando imagenes y imagenes en la base de datos como direcciones de carpeta" />
-    <option name="LAST_COMMIT_MESSAGE" value="Arreglando imagenes y imagenes en la base de datos como direcciones de carpeta" />
+    <option name="LAST_COMMIT_MESSAGE" value="Header" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
