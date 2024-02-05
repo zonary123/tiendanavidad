@@ -91,7 +91,6 @@ public class ProductosUser extends javax.swing.JPanel {
     int anchoOriginal = (int) Precio.getPreferredSize().getWidth();
     Precio.setLocation(Precio.getX(), Precio.getY());
     Precio.setPreferredSize(new Dimension(anchoOriginal * 2, (int) Precio.getPreferredSize().getHeight()));
-
   }
 
   private void setDatos(Productos producto) {

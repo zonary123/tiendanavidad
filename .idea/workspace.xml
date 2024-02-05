@@ -12,12 +12,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="a">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="Arreglando imagenes y imagenes en la base de datos como direcciones de carpeta">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/configuracion.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/java/org/tienda/test/lang/en_US_Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/java/org/tienda/test/lang/es_ES_Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/java/org/tienda/test/model/HistorialUsuarioTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/java/org/tienda/test/model/ProductosTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/java/org/tienda/test/model/UsuariosTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/java/org/tienda/test/suite/TestSuite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/java/org/tienda/test/utils/EmailTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/resources/logback-test.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/components/carritoProductos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/components/carritoProductos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/components/ProductosUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/components/ProductosUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/img/svg/basura.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/svg/basura.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/estructura.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/estructura.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tienda/test/Views/HomeTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tienda/test/lang/en_US_Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tienda/test/lang/es_ES_Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tienda/test/model/HistorialUsuarioTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tienda/test/model/ProductosTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tienda/test/model/UsuariosTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tienda/test/suite/TestSuite.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tienda/test/utils/EmailTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/logback-test.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +73,9 @@
         <option name="url" value="https://github.com/zonary123/tiendanavidad" />
       </UrlAndAccount>
     </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/jaxb-runtime/2.3.1/jaxb-runtime-2.3.1.jar!/com/sun/xml/bind/v2/model/impl/ModelBuilder.class" root0="SKIP_INSPECTION" />
   </component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
@@ -100,6 +119,7 @@
     "Application.utilsLenguaje.executor": "Run",
     "DefaultHtmlFileTemplate": "HTML File",
     "JUnit.HistorialUsuarioTest.findRecent.executor": "Debug",
+    "JUnit.ProductosTest.findById.executor": "Debug",
     "JUnit.TestSuite.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -115,7 +135,7 @@
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.new.ui"
+    "settings.editor.selected.configurable": "preferences.editor"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -146,7 +166,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="org.tienda.views.Login" />
-      <module name="tiendanavidad" />
+      <module name="tiendanavidad_CarlosVarasAlonso" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -194,7 +214,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.9-corretto-17.0.9-f644763e9732-ebaef533" />
+        <option value="jdk-17.0.9-corretto-17.0.9-3183f394aec4-8f899f12" />
       </set>
     </attachedChunks>
   </component>
@@ -279,6 +299,9 @@
       <workItem from="1706890781427" duration="468000" />
       <workItem from="1706898428692" duration="2146000" />
       <workItem from="1707099499618" duration="34000" />
+      <workItem from="1707149998318" duration="59000" />
+      <workItem from="1707150115349" duration="1778000" />
+      <workItem from="1707152100285" duration="2433000" />
     </task>
     <task id="LOCAL-00001" summary="Arreglos en Home">
       <option name="closed" value="true" />

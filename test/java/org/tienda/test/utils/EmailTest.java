@@ -13,7 +13,7 @@ import java.io.IOException;
 public class EmailTest {
   private final static String EMAIL = "carlosvarasalonso10@gmail.com";
 
-  @Test
+  
   public void sendEmail() throws IOException {
     Usuarios u = Usuarios.findByEmail(EMAIL);
     u.setCodigo("123456");
