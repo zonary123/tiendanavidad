@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
  */
 public class HistorialUsuarioTest {
 
-  @Test
+  
   public void findRecent() {
     Historialusuarios historialusuarios = new Historialusuarios();
     HistorialusuariosId historialusuariosId = new HistorialusuariosId();

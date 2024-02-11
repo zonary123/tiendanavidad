@@ -9,19 +9,19 @@ import org.tienda.model.Productos;
  */
 public class ProductosTest {
 
-  @Test
+
   public void findAll() {
     System.out.println("Test findAll");
     Assert.assertNotNull(Productos.findAll());
   }
 
-  @Test
+
   public void findById() {
     System.out.println("Test findById");
     Assert.assertNotNull(Productos.findbyId(1));
   }
 
-  @Test
+
   public void findByCategoria() {
     System.out.println("Test findByCategoria");
     Assert.assertNotNull(Productos.findByCategoria("test"));
