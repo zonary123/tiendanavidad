@@ -141,11 +141,24 @@ public class ProductosAdmin extends javax.swing.JPanel {
    * @param producto Producto a mostrar
    */
   private void setDatos(Productos producto) {
-    Nombre.setText(producto.getNombre() == null ? "undefined" : producto.getNombre());
+    int limiteCaracteres = 12;
+    String nombreProducto = producto.getNombre();
+    String nombreFormateado;
+
+    if (nombreProducto.length() > limiteCaracteres) {
+      nombreFormateado = "<html><p style='text-align: center;'>" + nombreProducto.substring(0, limiteCaracteres) + "...</p></html>";
+      Nombre.setToolTipText(producto.getNombre());
+    } else {
+      nombreFormateado = "<html><p style='text-align: center;'>" + nombreProducto + "</p></html>";
+    }
+
+    Nombre.setText(nombreFormateado);
     Precio.setText("<html>\n"
-      + "  <p style='text-align: right; font-size: 12px;'>" + producto.getPrecio() + "€</p>\n"
+      + "  <p style='text-align: right; font-size: 12px; direction: rtl;'>" + producto.getPrecio() + "€</p>\n"
       + "</html>\n");
-    Descripcion.setText(producto.getDescripcion() == null ? "undefined" : producto.getDescripcion());
+    Descripcion.setText("<html>\n"
+      + "  <p style='text-align: justify;'>" + (producto.getDescripcion() == null ? "undefined" : producto.getDescripcion()) + "</p>\n"
+      + "</html>\n");
     IMG.setText(null);
     IMG.setIcon(new ImageIcon(getClass().getResource(producto.getImagen() == null ? "" : producto.getImagen())));
   }

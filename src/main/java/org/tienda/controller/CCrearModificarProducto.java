@@ -8,6 +8,7 @@ import org.tienda.validator.validator;
 import org.tienda.views.HomeUser;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -126,7 +127,18 @@ public class CCrearModificarProducto {
     vista.getRootPane().setDefaultButton(vista.getBoton());
     vista.getJTextFieldNombre().requestFocus();
     vista.getBoton().requestFocusInWindow();
-
+    
+    vista.getSeleccionarImagen().addActionListener(new ActionListener() {
+      @Override public void actionPerformed(ActionEvent e) {
+        JFileChooser j = new JFileChooser();
+        j.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        j.setFileFilter(new FileNameExtensionFilter("JPG & PNG imagenes", "jpg", "png"));
+        int estado = j.showOpenDialog(null);
+        if (estado == JFileChooser.APPROVE_OPTION) {
+          vista.getSeleccionarImagen().setText(j.getSelectedFile().getName());
+        }
+      }
+    });
 
     // No es necesario tanto if
     if (vista.getOpcion() == CrearModificarProducto.CREAR) {

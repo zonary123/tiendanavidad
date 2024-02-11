@@ -12,7 +12,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="Arreglando imagenes y imagenes en la base de datos como direcciones de carpeta" />
+    <list default="true" id="adc98573-a787-483e-ae29-bcd132f7e648" name="Changes" comment="Añadido comentarios de javadoc en todos los metodos y funciones">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sql/tienda.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/components/ProductosAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/components/ProductosAdmin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/components/ProductosUser.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/components/ProductosUser.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/components/ProductosUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/components/ProductosUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tienda/controller/CCrearModificarProducto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tienda/controller/CCrearModificarProducto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/lang/en_US.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lang/en_US.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/alimentacion.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/estructura.sql" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -130,11 +140,11 @@
       <recent name="C:\Users\carlos\Desktop\tiendanavidad\src\main\resources\img\productos" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\carlos\Desktop\tiendanavidad\src\main\resources\sql" />
       <recent name="C:\Users\carlos\Desktop\tiendanavidad\src\main\resources\img\user" />
       <recent name="C:\Users\carlos\Desktop\tiendanavidad\src\main\java\org\tienda\components" />
       <recent name="C:\Users\carlos\Desktop\tiendanavidad\src\main\java\org\tienda\Views" />
       <recent name="C:\Users\carlos\Desktop\tiendanavidad\src\main\resources\font\inter" />
-      <recent name="C:\Users\Alumno\Desktop\tiendanavidad\src\main\resources\img\svg" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.tienda.components" />
@@ -145,7 +155,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="org.tienda.views.Login" />
-      <module name="tiendanavidad_CarlosVarasAlonso" />
+      <module name="tiendanavidad" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -378,7 +388,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706735735405</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Añadido comentarios de javadoc en todos los metodos y funciones">
+      <option name="closed" value="true" />
+      <created>1707672809309</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1707672809309</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -408,7 +426,8 @@
     <MESSAGE value="a" />
     <MESSAGE value="Poniendo comentarios en las clases y validando datos en CrearModificarProducto." />
     <MESSAGE value="Header" />
-    <option name="LAST_COMMIT_MESSAGE" value="Header" />
+    <MESSAGE value="Añadido comentarios de javadoc en todos los metodos y funciones" />
+    <option name="LAST_COMMIT_MESSAGE" value="Añadido comentarios de javadoc en todos los metodos y funciones" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

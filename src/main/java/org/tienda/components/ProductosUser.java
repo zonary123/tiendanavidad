@@ -100,9 +100,9 @@ public class ProductosUser extends javax.swing.JPanel {
    * Posiciona los elementos del componente
    */
   private void posicionar() {
-    int anchoOriginal = (int) Precio.getPreferredSize().getWidth();
+/*    int anchoOriginal = (int) Precio.getPreferredSize().getWidth();
     Precio.setLocation(Precio.getX(), Precio.getY());
-    Precio.setPreferredSize(new Dimension(anchoOriginal * 2, (int) Precio.getPreferredSize().getHeight()));
+    Precio.setPreferredSize(new Dimension(anchoOriginal * 2, (int) Precio.getPreferredSize().getHeight()));*/
   }
 
   /**
@@ -111,11 +111,24 @@ public class ProductosUser extends javax.swing.JPanel {
    * @param producto Producto a mostrar
    */
   private void setDatos(Productos producto) {
-    Nombre.setText(producto.getNombre() == null ? "undefined" : producto.getNombre());
+    int limiteCaracteres = 12;
+    String nombreProducto = producto.getNombre();
+    String nombreFormateado;
+
+    if (nombreProducto.length() > limiteCaracteres) {
+      nombreFormateado = "<html><p style='text-align: center;'>" + nombreProducto.substring(0, limiteCaracteres) + "...</p></html>";
+      Nombre.setToolTipText(producto.getNombre());
+    } else {
+      nombreFormateado = "<html><p style='text-align: center;'>" + nombreProducto + "</p></html>";
+    }
+
+    Nombre.setText(nombreFormateado);
     Precio.setText("<html>\n"
-      + "  <p style='text-align: right; font-size: 12px;'>" + producto.getPrecio() + "€</p>\n"
+      + "  <p style='text-align: right; font-size: 12px; direction: rtl;'>" + producto.getPrecio() + "€</p>\n"
       + "</html>\n");
-    Descripcion.setText(producto.getDescripcion() == null ? "undefined" : producto.getDescripcion());
+    Descripcion.setText("<html>\n"
+      + "  <p style='text-align: justify;'>" + (producto.getDescripcion() == null ? "undefined" : producto.getDescripcion()) + "</p>\n"
+      + "</html>\n");
     IMG.setText(null);
     IMG.setIcon(new ImageIcon(getClass().getResource(producto.getImagen() == null ? "" : producto.getImagen())));
   }
@@ -153,14 +166,16 @@ public class ProductosUser extends javax.swing.JPanel {
 
     Precio.setFont(new java.awt.Font("Inter SemiBold", 0, 20)); // NOI18N
     Precio.setForeground(new java.awt.Color(87, 93, 251));
-    Precio.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+    Precio.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
     Precio.setText("200€");
+    Precio.setToolTipText("");
     Precio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
     Precio.setPreferredSize(new java.awt.Dimension(100, 15));
     add(Precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, -1, 20));
     Precio.getAccessibleContext().setAccessibleParent(this);
 
     Descripcion.setText("Descripcion");
+    Descripcion.setVerticalAlignment(javax.swing.SwingConstants.TOP);
     add(Descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 291, 300, 78));
     Descripcion.getAccessibleContext().setAccessibleParent(this);
 
