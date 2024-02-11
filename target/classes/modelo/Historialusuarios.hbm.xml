@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 21 dic 2023 17:36:10 by Hibernate Tools 6.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="tienda" name="modelo.Historialusuarios" optimistic-lock="none" table="historialusuarios">
+        <composite-id class="modelo.HistorialusuariosId" name="id">
+            <key-property name="fechainiciosesion" type="timestamp">
+                <column length="19" name="fechainiciosesion"/>
+            </key-property>
+            <key-property name="idusuario" type="int">
+                <column name="idusuario"/>
+            </key-property>
+        </composite-id>
+        <many-to-one class="modelo.Usuarios" fetch="select" insert="false" name="usuarios" update="false">
+            <column name="idusuario" not-null="true"/>
+        </many-to-one>
+        <property name="fechafinsesion" type="timestamp">
+            <column length="19" name="fechafinsesion"/>
+        </property>
+    </class>
+</hibernate-mapping>
