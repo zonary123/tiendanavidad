@@ -27,6 +27,11 @@ public class cCarrito {
   @Setter private static utilsLenguaje lenguaje;
 
 
+  /**
+   * Constructor del controlador del carrito
+   *
+   * @param vista Vista del carrito
+   */
   public cCarrito(Carrito vista) {
     this.vista = vista;
     this.lenguaje = new utilsLenguaje(vista.getUsuario());
@@ -42,14 +47,22 @@ public class cCarrito {
   }
 
 
+  /**
+   * Actualiza el idioma del componente
+   */
   public void actualizarLenguaje() {
     vista.getComprar().setText(lenguaje.getMensaje().getString("comprar"));
     vista.getTotal().setText("Total: " + org.tienda.model.Carrito.calcTotal(vista.getUsuario()) + "€");
   }
 
+  /**
+   * Actualiza los estilos del componente
+   */
   public void actualizarEstilos() {
     // Estilos
     vista.getInformacion().putClientProperty("FlatLaf.style", "arc: 16");
+    vista.getCerrar().putClientProperty("FlatLaf.style", "arc: 999");
+    vista.getCerrar().setCursor(new Cursor(Cursor.HAND_CURSOR));
     // Posicion
     Header header = new Header(vista, vista.getUsuario());
     header.remove(header.getSearch());
@@ -57,6 +70,13 @@ public class cCarrito {
 
   }
 
+  /**
+   * Muestra los productos del carrito
+   *
+   * @param productos Productos del carrito
+   *
+   * @throws IOException Error al cargar el archivo de idioma
+   */
   public void mostrarProductos(List<Productos> productos) throws IOException {
     JPanel panelProductos = vista.getContainerProductosCarrito();
     panelProductos.setLayout(new GridLayout(productos.size() == 0 ? 1 : productos.size(), 0, 0, 24));
@@ -72,6 +92,9 @@ public class cCarrito {
     panelProductos.repaint();
   }
 
+  /**
+   * Inicializa los eventos del componente
+   */
   public void initEvents() {
     vista.addWindowListener(new WindowAdapter() {
       @Override public void windowClosed(WindowEvent e) {
@@ -80,5 +103,4 @@ public class cCarrito {
       }
     });
   }
-
 }

@@ -22,9 +22,6 @@ import javax.mail.internet.MimeMessage;
 public class EmailUtil {
   private final static String FROMEMAIL = "carlosvarasalonso.clases@gmail.com";
   private final static String PASSWORD = "kaptgyvimqwszdva";
-  /**
-   * The constant OPCION_ENVIAR_CODIGO.
-   */
   public final static int OPCION_ENVIAR_CODIGO = 1;
   public final static int OPCION_BIENVENIDA = 2;
 
@@ -91,6 +88,17 @@ public class EmailUtil {
     }
   }
 
+  /**
+   * Opciones boolean.
+   *
+   * @param opcion  La opcion a elegir
+   * @param u       el usuario al que se le envia el email
+   * @param session la sesion de email
+   *
+   * @return the boolean
+   *
+   * @throws IOException el error de entrada y salida
+   */
   private static boolean opciones(int opcion, Usuarios u, Session session) throws IOException {
     switch (opcion) {
       case OPCION_ENVIAR_CODIGO:
@@ -136,6 +144,15 @@ public class EmailUtil {
     return body.toString();
   }
 
+  /**
+   * Lee el html
+   *
+   * @param path el path del html a leer
+   *
+   * @return el html
+   *
+   * @throws IOException el error de entrada y salida
+   */
   public static String leerHtml(String path) throws IOException {
     StringBuilder body = new StringBuilder();
     String linea;

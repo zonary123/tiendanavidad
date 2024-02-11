@@ -28,7 +28,7 @@ public class carritoProductos extends javax.swing.JPanel {
   private Carrito carrito;
 
   /**
-   * Creates new form carritoProductos
+   * Constructor del componente carrito de productos
    */
   public carritoProductos(org.tienda.views.Carrito vista, Productos producto) {
     this.producto = producto;
@@ -42,6 +42,9 @@ public class carritoProductos extends javax.swing.JPanel {
     initEvents();
   }
 
+  /**
+   * Establece los datos del producto en el componente4
+   */
   private void setDatos() {
     jLabelInformacion.setText("<html>" + producto.getNombre() + " <span style='color: #575DFB;'>" + (producto.getPrecio() * carrito.getCantidad()) + "€" + "</span></html>");
     cantidad.setValue(carrito.getCantidad());
@@ -49,7 +52,11 @@ public class carritoProductos extends javax.swing.JPanel {
     IMG.setIcon(new ImageIcon(getClass().getResource(producto.getImagen() == null ? "" : producto.getImagen())));
   }
 
+  /**
+   * Inicializa los eventos del componente
+   */
   private void initEvents() {
+    // Evento para eliminar el producto del carrito
     delete.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
@@ -63,6 +70,8 @@ public class carritoProductos extends javax.swing.JPanel {
         vista.getTotal().setText("Total: " + Carrito.calcTotal(vista.getUsuario()) + "€");
       }
     });
+
+    // Evento para cambiar la cantidad del producto
     cantidad.addChangeListener(new ChangeListener() {
       @Override public void stateChanged(ChangeEvent e) {
 
@@ -82,6 +91,11 @@ public class carritoProductos extends javax.swing.JPanel {
     });
   }
 
+  /**
+   * Muestra los productos en el carrito
+   *
+   * @param productos Lista de productos
+   */
   public void mostrarProductos(List<Productos> productos) throws IOException {
     JPanel panelProductos = vista.getContainerProductosCarrito();
     panelProductos.setLayout(new GridLayout(productos.size() == 0 ? 1 : productos.size(), 0, 0, 24));
@@ -97,11 +111,12 @@ public class carritoProductos extends javax.swing.JPanel {
     panelProductos.repaint();
   }
 
+  /**
+   * Actualiza los estilos del componente
+   */
   private void actualizarEstilos() {
     delete.putClientProperty("FlatLaf.style", "arc: 8");
     delete.setIcon(new FlatSVGIcon("img/svg/basura.svg"));
-
-    //precio.setLocation(0, 0);
   }
 
   /**

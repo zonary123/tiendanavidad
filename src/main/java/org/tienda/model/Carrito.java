@@ -36,16 +36,18 @@ public class Carrito {
   @Column(name = "cantidad")
   private Integer cantidad;
 
+
   /**
-   * Instantiates a new Carrito.
+   * Constructor de la clase
    *
-   * @param id       the id
-   * @param cantidad the cantidad
+   * @param id       id del carrito
+   * @param cantidad cantidad del producto
    */
   public Carrito(CarritoId id, Integer cantidad) {
     this.id = id;
     this.cantidad = cantidad;
   }
+
   // ? SELECTS
 
   /**
@@ -74,6 +76,14 @@ public class Carrito {
     return false;
   }
 
+  /**
+   * Busca un producto en el carrito
+   *
+   * @param producto Producto a buscar
+   * @param usuario  Usuario que tiene el carrito
+   *
+   * @return Carrito si existe, null si no
+   */
   public static Carrito findByProductoAndUsuario(Productos producto, Usuarios usuario) {
     SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
@@ -88,6 +98,13 @@ public class Carrito {
     }
   }
 
+  /**
+   * Busca un producto en el carrito
+   *
+   * @param usuario Usuario que tiene el carrito
+   *
+   * @return Carrito si existe, null si no
+   */
   public static List<Productos> getProductos(Usuarios usuario) {
     SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
@@ -107,7 +124,7 @@ public class Carrito {
    * Actualiza la cantidad de un producto en el carrito
    *
    * @param id      id del producto
-   * @param usuario Usuario
+   * @param usuario Usuario que tiene el carrito
    *
    * @return true si se ha actualizado, false si no
    */
@@ -130,6 +147,15 @@ public class Carrito {
     return true;
   }
 
+  /**
+   * Actualiza la cantidad de un producto en el carrito
+   *
+   * @param id       id del producto
+   * @param usuario  Usuario que tiene el carrito
+   * @param cantidad cantidad del producto
+   *
+   * @return true si se ha actualizado, false si no
+   */
   public static boolean updateCant(int id, Usuarios usuario, int cantidad) {
     SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
@@ -223,6 +249,14 @@ public class Carrito {
     }
   }
 
+  /**
+   * Busca un producto en el carrito
+   *
+   * @param idproducto id del producto
+   * @param usuario    Usuario que tiene el carrito
+   *
+   * @return Carrito si existe, null si no
+   */
   public static Carrito findProductoByCarrito(Integer idproducto, Usuarios usuario) {
     SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
@@ -238,6 +272,14 @@ public class Carrito {
     }
   }
 
+  /**
+   * Calcula el precio total de un producto en el carrito de compras de un usuario.
+   *
+   * @param usuario    el usuario para el cual se calculará el precio total
+   * @param idproducto el identificador del producto para el cual se calculará el precio total
+   *
+   * @return el precio total del producto en el carrito de compras, o 0 si ocurre un error
+   */
   public static double calcTotal(Usuarios usuario, Integer idproducto) {
     SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();

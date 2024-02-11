@@ -23,6 +23,13 @@ public class CCrearModificarProducto {
   private final utilsLenguaje lenguaje;
   private final HomeUser vistaHome;
 
+  /**
+   * Constructor de la clase
+   *
+   * @param vista     Vista de la clase
+   * @param vistaHome Vista de la clase HomeUser
+   * @param producto  Producto a modificar
+   */
   public CCrearModificarProducto(CrearModificarProducto vista, HomeUser vistaHome, Productos producto) {
     this.vista = vista;
     this.producto = producto;
@@ -36,6 +43,12 @@ public class CCrearModificarProducto {
     }
   }
 
+  /**
+   * Constructor de la clase
+   *
+   * @param vista     Vista de la clase
+   * @param vistaHome Vista de la clase HomeUser
+   */
   public CCrearModificarProducto(CrearModificarProducto vista, HomeUser vistaHome) {
     this.vista = vista;
     this.vistaHome = vistaHome;
@@ -45,6 +58,11 @@ public class CCrearModificarProducto {
     initEvents();
   }
 
+  /**
+   * Actualiza el idioma del componente
+   *
+   * @param producto Producto a mostrar
+   */
   private void setDatos(Productos producto) {
     vista.getJTextFieldNombre().setText(producto.getNombre());
     vista.getJTextFieldDescripcion().setText(producto.getDescripcion());
@@ -52,6 +70,9 @@ public class CCrearModificarProducto {
     vista.getJTextFieldDescuento().setText(String.valueOf(producto.getDescuento()));
   }
 
+  /**
+   * Actualiza el idioma del componente
+   */
   private void actualizarLenguaje() {
     if (vista.getOpcion() == CrearModificarProducto.CREAR) {
       vista.getTitulo().setText(lenguaje.getMensaje().getString("crearmodificarproducto.create.h1"));
@@ -73,6 +94,9 @@ public class CCrearModificarProducto {
     vista.getJTextFieldDescuento().putClientProperty("JTextField.placeholderText", lenguaje.getMensaje().getString("crearmodificarproducto.placeholder.descount"));
   }
 
+  /**
+   * Actualiza los estilos del componente
+   */
   private void actualizarEstilos() {
     vista.getContainer().putClientProperty("FlatLaf.style", "arc: 16");
     vista.getJPanelProducto().putClientProperty("FlatLaf.style", "arc: 16");
@@ -95,6 +119,9 @@ public class CCrearModificarProducto {
     vista.getBoton().setCursor(new Cursor(Cursor.HAND_CURSOR));
   }
 
+  /**
+   * Inicializa los eventos del componente
+   */
   private void initEvents() {
     vista.getRootPane().setDefaultButton(vista.getBoton());
     vista.getJTextFieldNombre().requestFocus();
@@ -147,6 +174,13 @@ public class CCrearModificarProducto {
     vista.getCerrar().addActionListener(e -> vista.dispose());
   }
 
+  /**
+   * Comprueba los datos del producto
+   *
+   * @param p Producto a comprobar
+   *
+   * @return true si los datos son correctos, false si no
+   */
   private static boolean comprobarDatosProducto(Productos p) {
     int fallos = 0;
     String mensaje = "";

@@ -22,16 +22,16 @@ public class HistorialusuariosId implements java.io.Serializable {
   private int idusuario;
 
   /**
-   * Instantiates a new Historialusuarios id.
+   * Constructor vacio
    */
   public HistorialusuariosId() {
   }
 
   /**
-   * Instantiates a new Historial usuarios id.
+   * Constructor de la clase
    *
-   * @param idusuario         the idusuario
-   * @param fechainiciosesion the fechainiciosesion
+   * @param idusuario         El id del usuario
+   * @param fechainiciosesion La fecha de inicio de sesion
    */
   public HistorialusuariosId(int idusuario, Timestamp fechainiciosesion) {
     this.fechainiciosesion = fechainiciosesion;

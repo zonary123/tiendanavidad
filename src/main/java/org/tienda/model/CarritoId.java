@@ -16,21 +16,22 @@ import java.io.Serializable;
 @ToString
 @EqualsAndHashCode
 public class CarritoId implements Serializable {
-
   private int idproducto;
   private int idusuario;
 
+
   /**
-   * Instantiates a new Carrito id.
+   * Constructor vacio
    */
   public CarritoId() {
   }
 
+
   /**
-   * Instantiates a new Carrito id.
+   * Constructor de la clase
    *
-   * @param idproducto the idproducto
-   * @param idusuario  the idusuario
+   * @param idproducto Id del producto
+   * @param idusuario  Id del usuario
    */
   public CarritoId(int idproducto, int idusuario) {
     this.idproducto = idproducto;

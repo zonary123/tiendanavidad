@@ -41,10 +41,13 @@ public class ProductosAdmin extends javax.swing.JPanel {
   private Random random = new Random();
 
   /**
-   * Creates new form jPanelProducts
+   * Constructor del componente ProductosAdmin
    *
-   * @param usuario  the user
-   * @param producto the producto
+   * @param usuario  Usuario que realiza la acción
+   * @param producto Producto a mostrar
+   * @param vista    Vista que contiene el componente
+   *
+   * @throws IOException
    */
   public ProductosAdmin(Usuarios usuario, Productos producto, HomeUser vista) throws IOException {
     this.id = producto.getIdproducto();
@@ -57,10 +60,12 @@ public class ProductosAdmin extends javax.swing.JPanel {
     posicionar();
     actualizarEstilos();
     initEvents(producto);
-
   }
 
 
+  /**
+   * Actualiza los estilos del componente
+   */
   private void actualizarEstilos() {
     putClientProperty("FlatLaf.style", "arc: 16");
     getComprar().putClientProperty("FlatLaf.style", "arc: 16");
@@ -74,6 +79,15 @@ public class ProductosAdmin extends javax.swing.JPanel {
     getEliminar().setCursor(new Cursor(Cursor.HAND_CURSOR));
   }
 
+  /**
+   * Obtiene un icono SVG con el color blanco
+   *
+   * @param path        Ruta del icono
+   * @param dimensiones Dimensiones del icono
+   *
+   * @return Icono SVG
+   */
+
   private FlatSVGIcon obtenerIconoBlanco(String path, Dimension dimensiones) {
     FlatSVGIcon icon = new FlatSVGIcon(path, (int) dimensiones.getWidth(), (int) dimensiones.getHeight());
     Function<Color, Color> colors = c -> new Color(255, 255, 255);
@@ -82,7 +96,9 @@ public class ProductosAdmin extends javax.swing.JPanel {
   }
 
   /**
-   * Init events.
+   * Inicializa los eventos del componente
+   *
+   * @param producto Producto con el que se inicializan los eventos
    */
   public void initEvents(Productos producto) {
     getComprar().addActionListener(e
@@ -93,6 +109,7 @@ public class ProductosAdmin extends javax.swing.JPanel {
       } else {
         Carrito.save(new CarritoId(id, u.getIdusuario()), 1);
       }
+      JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("joptionpane.carrito.add"), "Carrito", JOptionPane.INFORMATION_MESSAGE);
     });
     getEditar().addActionListener(e -> new CrearModificarProducto(producto, getUsuario(), CrearModificarProducto.EDITAR, vista).setVisible(true));
     getEliminar().addActionListener(new ActionListener() {
@@ -109,12 +126,20 @@ public class ProductosAdmin extends javax.swing.JPanel {
     });
   }
 
+  /**
+   * Posiciona el precio
+   */
   private void posicionar() {
     int anchoOriginal = (int) Precio.getPreferredSize().getWidth();
     Precio.setLocation(Precio.getX(), Precio.getY());
     Precio.setPreferredSize(new Dimension(anchoOriginal * 2, (int) Precio.getPreferredSize().getHeight()));
   }
 
+  /**
+   * Establece los datos del producto en el componente
+   *
+   * @param producto Producto a mostrar
+   */
   private void setDatos(Productos producto) {
     Nombre.setText(producto.getNombre() == null ? "undefined" : producto.getNombre());
     Precio.setText("<html>\n"

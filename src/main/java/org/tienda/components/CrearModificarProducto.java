@@ -22,7 +22,11 @@ public class CrearModificarProducto extends javax.swing.JFrame {
   private int opcion;
 
   /**
-   * Creates new form crearProducto
+   * Constructor del componente CrearModificarProducto
+   *
+   * @param producto Producto a editar
+   * @param usuario  Usuario que realiza la acción
+   * @param opcion   Opción a realizar
    */
   public CrearModificarProducto(Productos producto, Usuarios usuario, int opcion, HomeUser vistaHome) {
     this.opcion = opcion;
@@ -31,6 +35,12 @@ public class CrearModificarProducto extends javax.swing.JFrame {
     CCrearModificarProducto c = new CCrearModificarProducto(this, vistaHome, producto);
   }
 
+  /**
+   * Constructor del componente CrearModificarProducto
+   *
+   * @param usuario Usuario que realiza la acción
+   * @param opcion  Opción a realizar
+   */
   public CrearModificarProducto(Usuarios usuario, int opcion, HomeUser vistaHome) {
     this.opcion = opcion;
     this.usuario = usuario;

@@ -22,7 +22,6 @@ public class utilsLenguaje {
   private String fichero;
   private Locale local;
   private ResourceBundle mensaje;
-  private final static String PATH = "configuracion.csv";
 
   /**
    * Constructor de la clase utilsLenguaje.
@@ -34,7 +33,7 @@ public class utilsLenguaje {
   public utilsLenguaje() throws IOException {
     this.fichero = "lang/" + (Locale.getDefault().toString().equals("es_ES") ? "es_ES" : "en_US");
     this.local = new Locale(Locale.getDefault().getLanguage().equals("es") ? "es" : "en");
-    this.local.setDefault(Locale.getDefault());
+    Locale.setDefault(Locale.getDefault());
     this.mensaje = ResourceBundle.getBundle(this.fichero, this.local);
   }
 
@@ -49,14 +48,14 @@ public class utilsLenguaje {
    */
   public utilsLenguaje(String lenguaje) throws IOException {
     this.local = new Locale(new Locale(lenguaje).getLanguage());
-    local.setDefault(local);
+    Locale.setDefault(local);
     this.mensaje = ResourceBundle.getBundle("lang/" + lenguaje, this.local);
   }
 
 
   public utilsLenguaje(Usuarios usuario) {
     this.local = new Locale(usuario.getLenguaje());
-    local.setDefault(local);
+    Locale.setDefault(local);
     this.mensaje = ResourceBundle.getBundle("lang/" + usuario.getLenguaje(), this.local);
   }
 

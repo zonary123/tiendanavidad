@@ -35,10 +35,12 @@ public class ProductosUser extends javax.swing.JPanel {
   private static utilsLenguaje lenguaje;
 
   /**
-   * Creates new form jPanelProducts
+   * Constructor del componente ProductosUser
    *
-   * @param usuario  the user
-   * @param producto the producto
+   * @param usuario  Usuario que realiza la acción
+   * @param producto Producto a mostrar
+   *
+   * @throws IOException Error al cargar el archivo de idioma
    */
   public ProductosUser(Usuarios usuario, Productos producto) throws IOException {
     this.id = producto.getIdproducto();
@@ -51,9 +53,11 @@ public class ProductosUser extends javax.swing.JPanel {
     actualizarEstilos();
     actualizarLenguaje();
     initEvents();
-
   }
 
+  /**
+   * Actualiza el idioma del componente
+   */
   private void actualizarEstilos() {
     putClientProperty("FlatLaf.style", "arc: 16");
     getComprar().putClientProperty("FlatLaf.style", "arc: 16");
@@ -68,9 +72,10 @@ public class ProductosUser extends javax.swing.JPanel {
   }
 
   /**
-   * Init events.
+   * Inicializa los eventos del componente
    */
   public void initEvents() {
+    // Evento para añadir el producto al carrito
     getComprar().addActionListener(e
       -> {
       Usuarios u = Usuarios.findByUsername(usuario.getUsername());
@@ -79,14 +84,21 @@ public class ProductosUser extends javax.swing.JPanel {
       } else {
         Carrito.save(new CarritoId(id, u.getIdusuario()), 1);
       }
+      JOptionPane.showMessageDialog(null, lenguaje.getMensaje().getString("joptionpane.carrito.add"), "Carrito", JOptionPane.INFORMATION_MESSAGE);
     });
   }
 
 
+  /**
+   * Actualiza el idioma del componente
+   */
   private void actualizarLenguaje() {
     getComprar().setText(lenguaje.getMensaje().getString("comprar"));
   }
 
+  /**
+   * Posiciona los elementos del componente
+   */
   private void posicionar() {
     int anchoOriginal = (int) Precio.getPreferredSize().getWidth();
     Precio.setLocation(Precio.getX(), Precio.getY());
@@ -94,6 +106,11 @@ public class ProductosUser extends javax.swing.JPanel {
 
   }
 
+  /**
+   * Establece los datos del producto en el componente
+   *
+   * @param producto Producto a mostrar
+   */
   private void setDatos(Productos producto) {
     Nombre.setText(producto.getNombre() == null ? "undefined" : producto.getNombre());
     Precio.setText("<html>\n"

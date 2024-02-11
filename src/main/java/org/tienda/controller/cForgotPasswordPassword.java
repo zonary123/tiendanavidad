@@ -92,12 +92,18 @@ public class cForgotPasswordPassword {
   public void initEvents() {
     vista.getRootPane().setDefaultButton(vista.getJButtonConfirmar());
     vista.getJPasswordFieldPassword().requestFocus();
+
+    // cerrar la ventana
     vista.getJButtonClose().addActionListener(e -> vista.dispose());
+
+    // volver a la ventana anterior
     vista.getJButtonBack().addActionListener(
       e -> {
         vista.dispose();
         new Login(null).setVisible(true);
       });
+
+    // confirmar la nueva contraseña
     vista.getJButtonConfirmar().addActionListener(
       e -> {
         if (comprobarPassword(vista.getJPasswordFieldPassword(), vista.getJPasswordFieldPassword1())) {

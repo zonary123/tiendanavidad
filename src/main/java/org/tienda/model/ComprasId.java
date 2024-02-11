@@ -26,17 +26,15 @@ public class ComprasId implements java.io.Serializable {
   }
 
   /**
-   * Instantiates a new Compras id.
+   * Constructor de la clase
    *
-   * @param idcompra   the idcompra
-   * @param idproducto the idproducto
-   * @param idusuario  the idusuario
+   * @param idcompra   El id de la compra
+   * @param idproducto El id del producto
+   * @param idusuario  EL id del usuario
    */
   public ComprasId(int idcompra, int idproducto, int idusuario) {
     this.idcompra = idcompra;
     this.idproducto = idproducto;
     this.idusuario = idusuario;
   }
-
-
 }

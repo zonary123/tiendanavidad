@@ -296,6 +296,13 @@ public class Usuarios implements java.io.Serializable {
     }
   }
 
+  /**
+   * Este metodo actualiza el lenguaje de un usuario
+   *
+   * @param usuario el usuario
+   *
+   * @return true si se ha actualizado correctamente
+   */
   public static boolean updateLang(Usuarios usuario) {
     SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     Session session = sessionFactory.openSession();
@@ -344,8 +351,8 @@ public class Usuarios implements java.io.Serializable {
   /**
    * Este metodo comprueba si el codigo de activacion es correcto
    *
-   * @param usuario el usuario
-   * @param codigo  el codigo
+   * @param usuario el usuario a comprobar
+   * @param codigo  el codigo a comprobar
    *
    * @return true si el codigo es correcto
    */
@@ -367,7 +374,7 @@ public class Usuarios implements java.io.Serializable {
   /**
    * Este metodo actualiza el codigo de activacion de un usuario
    *
-   * @param u the u
+   * @param u Un objeto Usuario
    *
    * @return true si se ha actualizado correctamente
    */
@@ -394,7 +401,7 @@ public class Usuarios implements java.io.Serializable {
   /**
    * Este metodo actualiza la contraseña de un usuario
    *
-   * @param u the u
+   * @param u Un objeto Usuario
    *
    * @return true si se ha actualizado correctamente
    */

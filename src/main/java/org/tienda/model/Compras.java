@@ -2,7 +2,10 @@ package org.tienda.model;
 // Generated 21 dic 2023 17:36:10 by Hibernate Tools 6.3.1.Final
 
 import lombok.*;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.proxy.HibernateProxy;
+import org.tienda.utils.hibernateUtil;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -51,6 +54,24 @@ public class Compras {
     this.cantidad = cantidad;
     this.fechacompra = new Date(System.currentTimeMillis());
     this.fechaentrega = new Date(System.currentTimeMillis());
+  }
+
+  /**
+   * Constructor de la clase
+   *
+   * @param compra Objeto de la clase Compras con los datos de la compra
+   */
+  public static boolean save(Compras compra) {
+    SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
+    try (Session session = sessionFactory.openSession()) {
+      session.beginTransaction();
+      session.save(compra);
+      session.getTransaction().commit();
+      return true;
+    } catch (Exception e) {
+      e.printStackTrace();
+      return false;
+    }
   }
 
   @Override

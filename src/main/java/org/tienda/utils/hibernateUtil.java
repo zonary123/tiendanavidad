@@ -21,6 +21,13 @@ public class hibernateUtil {
     return sessionFactory;
   }
 
+  /**
+   * Build session factory.
+   *
+   * @param configFilePath La ruta del archivo de configuracion
+   *
+   * @return La session factory creada
+   */
   public static SessionFactory buildSessionFactory(String configFilePath) {
     try {
       Configuration configuration = new Configuration();

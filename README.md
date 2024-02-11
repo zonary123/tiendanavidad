@@ -24,10 +24,8 @@ Multiplataformas.
 ## Base de Datos
 
 - Gestor de base de datos -> `MySQL`
-
-- Nmbre de la base de datos -> `tienda`
+- Nombre de la base de datos -> `tienda`
 - Ruta de archivos sql -> `src/main/java/resources/sql`
-
 - En esta ruta estan los archivos de alimentacion y estructurizacion toca ejecutarlos archivos.
 
 ### Hibernate

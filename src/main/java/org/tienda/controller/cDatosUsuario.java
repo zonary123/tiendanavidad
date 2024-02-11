@@ -27,6 +27,11 @@ public class cDatosUsuario {
   @Setter private static utilsLenguaje lenguaje;
   private static Header header;
 
+  /**
+   * Constructor de la clase
+   *
+   * @param vista Vista de la clase
+   */
   public cDatosUsuario(datosUsuario vista) {
     cDatosUsuario.vista = vista;
     lenguaje = new utilsLenguaje(vista.getUsuario());
@@ -38,15 +43,19 @@ public class cDatosUsuario {
     setDatos();
   }
 
+  /**
+   * Actualiza el idioma del componente
+   */
   private void componentes() {
     header = new Header(vista, vista.getUsuario());
     header.remove(header.getSearch());
     vista.getContainer().add(header, new AbsoluteConstraints(15, 10, 1410, 50));
   }
 
+  /**
+   * Actualiza el idioma del componente
+   */
   private void setDatos() {
-/*    vista.getJTextFieldEmail().setText(vista.getUsuario().getEmail());
-    vista.getJTextFieldUsername().setText(vista.getUsuario().getUsername());*/
     vista.getJTextFieldNombre().setText(vista.getUsuario().getNombre());
     vista.getJTextFieldApellidos().setText(vista.getUsuario().getApellidos());
   }
@@ -55,18 +64,20 @@ public class cDatosUsuario {
    * Inicializa todos los eventos de la vista
    */
   private static void initEvents() {
-    // Comprobar passwords
+    // Comprobar passwords al escribir en el campo de nueva contraseña
     vista.getJPasswordFieldNewPassword().addKeyListener(new KeyAdapter() {
       @Override public void keyReleased(KeyEvent e) {
         comprobarPassword(vista.getJPasswordFieldNewPassword(), vista.getJPasswordFieldRepeatPassword());
       }
     });
+    // Comprobar passwords al soltar la tecla en el campo de repetir contraseña
     vista.getJPasswordFieldRepeatPassword().addKeyListener(new KeyAdapter() {
       @Override public void keyReleased(KeyEvent e) {
         comprobarPassword(vista.getJPasswordFieldNewPassword(), vista.getJPasswordFieldRepeatPassword());
       }
     });
 
+    // Evento para seleccionar una imagen
     vista.getJButtonImagen().addActionListener(new ActionListener() {
       @Override public void actionPerformed(ActionEvent e) {
         JFileChooser j = new JFileChooser();
@@ -79,6 +90,7 @@ public class cDatosUsuario {
       }
     });
 
+    // Evento para enviar los datos
     vista.getEnviar().addActionListener(new ActionListener() {
       @Override public void actionPerformed(ActionEvent e) {
         String newPassword = String.valueOf(vista.getJPasswordFieldNewPassword().getPassword());
@@ -155,6 +167,12 @@ public class cDatosUsuario {
     return fallos != 0;
   }
 
+  /**
+   * Comprueba que las contraseñas coinciden
+   *
+   * @param newpassword    Campo de nueva contraseña
+   * @param repeatpassword Campo de repetir contraseña
+   */
   private static void comprobarPassword(JPasswordField newpassword, JPasswordField repeatpassword) {
     String newPassword = String.valueOf(newpassword.getPassword());
     String repeatPassword = String.valueOf(repeatpassword.getPassword());
@@ -172,6 +190,9 @@ public class cDatosUsuario {
     }
   }
 
+  /**
+   * Actualiza el idioma del componente
+   */
   public static void actualizarLenguaje() {
     // vista.getEmail().setText(lenguaje.getMensaje().getString("register.label.email"));
     vista.getNombre().setText(lenguaje.getMensaje().getString("register.label.name"));
@@ -183,8 +204,17 @@ public class cDatosUsuario {
     vista.getRepeatpassword().setText(lenguaje.getMensaje().getString("label.repeatpassword"));
     vista.getJButtonImagen().setText(lenguaje.getMensaje().getString("button.selectImage"));
     vista.getEnviar().setText(lenguaje.getMensaje().getString("button.send"));
+
+    vista.getJTextFieldNombre().setToolTipText(lenguaje.getMensaje().getString("tooltip.regex.name"));
+    vista.getJTextFieldApellidos().setToolTipText(lenguaje.getMensaje().getString("tooltip.regex.lastname"));
+    vista.getJPasswordFieldYourPassword().setToolTipText(lenguaje.getMensaje().getString("tooltip.regex.password"));
+    vista.getJPasswordFieldNewPassword().setToolTipText(lenguaje.getMensaje().getString("tooltip.regex.password"));
+    vista.getJPasswordFieldRepeatPassword().setToolTipText(lenguaje.getMensaje().getString("tooltip.regex.password"));
   }
 
+  /**
+   * Actualiza los estilos del componente
+   */
   public static void actualizarEstilos() {
     //TextField.actualizarTextField(vista.getJTextFieldEmail(), lenguaje.getMensaje().getString("register.email.placeholder"), 16, "img/svg/Email.svg", 22, 24, "#575DFB");
     //TextField.actualizarTextField(vista.getJTextFieldUsername(), lenguaje.getMensaje().getString("register.username.placeholder"), 16, "img/svg/Person.svg", 22, 24, "#575DFB");
@@ -197,9 +227,9 @@ public class cDatosUsuario {
     vista.getEnviar().putClientProperty("FlatLaf.style", "arc: 16");
     vista.getJButtonImagen().putClientProperty("FlatLaf.style", "arc: 999");
     vista.getJButtonImagen().putClientProperty("JComponent.outline", new Color[]{Color.decode("#575DFB"), Color.decode("#575DFB")});
+    vista.getCerrar().putClientProperty("FlatLaf.style", "arc: 999");
     vista.getEnviar().setCursor(new Cursor(Cursor.HAND_CURSOR));
     vista.getJButtonImagen().setCursor(new Cursor(Cursor.HAND_CURSOR));
+    vista.getCerrar().setCursor(new Cursor(Cursor.HAND_CURSOR));
   }
-
-
 }

@@ -51,6 +51,9 @@ public class cHome {
   }
 
 
+  /**
+   * Este metodo se encarga de mostrar las categorias en la vista para filtrar los productos
+   */
   private void ponercategorias() {
     JPanel sidebar = vista.getContainerCategories();
     List<String> categorias = Productos.getAllProductos();
@@ -74,8 +77,8 @@ public class cHome {
 
     JLabel jlabel = new JLabel("Todos");
     jlabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+    // Evento para mostrar todos los productos
     jlabel.addMouseListener(new MouseAdapter() {
-
       @Override public void mouseReleased(MouseEvent e) {
         try {
           mostrarProductos(Productos.findAll());
@@ -87,6 +90,9 @@ public class cHome {
     sidebar.add(jlabel);
   }
 
+  /**
+   * Este metodo se encarga de mostrar los componentes en la vista
+   */
   private void componentes() {
     header = new Header(vista, vista.getUsuario());
     vista.getContainer().add(header, new AbsoluteConstraints(15, 10, 1410, 50));
@@ -100,7 +106,9 @@ public class cHome {
     }
   }
 
-
+  /**
+   * Este metodo se encarga de mostrar los componentes en la vista
+   */
   private void Admin() {
     ajustarComponente(vista.getScrollContainerProducts(), 858, 130);
     ajustarComponente(vista.getContainerProducts(), 858, 130);
@@ -108,6 +116,13 @@ public class cHome {
     vista.repaint();
   }
 
+  /**
+   * Este metodo se encarga de ajustar el tamaño de los componentes
+   *
+   * @param componente Componente a ajustar
+   * @param altura     Altura del componente
+   * @param ubicacionY Ubicacion en Y del componente
+   */
   private void ajustarComponente(Component componente, int altura, int ubicacionY) {
     componente.setSize(componente.getWidth(), altura);
     componente.setLocation(componente.getX(), ubicacionY);
@@ -121,6 +136,7 @@ public class cHome {
   public void actualizarLenguaje() {
     vista.getSignOut().setText(lenguaje.getMensaje().getString("component.jPanelAsideBar.button.cerrarsession"));
     vista.getBtnAdd().setText(lenguaje.getMensaje().getString("addproduct"));
+    vista.getTituloCategorias().setText(lenguaje.getMensaje().getString("crearmodificarproducto.label.category"));
   }
 
   /**
@@ -134,7 +150,7 @@ public class cHome {
     vista.getSignOut().putClientProperty("FlatLaf.style", "arc: 16");
     vista.getSideBar().putClientProperty("FlatLaf.style", "arc: 8");
     vista.getContainer().putClientProperty("FlatLaf.style", "arc: 8");
-    vista.getTitleCategorias().putClientProperty("FlatLaf.style", "arc: 8");
+    vista.getContainerCategories().putClientProperty("FlatLaf.style", "arc: 8");
     vista.getCerrar().putClientProperty("FlatLaf.style", "arc: 999");
     // Cursores
     vista.getSignOut().setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -146,21 +162,26 @@ public class cHome {
    * Inicializacion de eventos de la vista
    */
   public void initEvents() {
+    // Eventos de los botones
     vista.getCerrar().addActionListener(e -> {
       Historialusuarios.sessionCerrada(vista, vista.getUsuario());
       vista.dispose();
     });
+
+    // Evento para cerrar la sesion
     vista.getSignOut().addActionListener(e -> {
       Historialusuarios.sessionCerrada(vista, vista.getUsuario());
       new Login(null).setVisible(true);
     });
 
+    // Evento para añadir un producto
     vista.getBtnAdd().addActionListener(new ActionListener() {
       @Override public void actionPerformed(ActionEvent e) {
         new CrearModificarProducto(vista.getUsuario(), CrearModificarProducto.CREAR, vista).setVisible(true);
       }
     });
 
+    // Evento para buscar productos
     header.getSearch().addActionListener(new ActionListener() {
       @Override public void actionPerformed(ActionEvent e) {
         try {
@@ -186,6 +207,8 @@ public class cHome {
    * Este metodo se encarga de mostrar los productos en la vista
    *
    * @param productos Lista de productos
+   *
+   * @throws IOException Error al cargar el archivo de idioma
    */
   public void mostrarProductos(List<Productos> productos) throws IOException {
     this.productos = productos;
@@ -206,7 +229,6 @@ public class cHome {
       jPanelProducts.setSize(350, 450);
       panelProductos.add(jPanelProducts);
     }
-
     panelProductos.revalidate();
     panelProductos.repaint();
   }

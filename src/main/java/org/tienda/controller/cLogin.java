@@ -29,7 +29,6 @@ import org.tienda.views.Register;
 @Getter
 @Setter
 public class cLogin {
-
   private final Login vista;
   private utilsLenguaje lenguaje;
   private Usuarios usuario;

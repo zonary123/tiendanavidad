@@ -35,7 +35,10 @@ public class Header extends javax.swing.JPanel {
 
 
   /**
-   * Creates new form Header
+   * Constructor del componente Header
+   *
+   * @param vista   Vista que contiene el componente
+   * @param usuario Usuario que realiza la acción
    */
   public Header(JFrame vista, Usuarios usuario) {
     initComponents();
@@ -48,7 +51,19 @@ public class Header extends javax.swing.JPanel {
     initEvents();
   }
 
+  /**
+   * Actualiza el idioma del componente
+   */
+  private void actualizarHeader() {
+    actualizarLenguaje();
+    actualizarEstilos();
+  }
+
+  /**
+   * Inicializa los eventos del componente
+   */
   private void initEvents() {
+    // ir a la home
     getHome().addMouseListener(new MouseAdapter() {
       @Override public void mouseReleased(MouseEvent e) {
         vista.dispose();
@@ -56,6 +71,7 @@ public class Header extends javax.swing.JPanel {
       }
     });
 
+    // ir al carrito
     getCarrito().addMouseListener(new MouseAdapter() {
 
       @Override public void mouseReleased(MouseEvent e) {
@@ -65,6 +81,7 @@ public class Header extends javax.swing.JPanel {
 
     });
 
+    // ir a los datos del usuario
     getUser().addMouseListener(new MouseAdapter() {
       @Override public void mouseReleased(MouseEvent e) {
         vista.dispose();
@@ -72,56 +89,36 @@ public class Header extends javax.swing.JPanel {
       }
     });
 
+    // Cambiar el idioma
     getIdioma().addActionListener(e -> {
       switch (getIdioma().getSelectedIndex()) {
+        case 0:
+          lang("es_ES");
+          break;
         case 1:
           lang("en_US");
-          break;
-        case 2:
-          lang("de_DE");
           break;
         default:
           lang("es_ES");
           break;
       }
     });
-
-
-    getCarrito().addMouseListener(new MouseAdapter() {
-      @Override public void mouseEntered(MouseEvent e) {
-        hoverEntered(getCarrito());
-      }
-
-      @Override public void mouseExited(MouseEvent e) {
-        hoverExited(getCarrito());
-      }
-    });
-
-    getCampana().addMouseListener(new MouseAdapter() {
-      @Override public void mouseEntered(MouseEvent e) {
-        hoverEntered(getCampana());
-      }
-
-      @Override public void mouseExited(MouseEvent e) {
-        hoverExited(getCampana());
-      }
-    });
   }
 
-  private void hoverEntered(JComponent componente) {
-    componente.setForeground(Color.gray);
-  }
-
-  private void hoverExited(JComponent component) {
-    component.setForeground(Color.BLACK);
-  }
-
+  /**
+   * Actualiza el idioma del componente
+   *
+   * @param locale Idioma seleccionado
+   */
   private void lang(String locale) {
     usuario.setLenguaje(locale);
     Usuarios.updateLang(getUsuario());
     vistas();
   }
 
+  /**
+   * Actualiza las vistas
+   */
   private void vistas() {
     if (vista.getClass().getName().equals("org.tienda.views.HomeUser")) {
       HomeUser homeUser = (HomeUser) vista;
@@ -157,8 +154,12 @@ public class Header extends javax.swing.JPanel {
       vista.repaint();
       vista.revalidate();
     }
+    actualizarHeader();
   }
 
+  /**
+   * Actualiza los estilos del componente
+   */
   private void actualizarEstilos() {
     // Props
     this.putClientProperty("FlatLaf.style", "arc: 999");
@@ -166,7 +167,7 @@ public class Header extends javax.swing.JPanel {
     // Posicion
     //getUser().setSize(new Dimension((int) (this.getJLabelUsername().getWidth() * 1.5) + 5, this.getJLabelUsername().getHeight()));
     //getUser().setLocation(5, 7);
-    getUser().setSize(new Dimension((int) getUser().getWidth() + 10, getUser().getHeight()));
+    getUser().setSize(new Dimension(getUser().getWidth() + 10, getUser().getHeight()));
     // Iconos
     getCarrito().setIcon(new FlatSVGIcon("img/svg/carrito.svg"));
     getCampana().setIcon(new FlatSVGIcon("img/svg/mdi_bell.svg"));
@@ -178,17 +179,26 @@ public class Header extends javax.swing.JPanel {
     getCampana().setCursor(new Cursor(Cursor.HAND_CURSOR));
     getHome().setCursor(new Cursor(Cursor.HAND_CURSOR));
     getUser().setCursor(new Cursor(Cursor.HAND_CURSOR));
+
     // textFields
     textField.actualizarTextField(getSearch(), lenguaje.getMensaje().getString("buscar"), 999, "img/svg/search.svg", 22, 24, "#FFFFFF");
   }
 
+  /**
+   * Actualiza el idioma del componente
+   */
   private void actualizarLenguaje() {
     jLabelUsername.setText(usuario.getUsername() + "   ");
     getSearch().setText("");
     jLabel1.setText(null);
-
+    lenguaje = new utilsLenguaje(usuario);
   }
 
+  /**
+   * Cambia el idioma del componente
+   *
+   * @param idioma Idioma seleccionado
+   */
   private void idioma(String idioma) {
     switch (idioma) {
       case "es_ES":
@@ -201,6 +211,7 @@ public class Header extends javax.swing.JPanel {
         getIdioma().setSelectedIndex(0);
         break;
     }
+    lenguaje = new utilsLenguaje(usuario);
     actualizarLenguaje();
   }
 

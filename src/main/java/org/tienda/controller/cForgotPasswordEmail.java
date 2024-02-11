@@ -47,12 +47,18 @@ public class cForgotPasswordEmail {
   public void initEvents() {
     vista.getRootPane().setDefaultButton(vista.getJButtonConfirmar());
     vista.getJTextFieldEmail().requestFocus();
+
+    // comprobar el email
     vista.getJButtonClose().addActionListener(e -> vista.dispose());
+
+    // volver a la pantalla de login
     vista.getJButtonBack().addActionListener(
       e -> {
         vista.dispose();
         new Login(null).setVisible(true);
       });
+
+    // comprobar el email
     vista.getJButtonConfirmar().addActionListener(e -> {
       try {
         if (sendCode()) {
@@ -123,6 +129,9 @@ public class cForgotPasswordEmail {
     return codigoBuilder.toString();
   }
 
+  /**
+   * Actualiza el idioma del componente
+   */
   public void actualizarLenguaje() {
     try {
       lenguaje = new utilsLenguaje();
@@ -136,6 +145,9 @@ public class cForgotPasswordEmail {
     vista.getJButtonConfirmar().setText((lenguaje.getMensaje().getString("forgot.button.confirm")));
   }
 
+  /**
+   * Actualiza los estilos del componente
+   */
   public void actualizarEstilos() {
     TextField.actualizarTextField(vista.getJTextFieldEmail(), lenguaje.getMensaje().getString("forgot.email.placeholder"), 16, "img/svg/Email.svg", 22, 24, "#575DFB");
     vista.getJButtonConfirmar().putClientProperty("FlatLaf.style", "arc:" + 16);

@@ -37,19 +37,19 @@ public class Historialusuarios implements java.io.Serializable {
   private Timestamp fechafinsesion;
 
   /**
-   * Instantiates a new Historialusuarios.
+   * Constructor de la clase
    *
-   * @param id the id
+   * @param id El id del historial de sesiones
    */
   public Historialusuarios(HistorialusuariosId id) {
     this.id = id;
   }
 
   /**
-   * Instantiates a new Historialusuarios.
+   * Constructor de la clase
    *
-   * @param id       the id
-   * @param usuarios the usuarios
+   * @param id       El id del historial de sesiones
+   * @param usuarios El usuario al que pertenece el historial
    */
   public Historialusuarios(HistorialusuariosId id, Usuarios usuarios) {
     this.id = id;
@@ -57,20 +57,20 @@ public class Historialusuarios implements java.io.Serializable {
   }
 
   /**
-   * Find by id historialusuarios.
+   * Encontrar un historial de sesiones por su id
    *
-   * @param id the id
+   * @param id El id del historial de sesiones
    *
-   * @return the historialusuarios
+   * @return devuelve el historial de sesiones
    */
   public Historialusuarios findById(int id) {
     return null;
   }
 
   /**
-   * Find all list.
+   * Encontrar todos los historiales de sesiones
    *
-   * @return the list
+   * @return devuelve una lista con todos los historiales de sesiones
    */
   public static List<Historialusuarios> findAll() {
     SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
@@ -88,6 +88,13 @@ public class Historialusuarios implements java.io.Serializable {
   }
 
 
+  /**
+   * Encuentra el historial de sesiones más reciente de un usuario
+   *
+   * @param usuario El usuario del que se quiere obtener el historial
+   *
+   * @return devuelve el historial de sesiones más reciente de un usuario
+   */
   public static Historialusuarios findRecent(Usuarios usuario) {
     SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
     try (Session session = sessionFactory.openSession()) {
@@ -112,11 +119,11 @@ public class Historialusuarios implements java.io.Serializable {
   }
 
   /**
-   * Save boolean.
+   * Guardar un historial de usuario
    *
-   * @param historialusuarios the historialusuarios
+   * @param historialusuarios Objeto de tipo Historialusuarios
    *
-   * @return the boolean
+   * @return devuelve true si se ha guardado correctamente, false en caso contrario
    */
   public static boolean save(Historialusuarios historialusuarios) {
 
@@ -136,11 +143,11 @@ public class Historialusuarios implements java.io.Serializable {
   }
 
   /**
-   * Update boolean.
+   * Actualizar un historial de usuario
    *
-   * @param historialusuarios the historialusuarios
+   * @param historialusuarios Objeto de tipo Historialusuarios
    *
-   * @return the boolean
+   * @return true si se ha actualizado correctamente, false en caso contrario
    */
   public static boolean update(Historialusuarios historialusuarios) {
     SessionFactory sessionFactory = hibernateUtil.getSessionFactory();

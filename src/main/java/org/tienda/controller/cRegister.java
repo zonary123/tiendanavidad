@@ -2,6 +2,7 @@ package org.tienda.controller;
 
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 
+import org.tienda.utils.EmailUtil;
 import org.tienda.utils.utilsLenguaje;
 import org.tienda.utils.utilsTextField;
 import org.tienda.views.Login;
@@ -207,9 +208,17 @@ public class cRegister {
     usuario.setRoles("[\"user\"]");
     usuario.setActivacion(true);
     Usuarios.save(usuario);
+    try {
+      EmailUtil.confMail(usuario, EmailUtil.OPCION_BIENVENIDA);
+    } catch (IOException e) {
+      System.err.println("No se ha podido enviar el correo de bienvenida");
+    }
     return true;
   }
 
+  /**
+   * Actualiza el lenguaje de la vista
+   */
   public void actualizarLenguaje() {
     vista.getJLabelEmail().setText(lenguaje.getMensaje().getString("register.label.email"));
     vista.getJLabelNombre().setText(lenguaje.getMensaje().getString("register.label.name"));
@@ -250,13 +259,13 @@ public class cRegister {
   /**
    * Actualizar text field.
    *
-   * @param textField   the text field
-   * @param placeholder the placeholder
-   * @param arc         the arc
-   * @param icon        the icon
-   * @param width       the width
-   * @param height      the height
-   * @param color       the color
+   * @param textField   El campo de texto
+   * @param placeholder El placeholder
+   * @param arc         El radio de las esquinas
+   * @param icon        El icono
+   * @param width       El ancho del icono
+   * @param height      La altura del icono
+   * @param color       El color del borde
    */
   public void actualizarTextField(JTextField textField, String placeholder, int arc, String icon, int width, int height, String color) {
     this.textField = new utilsTextField(textField);
@@ -271,8 +280,8 @@ public class cRegister {
   /**
    * Actualizar boton.
    *
-   * @param boton the boton
-   * @param arc   the arc
+   * @param boton El boton
+   * @param arc   El radio de las esquinas
    */
   public void actualizarBoton(JButton boton, int arc) {
     boton.putClientProperty("FlatLaf.style", "arc:" + arc);

@@ -31,7 +31,7 @@ public class utilsTextField {
   /**
    * Pone placeholder.
    *
-   * @param placeholder the placeholder
+   * @param placeholder El placeholder
    */
   public void setPlaceholder(String placeholder) {
     textField.putClientProperty("JTextField.placeholderText", placeholder);

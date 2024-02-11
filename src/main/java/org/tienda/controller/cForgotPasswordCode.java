@@ -45,6 +45,7 @@ public class cForgotPasswordCode {
   private void initEvents() {
     vista.getRootPane().setDefaultButton(vista.getJButtonConfirmar());
     vista.getJTextFieldCodigo().requestFocus();
+    // comprobar el codigo
     vista.getJButtonConfirmar().addActionListener(e -> {
       if (Usuarios.checkCodigo(vista.getUsuario(), vista.getJTextFieldCodigo().getText())) {
         intentos = 0;
@@ -64,9 +65,13 @@ public class cForgotPasswordCode {
 
       }
     });
+
+    // cerrar la ventana
     vista.getJButtonClose().addActionListener(e -> {
       System.exit(0);
     });
+
+    // volver a la ventana anterior
     vista.getJButtonBack().addActionListener(e -> {
       vista.setVisible(false);
       vista.dispose();
